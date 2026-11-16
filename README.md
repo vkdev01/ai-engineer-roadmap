@@ -6,6 +6,14 @@
 
 This is not a link dump. Every lesson explains the idea, shows the machinery in code you can run, gives you a real product scenario where that idea decided the outcome, lists the mistakes people make, and ends with a checkpoint you can actually complete in under an hour. Every stage ends with a **ship project** — something that runs, has a README, and can go in your portfolio.
 
+**Read it as a site:** [vkdev01.github.io/ai-engineer-roadmap](https://vkdev01.github.io/ai-engineer-roadmap/) — search, sidebar navigation, and five switchable reading styles.
+
+![The roadmap home page](docs/assets/screenshots/home-light.png)
+
+| Book (paper) | Terminal |
+|---|---|
+| ![Lesson in the book style](docs/assets/screenshots/lesson-book.png) | ![Lesson in the terminal style](docs/assets/screenshots/lesson-terminal.png) |
+
 ---
 
 ## Who this is for

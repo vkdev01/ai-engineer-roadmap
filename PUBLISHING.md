@@ -31,14 +31,15 @@ The site ships with a style switcher in the top bar. The choice is remembered pe
 Every theme is a block of CSS variables at the top of `docs/assets/style.css`. To change what visitors see first, edit one line in the page template — the `data-theme` attribute:
 
 ```python
-# build_site.py (repo tooling, not part of the published site)
+# tooling/build_site.py
 theme = "github-light"      # or "github-dark", "book", "slate", "terminal"
 ```
 
 Then rebuild:
 
 ```bash
-python build_site.py
+pip install markdown pygments
+python tooling/build_site.py
 ```
 
 ### Adding your own style
@@ -75,8 +76,11 @@ That is the whole contract: a variable block plus a menu entry.
 The site is generated from the markdown, so editing a lesson means rebuilding:
 
 ```bash
-python build_site.py     # writes docs/ from stages/**/*.md and the root files
+pip install markdown pygments
+python tooling/build_site.py     # writes docs/ from stages/**/*.md and the root files
 ```
+
+The generator only writes `.html` files and `docs/assets/search-index.json`. It never touches `docs/assets/style.css`, `docs/assets/app.js` or `docs/assets/screenshots/`, so your styling and images survive a rebuild.
 
 Commit both the markdown change and the regenerated `docs/` folder, so the published site never drifts from the source.
 
