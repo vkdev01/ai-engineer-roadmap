@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en" data-theme="github-light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Text-to-Speech · AI Engineer Roadmap</title>
+<meta name="description" content="Stage 14 · Multimodal — making the model talk, in a voice you can ship. You'll be able to: generate speech that streams, control pronunciation of domain words, ">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111'/><text x='16' y='22' font-size='14' font-family='monospace' fill='%23fff' text-anchor='middle'>AI</text></svg>">
+</head>
+<body>
+<div id="progress"></div>
+<header class="topbar">
+  <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+  </button>
+  <a class="brand" href="../../index.html">
+    <span class="brand-mark">AI</span>
+    <span class="brand-text">Engineer Roadmap</span>
+  </a>
+  <div class="spacer"></div>
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+    <input id="q" type="search" placeholder="Search 226 lessons…" autocomplete="off" aria-label="Search lessons">
+    <div id="results"></div>
+  </div>
+  <select id="theme" class="theme-select" aria-label="Style"></select>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+<a class="nav-home" href="../../index.html">Roadmap home</a>
+<a class="nav-home" href="../../fast-track.html">Fast track</a>
+<a class="nav-home" href="../../progress.html">Progress tracker</a>
+<a class="nav-home" href="../../glossary.html">Glossary</a>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">01</span><span>Programming Basics</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/01-programming-basics/index.html">Stage overview</a></li>
+<li><a href="../../stages/01-programming-basics/01-python-async.html">Python Async</a></li>
+<li><a href="../../stages/01-programming-basics/02-type-hints-pydantic.html">Type Hints and Pydantic v2</a></li>
+<li><a href="../../stages/01-programming-basics/03-generators.html">Generators</a></li>
+<li><a href="../../stages/01-programming-basics/04-algorithms.html">Core Algorithms</a></li>
+<li><a href="../../stages/01-programming-basics/05-git-github.html">Git and GitHub</a></li>
+<li><a href="../../stages/01-programming-basics/06-linux-cli.html">The Linux Command Line</a></li>
+<li><a href="../../stages/01-programming-basics/07-http-rest-apis.html">HTTP and REST APIs</a></li>
+<li><a href="../../stages/01-programming-basics/08-json-yaml.html">JSON and YAML</a></li>
+<li><a href="../../stages/01-programming-basics/09-ship-cli-tool.html">Ship a CLI Tool</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">02</span><span>Math and ML Basics</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/02-math-and-ml-basics/index.html">Stage overview</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/01-linear-algebra.html">Linear Algebra</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/02-calculus.html">Calculus</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/03-probability-bayes.html">Probability and Bayes</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/04-ml-basics.html">ML Basics</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/05-loss-functions.html">Loss Functions</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/06-backprop-gradients.html">Backpropagation and Gradients</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/07-ship-gradient-descent.html">Ship Gradient Descent</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">03</span><span>Data Engineering</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/03-data-engineering/index.html">Stage overview</a></li>
+<li><a href="../../stages/03-data-engineering/01-numpy-pandas.html">NumPy and Pandas</a></li>
+<li><a href="../../stages/03-data-engineering/02-data-cleaning.html">Cleaning Messy Data</a></li>
+<li><a href="../../stages/03-data-engineering/03-eda.html">Exploratory Data Analysis</a></li>
+<li><a href="../../stages/03-data-engineering/04-sql-postgresql.html">SQL on PostgreSQL</a></li>
+<li><a href="../../stages/03-data-engineering/05-parquet-jsonl.html">Parquet and JSONL</a></li>
+<li><a href="../../stages/03-data-engineering/06-data-pipelines.html">Data Pipelines</a></li>
+<li><a href="../../stages/03-data-engineering/07-validation.html">Schema Validation with Pydantic</a></li>
+<li><a href="../../stages/03-data-engineering/08-dataset-prep.html">Dataset Preparation</a></li>
+<li><a href="../../stages/03-data-engineering/09-ship-clean-dataset.html">Ship: A Clean Dataset with a Data Card</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">04</span><span>Deep Learning</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/04-deep-learning/index.html">Stage overview</a></li>
+<li><a href="../../stages/04-deep-learning/01-perceptrons.html">Perceptrons</a></li>
+<li><a href="../../stages/04-deep-learning/02-feedforward.html">Feedforward Networks</a></li>
+<li><a href="../../stages/04-deep-learning/03-optimizers.html">Optimizers</a></li>
+<li><a href="../../stages/04-deep-learning/04-cnns-rnns.html">CNNs and RNNs</a></li>
+<li><a href="../../stages/04-deep-learning/05-lstms-grus.html">LSTMs and GRUs</a></li>
+<li><a href="../../stages/04-deep-learning/06-attention.html">Attention</a></li>
+<li><a href="../../stages/04-deep-learning/07-transformers.html">Transformers</a></li>
+<li><a href="../../stages/04-deep-learning/08-embeddings.html">Embeddings</a></li>
+<li><a href="../../stages/04-deep-learning/09-transfer-learning.html">Transfer Learning</a></li>
+<li><a href="../../stages/04-deep-learning/10-ship-mini-transformer.html">Ship: A Miniature Transformer</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">05</span><span>DL Frameworks</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/05-dl-frameworks/index.html">Stage overview</a></li>
+<li><a href="../../stages/05-dl-frameworks/01-pytorch.html">PyTorch: Tensors and Modules</a></li>
+<li><a href="../../stages/05-dl-frameworks/02-autograd.html">Autograd From Scratch</a></li>
+<li><a href="../../stages/05-dl-frameworks/03-training-loops.html">Anatomy of a Training Loop</a></li>
+<li><a href="../../stages/05-dl-frameworks/04-gpu-checkpoints.html">GPU Memory and Checkpoints</a></li>
+<li><a href="../../stages/05-dl-frameworks/05-keras.html">Keras and the High-Level Path</a></li>
+<li><a href="../../stages/05-dl-frameworks/06-hugging-face.html">Hugging Face Transformers and Datasets</a></li>
+<li><a href="../../stages/05-dl-frameworks/07-cuda.html">CUDA, Devices and Mixed Precision</a></li>
+<li><a href="../../stages/05-dl-frameworks/08-ship-training-loop.html">Ship: A Reusable Training Loop</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">06</span><span>LLM Fundamentals</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/06-llm-fundamentals/index.html">Stage overview</a></li>
+<li><a href="../../stages/06-llm-fundamentals/01-gpt-and-bert.html">GPT and BERT: Decoder-Only vs Encoder-Only</a></li>
+<li><a href="../../stages/06-llm-fundamentals/02-tokenization.html">Tokenization: BPE and Byte-Level</a></li>
+<li><a href="../../stages/06-llm-fundamentals/03-context-windows.html">Context Windows</a></li>
+<li><a href="../../stages/06-llm-fundamentals/04-self-attention.html">Self-Attention From Scratch</a></li>
+<li><a href="../../stages/06-llm-fundamentals/05-pretraining.html">Pretraining: Objectives and Scale</a></li>
+<li><a href="../../stages/06-llm-fundamentals/06-instruction-tuning.html">Instruction Tuning and Chat Templates</a></li>
+<li><a href="../../stages/06-llm-fundamentals/07-rlhf-dpo.html">RLHF and DPO</a></li>
+<li><a href="../../stages/06-llm-fundamentals/08-open-vs-closed.html">Open-Weight vs Closed Models</a></li>
+<li><a href="../../stages/06-llm-fundamentals/09-ship-tokenizer.html">Ship: Tokenizer and Token-Budget Analyser</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">07</span><span>LLM APIs</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/07-llm-apis/index.html">Stage overview</a></li>
+<li><a href="../../stages/07-llm-apis/01-openai-anthropic.html">The OpenAI and Anthropic Chat APIs</a></li>
+<li><a href="../../stages/07-llm-apis/02-gemini-open-weight.html">Gemini and Open-Weight Models via Hosted Endpoints</a></li>
+<li><a href="../../stages/07-llm-apis/03-streaming.html">Streaming Responses</a></li>
+<li><a href="../../stages/07-llm-apis/04-structured-outputs.html">Structured Outputs</a></li>
+<li><a href="../../stages/07-llm-apis/05-tool-calling.html">Tool Calling</a></li>
+<li><a href="../../stages/07-llm-apis/06-multimodal-apis.html">Multimodal APIs</a></li>
+<li><a href="../../stages/07-llm-apis/07-retries-rate-limits.html">Retries and Rate Limits</a></li>
+<li><a href="../../stages/07-llm-apis/08-cost-tracking.html">Token Accounting and Cost Tracking</a></li>
+<li><a href="../../stages/07-llm-apis/09-routing-fallbacks.html">Routing and Fallbacks</a></li>
+<li><a href="../../stages/07-llm-apis/10-ship-multi-model-client.html">Ship: A Multi-Model Client</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">08</span><span>Prompt and Context</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/08-prompt-and-context/index.html">Stage overview</a></li>
+<li><a href="../../stages/08-prompt-and-context/01-system-instructions.html">System Instructions That Actually Constrain</a></li>
+<li><a href="../../stages/08-prompt-and-context/02-few-shot-cot.html">Few-Shot Prompting and Chain of Thought</a></li>
+<li><a href="../../stages/08-prompt-and-context/03-templates.html">Prompt Templates with Variables and Validation</a></li>
+<li><a href="../../stages/08-prompt-and-context/04-context-compression.html">Context Compression</a></li>
+<li><a href="../../stages/08-prompt-and-context/05-prompt-versioning.html">Prompt Versioning as Code</a></li>
+<li><a href="../../stages/08-prompt-and-context/06-injection-defense.html">Prompt-Injection Defence</a></li>
+<li><a href="../../stages/08-prompt-and-context/07-prompt-evals.html">Prompt Evals</a></li>
+<li><a href="../../stages/08-prompt-and-context/08-context-engineering.html">Context Engineering</a></li>
+<li><a href="../../stages/08-prompt-and-context/09-ship-prompt-test-suite.html">Ship: A Prompt Test Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">09</span><span>Vector Databases</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/09-vector-databases/index.html">Stage overview</a></li>
+<li><a href="../../stages/09-vector-databases/01-embeddings.html">Embeddings: Text as Points in Space</a></li>
+<li><a href="../../stages/09-vector-databases/02-similarity-metrics.html">Similarity Metrics</a></li>
+<li><a href="../../stages/09-vector-databases/03-semantic-search.html">Semantic Search End to End</a></li>
+<li><a href="../../stages/09-vector-databases/04-vector-indexing.html">Vector Indexing Structures</a></li>
+<li><a href="../../stages/09-vector-databases/05-ann-search.html">Approximate Nearest Neighbour Search</a></li>
+<li><a href="../../stages/09-vector-databases/06-pinecone-qdrant.html">Pinecone and Qdrant</a></li>
+<li><a href="../../stages/09-vector-databases/07-weaviate-milvus.html">Weaviate and Milvus</a></li>
+<li><a href="../../stages/09-vector-databases/08-chroma.html">Chroma and pgvector</a></li>
+<li><a href="../../stages/09-vector-databases/09-hybrid-search.html">Hybrid Search and Reciprocal Rank Fusion</a></li>
+<li><a href="../../stages/09-vector-databases/10-ship-semantic-search.html">Ship: A Semantic Search Service</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">10</span><span>RAG</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/10-rag/index.html">Stage overview</a></li>
+<li><a href="../../stages/10-rag/01-rag-architecture.html">RAG Architecture</a></li>
+<li><a href="../../stages/10-rag/02-ingestion-parsing.html">Ingestion and Parsing</a></li>
+<li><a href="../../stages/10-rag/03-chunking.html">Chunking</a></li>
+<li><a href="../../stages/10-rag/04-embedding-storage.html">Embedding and Storage Design</a></li>
+<li><a href="../../stages/10-rag/05-query-transform.html">Query Transformation</a></li>
+<li><a href="../../stages/10-rag/06-reranking.html">Reranking</a></li>
+<li><a href="../../stages/10-rag/07-hybrid-retrieval.html">Hybrid Retrieval</a></li>
+<li><a href="../../stages/10-rag/08-parent-child.html">Parent-Child Retrieval</a></li>
+<li><a href="../../stages/10-rag/09-multi-query.html">Multi-Query Retrieval</a></li>
+<li><a href="../../stages/10-rag/10-graph-rag.html">Graph RAG</a></li>
+<li><a href="../../stages/10-rag/11-agentic-rag.html">Agentic RAG</a></li>
+<li><a href="../../stages/10-rag/12-rag-evals.html">RAG Evaluation</a></li>
+<li><a href="../../stages/10-rag/13-ship-rag-with-evals.html">Ship: A RAG Service with Evals</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">11</span><span>AI Agents</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/11-agents/index.html">Stage overview</a></li>
+<li><a href="../../stages/11-agents/01-harness-engineering.html">Harness Engineering</a></li>
+<li><a href="../../stages/11-agents/02-agent-architecture.html">Agent Architecture</a></li>
+<li><a href="../../stages/11-agents/03-reasoning-planning.html">Reasoning and Planning</a></li>
+<li><a href="../../stages/11-agents/04-tool-calling.html">Tool Calling</a></li>
+<li><a href="../../stages/11-agents/05-memory-and-state.html">Memory and State</a></li>
+<li><a href="../../stages/11-agents/06-single-agent.html">Single-Agent Patterns</a></li>
+<li><a href="../../stages/11-agents/07-multi-agent.html">Multi-Agent Patterns</a></li>
+<li><a href="../../stages/11-agents/08-human-in-the-loop.html">Human in the Loop</a></li>
+<li><a href="../../stages/11-agents/09-reflection.html">Reflection and Self-Critique</a></li>
+<li><a href="../../stages/11-agents/10-loop-engineering.html">Loop Engineering</a></li>
+<li><a href="../../stages/11-agents/11-agent-security.html">Agent Security</a></li>
+<li><a href="../../stages/11-agents/12-ship-harness-agent.html">Ship: A Harness Agent</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">12</span><span>Orchestration</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/12-orchestration/index.html">Stage overview</a></li>
+<li><a href="../../stages/12-orchestration/01-langchain.html">LangChain</a></li>
+<li><a href="../../stages/12-orchestration/02-langgraph.html">LangGraph</a></li>
+<li><a href="../../stages/12-orchestration/03-graph-engineering.html">Graph Engineering</a></li>
+<li><a href="../../stages/12-orchestration/04-llamaindex.html">LlamaIndex</a></li>
+<li><a href="../../stages/12-orchestration/05-haystack.html">Haystack</a></li>
+<li><a href="../../stages/12-orchestration/06-semantic-kernel.html">Semantic Kernel</a></li>
+<li><a href="../../stages/12-orchestration/07-pydantic-ai.html">Pydantic AI</a></li>
+<li><a href="../../stages/12-orchestration/08-dspy.html">DSPy</a></li>
+<li><a href="../../stages/12-orchestration/09-crewai-autogen.html">CrewAI and AutoGen</a></li>
+<li><a href="../../stages/12-orchestration/10-tradeoffs.html">Trade-offs</a></li>
+<li><a href="../../stages/12-orchestration/11-ship-langgraph-flow.html">Ship: A LangGraph Flow</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">13</span><span>Fine-Tuning</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/13-fine-tuning/index.html">Stage overview</a></li>
+<li><a href="../../stages/13-fine-tuning/01-sft.html">Supervised Fine-Tuning (SFT)</a></li>
+<li><a href="../../stages/13-fine-tuning/02-lora-qlora-peft.html">LoRA, QLoRA and PEFT</a></li>
+<li><a href="../../stages/13-fine-tuning/03-synthetic-data.html">Synthetic Data for Fine-Tuning</a></li>
+<li><a href="../../stages/13-fine-tuning/04-instruction-tuning.html">Instruction Tuning vs Continued Pretraining</a></li>
+<li><a href="../../stages/13-fine-tuning/05-dpo.html">DPO: Preference Tuning Without RLHF</a></li>
+<li><a href="../../stages/13-fine-tuning/06-finetune-evals.html">Evaluating a Fine-Tune Honestly</a></li>
+<li><a href="../../stages/13-fine-tuning/07-finetune-vs-rag.html">Fine-Tune vs RAG vs Prompting</a></li>
+<li><a href="../../stages/13-fine-tuning/08-ship-lora-model.html">Ship: A LoRA Fine-Tune of a Small Open Model</a></li>
+</ul></div>
+<div class="nav-group open">
+<button class="nav-stage current" type="button"><span class="num">14</span><span>Multimodal AI</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/14-multimodal/index.html">Stage overview</a></li>
+<li><a href="../../stages/14-multimodal/01-vision-language.html">Vision-Language Models</a></li>
+<li><a href="../../stages/14-multimodal/02-ocr.html">OCR: Traditional and Model-Based</a></li>
+<li><a href="../../stages/14-multimodal/03-speech-to-text.html">Speech-to-Text</a></li>
+<li><a class="active" href="../../stages/14-multimodal/04-text-to-speech.html">Text-to-Speech</a></li>
+<li><a href="../../stages/14-multimodal/05-video-audio.html">Video and Audio Processing</a></li>
+<li><a href="../../stages/14-multimodal/06-multimodal-embeddings.html">Multimodal Embeddings</a></li>
+<li><a href="../../stages/14-multimodal/07-diffusion.html">Diffusion Models for Engineers</a></li>
+<li><a href="../../stages/14-multimodal/08-multimodal-rag.html">Multimodal RAG</a></li>
+<li><a href="../../stages/14-multimodal/09-ship-doc-reader.html">Ship: A Document Reader with Citations</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">15</span><span>Evals and Testing</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/15-evals/index.html">Stage overview</a></li>
+<li><a href="../../stages/15-evals/01-unit-tests.html">Unit Tests for LLM Code</a></li>
+<li><a href="../../stages/15-evals/02-llm-as-judge.html">LLM as Judge</a></li>
+<li><a href="../../stages/15-evals/03-golden-datasets.html">Golden Datasets</a></li>
+<li><a href="../../stages/15-evals/04-faithfulness.html">Faithfulness</a></li>
+<li><a href="../../stages/15-evals/05-hallucinations.html">Hallucinations</a></li>
+<li><a href="../../stages/15-evals/06-agent-evals.html">Agent Evals</a></li>
+<li><a href="../../stages/15-evals/07-human-evals.html">Human Evals</a></li>
+<li><a href="../../stages/15-evals/08-regression-tests.html">Regression Tests</a></li>
+<li><a href="../../stages/15-evals/09-online-offline-evals.html">Online and Offline Evals</a></li>
+<li><a href="../../stages/15-evals/10-ship-eval-suite.html">Ship: An Eval Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">16</span><span>Inference</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/16-inference/index.html">Stage overview</a></li>
+<li><a href="../../stages/16-inference/01-prefill-decode.html">Prefill and Decode</a></li>
+<li><a href="../../stages/16-inference/02-kv-cache.html">The KV Cache</a></li>
+<li><a href="../../stages/16-inference/03-continuous-batching.html">Continuous Batching</a></li>
+<li><a href="../../stages/16-inference/04-pagedattention.html">PagedAttention</a></li>
+<li><a href="../../stages/16-inference/05-speculative-decoding.html">Speculative Decoding</a></li>
+<li><a href="../../stages/16-inference/06-quantization.html">Quantization</a></li>
+<li><a href="../../stages/16-inference/07-distillation.html">Distillation</a></li>
+<li><a href="../../stages/16-inference/08-vllm-sglang.html">vLLM and SGLang</a></li>
+<li><a href="../../stages/16-inference/09-ollama-tensorrt.html">Ollama and TensorRT-LLM</a></li>
+<li><a href="../../stages/16-inference/10-gpu-memory.html">GPU Memory Budgeting</a></li>
+<li><a href="../../stages/16-inference/11-ship-vllm-server.html">Ship: A vLLM Server</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">17</span><span>AI Backend</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/17-ai-backend/index.html">Stage overview</a></li>
+<li><a href="../../stages/17-ai-backend/01-fastapi-flask.html">FastAPI and Flask</a></li>
+<li><a href="../../stages/17-ai-backend/02-websockets.html">Streaming with SSE and WebSockets</a></li>
+<li><a href="../../stages/17-ai-backend/03-async-processing.html">Async Processing</a></li>
+<li><a href="../../stages/17-ai-backend/04-redis-caching.html">Redis Caching</a></li>
+<li><a href="../../stages/17-ai-backend/05-job-queues.html">Job Queues</a></li>
+<li><a href="../../stages/17-ai-backend/06-auth-rate-limits.html">Auth and Rate Limits</a></li>
+<li><a href="../../stages/17-ai-backend/07-api-security.html">API Security</a></li>
+<li><a href="../../stages/17-ai-backend/08-ai-app-architecture.html">AI App Architecture</a></li>
+<li><a href="../../stages/17-ai-backend/09-ship-streaming-api.html">Ship: A Streaming Chat API</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">18</span><span>MLOps and LLMOps</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/18-mlops-llmops/index.html">Stage overview</a></li>
+<li><a href="../../stages/18-mlops-llmops/01-mlflow-wandb.html">Experiment Tracking with MLflow and W&B</a></li>
+<li><a href="../../stages/18-mlops-llmops/02-langfuse-langsmith.html">LLM Observability with Langfuse and LangSmith</a></li>
+<li><a href="../../stages/18-mlops-llmops/03-prompt-versioning.html">Prompt Versioning and Registries</a></li>
+<li><a href="../../stages/18-mlops-llmops/04-dvc.html">DVC for Data and Models</a></li>
+<li><a href="../../stages/18-mlops-llmops/05-tracing.html">Tracing Design</a></li>
+<li><a href="../../stages/18-mlops-llmops/06-cost-monitoring.html">Cost Monitoring and Budgets</a></li>
+<li><a href="../../stages/18-mlops-llmops/07-ci-cd-evals.html">CI/CD for Evals</a></li>
+<li><a href="../../stages/18-mlops-llmops/08-ship-trace-dashboard.html">Ship: A Trace Dashboard</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">19</span><span>Cloud and DevOps</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/19-cloud-devops/index.html">Stage overview</a></li>
+<li><a href="../../stages/19-cloud-devops/01-aws-s3-ec2-lambda.html">AWS for AI Apps: S3, EC2, Lambda</a></li>
+<li><a href="../../stages/19-cloud-devops/02-ecs-eks-sagemaker.html">Containers at Scale: ECS, EKS, SageMaker</a></li>
+<li><a href="../../stages/19-cloud-devops/03-gcp-azure-ai.html">GCP and Azure AI Equivalents</a></li>
+<li><a href="../../stages/19-cloud-devops/04-docker.html">Docker Done Properly</a></li>
+<li><a href="../../stages/19-cloud-devops/05-kubernetes.html">Kubernetes Essentials for AI Services</a></li>
+<li><a href="../../stages/19-cloud-devops/06-github-actions.html">GitHub Actions CI/CD</a></li>
+<li><a href="../../stages/19-cloud-devops/07-terraform.html">Terraform Basics</a></li>
+<li><a href="../../stages/19-cloud-devops/08-gpu-cloud.html">GPU Cloud Practicalities</a></li>
+<li><a href="../../stages/19-cloud-devops/09-ship-docker-deploy.html">Ship: Dockerised Deploy with Rollback</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">20</span><span>AI Security</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/20-ai-security/index.html">Stage overview</a></li>
+<li><a href="../../stages/20-ai-security/01-prompt-injection.html">Prompt Injection</a></li>
+<li><a href="../../stages/20-ai-security/02-jailbreaks.html">Jailbreaks</a></li>
+<li><a href="../../stages/20-ai-security/03-data-leakage.html">Data Leakage</a></li>
+<li><a href="../../stages/20-ai-security/04-pii-redaction.html">PII Redaction and Detection</a></li>
+<li><a href="../../stages/20-ai-security/05-sandboxing.html">Sandboxing Tool Execution</a></li>
+<li><a href="../../stages/20-ai-security/06-supply-chain.html">Supply Chain Security</a></li>
+<li><a href="../../stages/20-ai-security/07-bias-fairness.html">Bias and Fairness</a></li>
+<li><a href="../../stages/20-ai-security/08-governance.html">Governance</a></li>
+<li><a href="../../stages/20-ai-security/09-guardrails.html">Guardrails</a></li>
+<li><a href="../../stages/20-ai-security/10-ship-injection-tests.html">Ship: Injection Test Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">21</span><span>System Design</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/21-system-design/index.html">Stage overview</a></li>
+<li><a href="../../stages/21-system-design/01-scalable-ai-apps.html">Scalable AI Apps</a></li>
+<li><a href="../../stages/21-system-design/02-rag-design.html">RAG Design at Scale</a></li>
+<li><a href="../../stages/21-system-design/03-agent-design.html">Agent Design</a></li>
+<li><a href="../../stages/21-system-design/04-model-routing.html">Model Routing</a></li>
+<li><a href="../../stages/21-system-design/05-multi-tenant.html">Multi-Tenant Design</a></li>
+<li><a href="../../stages/21-system-design/06-caching.html">Caching Layers</a></li>
+<li><a href="../../stages/21-system-design/07-fault-tolerance.html">Fault Tolerance</a></li>
+<li><a href="../../stages/21-system-design/08-cost-latency.html">Cost and Latency Engineering</a></li>
+<li><a href="../../stages/21-system-design/09-scaling-tradeoffs.html">Scaling Trade-offs</a></li>
+<li><a href="../../stages/21-system-design/10-ship-design-doc.html">Ship: A Design Document</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">22</span><span>Real Projects</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/22-real-projects/index.html">Stage overview</a></li>
+<li><a href="../../stages/22-real-projects/01-research-assistant.html">Research Assistant</a></li>
+<li><a href="../../stages/22-real-projects/02-document-intelligence.html">Document Intelligence</a></li>
+<li><a href="../../stages/22-real-projects/03-production-rag.html">Production RAG</a></li>
+<li><a href="../../stages/22-real-projects/04-multi-agent-research.html">Multi-Agent Research</a></li>
+<li><a href="../../stages/22-real-projects/05-support-agent.html">Support Agent</a></li>
+<li><a href="../../stages/22-real-projects/06-coding-assistant.html">Coding Assistant</a></li>
+<li><a href="../../stages/22-real-projects/07-multimodal-assistant.html">Multimodal Assistant</a></li>
+<li><a href="../../stages/22-real-projects/08-meeting-intelligence.html">Meeting Intelligence</a></li>
+<li><a href="../../stages/22-real-projects/09-knowledge-assistant.html">Knowledge Assistant</a></li>
+<li><a href="../../stages/22-real-projects/10-workflow-automation.html">Workflow Automation</a></li>
+<li><a href="../../stages/22-real-projects/11-fine-tuning-pipeline.html">Fine-Tuning Pipeline</a></li>
+<li><a href="../../stages/22-real-projects/12-eval-platform.html">Eval Platform</a></li>
+<li><a href="../../stages/22-real-projects/13-ai-saas.html">AI SaaS</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">23</span><span>Career</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/23-career/index.html">Stage overview</a></li>
+<li><a href="../../stages/23-career/01-github-portfolio.html">GitHub Portfolio</a></li>
+<li><a href="../../stages/23-career/02-resume.html">Resume</a></li>
+<li><a href="../../stages/23-career/03-python-sql-interviews.html">Python and SQL Interviews</a></li>
+<li><a href="../../stages/23-career/04-ml-llm-basics.html">ML and LLM Basics</a></li>
+<li><a href="../../stages/23-career/05-system-design-practice.html">System Design Practice</a></li>
+<li><a href="../../stages/23-career/06-rag-agent-patterns.html">RAG and Agent Patterns</a></li>
+<li><a href="../../stages/23-career/07-inference-optimization.html">Inference Optimisation</a></li>
+<li><a href="../../stages/23-career/08-production-case-studies.html">Production Case Studies</a></li>
+<li><a href="../../stages/23-career/09-open-source.html">Open Source</a></li>
+<li><a href="../../stages/23-career/10-technical-articles.html">Technical Articles</a></li>
+<li><a href="../../stages/23-career/11-build-in-public.html">Building in Public</a></li>
+<li><a href="../../stages/23-career/12-apply-for-roles.html">Applying for Roles</a></li>
+</ul></div>
+  </aside>
+  <main>
+    <div class="crumbs"><a href="../../index.html">Roadmap</a><span>/</span><a href="../../stages/14-multimodal/index.html">Stage 14 · Multimodal AI</a><span>/</span>Text-to-Speech</div>
+    <article class="prose">
+<h1 id="4-text-to-speech">4. Text-to-Speech</h1>
+<blockquote>
+<p><strong>Stage 14 · Multimodal</strong> — making the model talk, in a voice you can ship.</p>
+<p><strong>You'll be able to:</strong> generate speech that streams, control pronunciation of domain words, keep a voice consistent across requests, and measure latency the way users feel it.</p>
+<p><strong>Prerequisites:</strong> <a href="03-speech-to-text.html">3. Speech-to-Text</a> · <a href="../07-llm-apis/03-streaming.html">3. Streaming</a></p>
+</blockquote>
+<h2 id="why-this-exists">Why this exists</h2>
+<p>Text output is not always the right interface. A delivery driver needs hands-free instructions; a caller waiting on a support line needs a voice, not a wall of text; a language-learning app needs correct pronunciation. Modern TTS is good enough that the hard part is no longer naturalness — it is <em>control</em>: saying "GSTIN" correctly, not reading "Rs. 4,250/-" as gibberish, keeping the same voice across a session, and starting to speak before the whole paragraph is generated.</p>
+<p>The engineering shape is a pipeline, not a single call: normalise the text, chunk it into sentences, synthesise, and stream the audio so playback starts early. Each stage has a failure mode you can hear.</p>
+<p>The mental model: <strong>TTS is text normalisation plus a voice model plus a streaming contract.</strong></p>
+<h2 id="the-mental-model">The mental model</h2>
+<div class="code-block"><pre><span></span><code>raw text ──► normalise (numbers, dates, units, acronyms) ──► sentence split
+                                                                 │
+                            ┌────────────────────────────────────┘
+                            ▼
+                    synthesise per sentence ──► audio chunks ──► play / save
+                            │
+                     voice id + speed + format pinned in config
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>Problem you hear</th>
+<th>Where it comes from</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"four two five zero" instead of "four thousand two hundred fifty"</td>
+<td>normalisation</td>
+<td>rewrite numbers before synthesis</td>
+</tr>
+<tr>
+<td>"gee-ess-tin" for a known acronym</td>
+<td>pronunciation</td>
+<td>custom lexicon or phonetic spelling</td>
+</tr>
+<tr>
+<td>Voice changes between turns</td>
+<td>not pinning voice id / seed</td>
+<td>pin the voice, reuse the session</td>
+</tr>
+<tr>
+<td>Long pause before speech starts</td>
+<td>generating whole text first</td>
+<td>sentence-level streaming</td>
+</tr>
+<tr>
+<td>Wrong language stress in a mixed sentence</td>
+<td>mixed-script text</td>
+<td>split by language and stitch</td>
+</tr>
+</tbody>
+</table>
+<h2 id="core-concepts">Core concepts</h2>
+<h3 id="normalise-before-you-synthesise">Normalise before you synthesise</h3>
+<p>TTS models are trained on written text, and written text in your product is full of symbols. Expand what must be spoken: currency amounts, dates, ranges, units, abbreviations, URLs, and acronyms that are said letter by letter. Do it with a deterministic function you can unit test, not with a prompt. Keep the mapping table in version control; when a customer complains that "approx." was read as "approx-dot", the fix is one table row and a test.</p>
+<h3 id="a-custom-lexicon-beats-prompt-engineering-for-names">A custom lexicon beats prompt engineering for names</h3>
+<p>Most engines accept a pronunciation override — a mapping from a word to a phonetic form or a recorded alias. Use it for product names, people, and any word where a wrong stress makes you sound foreign or careless. Where no lexicon exists, spell the word phonetically in a scratch copy for synthesis only, never in the text you show the user. Test with a listening check on your ten most important words; it takes minutes and catches most embarrassment.</p>
+<h3 id="latency-is-time-to-first-audio-not-total-duration">Latency is time-to-first-audio, not total duration</h3>
+<p>Users judge by when sound starts. Generate per sentence and stream chunks, so a five-sentence answer begins speaking after the first sentence. Two practical rules: keep sentences short (a 60-word sentence means a long wait), and choose a streaming-capable output format (a raw PCM or chunked container) rather than a format that only finalises at the end. Measure time-to-first-audio and total duration separately, and report both.</p>
+<h3 id="voice-consistency-is-a-config-value-not-a-vibe">Voice consistency is a config value, not a vibe</h3>
+<p>Pin the voice id, the model version, speaking rate and output format in config, and record them with every generated file. If you use a cloned or custom voice, treat it as sensitive: it is a biometric-adjacent asset, needs consent on file, and must never be selectable by an unauthorised user. Caching identical sentences — greetings, disclaimers, common answers — saves money and guarantees the same audio every time.</p>
+<h2 id="code">Code</h2>
+<p>Text normalisation with a testable table, then per-sentence synthesis with streaming. The normaliser is the part that most affects perceived quality.</p>
+<div class="code-block"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="n">UNITS</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"rs"</span><span class="p">:</span> <span class="s2">"rupees"</span><span class="p">,</span> <span class="s2">"inr"</span><span class="p">:</span> <span class="s2">"rupees"</span><span class="p">,</span> <span class="s2">"kg"</span><span class="p">:</span> <span class="s2">"kilograms"</span><span class="p">,</span> <span class="s2">"km"</span><span class="p">:</span> <span class="s2">"kilometres"</span><span class="p">}</span>
+<span class="n">ACRONYMS</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"GSTIN"</span><span class="p">:</span> <span class="s2">"G S T I N"</span><span class="p">,</span> <span class="s2">"UPI"</span><span class="p">:</span> <span class="s2">"U P I"</span><span class="p">,</span> <span class="s2">"OTP"</span><span class="p">:</span> <span class="s2">"O T P"</span><span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">normalise</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Rewrite text into something a TTS engine reads correctly. Unit-testable."""</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ACRONYMS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">rf</span><span class="s2">"\b</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">\b"</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+    <span class="c1"># 4,250/- or Rs. 4250 -&gt; "rupees four thousand two hundred fifty"</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">money</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="n">re</span><span class="o">.</span><span class="n">Match</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">amount</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">"amt"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span> <span class="s2">""</span><span class="p">))</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">UNITS</span><span class="p">[</span><span class="s1">'rs'</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">amount</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span> <span class="s2">" thousand "</span><span class="p">)</span>  <span class="c1"># placeholder</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(?:Rs\.?|INR)\s*(?P&lt;amt&gt;[\d,]+)(?:/-)?"</span><span class="p">,</span> <span class="n">money</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">UNITS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">rf</span><span class="s2">"\b</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">\b"</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\s+"</span><span class="p">,</span> <span class="s2">" "</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="k">assert</span> <span class="s2">"U P I"</span> <span class="ow">in</span> <span class="n">normalise</span><span class="p">(</span><span class="s2">"Pay by UPI today"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">normalise</span><span class="p">(</span><span class="s2">"Total Rs. 4,250/- including GSTIN charges"</span><span class="p">))</span>
+</code></pre></div>
+
+<p>Synthesis per sentence with a pinned voice, yielding audio chunks so playback can start immediately.</p>
+<div class="code-block"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterator</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">openai</span><span class="w"> </span><span class="kn">import</span> <span class="n">OpenAI</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">()</span>
+<span class="n">VOICE</span> <span class="o">=</span> <span class="s2">"alloy"</span>                  <span class="c1"># pin in config; check current voice ids in docs</span>
+<span class="n">TTS_MODEL</span> <span class="o">=</span> <span class="s2">"check-current-tts-model-id"</span>
+<span class="n">FORMAT</span> <span class="o">=</span> <span class="s2">"pcm"</span>                   <span class="c1"># streaming-friendly; convert for the client</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">split_sentences</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">max_words</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="n">parts</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(?&lt;=[.!?])\s+"</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="n">out</span><span class="p">,</span> <span class="n">buf</span> <span class="o">=</span> <span class="p">[],</span> <span class="s2">""</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parts</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">((</span><span class="n">buf</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">())</span> <span class="o">&gt;</span> <span class="n">max_words</span> <span class="ow">and</span> <span class="n">buf</span><span class="p">:</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">buf</span><span class="p">);</span> <span class="n">buf</span> <span class="o">=</span> <span class="n">p</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">buf</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">buf</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">"</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">out</span> <span class="o">+</span> <span class="p">([</span><span class="n">buf</span><span class="p">]</span> <span class="k">if</span> <span class="n">buf</span> <span class="k">else</span> <span class="p">[])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">speak</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">split_sentences</span><span class="p">(</span><span class="n">normalise</span><span class="p">(</span><span class="n">text</span><span class="p">)):</span>
+        <span class="k">with</span> <span class="n">client</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">speech</span><span class="o">.</span><span class="n">with_streaming_response</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">model</span><span class="o">=</span><span class="n">TTS_MODEL</span><span class="p">,</span> <span class="n">voice</span><span class="o">=</span><span class="n">VOICE</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="n">sentence</span><span class="p">,</span> <span class="n">response_format</span><span class="o">=</span><span class="n">FORMAT</span>
+        <span class="p">)</span> <span class="k">as</span> <span class="n">resp</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">resp</span><span class="o">.</span><span class="n">iter_bytes</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">4096</span><span class="p">):</span>
+                <span class="k">yield</span> <span class="n">chunk</span>        <span class="c1"># first bytes arrive after sentence one, not the whole text</span>
+</code></pre></div>
+
+<p>The browser side, where the chunks become sound. Queue them so playback is continuous and handle the case where the user cancels mid-stream.</p>
+<div class="code-block"><pre><span></span><code><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">SpeechPlayer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">queue</span><span class="o">:</span><span class="w"> </span><span class="kt">AudioBuffer</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">ctx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">AudioContext</span><span class="p">();</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">playing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">cancelled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">push</span><span class="p">(</span><span class="nx">chunk</span><span class="o">:</span><span class="w"> </span><span class="kt">ArrayBuffer</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">decodeAudioData</span><span class="p">(</span><span class="nx">chunk</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mf">0</span><span class="p">));</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">queue</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">buf</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">playing</span><span class="p">)</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">drain</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nx">cancel</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">cancelled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">queue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">drain</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">playing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">queue</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">cancelled</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">queue</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">buf</span><span class="p">)</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">      </span><span class="k">await</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">src</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">createBufferSource</span><span class="p">();</span>
+<span class="w">        </span><span class="nx">src</span><span class="p">.</span><span class="nx">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">buf</span><span class="p">;</span>
+<span class="w">        </span><span class="nx">src</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">destination</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">src</span><span class="p">.</span><span class="nx">onended</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">resolve</span><span class="p">();</span>
+<span class="w">        </span><span class="nx">src</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+<span class="w">      </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">playing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="real-use-case">Real use case</h2>
+<p>A field-service app gives technicians repair steps by voice while their hands are inside a machine. The first version generated the whole instruction set, then played it: a four-second silence before the first word, and a robotic reading of part numbers as a single unintelligible word.</p>
+<p>They changed two things. Instructions are synthesised sentence by sentence and streamed, so audio starts in about the time it takes to say the first clause. Part numbers go through a deterministic normaliser that spells them digit by digit and pauses with a comma, and the ten most common parts get lexicon entries. The measured improvement they cared about was time-to-first-audio, which fell by an order of magnitude in their own tests; the qualitative one was that technicians stopped replaying instructions to work out which part was meant. Cached audio for the 30 most frequent instructions cut cost and made repeat playback identical.</p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<ul>
+<li><strong>Mistake:</strong> synthesising raw product text — <strong>Instead:</strong> run a deterministic normaliser and unit-test it on real strings from your app.</li>
+<li><strong>Mistake:</strong> generating the whole response before playing — <strong>Instead:</strong> sentence-split and stream; report time-to-first-audio.</li>
+<li><strong>Mistake:</strong> leaving voice id and speed implicit — <strong>Instead:</strong> pin them in config and record them with every audio file.</li>
+<li><strong>Mistake:</strong> shipping a cloned voice with no consent trail — <strong>Instead:</strong> keep written consent, restrict access, and never expose voice selection to unauthorised users.</li>
+<li><strong>Mistake:</strong> caching nothing — <strong>Instead:</strong> cache greetings, disclaimers and frequent answers; it is cheaper and consistent.</li>
+</ul>
+<h2 id="checkpoint">Checkpoint</h2>
+<ol>
+<li>Write a normaliser with at least six rules and ten unit tests drawn from real strings in your product.</li>
+<li>Generate the same paragraph with and without sentence streaming and measure time-to-first-audio for both.</li>
+<li>Build a ten-word pronunciation list, add lexicon entries, and do a listening check with someone who has not seen the text.</li>
+</ol>
+<p><strong>Self-check:</strong> "Rs. 4,250/-" read badly is a normalisation bug, not a model limitation — expand it to "rupees four thousand two hundred fifty" before synthesis and test that expansion.</p>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li>Next: <a href="05-video-audio.html">5. Video and Audio Processing</a>.</li>
+<li>Streaming contracts: <a href="../07-llm-apis/03-streaming.html">3. Streaming</a> and <a href="../17-ai-backend/02-websockets.html">2. WebSockets</a>.</li>
+<li>Voice agent patterns: <a href="../22-real-projects/05-support-agent.html">5. Support Agent</a>.</li>
+</ul>
+<hr />
+<p><a href="03-speech-to-text.html">← Previous: 3. Speech-to-Text</a> · <a href="index.html">Stage index</a> · <a href="05-video-audio.html">Next: 5. Video and Audio Processing</a></p>
+    </article>
+    <nav class="pager">
+<a class="prev" href="../../stages/14-multimodal/03-speech-to-text.html"><span class="dir">Previous</span>Speech-to-Text</a>
+<a class="next" href="../../stages/14-multimodal/05-video-audio.html"><span class="dir">Next</span>Video and Audio Processing</a>
+</nav>
+    <footer class="site-footer">
+      AI Engineer Roadmap · <a href="../../contributing.html">Contribute</a> ·
+      <a href="../../glossary.html">Glossary</a> ·
+      <a href="../../progress.html">Progress</a> · MIT licensed
+    </footer>
+  </main>
+</div>
+<button id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 13V3M3 8l5-5 5 5"/></svg>
+</button>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

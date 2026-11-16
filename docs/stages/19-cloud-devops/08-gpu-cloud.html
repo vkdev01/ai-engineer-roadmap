@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en" data-theme="github-light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPU Cloud Practicalities · AI Engineer Roadmap</title>
+<meta name="description" content="Stage 19 · Cloud and DevOps — the parts of renting a GPU that no tutorial warns you about: quota, capacity, interruption and where your weights actually live. Y">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111'/><text x='16' y='22' font-size='14' font-family='monospace' fill='%23fff' text-anchor='middle'>AI</text></svg>">
+</head>
+<body>
+<div id="progress"></div>
+<header class="topbar">
+  <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+  </button>
+  <a class="brand" href="../../index.html">
+    <span class="brand-mark">AI</span>
+    <span class="brand-text">Engineer Roadmap</span>
+  </a>
+  <div class="spacer"></div>
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+    <input id="q" type="search" placeholder="Search 226 lessons…" autocomplete="off" aria-label="Search lessons">
+    <div id="results"></div>
+  </div>
+  <select id="theme" class="theme-select" aria-label="Style"></select>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+<a class="nav-home" href="../../index.html">Roadmap home</a>
+<a class="nav-home" href="../../fast-track.html">Fast track</a>
+<a class="nav-home" href="../../progress.html">Progress tracker</a>
+<a class="nav-home" href="../../glossary.html">Glossary</a>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">01</span><span>Programming Basics</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/01-programming-basics/index.html">Stage overview</a></li>
+<li><a href="../../stages/01-programming-basics/01-python-async.html">Python Async</a></li>
+<li><a href="../../stages/01-programming-basics/02-type-hints-pydantic.html">Type Hints and Pydantic v2</a></li>
+<li><a href="../../stages/01-programming-basics/03-generators.html">Generators</a></li>
+<li><a href="../../stages/01-programming-basics/04-algorithms.html">Core Algorithms</a></li>
+<li><a href="../../stages/01-programming-basics/05-git-github.html">Git and GitHub</a></li>
+<li><a href="../../stages/01-programming-basics/06-linux-cli.html">The Linux Command Line</a></li>
+<li><a href="../../stages/01-programming-basics/07-http-rest-apis.html">HTTP and REST APIs</a></li>
+<li><a href="../../stages/01-programming-basics/08-json-yaml.html">JSON and YAML</a></li>
+<li><a href="../../stages/01-programming-basics/09-ship-cli-tool.html">Ship a CLI Tool</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">02</span><span>Math and ML Basics</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/02-math-and-ml-basics/index.html">Stage overview</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/01-linear-algebra.html">Linear Algebra</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/02-calculus.html">Calculus</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/03-probability-bayes.html">Probability and Bayes</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/04-ml-basics.html">ML Basics</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/05-loss-functions.html">Loss Functions</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/06-backprop-gradients.html">Backpropagation and Gradients</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/07-ship-gradient-descent.html">Ship Gradient Descent</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">03</span><span>Data Engineering</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/03-data-engineering/index.html">Stage overview</a></li>
+<li><a href="../../stages/03-data-engineering/01-numpy-pandas.html">NumPy and Pandas</a></li>
+<li><a href="../../stages/03-data-engineering/02-data-cleaning.html">Cleaning Messy Data</a></li>
+<li><a href="../../stages/03-data-engineering/03-eda.html">Exploratory Data Analysis</a></li>
+<li><a href="../../stages/03-data-engineering/04-sql-postgresql.html">SQL on PostgreSQL</a></li>
+<li><a href="../../stages/03-data-engineering/05-parquet-jsonl.html">Parquet and JSONL</a></li>
+<li><a href="../../stages/03-data-engineering/06-data-pipelines.html">Data Pipelines</a></li>
+<li><a href="../../stages/03-data-engineering/07-validation.html">Schema Validation with Pydantic</a></li>
+<li><a href="../../stages/03-data-engineering/08-dataset-prep.html">Dataset Preparation</a></li>
+<li><a href="../../stages/03-data-engineering/09-ship-clean-dataset.html">Ship: A Clean Dataset with a Data Card</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">04</span><span>Deep Learning</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/04-deep-learning/index.html">Stage overview</a></li>
+<li><a href="../../stages/04-deep-learning/01-perceptrons.html">Perceptrons</a></li>
+<li><a href="../../stages/04-deep-learning/02-feedforward.html">Feedforward Networks</a></li>
+<li><a href="../../stages/04-deep-learning/03-optimizers.html">Optimizers</a></li>
+<li><a href="../../stages/04-deep-learning/04-cnns-rnns.html">CNNs and RNNs</a></li>
+<li><a href="../../stages/04-deep-learning/05-lstms-grus.html">LSTMs and GRUs</a></li>
+<li><a href="../../stages/04-deep-learning/06-attention.html">Attention</a></li>
+<li><a href="../../stages/04-deep-learning/07-transformers.html">Transformers</a></li>
+<li><a href="../../stages/04-deep-learning/08-embeddings.html">Embeddings</a></li>
+<li><a href="../../stages/04-deep-learning/09-transfer-learning.html">Transfer Learning</a></li>
+<li><a href="../../stages/04-deep-learning/10-ship-mini-transformer.html">Ship: A Miniature Transformer</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">05</span><span>DL Frameworks</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/05-dl-frameworks/index.html">Stage overview</a></li>
+<li><a href="../../stages/05-dl-frameworks/01-pytorch.html">PyTorch: Tensors and Modules</a></li>
+<li><a href="../../stages/05-dl-frameworks/02-autograd.html">Autograd From Scratch</a></li>
+<li><a href="../../stages/05-dl-frameworks/03-training-loops.html">Anatomy of a Training Loop</a></li>
+<li><a href="../../stages/05-dl-frameworks/04-gpu-checkpoints.html">GPU Memory and Checkpoints</a></li>
+<li><a href="../../stages/05-dl-frameworks/05-keras.html">Keras and the High-Level Path</a></li>
+<li><a href="../../stages/05-dl-frameworks/06-hugging-face.html">Hugging Face Transformers and Datasets</a></li>
+<li><a href="../../stages/05-dl-frameworks/07-cuda.html">CUDA, Devices and Mixed Precision</a></li>
+<li><a href="../../stages/05-dl-frameworks/08-ship-training-loop.html">Ship: A Reusable Training Loop</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">06</span><span>LLM Fundamentals</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/06-llm-fundamentals/index.html">Stage overview</a></li>
+<li><a href="../../stages/06-llm-fundamentals/01-gpt-and-bert.html">GPT and BERT: Decoder-Only vs Encoder-Only</a></li>
+<li><a href="../../stages/06-llm-fundamentals/02-tokenization.html">Tokenization: BPE and Byte-Level</a></li>
+<li><a href="../../stages/06-llm-fundamentals/03-context-windows.html">Context Windows</a></li>
+<li><a href="../../stages/06-llm-fundamentals/04-self-attention.html">Self-Attention From Scratch</a></li>
+<li><a href="../../stages/06-llm-fundamentals/05-pretraining.html">Pretraining: Objectives and Scale</a></li>
+<li><a href="../../stages/06-llm-fundamentals/06-instruction-tuning.html">Instruction Tuning and Chat Templates</a></li>
+<li><a href="../../stages/06-llm-fundamentals/07-rlhf-dpo.html">RLHF and DPO</a></li>
+<li><a href="../../stages/06-llm-fundamentals/08-open-vs-closed.html">Open-Weight vs Closed Models</a></li>
+<li><a href="../../stages/06-llm-fundamentals/09-ship-tokenizer.html">Ship: Tokenizer and Token-Budget Analyser</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">07</span><span>LLM APIs</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/07-llm-apis/index.html">Stage overview</a></li>
+<li><a href="../../stages/07-llm-apis/01-openai-anthropic.html">The OpenAI and Anthropic Chat APIs</a></li>
+<li><a href="../../stages/07-llm-apis/02-gemini-open-weight.html">Gemini and Open-Weight Models via Hosted Endpoints</a></li>
+<li><a href="../../stages/07-llm-apis/03-streaming.html">Streaming Responses</a></li>
+<li><a href="../../stages/07-llm-apis/04-structured-outputs.html">Structured Outputs</a></li>
+<li><a href="../../stages/07-llm-apis/05-tool-calling.html">Tool Calling</a></li>
+<li><a href="../../stages/07-llm-apis/06-multimodal-apis.html">Multimodal APIs</a></li>
+<li><a href="../../stages/07-llm-apis/07-retries-rate-limits.html">Retries and Rate Limits</a></li>
+<li><a href="../../stages/07-llm-apis/08-cost-tracking.html">Token Accounting and Cost Tracking</a></li>
+<li><a href="../../stages/07-llm-apis/09-routing-fallbacks.html">Routing and Fallbacks</a></li>
+<li><a href="../../stages/07-llm-apis/10-ship-multi-model-client.html">Ship: A Multi-Model Client</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">08</span><span>Prompt and Context</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/08-prompt-and-context/index.html">Stage overview</a></li>
+<li><a href="../../stages/08-prompt-and-context/01-system-instructions.html">System Instructions That Actually Constrain</a></li>
+<li><a href="../../stages/08-prompt-and-context/02-few-shot-cot.html">Few-Shot Prompting and Chain of Thought</a></li>
+<li><a href="../../stages/08-prompt-and-context/03-templates.html">Prompt Templates with Variables and Validation</a></li>
+<li><a href="../../stages/08-prompt-and-context/04-context-compression.html">Context Compression</a></li>
+<li><a href="../../stages/08-prompt-and-context/05-prompt-versioning.html">Prompt Versioning as Code</a></li>
+<li><a href="../../stages/08-prompt-and-context/06-injection-defense.html">Prompt-Injection Defence</a></li>
+<li><a href="../../stages/08-prompt-and-context/07-prompt-evals.html">Prompt Evals</a></li>
+<li><a href="../../stages/08-prompt-and-context/08-context-engineering.html">Context Engineering</a></li>
+<li><a href="../../stages/08-prompt-and-context/09-ship-prompt-test-suite.html">Ship: A Prompt Test Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">09</span><span>Vector Databases</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/09-vector-databases/index.html">Stage overview</a></li>
+<li><a href="../../stages/09-vector-databases/01-embeddings.html">Embeddings: Text as Points in Space</a></li>
+<li><a href="../../stages/09-vector-databases/02-similarity-metrics.html">Similarity Metrics</a></li>
+<li><a href="../../stages/09-vector-databases/03-semantic-search.html">Semantic Search End to End</a></li>
+<li><a href="../../stages/09-vector-databases/04-vector-indexing.html">Vector Indexing Structures</a></li>
+<li><a href="../../stages/09-vector-databases/05-ann-search.html">Approximate Nearest Neighbour Search</a></li>
+<li><a href="../../stages/09-vector-databases/06-pinecone-qdrant.html">Pinecone and Qdrant</a></li>
+<li><a href="../../stages/09-vector-databases/07-weaviate-milvus.html">Weaviate and Milvus</a></li>
+<li><a href="../../stages/09-vector-databases/08-chroma.html">Chroma and pgvector</a></li>
+<li><a href="../../stages/09-vector-databases/09-hybrid-search.html">Hybrid Search and Reciprocal Rank Fusion</a></li>
+<li><a href="../../stages/09-vector-databases/10-ship-semantic-search.html">Ship: A Semantic Search Service</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">10</span><span>RAG</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/10-rag/index.html">Stage overview</a></li>
+<li><a href="../../stages/10-rag/01-rag-architecture.html">RAG Architecture</a></li>
+<li><a href="../../stages/10-rag/02-ingestion-parsing.html">Ingestion and Parsing</a></li>
+<li><a href="../../stages/10-rag/03-chunking.html">Chunking</a></li>
+<li><a href="../../stages/10-rag/04-embedding-storage.html">Embedding and Storage Design</a></li>
+<li><a href="../../stages/10-rag/05-query-transform.html">Query Transformation</a></li>
+<li><a href="../../stages/10-rag/06-reranking.html">Reranking</a></li>
+<li><a href="../../stages/10-rag/07-hybrid-retrieval.html">Hybrid Retrieval</a></li>
+<li><a href="../../stages/10-rag/08-parent-child.html">Parent-Child Retrieval</a></li>
+<li><a href="../../stages/10-rag/09-multi-query.html">Multi-Query Retrieval</a></li>
+<li><a href="../../stages/10-rag/10-graph-rag.html">Graph RAG</a></li>
+<li><a href="../../stages/10-rag/11-agentic-rag.html">Agentic RAG</a></li>
+<li><a href="../../stages/10-rag/12-rag-evals.html">RAG Evaluation</a></li>
+<li><a href="../../stages/10-rag/13-ship-rag-with-evals.html">Ship: A RAG Service with Evals</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">11</span><span>AI Agents</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/11-agents/index.html">Stage overview</a></li>
+<li><a href="../../stages/11-agents/01-harness-engineering.html">Harness Engineering</a></li>
+<li><a href="../../stages/11-agents/02-agent-architecture.html">Agent Architecture</a></li>
+<li><a href="../../stages/11-agents/03-reasoning-planning.html">Reasoning and Planning</a></li>
+<li><a href="../../stages/11-agents/04-tool-calling.html">Tool Calling</a></li>
+<li><a href="../../stages/11-agents/05-memory-and-state.html">Memory and State</a></li>
+<li><a href="../../stages/11-agents/06-single-agent.html">Single-Agent Patterns</a></li>
+<li><a href="../../stages/11-agents/07-multi-agent.html">Multi-Agent Patterns</a></li>
+<li><a href="../../stages/11-agents/08-human-in-the-loop.html">Human in the Loop</a></li>
+<li><a href="../../stages/11-agents/09-reflection.html">Reflection and Self-Critique</a></li>
+<li><a href="../../stages/11-agents/10-loop-engineering.html">Loop Engineering</a></li>
+<li><a href="../../stages/11-agents/11-agent-security.html">Agent Security</a></li>
+<li><a href="../../stages/11-agents/12-ship-harness-agent.html">Ship: A Harness Agent</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">12</span><span>Orchestration</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/12-orchestration/index.html">Stage overview</a></li>
+<li><a href="../../stages/12-orchestration/01-langchain.html">LangChain</a></li>
+<li><a href="../../stages/12-orchestration/02-langgraph.html">LangGraph</a></li>
+<li><a href="../../stages/12-orchestration/03-graph-engineering.html">Graph Engineering</a></li>
+<li><a href="../../stages/12-orchestration/04-llamaindex.html">LlamaIndex</a></li>
+<li><a href="../../stages/12-orchestration/05-haystack.html">Haystack</a></li>
+<li><a href="../../stages/12-orchestration/06-semantic-kernel.html">Semantic Kernel</a></li>
+<li><a href="../../stages/12-orchestration/07-pydantic-ai.html">Pydantic AI</a></li>
+<li><a href="../../stages/12-orchestration/08-dspy.html">DSPy</a></li>
+<li><a href="../../stages/12-orchestration/09-crewai-autogen.html">CrewAI and AutoGen</a></li>
+<li><a href="../../stages/12-orchestration/10-tradeoffs.html">Trade-offs</a></li>
+<li><a href="../../stages/12-orchestration/11-ship-langgraph-flow.html">Ship: A LangGraph Flow</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">13</span><span>Fine-Tuning</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/13-fine-tuning/index.html">Stage overview</a></li>
+<li><a href="../../stages/13-fine-tuning/01-sft.html">Supervised Fine-Tuning (SFT)</a></li>
+<li><a href="../../stages/13-fine-tuning/02-lora-qlora-peft.html">LoRA, QLoRA and PEFT</a></li>
+<li><a href="../../stages/13-fine-tuning/03-synthetic-data.html">Synthetic Data for Fine-Tuning</a></li>
+<li><a href="../../stages/13-fine-tuning/04-instruction-tuning.html">Instruction Tuning vs Continued Pretraining</a></li>
+<li><a href="../../stages/13-fine-tuning/05-dpo.html">DPO: Preference Tuning Without RLHF</a></li>
+<li><a href="../../stages/13-fine-tuning/06-finetune-evals.html">Evaluating a Fine-Tune Honestly</a></li>
+<li><a href="../../stages/13-fine-tuning/07-finetune-vs-rag.html">Fine-Tune vs RAG vs Prompting</a></li>
+<li><a href="../../stages/13-fine-tuning/08-ship-lora-model.html">Ship: A LoRA Fine-Tune of a Small Open Model</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">14</span><span>Multimodal AI</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/14-multimodal/index.html">Stage overview</a></li>
+<li><a href="../../stages/14-multimodal/01-vision-language.html">Vision-Language Models</a></li>
+<li><a href="../../stages/14-multimodal/02-ocr.html">OCR: Traditional and Model-Based</a></li>
+<li><a href="../../stages/14-multimodal/03-speech-to-text.html">Speech-to-Text</a></li>
+<li><a href="../../stages/14-multimodal/04-text-to-speech.html">Text-to-Speech</a></li>
+<li><a href="../../stages/14-multimodal/05-video-audio.html">Video and Audio Processing</a></li>
+<li><a href="../../stages/14-multimodal/06-multimodal-embeddings.html">Multimodal Embeddings</a></li>
+<li><a href="../../stages/14-multimodal/07-diffusion.html">Diffusion Models for Engineers</a></li>
+<li><a href="../../stages/14-multimodal/08-multimodal-rag.html">Multimodal RAG</a></li>
+<li><a href="../../stages/14-multimodal/09-ship-doc-reader.html">Ship: A Document Reader with Citations</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">15</span><span>Evals and Testing</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/15-evals/index.html">Stage overview</a></li>
+<li><a href="../../stages/15-evals/01-unit-tests.html">Unit Tests for LLM Code</a></li>
+<li><a href="../../stages/15-evals/02-llm-as-judge.html">LLM as Judge</a></li>
+<li><a href="../../stages/15-evals/03-golden-datasets.html">Golden Datasets</a></li>
+<li><a href="../../stages/15-evals/04-faithfulness.html">Faithfulness</a></li>
+<li><a href="../../stages/15-evals/05-hallucinations.html">Hallucinations</a></li>
+<li><a href="../../stages/15-evals/06-agent-evals.html">Agent Evals</a></li>
+<li><a href="../../stages/15-evals/07-human-evals.html">Human Evals</a></li>
+<li><a href="../../stages/15-evals/08-regression-tests.html">Regression Tests</a></li>
+<li><a href="../../stages/15-evals/09-online-offline-evals.html">Online and Offline Evals</a></li>
+<li><a href="../../stages/15-evals/10-ship-eval-suite.html">Ship: An Eval Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">16</span><span>Inference</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/16-inference/index.html">Stage overview</a></li>
+<li><a href="../../stages/16-inference/01-prefill-decode.html">Prefill and Decode</a></li>
+<li><a href="../../stages/16-inference/02-kv-cache.html">The KV Cache</a></li>
+<li><a href="../../stages/16-inference/03-continuous-batching.html">Continuous Batching</a></li>
+<li><a href="../../stages/16-inference/04-pagedattention.html">PagedAttention</a></li>
+<li><a href="../../stages/16-inference/05-speculative-decoding.html">Speculative Decoding</a></li>
+<li><a href="../../stages/16-inference/06-quantization.html">Quantization</a></li>
+<li><a href="../../stages/16-inference/07-distillation.html">Distillation</a></li>
+<li><a href="../../stages/16-inference/08-vllm-sglang.html">vLLM and SGLang</a></li>
+<li><a href="../../stages/16-inference/09-ollama-tensorrt.html">Ollama and TensorRT-LLM</a></li>
+<li><a href="../../stages/16-inference/10-gpu-memory.html">GPU Memory Budgeting</a></li>
+<li><a href="../../stages/16-inference/11-ship-vllm-server.html">Ship: A vLLM Server</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">17</span><span>AI Backend</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/17-ai-backend/index.html">Stage overview</a></li>
+<li><a href="../../stages/17-ai-backend/01-fastapi-flask.html">FastAPI and Flask</a></li>
+<li><a href="../../stages/17-ai-backend/02-websockets.html">Streaming with SSE and WebSockets</a></li>
+<li><a href="../../stages/17-ai-backend/03-async-processing.html">Async Processing</a></li>
+<li><a href="../../stages/17-ai-backend/04-redis-caching.html">Redis Caching</a></li>
+<li><a href="../../stages/17-ai-backend/05-job-queues.html">Job Queues</a></li>
+<li><a href="../../stages/17-ai-backend/06-auth-rate-limits.html">Auth and Rate Limits</a></li>
+<li><a href="../../stages/17-ai-backend/07-api-security.html">API Security</a></li>
+<li><a href="../../stages/17-ai-backend/08-ai-app-architecture.html">AI App Architecture</a></li>
+<li><a href="../../stages/17-ai-backend/09-ship-streaming-api.html">Ship: A Streaming Chat API</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">18</span><span>MLOps and LLMOps</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/18-mlops-llmops/index.html">Stage overview</a></li>
+<li><a href="../../stages/18-mlops-llmops/01-mlflow-wandb.html">Experiment Tracking with MLflow and W&B</a></li>
+<li><a href="../../stages/18-mlops-llmops/02-langfuse-langsmith.html">LLM Observability with Langfuse and LangSmith</a></li>
+<li><a href="../../stages/18-mlops-llmops/03-prompt-versioning.html">Prompt Versioning and Registries</a></li>
+<li><a href="../../stages/18-mlops-llmops/04-dvc.html">DVC for Data and Models</a></li>
+<li><a href="../../stages/18-mlops-llmops/05-tracing.html">Tracing Design</a></li>
+<li><a href="../../stages/18-mlops-llmops/06-cost-monitoring.html">Cost Monitoring and Budgets</a></li>
+<li><a href="../../stages/18-mlops-llmops/07-ci-cd-evals.html">CI/CD for Evals</a></li>
+<li><a href="../../stages/18-mlops-llmops/08-ship-trace-dashboard.html">Ship: A Trace Dashboard</a></li>
+</ul></div>
+<div class="nav-group open">
+<button class="nav-stage current" type="button"><span class="num">19</span><span>Cloud and DevOps</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/19-cloud-devops/index.html">Stage overview</a></li>
+<li><a href="../../stages/19-cloud-devops/01-aws-s3-ec2-lambda.html">AWS for AI Apps: S3, EC2, Lambda</a></li>
+<li><a href="../../stages/19-cloud-devops/02-ecs-eks-sagemaker.html">Containers at Scale: ECS, EKS, SageMaker</a></li>
+<li><a href="../../stages/19-cloud-devops/03-gcp-azure-ai.html">GCP and Azure AI Equivalents</a></li>
+<li><a href="../../stages/19-cloud-devops/04-docker.html">Docker Done Properly</a></li>
+<li><a href="../../stages/19-cloud-devops/05-kubernetes.html">Kubernetes Essentials for AI Services</a></li>
+<li><a href="../../stages/19-cloud-devops/06-github-actions.html">GitHub Actions CI/CD</a></li>
+<li><a href="../../stages/19-cloud-devops/07-terraform.html">Terraform Basics</a></li>
+<li><a class="active" href="../../stages/19-cloud-devops/08-gpu-cloud.html">GPU Cloud Practicalities</a></li>
+<li><a href="../../stages/19-cloud-devops/09-ship-docker-deploy.html">Ship: Dockerised Deploy with Rollback</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">20</span><span>AI Security</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/20-ai-security/index.html">Stage overview</a></li>
+<li><a href="../../stages/20-ai-security/01-prompt-injection.html">Prompt Injection</a></li>
+<li><a href="../../stages/20-ai-security/02-jailbreaks.html">Jailbreaks</a></li>
+<li><a href="../../stages/20-ai-security/03-data-leakage.html">Data Leakage</a></li>
+<li><a href="../../stages/20-ai-security/04-pii-redaction.html">PII Redaction and Detection</a></li>
+<li><a href="../../stages/20-ai-security/05-sandboxing.html">Sandboxing Tool Execution</a></li>
+<li><a href="../../stages/20-ai-security/06-supply-chain.html">Supply Chain Security</a></li>
+<li><a href="../../stages/20-ai-security/07-bias-fairness.html">Bias and Fairness</a></li>
+<li><a href="../../stages/20-ai-security/08-governance.html">Governance</a></li>
+<li><a href="../../stages/20-ai-security/09-guardrails.html">Guardrails</a></li>
+<li><a href="../../stages/20-ai-security/10-ship-injection-tests.html">Ship: Injection Test Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">21</span><span>System Design</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/21-system-design/index.html">Stage overview</a></li>
+<li><a href="../../stages/21-system-design/01-scalable-ai-apps.html">Scalable AI Apps</a></li>
+<li><a href="../../stages/21-system-design/02-rag-design.html">RAG Design at Scale</a></li>
+<li><a href="../../stages/21-system-design/03-agent-design.html">Agent Design</a></li>
+<li><a href="../../stages/21-system-design/04-model-routing.html">Model Routing</a></li>
+<li><a href="../../stages/21-system-design/05-multi-tenant.html">Multi-Tenant Design</a></li>
+<li><a href="../../stages/21-system-design/06-caching.html">Caching Layers</a></li>
+<li><a href="../../stages/21-system-design/07-fault-tolerance.html">Fault Tolerance</a></li>
+<li><a href="../../stages/21-system-design/08-cost-latency.html">Cost and Latency Engineering</a></li>
+<li><a href="../../stages/21-system-design/09-scaling-tradeoffs.html">Scaling Trade-offs</a></li>
+<li><a href="../../stages/21-system-design/10-ship-design-doc.html">Ship: A Design Document</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">22</span><span>Real Projects</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/22-real-projects/index.html">Stage overview</a></li>
+<li><a href="../../stages/22-real-projects/01-research-assistant.html">Research Assistant</a></li>
+<li><a href="../../stages/22-real-projects/02-document-intelligence.html">Document Intelligence</a></li>
+<li><a href="../../stages/22-real-projects/03-production-rag.html">Production RAG</a></li>
+<li><a href="../../stages/22-real-projects/04-multi-agent-research.html">Multi-Agent Research</a></li>
+<li><a href="../../stages/22-real-projects/05-support-agent.html">Support Agent</a></li>
+<li><a href="../../stages/22-real-projects/06-coding-assistant.html">Coding Assistant</a></li>
+<li><a href="../../stages/22-real-projects/07-multimodal-assistant.html">Multimodal Assistant</a></li>
+<li><a href="../../stages/22-real-projects/08-meeting-intelligence.html">Meeting Intelligence</a></li>
+<li><a href="../../stages/22-real-projects/09-knowledge-assistant.html">Knowledge Assistant</a></li>
+<li><a href="../../stages/22-real-projects/10-workflow-automation.html">Workflow Automation</a></li>
+<li><a href="../../stages/22-real-projects/11-fine-tuning-pipeline.html">Fine-Tuning Pipeline</a></li>
+<li><a href="../../stages/22-real-projects/12-eval-platform.html">Eval Platform</a></li>
+<li><a href="../../stages/22-real-projects/13-ai-saas.html">AI SaaS</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">23</span><span>Career</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/23-career/index.html">Stage overview</a></li>
+<li><a href="../../stages/23-career/01-github-portfolio.html">GitHub Portfolio</a></li>
+<li><a href="../../stages/23-career/02-resume.html">Resume</a></li>
+<li><a href="../../stages/23-career/03-python-sql-interviews.html">Python and SQL Interviews</a></li>
+<li><a href="../../stages/23-career/04-ml-llm-basics.html">ML and LLM Basics</a></li>
+<li><a href="../../stages/23-career/05-system-design-practice.html">System Design Practice</a></li>
+<li><a href="../../stages/23-career/06-rag-agent-patterns.html">RAG and Agent Patterns</a></li>
+<li><a href="../../stages/23-career/07-inference-optimization.html">Inference Optimisation</a></li>
+<li><a href="../../stages/23-career/08-production-case-studies.html">Production Case Studies</a></li>
+<li><a href="../../stages/23-career/09-open-source.html">Open Source</a></li>
+<li><a href="../../stages/23-career/10-technical-articles.html">Technical Articles</a></li>
+<li><a href="../../stages/23-career/11-build-in-public.html">Building in Public</a></li>
+<li><a href="../../stages/23-career/12-apply-for-roles.html">Applying for Roles</a></li>
+</ul></div>
+  </aside>
+  <main>
+    <div class="crumbs"><a href="../../index.html">Roadmap</a><span>/</span><a href="../../stages/19-cloud-devops/index.html">Stage 19 · Cloud and DevOps</a><span>/</span>GPU Cloud Practicalities</div>
+    <article class="prose">
+<h1 id="8-gpu-cloud-practicalities">8. GPU Cloud Practicalities</h1>
+<blockquote>
+<p><strong>Stage 19 · Cloud and DevOps</strong> — the parts of renting a GPU that no tutorial warns you about: quota, capacity, interruption and where your weights actually live.</p>
+<p><strong>You'll be able to:</strong> plan a GPU workload around quota limits and regional availability, use spot capacity safely with checkpointing, and keep model weights on persistent storage instead of inside an image.</p>
+<p><strong>Prerequisites:</strong> <a href="02-ecs-eks-sagemaker.html">Containers at Scale: ECS, EKS, SageMaker</a> · <a href="../16-inference/10-gpu-memory.html">GPU Memory</a></p>
+</blockquote>
+<h2 id="why-this-exists">Why this exists</h2>
+<p>Renting a GPU is the one part of cloud work where the failure is not a config error but a wall: you ask for a machine and it does not exist. Either your account has no quota for that family in that region, or the region has no capacity today, or the spot instance you were relying on disappeared mid-training and your four hours of progress went with it.</p>
+<p>None of these are visible from the console until you hit them. The fix is planning: know your quota before you need it, know which regions have the family you want, design for interruption, and keep state off the machine.</p>
+<p>The mental model: <strong>a GPU instance is a scarce, expensive, interruptible machine. Assume it can vanish at any minute, and design so that costs you minutes rather than a day.</strong></p>
+<h2 id="the-mental-model">The mental model</h2>
+<div class="code-block"><pre><span></span><code>request GPU instance
+        |
+        |-- quota check (per family, per region) -- fails -&gt; increase quota, days of lead time
+        |-- capacity check (is it in stock today?) - fails -&gt; another region or another family
+        `-- got it
+              |
+              |-- spot?  -&gt; 2-minute interruption notice, sometimes less
+              |              -&gt; must checkpoint to durable storage
+              `-- on-demand -&gt; runs until you stop it (and bills until you do)
+
+storage tiers:
+  instance-local NVMe  fast, vanishes with the instance
+  attached volume      survives stop/start, same AZ only
+  object storage       survives everything, slower to read, cheap to keep
+</code></pre></div>
+
+<h2 id="core-concepts">Core concepts</h2>
+<h3 id="quota-is-the-first-blocker-and-it-is-per-family-per-region">Quota is the first blocker, and it is per family per region</h3>
+<p>Cloud accounts start with low or zero GPU quota. Requesting it is a support process measured in hours to days, and it applies per instance family and per region. This is the single most common reason a planned fine-tune does not happen on schedule: someone discovers on the day that they cannot launch the instance type they designed around.</p>
+<p>Practical routine: check the quota page for the exact family and region, request an increase well ahead, and keep a second region in mind with the quota already granted. Treat the request as a week-one task, not a launch-day task.</p>
+<h3 id="instance-names-change-prices-change-availability-changes">Instance names change, prices change, availability changes</h3>
+<p>GPU families are renamed and refreshed constantly, and the same family may be offered in one region and not another. Any specific name or hourly figure written in a tutorial — including this one — is a snapshot that will go stale. Before you commit to a plan, check the provider's current instance-type listing for your region and its current pricing page. Write the date you checked into your notes, so a future reader knows how old the number is.</p>
+<p>What is stable is the shape of the decision: <strong>memory per device, devices per node, interconnect between nodes, and whether the family is offered in your region.</strong> Those four properties drive everything else, and they are worth reasoning about explicitly rather than by memorising SKUs.</p>
+<h3 id="spot-cheap-and-interruptible-and-the-notice-is-short">Spot: cheap and interruptible, and the notice is short</h3>
+<p>Spot capacity is spare capacity at a discount, reclaimed when demand rises. You get a short interruption notice — on AWS historically two minutes, and you should design for that order of magnitude and verify the current behaviour — then the instance is taken.</p>
+<p>Three habits make spot usable:</p>
+<ol>
+<li><strong>Checkpoint to durable storage on a timer</strong>, not only at the end. Every N steps, write the optimiser state and step count to object storage. Resuming from a checkpoint loses N steps, not the run.</li>
+<li><strong>Handle the notice.</strong> Most clouds deliver an interruption signal or a metadata endpoint you can poll; catch it, save, and exit cleanly. A process that ignores it is killed mid-write and can leave a corrupt checkpoint.</li>
+<li><strong>Never use spot for a serving endpoint</strong> unless you have replicas across capacity pools and accept occasional churn. Spot is for jobs with a start and an end.</li>
+</ol>
+<h3 id="persistent-storage-where-the-weights-live">Persistent storage: where the weights live</h3>
+<p>Model weights are the biggest object in the system and the one people handle worst. Three rules:</p>
+<ul>
+<li><strong>Do not bake weights into the container image.</strong> A 14 GB layer makes every pull slow, every node's disk fill, and every registry bill large.</li>
+<li><strong>Do not download them on every start</strong> from a public host over the internet. It is slow, it costs egress, and it is a single point of failure at cold start.</li>
+<li><strong>Do</strong> keep them in object storage in the same region, and mount or fetch once per node into a persistent volume or a fast local cache. Then a restart is seconds, not minutes.</li>
+</ul>
+<p>Also watch the disk: a training run that writes checkpoints to instance-local disk will fill it, and a full disk manifests as a confusing failure deep in a library. Set a checkpoint retention policy — keep the last few plus the best, delete the rest.</p>
+<h3 id="right-sizing-memory-is-the-constraint-not-flops">Right-sizing: memory is the constraint, not FLOPs</h3>
+<p>A GPU has a fixed memory budget and everything competes for it: weights, activations, KV cache for serving, optimiser state for training. Sizing by "which card is fastest" is the wrong instinct; size by "does my workload fit with headroom".</p>
+<p>The practical sequence: compute the weight footprint from parameter count and precision, add the activation or KV-cache requirement, add a margin, then pick the smallest device that fits. For serving, that number determines concurrency; see <a href="../16-inference/10-gpu-memory.html">GPU Memory</a>. Getting this wrong shows up as an out-of-memory error partway through a run, which is why the checkpoint timer matters even on on-demand.</p>
+<h2 id="code">Code</h2>
+<p>A checkpointing training loop that survives interruption: it writes on a step interval and on the spot notice, and resumes from the latest checkpoint. The storage path is object storage, so a new instance in a new AZ can pick it up.</p>
+<div class="code-block"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">signal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+
+<span class="n">CKPT_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"CKPT_DIR"</span><span class="p">,</span> <span class="s2">"/mnt/ckpt"</span><span class="p">))</span>  <span class="c1"># mounted persistent volume</span>
+<span class="n">INTERRUPTED</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_handle_sigterm</span><span class="p">(</span><span class="n">signum</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Spot reclaim and normal shutdown both arrive here; save and exit cleanly.</span>
+    <span class="k">global</span> <span class="n">INTERRUPTED</span>
+    <span class="n">INTERRUPTED</span> <span class="o">=</span> <span class="kc">True</span>
+
+
+<span class="n">signal</span><span class="o">.</span><span class="n">signal</span><span class="p">(</span><span class="n">signal</span><span class="o">.</span><span class="n">SIGTERM</span><span class="p">,</span> <span class="n">_handle_sigterm</span><span class="p">)</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Trainer</span><span class="p">:</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span>
+    <span class="n">optimizer</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Optimizer</span>
+    <span class="n">step</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">CKPT_DIR</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">CKPT_DIR</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"step-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="si">}</span><span class="s2">.pt.tmp"</span>
+        <span class="n">final</span> <span class="o">=</span> <span class="n">CKPT_DIR</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"step-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="si">}</span><span class="s2">.pt"</span>
+        <span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+            <span class="p">{</span><span class="s2">"model"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s2">"optim"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s2">"step"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="p">},</span>
+            <span class="n">tmp</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">tmp</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">final</span><span class="p">)</span>   <span class="c1"># atomic: never leave a half-written checkpoint</span>
+        <span class="c1"># Keep only the three most recent to avoid filling the volume.</span>
+        <span class="k">for</span> <span class="n">old</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">CKPT_DIR</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"step-*.pt"</span><span class="p">))[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]:</span>
+            <span class="n">old</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ckpts</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">CKPT_DIR</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"step-*.pt"</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"-"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">ckpts</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">ckpts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">map_location</span><span class="o">=</span><span class="s2">"cpu"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">"model"</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">"optim"</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">step</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="s2">"step"</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"resumed at step </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">step</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">trainer</span><span class="p">:</span> <span class="n">Trainer</span><span class="p">,</span> <span class="n">batches</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">save_every</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">trainer</span><span class="o">.</span><span class="n">resume</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">batch</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">batches</span><span class="p">[</span><span class="n">trainer</span><span class="o">.</span><span class="n">step</span> <span class="p">:],</span> <span class="n">start</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">step</span><span class="p">):</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">trainer</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="n">trainer</span><span class="o">.</span><span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">(</span><span class="n">set_to_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">trainer</span><span class="o">.</span><span class="n">step</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">step</span> <span class="o">%</span> <span class="n">save_every</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">INTERRUPTED</span><span class="p">:</span>
+            <span class="n">trainer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"checkpoint at step </span><span class="si">{</span><span class="n">trainer</span><span class="o">.</span><span class="n">step</span><span class="si">}</span><span class="s2"> (interrupted=</span><span class="si">{</span><span class="n">INTERRUPTED</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">INTERRUPTED</span><span class="p">:</span>
+            <span class="k">return</span>   <span class="c1"># let the orchestrator replace us; the next run resumes here</span>
+</code></pre></div>
+
+<p>A preflight script that fails fast on the two things that waste the most time: quota and capacity. Run it the day before a run, not on the day.</p>
+<div class="code-block"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">boto3</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">botocore.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClientError</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_quota</span><span class="p">(</span><span class="n">instance_family</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">region</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Print the GPU vCPU quota for a family; raise if it looks like zero."""</span>
+    <span class="n">ec2</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s2">"ec2"</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="n">region</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">quotas</span> <span class="o">=</span> <span class="n">ec2</span><span class="o">.</span><span class="n">describe_service_quotas</span><span class="p">(</span><span class="n">ServiceCode</span><span class="o">=</span><span class="s2">"ec2"</span><span class="p">)[</span><span class="s2">"Quotas"</span><span class="p">]</span>
+    <span class="k">except</span> <span class="n">ClientError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"quota lookup failed in </span><span class="si">{</span><span class="n">region</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">quotas</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">instance_family</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">q</span><span class="p">[</span><span class="s2">"QuotaName"</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">region</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">q</span><span class="p">[</span><span class="s1">'QuotaName'</span><span class="p">]</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">q</span><span class="p">[</span><span class="s1">'Value'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">can_launch</span><span class="p">(</span><span class="n">instance_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">region</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Dry-run launch: checks capacity and permission without starting anything."""</span>
+    <span class="n">ec2</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s2">"ec2"</span><span class="p">,</span> <span class="n">region_name</span><span class="o">=</span><span class="n">region</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ec2</span><span class="o">.</span><span class="n">run_instances</span><span class="p">(</span>
+            <span class="n">InstanceType</span><span class="o">=</span><span class="n">instance_type</span><span class="p">,</span>
+            <span class="n">MinCount</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">MaxCount</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">DryRun</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>          <span class="c1"># raises DryRunOperation when you WOULD be allowed</span>
+            <span class="n">ImageId</span><span class="o">=</span><span class="s2">"ami-00000000000000000"</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="n">ClientError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="n">exc</span><span class="o">.</span><span class="n">response</span><span class="p">[</span><span class="s2">"Error"</span><span class="p">][</span><span class="s2">"Code"</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">code</span> <span class="o">==</span> <span class="s2">"DryRunOperation"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">region</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">instance_type</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"ap-south-1"</span><span class="p">,</span> <span class="s2">"us-east-1"</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"--- </span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">check_quota</span><span class="p">(</span><span class="s2">"g5"</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+        <span class="n">can_launch</span><span class="p">(</span><span class="s2">"g5.xlarge"</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="real-use-case">Real use case</h2>
+<p>A team plans a weekend LoRA fine-tune on a specific GPU family in their home region. On Friday evening the launch fails: quota for that family is zero in that region. The increase request is filed, but the window is gone.</p>
+<p>The retry a week later is planned differently. Quota is requested in two regions a fortnight ahead. The training loop checkpoints to object storage every 200 steps and handles <code>SIGTERM</code>. The run starts on spot capacity in the second region and is interrupted twice in six hours; each interruption costs about ten minutes of progress instead of the whole run. Weights are fetched once from a bucket in the same region into a volume, so a replacement instance is training within two minutes instead of re-downloading for fifteen.</p>
+<p>The total was not cheaper than the on-demand plan — spot savings partly offset by restarts — but it actually completed inside the available window, which the on-demand plan did not. The lesson they wrote into their runbook: <strong>quota and interruption are scheduling problems, not cost problems, and you solve them before the run starts.</strong></p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<p><strong>Mistake:</strong> assuming quota exists because you can see the instance type in the console — <strong>Instead:</strong> check the quota for that family and region and request an increase early.</p>
+<p><strong>Mistake:</strong> quoting an hourly price from a blog or a tutorial — <strong>Instead:</strong> check the current pricing page for your region and record the date checked.</p>
+<p><strong>Mistake:</strong> checkpointing only at the end of training — <strong>Instead:</strong> periodic atomic checkpoints to durable storage, plus a <code>SIGTERM</code> handler.</p>
+<p><strong>Mistake:</strong> baking weights into the image or downloading them from a public host at every start — <strong>Instead:</strong> object storage in-region plus a node-level cache or persistent volume.</p>
+<p><strong>Mistake:</strong> writing checkpoints to instance-local disk with no retention policy — <strong>Instead:</strong> durable storage and keep only the last few.</p>
+<p><strong>Mistake:</strong> running a serving endpoint on spot with one replica — <strong>Instead:</strong> on-demand for serving, or multiple replicas across capacity pools with health-checked failover.</p>
+<h2 id="checkpoint">Checkpoint</h2>
+<ol>
+<li>Run the preflight script for the family and region you plan to use, and record the quota values plus the date. File any increase request you need today.</li>
+<li>Add atomic checkpointing and a <code>SIGTERM</code> handler to a small training loop, then kill the process mid-run with <code>SIGTERM</code> and confirm a resume continues from the last checkpoint rather than step zero.</li>
+<li>Write a one-page GPU plan: instance family, memory justification from parameter count, storage tier for weights, spot or on-demand with a reason, and the interruption cost you accept.</li>
+</ol>
+<p><strong>Self-check:</strong> exercise 2 is done when a resumed run prints a starting step greater than zero and the loss curve continues from roughly where it stopped rather than restarting from the initial value.</p>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li><a href="../16-inference/10-gpu-memory.html">GPU Memory</a> — the sizing maths behind the family choice.</li>
+<li><a href="../13-fine-tuning/02-lora-qlora-peft.html">LoRA, QLoRA and PEFT</a> — what you are actually training on that GPU.</li>
+<li><a href="05-kubernetes.html">Kubernetes Essentials for AI Services</a> — GPU node groups, taints and device plugins.</li>
+<li><a href="07-terraform.html">Terraform Basics</a> — declaring quota-adjacent infra and node groups reproducibly.</li>
+</ul>
+<hr />
+<p><a href="07-terraform.html">← Previous: Terraform Basics</a> · <a href="index.html">Stage index</a> · <a href="09-ship-docker-deploy.html">Next: Ship: Dockerised Deploy with Rollback</a></p>
+    </article>
+    <nav class="pager">
+<a class="prev" href="../../stages/19-cloud-devops/07-terraform.html"><span class="dir">Previous</span>Terraform Basics</a>
+<a class="next" href="../../stages/19-cloud-devops/09-ship-docker-deploy.html"><span class="dir">Next</span>Ship: Dockerised Deploy with Rollback</a>
+</nav>
+    <footer class="site-footer">
+      AI Engineer Roadmap · <a href="../../contributing.html">Contribute</a> ·
+      <a href="../../glossary.html">Glossary</a> ·
+      <a href="../../progress.html">Progress</a> · MIT licensed
+    </footer>
+  </main>
+</div>
+<button id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 13V3M3 8l5-5 5 5"/></svg>
+</button>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

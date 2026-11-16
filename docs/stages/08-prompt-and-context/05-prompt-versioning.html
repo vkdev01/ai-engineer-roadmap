@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en" data-theme="github-light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt Versioning as Code · AI Engineer Roadmap</title>
+<meta name="description" content="Stage 08 · Prompt and Context — prompt changes as reviewable, reversible artefacts. You'll be able to: give every prompt an id and version, diff changes, tie an">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111'/><text x='16' y='22' font-size='14' font-family='monospace' fill='%23fff' text-anchor='middle'>AI</text></svg>">
+</head>
+<body>
+<div id="progress"></div>
+<header class="topbar">
+  <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+  </button>
+  <a class="brand" href="../../index.html">
+    <span class="brand-mark">AI</span>
+    <span class="brand-text">Engineer Roadmap</span>
+  </a>
+  <div class="spacer"></div>
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+    <input id="q" type="search" placeholder="Search 226 lessons…" autocomplete="off" aria-label="Search lessons">
+    <div id="results"></div>
+  </div>
+  <select id="theme" class="theme-select" aria-label="Style"></select>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+<a class="nav-home" href="../../index.html">Roadmap home</a>
+<a class="nav-home" href="../../fast-track.html">Fast track</a>
+<a class="nav-home" href="../../progress.html">Progress tracker</a>
+<a class="nav-home" href="../../glossary.html">Glossary</a>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">01</span><span>Programming Basics</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/01-programming-basics/index.html">Stage overview</a></li>
+<li><a href="../../stages/01-programming-basics/01-python-async.html">Python Async</a></li>
+<li><a href="../../stages/01-programming-basics/02-type-hints-pydantic.html">Type Hints and Pydantic v2</a></li>
+<li><a href="../../stages/01-programming-basics/03-generators.html">Generators</a></li>
+<li><a href="../../stages/01-programming-basics/04-algorithms.html">Core Algorithms</a></li>
+<li><a href="../../stages/01-programming-basics/05-git-github.html">Git and GitHub</a></li>
+<li><a href="../../stages/01-programming-basics/06-linux-cli.html">The Linux Command Line</a></li>
+<li><a href="../../stages/01-programming-basics/07-http-rest-apis.html">HTTP and REST APIs</a></li>
+<li><a href="../../stages/01-programming-basics/08-json-yaml.html">JSON and YAML</a></li>
+<li><a href="../../stages/01-programming-basics/09-ship-cli-tool.html">Ship a CLI Tool</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">02</span><span>Math and ML Basics</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/02-math-and-ml-basics/index.html">Stage overview</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/01-linear-algebra.html">Linear Algebra</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/02-calculus.html">Calculus</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/03-probability-bayes.html">Probability and Bayes</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/04-ml-basics.html">ML Basics</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/05-loss-functions.html">Loss Functions</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/06-backprop-gradients.html">Backpropagation and Gradients</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/07-ship-gradient-descent.html">Ship Gradient Descent</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">03</span><span>Data Engineering</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/03-data-engineering/index.html">Stage overview</a></li>
+<li><a href="../../stages/03-data-engineering/01-numpy-pandas.html">NumPy and Pandas</a></li>
+<li><a href="../../stages/03-data-engineering/02-data-cleaning.html">Cleaning Messy Data</a></li>
+<li><a href="../../stages/03-data-engineering/03-eda.html">Exploratory Data Analysis</a></li>
+<li><a href="../../stages/03-data-engineering/04-sql-postgresql.html">SQL on PostgreSQL</a></li>
+<li><a href="../../stages/03-data-engineering/05-parquet-jsonl.html">Parquet and JSONL</a></li>
+<li><a href="../../stages/03-data-engineering/06-data-pipelines.html">Data Pipelines</a></li>
+<li><a href="../../stages/03-data-engineering/07-validation.html">Schema Validation with Pydantic</a></li>
+<li><a href="../../stages/03-data-engineering/08-dataset-prep.html">Dataset Preparation</a></li>
+<li><a href="../../stages/03-data-engineering/09-ship-clean-dataset.html">Ship: A Clean Dataset with a Data Card</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">04</span><span>Deep Learning</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/04-deep-learning/index.html">Stage overview</a></li>
+<li><a href="../../stages/04-deep-learning/01-perceptrons.html">Perceptrons</a></li>
+<li><a href="../../stages/04-deep-learning/02-feedforward.html">Feedforward Networks</a></li>
+<li><a href="../../stages/04-deep-learning/03-optimizers.html">Optimizers</a></li>
+<li><a href="../../stages/04-deep-learning/04-cnns-rnns.html">CNNs and RNNs</a></li>
+<li><a href="../../stages/04-deep-learning/05-lstms-grus.html">LSTMs and GRUs</a></li>
+<li><a href="../../stages/04-deep-learning/06-attention.html">Attention</a></li>
+<li><a href="../../stages/04-deep-learning/07-transformers.html">Transformers</a></li>
+<li><a href="../../stages/04-deep-learning/08-embeddings.html">Embeddings</a></li>
+<li><a href="../../stages/04-deep-learning/09-transfer-learning.html">Transfer Learning</a></li>
+<li><a href="../../stages/04-deep-learning/10-ship-mini-transformer.html">Ship: A Miniature Transformer</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">05</span><span>DL Frameworks</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/05-dl-frameworks/index.html">Stage overview</a></li>
+<li><a href="../../stages/05-dl-frameworks/01-pytorch.html">PyTorch: Tensors and Modules</a></li>
+<li><a href="../../stages/05-dl-frameworks/02-autograd.html">Autograd From Scratch</a></li>
+<li><a href="../../stages/05-dl-frameworks/03-training-loops.html">Anatomy of a Training Loop</a></li>
+<li><a href="../../stages/05-dl-frameworks/04-gpu-checkpoints.html">GPU Memory and Checkpoints</a></li>
+<li><a href="../../stages/05-dl-frameworks/05-keras.html">Keras and the High-Level Path</a></li>
+<li><a href="../../stages/05-dl-frameworks/06-hugging-face.html">Hugging Face Transformers and Datasets</a></li>
+<li><a href="../../stages/05-dl-frameworks/07-cuda.html">CUDA, Devices and Mixed Precision</a></li>
+<li><a href="../../stages/05-dl-frameworks/08-ship-training-loop.html">Ship: A Reusable Training Loop</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">06</span><span>LLM Fundamentals</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/06-llm-fundamentals/index.html">Stage overview</a></li>
+<li><a href="../../stages/06-llm-fundamentals/01-gpt-and-bert.html">GPT and BERT: Decoder-Only vs Encoder-Only</a></li>
+<li><a href="../../stages/06-llm-fundamentals/02-tokenization.html">Tokenization: BPE and Byte-Level</a></li>
+<li><a href="../../stages/06-llm-fundamentals/03-context-windows.html">Context Windows</a></li>
+<li><a href="../../stages/06-llm-fundamentals/04-self-attention.html">Self-Attention From Scratch</a></li>
+<li><a href="../../stages/06-llm-fundamentals/05-pretraining.html">Pretraining: Objectives and Scale</a></li>
+<li><a href="../../stages/06-llm-fundamentals/06-instruction-tuning.html">Instruction Tuning and Chat Templates</a></li>
+<li><a href="../../stages/06-llm-fundamentals/07-rlhf-dpo.html">RLHF and DPO</a></li>
+<li><a href="../../stages/06-llm-fundamentals/08-open-vs-closed.html">Open-Weight vs Closed Models</a></li>
+<li><a href="../../stages/06-llm-fundamentals/09-ship-tokenizer.html">Ship: Tokenizer and Token-Budget Analyser</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">07</span><span>LLM APIs</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/07-llm-apis/index.html">Stage overview</a></li>
+<li><a href="../../stages/07-llm-apis/01-openai-anthropic.html">The OpenAI and Anthropic Chat APIs</a></li>
+<li><a href="../../stages/07-llm-apis/02-gemini-open-weight.html">Gemini and Open-Weight Models via Hosted Endpoints</a></li>
+<li><a href="../../stages/07-llm-apis/03-streaming.html">Streaming Responses</a></li>
+<li><a href="../../stages/07-llm-apis/04-structured-outputs.html">Structured Outputs</a></li>
+<li><a href="../../stages/07-llm-apis/05-tool-calling.html">Tool Calling</a></li>
+<li><a href="../../stages/07-llm-apis/06-multimodal-apis.html">Multimodal APIs</a></li>
+<li><a href="../../stages/07-llm-apis/07-retries-rate-limits.html">Retries and Rate Limits</a></li>
+<li><a href="../../stages/07-llm-apis/08-cost-tracking.html">Token Accounting and Cost Tracking</a></li>
+<li><a href="../../stages/07-llm-apis/09-routing-fallbacks.html">Routing and Fallbacks</a></li>
+<li><a href="../../stages/07-llm-apis/10-ship-multi-model-client.html">Ship: A Multi-Model Client</a></li>
+</ul></div>
+<div class="nav-group open">
+<button class="nav-stage current" type="button"><span class="num">08</span><span>Prompt and Context</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/08-prompt-and-context/index.html">Stage overview</a></li>
+<li><a href="../../stages/08-prompt-and-context/01-system-instructions.html">System Instructions That Actually Constrain</a></li>
+<li><a href="../../stages/08-prompt-and-context/02-few-shot-cot.html">Few-Shot Prompting and Chain of Thought</a></li>
+<li><a href="../../stages/08-prompt-and-context/03-templates.html">Prompt Templates with Variables and Validation</a></li>
+<li><a href="../../stages/08-prompt-and-context/04-context-compression.html">Context Compression</a></li>
+<li><a class="active" href="../../stages/08-prompt-and-context/05-prompt-versioning.html">Prompt Versioning as Code</a></li>
+<li><a href="../../stages/08-prompt-and-context/06-injection-defense.html">Prompt-Injection Defence</a></li>
+<li><a href="../../stages/08-prompt-and-context/07-prompt-evals.html">Prompt Evals</a></li>
+<li><a href="../../stages/08-prompt-and-context/08-context-engineering.html">Context Engineering</a></li>
+<li><a href="../../stages/08-prompt-and-context/09-ship-prompt-test-suite.html">Ship: A Prompt Test Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">09</span><span>Vector Databases</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/09-vector-databases/index.html">Stage overview</a></li>
+<li><a href="../../stages/09-vector-databases/01-embeddings.html">Embeddings: Text as Points in Space</a></li>
+<li><a href="../../stages/09-vector-databases/02-similarity-metrics.html">Similarity Metrics</a></li>
+<li><a href="../../stages/09-vector-databases/03-semantic-search.html">Semantic Search End to End</a></li>
+<li><a href="../../stages/09-vector-databases/04-vector-indexing.html">Vector Indexing Structures</a></li>
+<li><a href="../../stages/09-vector-databases/05-ann-search.html">Approximate Nearest Neighbour Search</a></li>
+<li><a href="../../stages/09-vector-databases/06-pinecone-qdrant.html">Pinecone and Qdrant</a></li>
+<li><a href="../../stages/09-vector-databases/07-weaviate-milvus.html">Weaviate and Milvus</a></li>
+<li><a href="../../stages/09-vector-databases/08-chroma.html">Chroma and pgvector</a></li>
+<li><a href="../../stages/09-vector-databases/09-hybrid-search.html">Hybrid Search and Reciprocal Rank Fusion</a></li>
+<li><a href="../../stages/09-vector-databases/10-ship-semantic-search.html">Ship: A Semantic Search Service</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">10</span><span>RAG</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/10-rag/index.html">Stage overview</a></li>
+<li><a href="../../stages/10-rag/01-rag-architecture.html">RAG Architecture</a></li>
+<li><a href="../../stages/10-rag/02-ingestion-parsing.html">Ingestion and Parsing</a></li>
+<li><a href="../../stages/10-rag/03-chunking.html">Chunking</a></li>
+<li><a href="../../stages/10-rag/04-embedding-storage.html">Embedding and Storage Design</a></li>
+<li><a href="../../stages/10-rag/05-query-transform.html">Query Transformation</a></li>
+<li><a href="../../stages/10-rag/06-reranking.html">Reranking</a></li>
+<li><a href="../../stages/10-rag/07-hybrid-retrieval.html">Hybrid Retrieval</a></li>
+<li><a href="../../stages/10-rag/08-parent-child.html">Parent-Child Retrieval</a></li>
+<li><a href="../../stages/10-rag/09-multi-query.html">Multi-Query Retrieval</a></li>
+<li><a href="../../stages/10-rag/10-graph-rag.html">Graph RAG</a></li>
+<li><a href="../../stages/10-rag/11-agentic-rag.html">Agentic RAG</a></li>
+<li><a href="../../stages/10-rag/12-rag-evals.html">RAG Evaluation</a></li>
+<li><a href="../../stages/10-rag/13-ship-rag-with-evals.html">Ship: A RAG Service with Evals</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">11</span><span>AI Agents</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/11-agents/index.html">Stage overview</a></li>
+<li><a href="../../stages/11-agents/01-harness-engineering.html">Harness Engineering</a></li>
+<li><a href="../../stages/11-agents/02-agent-architecture.html">Agent Architecture</a></li>
+<li><a href="../../stages/11-agents/03-reasoning-planning.html">Reasoning and Planning</a></li>
+<li><a href="../../stages/11-agents/04-tool-calling.html">Tool Calling</a></li>
+<li><a href="../../stages/11-agents/05-memory-and-state.html">Memory and State</a></li>
+<li><a href="../../stages/11-agents/06-single-agent.html">Single-Agent Patterns</a></li>
+<li><a href="../../stages/11-agents/07-multi-agent.html">Multi-Agent Patterns</a></li>
+<li><a href="../../stages/11-agents/08-human-in-the-loop.html">Human in the Loop</a></li>
+<li><a href="../../stages/11-agents/09-reflection.html">Reflection and Self-Critique</a></li>
+<li><a href="../../stages/11-agents/10-loop-engineering.html">Loop Engineering</a></li>
+<li><a href="../../stages/11-agents/11-agent-security.html">Agent Security</a></li>
+<li><a href="../../stages/11-agents/12-ship-harness-agent.html">Ship: A Harness Agent</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">12</span><span>Orchestration</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/12-orchestration/index.html">Stage overview</a></li>
+<li><a href="../../stages/12-orchestration/01-langchain.html">LangChain</a></li>
+<li><a href="../../stages/12-orchestration/02-langgraph.html">LangGraph</a></li>
+<li><a href="../../stages/12-orchestration/03-graph-engineering.html">Graph Engineering</a></li>
+<li><a href="../../stages/12-orchestration/04-llamaindex.html">LlamaIndex</a></li>
+<li><a href="../../stages/12-orchestration/05-haystack.html">Haystack</a></li>
+<li><a href="../../stages/12-orchestration/06-semantic-kernel.html">Semantic Kernel</a></li>
+<li><a href="../../stages/12-orchestration/07-pydantic-ai.html">Pydantic AI</a></li>
+<li><a href="../../stages/12-orchestration/08-dspy.html">DSPy</a></li>
+<li><a href="../../stages/12-orchestration/09-crewai-autogen.html">CrewAI and AutoGen</a></li>
+<li><a href="../../stages/12-orchestration/10-tradeoffs.html">Trade-offs</a></li>
+<li><a href="../../stages/12-orchestration/11-ship-langgraph-flow.html">Ship: A LangGraph Flow</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">13</span><span>Fine-Tuning</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/13-fine-tuning/index.html">Stage overview</a></li>
+<li><a href="../../stages/13-fine-tuning/01-sft.html">Supervised Fine-Tuning (SFT)</a></li>
+<li><a href="../../stages/13-fine-tuning/02-lora-qlora-peft.html">LoRA, QLoRA and PEFT</a></li>
+<li><a href="../../stages/13-fine-tuning/03-synthetic-data.html">Synthetic Data for Fine-Tuning</a></li>
+<li><a href="../../stages/13-fine-tuning/04-instruction-tuning.html">Instruction Tuning vs Continued Pretraining</a></li>
+<li><a href="../../stages/13-fine-tuning/05-dpo.html">DPO: Preference Tuning Without RLHF</a></li>
+<li><a href="../../stages/13-fine-tuning/06-finetune-evals.html">Evaluating a Fine-Tune Honestly</a></li>
+<li><a href="../../stages/13-fine-tuning/07-finetune-vs-rag.html">Fine-Tune vs RAG vs Prompting</a></li>
+<li><a href="../../stages/13-fine-tuning/08-ship-lora-model.html">Ship: A LoRA Fine-Tune of a Small Open Model</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">14</span><span>Multimodal AI</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/14-multimodal/index.html">Stage overview</a></li>
+<li><a href="../../stages/14-multimodal/01-vision-language.html">Vision-Language Models</a></li>
+<li><a href="../../stages/14-multimodal/02-ocr.html">OCR: Traditional and Model-Based</a></li>
+<li><a href="../../stages/14-multimodal/03-speech-to-text.html">Speech-to-Text</a></li>
+<li><a href="../../stages/14-multimodal/04-text-to-speech.html">Text-to-Speech</a></li>
+<li><a href="../../stages/14-multimodal/05-video-audio.html">Video and Audio Processing</a></li>
+<li><a href="../../stages/14-multimodal/06-multimodal-embeddings.html">Multimodal Embeddings</a></li>
+<li><a href="../../stages/14-multimodal/07-diffusion.html">Diffusion Models for Engineers</a></li>
+<li><a href="../../stages/14-multimodal/08-multimodal-rag.html">Multimodal RAG</a></li>
+<li><a href="../../stages/14-multimodal/09-ship-doc-reader.html">Ship: A Document Reader with Citations</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">15</span><span>Evals and Testing</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/15-evals/index.html">Stage overview</a></li>
+<li><a href="../../stages/15-evals/01-unit-tests.html">Unit Tests for LLM Code</a></li>
+<li><a href="../../stages/15-evals/02-llm-as-judge.html">LLM as Judge</a></li>
+<li><a href="../../stages/15-evals/03-golden-datasets.html">Golden Datasets</a></li>
+<li><a href="../../stages/15-evals/04-faithfulness.html">Faithfulness</a></li>
+<li><a href="../../stages/15-evals/05-hallucinations.html">Hallucinations</a></li>
+<li><a href="../../stages/15-evals/06-agent-evals.html">Agent Evals</a></li>
+<li><a href="../../stages/15-evals/07-human-evals.html">Human Evals</a></li>
+<li><a href="../../stages/15-evals/08-regression-tests.html">Regression Tests</a></li>
+<li><a href="../../stages/15-evals/09-online-offline-evals.html">Online and Offline Evals</a></li>
+<li><a href="../../stages/15-evals/10-ship-eval-suite.html">Ship: An Eval Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">16</span><span>Inference</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/16-inference/index.html">Stage overview</a></li>
+<li><a href="../../stages/16-inference/01-prefill-decode.html">Prefill and Decode</a></li>
+<li><a href="../../stages/16-inference/02-kv-cache.html">The KV Cache</a></li>
+<li><a href="../../stages/16-inference/03-continuous-batching.html">Continuous Batching</a></li>
+<li><a href="../../stages/16-inference/04-pagedattention.html">PagedAttention</a></li>
+<li><a href="../../stages/16-inference/05-speculative-decoding.html">Speculative Decoding</a></li>
+<li><a href="../../stages/16-inference/06-quantization.html">Quantization</a></li>
+<li><a href="../../stages/16-inference/07-distillation.html">Distillation</a></li>
+<li><a href="../../stages/16-inference/08-vllm-sglang.html">vLLM and SGLang</a></li>
+<li><a href="../../stages/16-inference/09-ollama-tensorrt.html">Ollama and TensorRT-LLM</a></li>
+<li><a href="../../stages/16-inference/10-gpu-memory.html">GPU Memory Budgeting</a></li>
+<li><a href="../../stages/16-inference/11-ship-vllm-server.html">Ship: A vLLM Server</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">17</span><span>AI Backend</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/17-ai-backend/index.html">Stage overview</a></li>
+<li><a href="../../stages/17-ai-backend/01-fastapi-flask.html">FastAPI and Flask</a></li>
+<li><a href="../../stages/17-ai-backend/02-websockets.html">Streaming with SSE and WebSockets</a></li>
+<li><a href="../../stages/17-ai-backend/03-async-processing.html">Async Processing</a></li>
+<li><a href="../../stages/17-ai-backend/04-redis-caching.html">Redis Caching</a></li>
+<li><a href="../../stages/17-ai-backend/05-job-queues.html">Job Queues</a></li>
+<li><a href="../../stages/17-ai-backend/06-auth-rate-limits.html">Auth and Rate Limits</a></li>
+<li><a href="../../stages/17-ai-backend/07-api-security.html">API Security</a></li>
+<li><a href="../../stages/17-ai-backend/08-ai-app-architecture.html">AI App Architecture</a></li>
+<li><a href="../../stages/17-ai-backend/09-ship-streaming-api.html">Ship: A Streaming Chat API</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">18</span><span>MLOps and LLMOps</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/18-mlops-llmops/index.html">Stage overview</a></li>
+<li><a href="../../stages/18-mlops-llmops/01-mlflow-wandb.html">Experiment Tracking with MLflow and W&B</a></li>
+<li><a href="../../stages/18-mlops-llmops/02-langfuse-langsmith.html">LLM Observability with Langfuse and LangSmith</a></li>
+<li><a href="../../stages/18-mlops-llmops/03-prompt-versioning.html">Prompt Versioning and Registries</a></li>
+<li><a href="../../stages/18-mlops-llmops/04-dvc.html">DVC for Data and Models</a></li>
+<li><a href="../../stages/18-mlops-llmops/05-tracing.html">Tracing Design</a></li>
+<li><a href="../../stages/18-mlops-llmops/06-cost-monitoring.html">Cost Monitoring and Budgets</a></li>
+<li><a href="../../stages/18-mlops-llmops/07-ci-cd-evals.html">CI/CD for Evals</a></li>
+<li><a href="../../stages/18-mlops-llmops/08-ship-trace-dashboard.html">Ship: A Trace Dashboard</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">19</span><span>Cloud and DevOps</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/19-cloud-devops/index.html">Stage overview</a></li>
+<li><a href="../../stages/19-cloud-devops/01-aws-s3-ec2-lambda.html">AWS for AI Apps: S3, EC2, Lambda</a></li>
+<li><a href="../../stages/19-cloud-devops/02-ecs-eks-sagemaker.html">Containers at Scale: ECS, EKS, SageMaker</a></li>
+<li><a href="../../stages/19-cloud-devops/03-gcp-azure-ai.html">GCP and Azure AI Equivalents</a></li>
+<li><a href="../../stages/19-cloud-devops/04-docker.html">Docker Done Properly</a></li>
+<li><a href="../../stages/19-cloud-devops/05-kubernetes.html">Kubernetes Essentials for AI Services</a></li>
+<li><a href="../../stages/19-cloud-devops/06-github-actions.html">GitHub Actions CI/CD</a></li>
+<li><a href="../../stages/19-cloud-devops/07-terraform.html">Terraform Basics</a></li>
+<li><a href="../../stages/19-cloud-devops/08-gpu-cloud.html">GPU Cloud Practicalities</a></li>
+<li><a href="../../stages/19-cloud-devops/09-ship-docker-deploy.html">Ship: Dockerised Deploy with Rollback</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">20</span><span>AI Security</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/20-ai-security/index.html">Stage overview</a></li>
+<li><a href="../../stages/20-ai-security/01-prompt-injection.html">Prompt Injection</a></li>
+<li><a href="../../stages/20-ai-security/02-jailbreaks.html">Jailbreaks</a></li>
+<li><a href="../../stages/20-ai-security/03-data-leakage.html">Data Leakage</a></li>
+<li><a href="../../stages/20-ai-security/04-pii-redaction.html">PII Redaction and Detection</a></li>
+<li><a href="../../stages/20-ai-security/05-sandboxing.html">Sandboxing Tool Execution</a></li>
+<li><a href="../../stages/20-ai-security/06-supply-chain.html">Supply Chain Security</a></li>
+<li><a href="../../stages/20-ai-security/07-bias-fairness.html">Bias and Fairness</a></li>
+<li><a href="../../stages/20-ai-security/08-governance.html">Governance</a></li>
+<li><a href="../../stages/20-ai-security/09-guardrails.html">Guardrails</a></li>
+<li><a href="../../stages/20-ai-security/10-ship-injection-tests.html">Ship: Injection Test Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">21</span><span>System Design</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/21-system-design/index.html">Stage overview</a></li>
+<li><a href="../../stages/21-system-design/01-scalable-ai-apps.html">Scalable AI Apps</a></li>
+<li><a href="../../stages/21-system-design/02-rag-design.html">RAG Design at Scale</a></li>
+<li><a href="../../stages/21-system-design/03-agent-design.html">Agent Design</a></li>
+<li><a href="../../stages/21-system-design/04-model-routing.html">Model Routing</a></li>
+<li><a href="../../stages/21-system-design/05-multi-tenant.html">Multi-Tenant Design</a></li>
+<li><a href="../../stages/21-system-design/06-caching.html">Caching Layers</a></li>
+<li><a href="../../stages/21-system-design/07-fault-tolerance.html">Fault Tolerance</a></li>
+<li><a href="../../stages/21-system-design/08-cost-latency.html">Cost and Latency Engineering</a></li>
+<li><a href="../../stages/21-system-design/09-scaling-tradeoffs.html">Scaling Trade-offs</a></li>
+<li><a href="../../stages/21-system-design/10-ship-design-doc.html">Ship: A Design Document</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">22</span><span>Real Projects</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/22-real-projects/index.html">Stage overview</a></li>
+<li><a href="../../stages/22-real-projects/01-research-assistant.html">Research Assistant</a></li>
+<li><a href="../../stages/22-real-projects/02-document-intelligence.html">Document Intelligence</a></li>
+<li><a href="../../stages/22-real-projects/03-production-rag.html">Production RAG</a></li>
+<li><a href="../../stages/22-real-projects/04-multi-agent-research.html">Multi-Agent Research</a></li>
+<li><a href="../../stages/22-real-projects/05-support-agent.html">Support Agent</a></li>
+<li><a href="../../stages/22-real-projects/06-coding-assistant.html">Coding Assistant</a></li>
+<li><a href="../../stages/22-real-projects/07-multimodal-assistant.html">Multimodal Assistant</a></li>
+<li><a href="../../stages/22-real-projects/08-meeting-intelligence.html">Meeting Intelligence</a></li>
+<li><a href="../../stages/22-real-projects/09-knowledge-assistant.html">Knowledge Assistant</a></li>
+<li><a href="../../stages/22-real-projects/10-workflow-automation.html">Workflow Automation</a></li>
+<li><a href="../../stages/22-real-projects/11-fine-tuning-pipeline.html">Fine-Tuning Pipeline</a></li>
+<li><a href="../../stages/22-real-projects/12-eval-platform.html">Eval Platform</a></li>
+<li><a href="../../stages/22-real-projects/13-ai-saas.html">AI SaaS</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">23</span><span>Career</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/23-career/index.html">Stage overview</a></li>
+<li><a href="../../stages/23-career/01-github-portfolio.html">GitHub Portfolio</a></li>
+<li><a href="../../stages/23-career/02-resume.html">Resume</a></li>
+<li><a href="../../stages/23-career/03-python-sql-interviews.html">Python and SQL Interviews</a></li>
+<li><a href="../../stages/23-career/04-ml-llm-basics.html">ML and LLM Basics</a></li>
+<li><a href="../../stages/23-career/05-system-design-practice.html">System Design Practice</a></li>
+<li><a href="../../stages/23-career/06-rag-agent-patterns.html">RAG and Agent Patterns</a></li>
+<li><a href="../../stages/23-career/07-inference-optimization.html">Inference Optimisation</a></li>
+<li><a href="../../stages/23-career/08-production-case-studies.html">Production Case Studies</a></li>
+<li><a href="../../stages/23-career/09-open-source.html">Open Source</a></li>
+<li><a href="../../stages/23-career/10-technical-articles.html">Technical Articles</a></li>
+<li><a href="../../stages/23-career/11-build-in-public.html">Building in Public</a></li>
+<li><a href="../../stages/23-career/12-apply-for-roles.html">Applying for Roles</a></li>
+</ul></div>
+  </aside>
+  <main>
+    <div class="crumbs"><a href="../../index.html">Roadmap</a><span>/</span><a href="../../stages/08-prompt-and-context/index.html">Stage 08 · Prompt and Context</a><span>/</span>Prompt Versioning as Code</div>
+    <article class="prose">
+<h1 id="5-prompt-versioning-as-code">5. Prompt Versioning as Code</h1>
+<blockquote>
+<p><strong>Stage 08 · Prompt and Context</strong> — prompt changes as reviewable, reversible artefacts.</p>
+<p><strong>You'll be able to:</strong> give every prompt an id and version, diff changes, tie answers to the version that produced them, and roll back safely.</p>
+<p><strong>Prerequisites:</strong> <a href="03-templates.html">Prompt Templates with Variables and Validation</a> · <a href="../01-programming-basics/05-git-github.html">Git and GitHub</a></p>
+</blockquote>
+<h2 id="why-this-exists">Why this exists</h2>
+<p>Prompts change more often than code and, unlike code, they often change without a test failing. Someone tweaks a sentence in a dashboard, quality shifts, and nobody can reconstruct what the prompt looked like when the bad answers started. The result is a class of bug that is invisible in your repo history because the prompt never lived there.</p>
+<p>Versioning fixes it by making the prompt a file with an id, a version and a diff — and by recording which version produced each answer. That single log field turns "the assistant got worse last Tuesday" into a query.</p>
+<p>The mental model: <strong>a prompt is code: it has a name, a version, a diff and a rollback.</strong></p>
+<h2 id="the-mental-model">The mental model</h2>
+<div class="code-block"><pre><span></span><code>prompts/
+  ticket-answer/
+    v3.yaml     &lt;- current
+    v2.yaml     &lt;- kept for comparison
+    CHANGELOG.md
+
+request --&gt; template_id + version + content_hash
+              |
+              v
+          answer log row: {request_id, template_id, version, hash, score}
+</code></pre></div>
+
+<table>
+<thead>
+<tr>
+<th>Practice</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prompt in the repo, not a dashboard</td>
+<td>it gets reviewed and diffed</td>
+</tr>
+<tr>
+<td>Monotonic versions, old ones kept</td>
+<td>you can A/B and roll back</td>
+</tr>
+<tr>
+<td>Version in every log row</td>
+<td>you can attribute a regression</td>
+</tr>
+<tr>
+<td>Content hash alongside version</td>
+<td>catches edits that skipped the version bump</td>
+</tr>
+</tbody>
+</table>
+<h2 id="core-concepts">Core concepts</h2>
+<h3 id="the-version-is-an-identity-not-a-label">The version is an identity, not a label</h3>
+<p><code>v3</code> should mean exactly one text. If two different texts share a version, attribution is broken. Enforce that with a content hash stored next to the version and a CI check that recomputes it.</p>
+<h3 id="keep-the-old-versions">Keep the old versions</h3>
+<p>Do not edit <code>v3</code> in place. Add <code>v4</code>. Old files cost nothing and let you run a comparison: same fixtures, both versions, side-by-side scores. Deleting the previous version makes "was this change good?" unanswerable.</p>
+<h3 id="prompts-are-configuration-so-treat-config-carefully">Prompts are configuration, so treat config carefully</h3>
+<p>A prompt in a YAML file next to its schema and fixtures is reviewable. A prompt in a vendor dashboard is not, and it also cannot be tested in CI. If you must edit in a UI, mirror it back into the repo on every save and treat the repo as the source of truth.</p>
+<h3 id="version-the-model-id-with-the-prompt">Version the model id with the prompt</h3>
+<p>A prompt tuned for one model is not automatically right for another. Record the model id alongside the version in your answer logs, and re-run your eval set when either changes. A "prompt regression" is often a model migration in disguise.</p>
+<h3 id="rollback-must-be-a-one-line-change">Rollback must be a one-line change</h3>
+<p>If rolling back requires editing prompt text from memory, you will not do it under pressure. Keep the previous version file present and make the active version a config value, so rollback is a config edit and a deploy.</p>
+<h2 id="code">Code</h2>
+<p>A prompt file with its metadata, a loader that verifies the hash, and a registry that makes the active version explicit.</p>
+<div class="code-block"><pre><span></span><code><span class="c1"># prompts/ticket-answer/v3.yaml</span>
+<span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ticket-answer</span>
+<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v3</span>
+<span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">set-model-id-in-config</span><span class="w">   </span><span class="c1"># check provider docs for the current id</span>
+<span class="nt">temperature</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.2</span>
+<span class="nt">variables</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">question</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="nv">string</span><span class="p p-Indicator">,</span><span class="nt"> max</span><span class="p">:</span><span class="w"> </span><span class="nv">2000</span><span class="p p-Indicator">,</span><span class="nt"> required</span><span class="p">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">}</span>
+<span class="w">  </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="nv">string</span><span class="p p-Indicator">,</span><span class="nt"> max</span><span class="p">:</span><span class="w"> </span><span class="nv">20000</span><span class="p p-Indicator">,</span><span class="nt"> default</span><span class="p">:</span><span class="w"> </span><span class="s">""</span><span class="p p-Indicator">}</span>
+<span class="w">  </span><span class="nt">product_area</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="nv">enum</span><span class="p p-Indicator">,</span><span class="nt"> values</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">general</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">billing</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">auth</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">api</span><span class="p p-Indicator">],</span><span class="nt"> default</span><span class="p">:</span><span class="w"> </span><span class="nv">general</span><span class="p p-Indicator">}</span>
+<span class="nt">body</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">  </span><span class="no">Answer the question for the {product_area} area.</span>
+
+<span class="w">  </span><span class="no">&lt;context&gt;</span>
+<span class="w">  </span><span class="no">{context}</span>
+<span class="w">  </span><span class="no">&lt;/context&gt;</span>
+
+<span class="w">  </span><span class="no">&lt;question&gt;</span>
+<span class="w">  </span><span class="no">{question}</span>
+<span class="w">  </span><span class="no">&lt;/question&gt;</span>
+<span class="nt">changelog</span><span class="p">:</span><span class="w"> </span><span class="s">"v3:</span><span class="nv"> </span><span class="s">added</span><span class="nv"> </span><span class="s">product_area</span><span class="nv"> </span><span class="s">routing</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">strict</span><span class="nv"> </span><span class="s">context</span><span class="nv"> </span><span class="s">delimiter."</span>
+</code></pre></div>
+
+<p>The loader recomputes the hash on every load, so an edit that skipped the version bump fails loudly instead of silently changing behaviour.</p>
+<div class="code-block"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PromptFile</span><span class="p">:</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">version</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">body</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">model</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">content_hash</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_prompt</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PromptFile</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"body"</span><span class="p">]</span>
+    <span class="n">digest</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()[:</span><span class="mi">16</span><span class="p">]</span>
+
+    <span class="c1"># The version must identify exactly one body. Store the expected hash in</span>
+    <span class="c1"># the file and compare, so an edit without a bump cannot slip through.</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"body_sha256"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">expected</span> <span class="ow">and</span> <span class="n">expected</span> <span class="o">!=</span> <span class="n">digest</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">: body changed without a version bump "</span>
+            <span class="sa">f</span><span class="s2">"(expected </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">, got </span><span class="si">{</span><span class="n">digest</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">PromptFile</span><span class="p">(</span>
+        <span class="nb">id</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">"id"</span><span class="p">],</span>
+        <span class="n">version</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">"version"</span><span class="p">],</span>
+        <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">"model"</span><span class="p">],</span>
+        <span class="n">temperature</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"temperature"</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)),</span>
+        <span class="n">content_hash</span><span class="o">=</span><span class="n">digest</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="n">ACTIVE</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"ticket-answer"</span><span class="p">:</span> <span class="s2">"v3"</span><span class="p">}</span>   <span class="c1"># rollback = change this string</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_active</span><span class="p">(</span><span class="n">prompt_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"prompts"</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">PromptFile</span><span class="p">:</span>
+    <span class="n">version</span> <span class="o">=</span> <span class="n">ACTIVE</span><span class="p">[</span><span class="n">prompt_id</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">load_prompt</span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="n">prompt_id</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">.yaml"</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Every answer log row then carries the attribution fields, which is what makes the version worth having.</p>
+<div class="code-block"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span><span class="o">,</span><span class="w"> </span><span class="nn">uuid</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_answer</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="n">PromptFile</span><span class="p">,</span> <span class="n">request_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">score</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">"request_id"</span><span class="p">:</span> <span class="n">request_id</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()),</span>
+        <span class="s2">"template_id"</span><span class="p">:</span> <span class="n">prompt</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="s2">"template_version"</span><span class="p">:</span> <span class="n">prompt</span><span class="o">.</span><span class="n">version</span><span class="p">,</span>
+        <span class="s2">"content_hash"</span><span class="p">:</span> <span class="n">prompt</span><span class="o">.</span><span class="n">content_hash</span><span class="p">,</span>
+        <span class="s2">"model"</span><span class="p">:</span> <span class="n">prompt</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
+        <span class="s2">"score"</span><span class="p">:</span> <span class="n">score</span><span class="p">,</span>          <span class="c1"># filled in by evals or by human review</span>
+        <span class="s2">"ts"</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span>
+    <span class="p">}</span>
+</code></pre></div>
+
+<p>In TypeScript, keep prompts as JSON modules so the version travels with the import and the type system can check the shape.</p>
+<div class="code-block"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">z</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"zod"</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">PromptFileSchema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">z</span><span class="p">.</span><span class="nx">object</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">z.string</span><span class="p">(),</span>
+<span class="w">  </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="kt">z.string</span><span class="p">(),</span>
+<span class="w">  </span><span class="nx">model</span><span class="o">:</span><span class="w"> </span><span class="kt">z.string</span><span class="p">(),</span>
+<span class="w">  </span><span class="nx">temperature</span><span class="o">:</span><span class="w"> </span><span class="kt">z.number</span><span class="p">().</span><span class="k">default</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span>
+<span class="w">  </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="kt">z.string</span><span class="p">(),</span>
+<span class="w">  </span><span class="nx">changelog</span><span class="o">:</span><span class="w"> </span><span class="kt">z.string</span><span class="p">().</span><span class="nx">optional</span><span class="p">(),</span>
+<span class="p">});</span>
+<span class="k">export</span><span class="w"> </span><span class="kr">type</span><span class="w"> </span><span class="nx">PromptFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">z</span><span class="p">.</span><span class="nx">infer</span><span class="o">&lt;</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">PromptFileSchema</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">// Static imports: the version is visible at the call site and in code review.</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">ticketV3</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">"../prompts/ticket-answer/v3.json"</span><span class="w"> </span><span class="kd">with</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kr">type</span><span class="o">:</span><span class="w"> </span><span class="s2">"json"</span><span class="w"> </span><span class="p">};</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">ACTIVE</span><span class="o">:</span><span class="w"> </span><span class="kt">Record</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">PromptFile</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="s2">"ticket-answer"</span><span class="o">:</span><span class="w"> </span><span class="nx">PromptFileSchema</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">ticketV3</span><span class="p">),</span>
+<span class="p">};</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">promptFor</span><span class="p">(</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">PromptFile</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ACTIVE</span><span class="p">[</span><span class="nx">id</span><span class="p">];</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">p</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="sb">`no active prompt for </span><span class="si">${</span><span class="nx">id</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">p</span><span class="p">;</span><span class="w"> </span><span class="c1">// caller logs p.id + p.version with every request</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="real-use-case">Real use case</h2>
+<p>An ed-tech company's tutor assistant used a prompt edited directly in a vendor dashboard by a content lead. Quality was fine for weeks, then complaints about wrong syllabus references appeared. Nobody could say what had changed, because there was no history and no version in the logs.</p>
+<p>The team moved prompts into the repo as YAML with ids and versions, added a <code>body_sha256</code> check, and put <code>template_version</code> in every answer log. The next complaint was resolved in minutes: filtering logs by version showed the regression began the day <code>v4</code> shipped, and comparing <code>v3</code> and <code>v4</code> on the fixture set showed the syllabus table had been dropped from the context block. The failure mode before was untracked state — the prompt was production code living outside version control.</p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<ul>
+<li><strong>Mistake:</strong> editing an existing prompt version in place. — <strong>Instead:</strong> add a new version file and keep the old one for comparison.</li>
+<li><strong>Mistake:</strong> leaving prompts in a vendor dashboard as the source of truth. — <strong>Instead:</strong> mirror them into the repo and deploy from there.</li>
+<li><strong>Mistake:</strong> logging only the template id. — <strong>Instead:</strong> log id, version, content hash and model id on every request.</li>
+<li><strong>Mistake:</strong> changing the model without re-running the eval set. — <strong>Instead:</strong> treat a model migration as a prompt change and compare versions on fixtures.</li>
+<li><strong>Mistake:</strong> making rollback a manual text edit. — <strong>Instead:</strong> keep the active version in config so rollback is one string.</li>
+</ul>
+<h2 id="checkpoint">Checkpoint</h2>
+<ol>
+<li>Add a <code>body_sha256</code> to an existing prompt file, then edit the body without changing the version and confirm the loader raises.</li>
+<li>Run the same ten fixtures against <code>v2</code> and <code>v3</code> and produce a side-by-side score table.</li>
+<li>Implement <code>ACTIVE</code> as an environment override so you can pin a version per environment without a code change.</li>
+</ol>
+<p><strong>Self-check:</strong> you add a new version file and keep the old one, because a version must identify exactly one body and the previous text is needed for comparison and rollback.</p>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li><a href="07-prompt-evals.html">Prompt Evals</a> — the measurement that makes a version bump meaningful.</li>
+<li><a href="03-templates.html">Prompt Templates with Variables and Validation</a> — the template engine these files feed.</li>
+<li><a href="../18-mlops-llmops/03-prompt-versioning.html">Prompt Versioning in MLOps</a> — the operational side, with registries.</li>
+<li><a href="../01-programming-basics/05-git-github.html">Git and GitHub</a> — the review workflow prompts should go through.</li>
+</ul>
+<hr />
+<p><a href="04-context-compression.html">← Previous: Context Compression</a> · <a href="index.html">Stage index</a> · <a href="06-injection-defense.html">Next: Prompt-Injection Defence</a></p>
+    </article>
+    <nav class="pager">
+<a class="prev" href="../../stages/08-prompt-and-context/04-context-compression.html"><span class="dir">Previous</span>Context Compression</a>
+<a class="next" href="../../stages/08-prompt-and-context/06-injection-defense.html"><span class="dir">Next</span>Prompt-Injection Defence</a>
+</nav>
+    <footer class="site-footer">
+      AI Engineer Roadmap · <a href="../../contributing.html">Contribute</a> ·
+      <a href="../../glossary.html">Glossary</a> ·
+      <a href="../../progress.html">Progress</a> · MIT licensed
+    </footer>
+  </main>
+</div>
+<button id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 13V3M3 8l5-5 5 5"/></svg>
+</button>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

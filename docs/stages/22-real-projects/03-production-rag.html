@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en" data-theme="github-light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Production RAG · AI Engineer Roadmap</title>
+<meta name="description" content="Stage 22 · Real Projects — retrieval that serves many tenants from one index, stays fresh as documents change, and refuses to deploy when quality drops. You'll ">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111'/><text x='16' y='22' font-size='14' font-family='monospace' fill='%23fff' text-anchor='middle'>AI</text></svg>">
+</head>
+<body>
+<div id="progress"></div>
+<header class="topbar">
+  <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+  </button>
+  <a class="brand" href="../../index.html">
+    <span class="brand-mark">AI</span>
+    <span class="brand-text">Engineer Roadmap</span>
+  </a>
+  <div class="spacer"></div>
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+    <input id="q" type="search" placeholder="Search 226 lessons…" autocomplete="off" aria-label="Search lessons">
+    <div id="results"></div>
+  </div>
+  <select id="theme" class="theme-select" aria-label="Style"></select>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+<a class="nav-home" href="../../index.html">Roadmap home</a>
+<a class="nav-home" href="../../fast-track.html">Fast track</a>
+<a class="nav-home" href="../../progress.html">Progress tracker</a>
+<a class="nav-home" href="../../glossary.html">Glossary</a>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">01</span><span>Programming Basics</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/01-programming-basics/index.html">Stage overview</a></li>
+<li><a href="../../stages/01-programming-basics/01-python-async.html">Python Async</a></li>
+<li><a href="../../stages/01-programming-basics/02-type-hints-pydantic.html">Type Hints and Pydantic v2</a></li>
+<li><a href="../../stages/01-programming-basics/03-generators.html">Generators</a></li>
+<li><a href="../../stages/01-programming-basics/04-algorithms.html">Core Algorithms</a></li>
+<li><a href="../../stages/01-programming-basics/05-git-github.html">Git and GitHub</a></li>
+<li><a href="../../stages/01-programming-basics/06-linux-cli.html">The Linux Command Line</a></li>
+<li><a href="../../stages/01-programming-basics/07-http-rest-apis.html">HTTP and REST APIs</a></li>
+<li><a href="../../stages/01-programming-basics/08-json-yaml.html">JSON and YAML</a></li>
+<li><a href="../../stages/01-programming-basics/09-ship-cli-tool.html">Ship a CLI Tool</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">02</span><span>Math and ML Basics</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/02-math-and-ml-basics/index.html">Stage overview</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/01-linear-algebra.html">Linear Algebra</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/02-calculus.html">Calculus</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/03-probability-bayes.html">Probability and Bayes</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/04-ml-basics.html">ML Basics</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/05-loss-functions.html">Loss Functions</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/06-backprop-gradients.html">Backpropagation and Gradients</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/07-ship-gradient-descent.html">Ship Gradient Descent</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">03</span><span>Data Engineering</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/03-data-engineering/index.html">Stage overview</a></li>
+<li><a href="../../stages/03-data-engineering/01-numpy-pandas.html">NumPy and Pandas</a></li>
+<li><a href="../../stages/03-data-engineering/02-data-cleaning.html">Cleaning Messy Data</a></li>
+<li><a href="../../stages/03-data-engineering/03-eda.html">Exploratory Data Analysis</a></li>
+<li><a href="../../stages/03-data-engineering/04-sql-postgresql.html">SQL on PostgreSQL</a></li>
+<li><a href="../../stages/03-data-engineering/05-parquet-jsonl.html">Parquet and JSONL</a></li>
+<li><a href="../../stages/03-data-engineering/06-data-pipelines.html">Data Pipelines</a></li>
+<li><a href="../../stages/03-data-engineering/07-validation.html">Schema Validation with Pydantic</a></li>
+<li><a href="../../stages/03-data-engineering/08-dataset-prep.html">Dataset Preparation</a></li>
+<li><a href="../../stages/03-data-engineering/09-ship-clean-dataset.html">Ship: A Clean Dataset with a Data Card</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">04</span><span>Deep Learning</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/04-deep-learning/index.html">Stage overview</a></li>
+<li><a href="../../stages/04-deep-learning/01-perceptrons.html">Perceptrons</a></li>
+<li><a href="../../stages/04-deep-learning/02-feedforward.html">Feedforward Networks</a></li>
+<li><a href="../../stages/04-deep-learning/03-optimizers.html">Optimizers</a></li>
+<li><a href="../../stages/04-deep-learning/04-cnns-rnns.html">CNNs and RNNs</a></li>
+<li><a href="../../stages/04-deep-learning/05-lstms-grus.html">LSTMs and GRUs</a></li>
+<li><a href="../../stages/04-deep-learning/06-attention.html">Attention</a></li>
+<li><a href="../../stages/04-deep-learning/07-transformers.html">Transformers</a></li>
+<li><a href="../../stages/04-deep-learning/08-embeddings.html">Embeddings</a></li>
+<li><a href="../../stages/04-deep-learning/09-transfer-learning.html">Transfer Learning</a></li>
+<li><a href="../../stages/04-deep-learning/10-ship-mini-transformer.html">Ship: A Miniature Transformer</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">05</span><span>DL Frameworks</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/05-dl-frameworks/index.html">Stage overview</a></li>
+<li><a href="../../stages/05-dl-frameworks/01-pytorch.html">PyTorch: Tensors and Modules</a></li>
+<li><a href="../../stages/05-dl-frameworks/02-autograd.html">Autograd From Scratch</a></li>
+<li><a href="../../stages/05-dl-frameworks/03-training-loops.html">Anatomy of a Training Loop</a></li>
+<li><a href="../../stages/05-dl-frameworks/04-gpu-checkpoints.html">GPU Memory and Checkpoints</a></li>
+<li><a href="../../stages/05-dl-frameworks/05-keras.html">Keras and the High-Level Path</a></li>
+<li><a href="../../stages/05-dl-frameworks/06-hugging-face.html">Hugging Face Transformers and Datasets</a></li>
+<li><a href="../../stages/05-dl-frameworks/07-cuda.html">CUDA, Devices and Mixed Precision</a></li>
+<li><a href="../../stages/05-dl-frameworks/08-ship-training-loop.html">Ship: A Reusable Training Loop</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">06</span><span>LLM Fundamentals</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/06-llm-fundamentals/index.html">Stage overview</a></li>
+<li><a href="../../stages/06-llm-fundamentals/01-gpt-and-bert.html">GPT and BERT: Decoder-Only vs Encoder-Only</a></li>
+<li><a href="../../stages/06-llm-fundamentals/02-tokenization.html">Tokenization: BPE and Byte-Level</a></li>
+<li><a href="../../stages/06-llm-fundamentals/03-context-windows.html">Context Windows</a></li>
+<li><a href="../../stages/06-llm-fundamentals/04-self-attention.html">Self-Attention From Scratch</a></li>
+<li><a href="../../stages/06-llm-fundamentals/05-pretraining.html">Pretraining: Objectives and Scale</a></li>
+<li><a href="../../stages/06-llm-fundamentals/06-instruction-tuning.html">Instruction Tuning and Chat Templates</a></li>
+<li><a href="../../stages/06-llm-fundamentals/07-rlhf-dpo.html">RLHF and DPO</a></li>
+<li><a href="../../stages/06-llm-fundamentals/08-open-vs-closed.html">Open-Weight vs Closed Models</a></li>
+<li><a href="../../stages/06-llm-fundamentals/09-ship-tokenizer.html">Ship: Tokenizer and Token-Budget Analyser</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">07</span><span>LLM APIs</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/07-llm-apis/index.html">Stage overview</a></li>
+<li><a href="../../stages/07-llm-apis/01-openai-anthropic.html">The OpenAI and Anthropic Chat APIs</a></li>
+<li><a href="../../stages/07-llm-apis/02-gemini-open-weight.html">Gemini and Open-Weight Models via Hosted Endpoints</a></li>
+<li><a href="../../stages/07-llm-apis/03-streaming.html">Streaming Responses</a></li>
+<li><a href="../../stages/07-llm-apis/04-structured-outputs.html">Structured Outputs</a></li>
+<li><a href="../../stages/07-llm-apis/05-tool-calling.html">Tool Calling</a></li>
+<li><a href="../../stages/07-llm-apis/06-multimodal-apis.html">Multimodal APIs</a></li>
+<li><a href="../../stages/07-llm-apis/07-retries-rate-limits.html">Retries and Rate Limits</a></li>
+<li><a href="../../stages/07-llm-apis/08-cost-tracking.html">Token Accounting and Cost Tracking</a></li>
+<li><a href="../../stages/07-llm-apis/09-routing-fallbacks.html">Routing and Fallbacks</a></li>
+<li><a href="../../stages/07-llm-apis/10-ship-multi-model-client.html">Ship: A Multi-Model Client</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">08</span><span>Prompt and Context</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/08-prompt-and-context/index.html">Stage overview</a></li>
+<li><a href="../../stages/08-prompt-and-context/01-system-instructions.html">System Instructions That Actually Constrain</a></li>
+<li><a href="../../stages/08-prompt-and-context/02-few-shot-cot.html">Few-Shot Prompting and Chain of Thought</a></li>
+<li><a href="../../stages/08-prompt-and-context/03-templates.html">Prompt Templates with Variables and Validation</a></li>
+<li><a href="../../stages/08-prompt-and-context/04-context-compression.html">Context Compression</a></li>
+<li><a href="../../stages/08-prompt-and-context/05-prompt-versioning.html">Prompt Versioning as Code</a></li>
+<li><a href="../../stages/08-prompt-and-context/06-injection-defense.html">Prompt-Injection Defence</a></li>
+<li><a href="../../stages/08-prompt-and-context/07-prompt-evals.html">Prompt Evals</a></li>
+<li><a href="../../stages/08-prompt-and-context/08-context-engineering.html">Context Engineering</a></li>
+<li><a href="../../stages/08-prompt-and-context/09-ship-prompt-test-suite.html">Ship: A Prompt Test Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">09</span><span>Vector Databases</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/09-vector-databases/index.html">Stage overview</a></li>
+<li><a href="../../stages/09-vector-databases/01-embeddings.html">Embeddings: Text as Points in Space</a></li>
+<li><a href="../../stages/09-vector-databases/02-similarity-metrics.html">Similarity Metrics</a></li>
+<li><a href="../../stages/09-vector-databases/03-semantic-search.html">Semantic Search End to End</a></li>
+<li><a href="../../stages/09-vector-databases/04-vector-indexing.html">Vector Indexing Structures</a></li>
+<li><a href="../../stages/09-vector-databases/05-ann-search.html">Approximate Nearest Neighbour Search</a></li>
+<li><a href="../../stages/09-vector-databases/06-pinecone-qdrant.html">Pinecone and Qdrant</a></li>
+<li><a href="../../stages/09-vector-databases/07-weaviate-milvus.html">Weaviate and Milvus</a></li>
+<li><a href="../../stages/09-vector-databases/08-chroma.html">Chroma and pgvector</a></li>
+<li><a href="../../stages/09-vector-databases/09-hybrid-search.html">Hybrid Search and Reciprocal Rank Fusion</a></li>
+<li><a href="../../stages/09-vector-databases/10-ship-semantic-search.html">Ship: A Semantic Search Service</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">10</span><span>RAG</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/10-rag/index.html">Stage overview</a></li>
+<li><a href="../../stages/10-rag/01-rag-architecture.html">RAG Architecture</a></li>
+<li><a href="../../stages/10-rag/02-ingestion-parsing.html">Ingestion and Parsing</a></li>
+<li><a href="../../stages/10-rag/03-chunking.html">Chunking</a></li>
+<li><a href="../../stages/10-rag/04-embedding-storage.html">Embedding and Storage Design</a></li>
+<li><a href="../../stages/10-rag/05-query-transform.html">Query Transformation</a></li>
+<li><a href="../../stages/10-rag/06-reranking.html">Reranking</a></li>
+<li><a href="../../stages/10-rag/07-hybrid-retrieval.html">Hybrid Retrieval</a></li>
+<li><a href="../../stages/10-rag/08-parent-child.html">Parent-Child Retrieval</a></li>
+<li><a href="../../stages/10-rag/09-multi-query.html">Multi-Query Retrieval</a></li>
+<li><a href="../../stages/10-rag/10-graph-rag.html">Graph RAG</a></li>
+<li><a href="../../stages/10-rag/11-agentic-rag.html">Agentic RAG</a></li>
+<li><a href="../../stages/10-rag/12-rag-evals.html">RAG Evaluation</a></li>
+<li><a href="../../stages/10-rag/13-ship-rag-with-evals.html">Ship: A RAG Service with Evals</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">11</span><span>AI Agents</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/11-agents/index.html">Stage overview</a></li>
+<li><a href="../../stages/11-agents/01-harness-engineering.html">Harness Engineering</a></li>
+<li><a href="../../stages/11-agents/02-agent-architecture.html">Agent Architecture</a></li>
+<li><a href="../../stages/11-agents/03-reasoning-planning.html">Reasoning and Planning</a></li>
+<li><a href="../../stages/11-agents/04-tool-calling.html">Tool Calling</a></li>
+<li><a href="../../stages/11-agents/05-memory-and-state.html">Memory and State</a></li>
+<li><a href="../../stages/11-agents/06-single-agent.html">Single-Agent Patterns</a></li>
+<li><a href="../../stages/11-agents/07-multi-agent.html">Multi-Agent Patterns</a></li>
+<li><a href="../../stages/11-agents/08-human-in-the-loop.html">Human in the Loop</a></li>
+<li><a href="../../stages/11-agents/09-reflection.html">Reflection and Self-Critique</a></li>
+<li><a href="../../stages/11-agents/10-loop-engineering.html">Loop Engineering</a></li>
+<li><a href="../../stages/11-agents/11-agent-security.html">Agent Security</a></li>
+<li><a href="../../stages/11-agents/12-ship-harness-agent.html">Ship: A Harness Agent</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">12</span><span>Orchestration</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/12-orchestration/index.html">Stage overview</a></li>
+<li><a href="../../stages/12-orchestration/01-langchain.html">LangChain</a></li>
+<li><a href="../../stages/12-orchestration/02-langgraph.html">LangGraph</a></li>
+<li><a href="../../stages/12-orchestration/03-graph-engineering.html">Graph Engineering</a></li>
+<li><a href="../../stages/12-orchestration/04-llamaindex.html">LlamaIndex</a></li>
+<li><a href="../../stages/12-orchestration/05-haystack.html">Haystack</a></li>
+<li><a href="../../stages/12-orchestration/06-semantic-kernel.html">Semantic Kernel</a></li>
+<li><a href="../../stages/12-orchestration/07-pydantic-ai.html">Pydantic AI</a></li>
+<li><a href="../../stages/12-orchestration/08-dspy.html">DSPy</a></li>
+<li><a href="../../stages/12-orchestration/09-crewai-autogen.html">CrewAI and AutoGen</a></li>
+<li><a href="../../stages/12-orchestration/10-tradeoffs.html">Trade-offs</a></li>
+<li><a href="../../stages/12-orchestration/11-ship-langgraph-flow.html">Ship: A LangGraph Flow</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">13</span><span>Fine-Tuning</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/13-fine-tuning/index.html">Stage overview</a></li>
+<li><a href="../../stages/13-fine-tuning/01-sft.html">Supervised Fine-Tuning (SFT)</a></li>
+<li><a href="../../stages/13-fine-tuning/02-lora-qlora-peft.html">LoRA, QLoRA and PEFT</a></li>
+<li><a href="../../stages/13-fine-tuning/03-synthetic-data.html">Synthetic Data for Fine-Tuning</a></li>
+<li><a href="../../stages/13-fine-tuning/04-instruction-tuning.html">Instruction Tuning vs Continued Pretraining</a></li>
+<li><a href="../../stages/13-fine-tuning/05-dpo.html">DPO: Preference Tuning Without RLHF</a></li>
+<li><a href="../../stages/13-fine-tuning/06-finetune-evals.html">Evaluating a Fine-Tune Honestly</a></li>
+<li><a href="../../stages/13-fine-tuning/07-finetune-vs-rag.html">Fine-Tune vs RAG vs Prompting</a></li>
+<li><a href="../../stages/13-fine-tuning/08-ship-lora-model.html">Ship: A LoRA Fine-Tune of a Small Open Model</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">14</span><span>Multimodal AI</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/14-multimodal/index.html">Stage overview</a></li>
+<li><a href="../../stages/14-multimodal/01-vision-language.html">Vision-Language Models</a></li>
+<li><a href="../../stages/14-multimodal/02-ocr.html">OCR: Traditional and Model-Based</a></li>
+<li><a href="../../stages/14-multimodal/03-speech-to-text.html">Speech-to-Text</a></li>
+<li><a href="../../stages/14-multimodal/04-text-to-speech.html">Text-to-Speech</a></li>
+<li><a href="../../stages/14-multimodal/05-video-audio.html">Video and Audio Processing</a></li>
+<li><a href="../../stages/14-multimodal/06-multimodal-embeddings.html">Multimodal Embeddings</a></li>
+<li><a href="../../stages/14-multimodal/07-diffusion.html">Diffusion Models for Engineers</a></li>
+<li><a href="../../stages/14-multimodal/08-multimodal-rag.html">Multimodal RAG</a></li>
+<li><a href="../../stages/14-multimodal/09-ship-doc-reader.html">Ship: A Document Reader with Citations</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">15</span><span>Evals and Testing</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/15-evals/index.html">Stage overview</a></li>
+<li><a href="../../stages/15-evals/01-unit-tests.html">Unit Tests for LLM Code</a></li>
+<li><a href="../../stages/15-evals/02-llm-as-judge.html">LLM as Judge</a></li>
+<li><a href="../../stages/15-evals/03-golden-datasets.html">Golden Datasets</a></li>
+<li><a href="../../stages/15-evals/04-faithfulness.html">Faithfulness</a></li>
+<li><a href="../../stages/15-evals/05-hallucinations.html">Hallucinations</a></li>
+<li><a href="../../stages/15-evals/06-agent-evals.html">Agent Evals</a></li>
+<li><a href="../../stages/15-evals/07-human-evals.html">Human Evals</a></li>
+<li><a href="../../stages/15-evals/08-regression-tests.html">Regression Tests</a></li>
+<li><a href="../../stages/15-evals/09-online-offline-evals.html">Online and Offline Evals</a></li>
+<li><a href="../../stages/15-evals/10-ship-eval-suite.html">Ship: An Eval Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">16</span><span>Inference</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/16-inference/index.html">Stage overview</a></li>
+<li><a href="../../stages/16-inference/01-prefill-decode.html">Prefill and Decode</a></li>
+<li><a href="../../stages/16-inference/02-kv-cache.html">The KV Cache</a></li>
+<li><a href="../../stages/16-inference/03-continuous-batching.html">Continuous Batching</a></li>
+<li><a href="../../stages/16-inference/04-pagedattention.html">PagedAttention</a></li>
+<li><a href="../../stages/16-inference/05-speculative-decoding.html">Speculative Decoding</a></li>
+<li><a href="../../stages/16-inference/06-quantization.html">Quantization</a></li>
+<li><a href="../../stages/16-inference/07-distillation.html">Distillation</a></li>
+<li><a href="../../stages/16-inference/08-vllm-sglang.html">vLLM and SGLang</a></li>
+<li><a href="../../stages/16-inference/09-ollama-tensorrt.html">Ollama and TensorRT-LLM</a></li>
+<li><a href="../../stages/16-inference/10-gpu-memory.html">GPU Memory Budgeting</a></li>
+<li><a href="../../stages/16-inference/11-ship-vllm-server.html">Ship: A vLLM Server</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">17</span><span>AI Backend</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/17-ai-backend/index.html">Stage overview</a></li>
+<li><a href="../../stages/17-ai-backend/01-fastapi-flask.html">FastAPI and Flask</a></li>
+<li><a href="../../stages/17-ai-backend/02-websockets.html">Streaming with SSE and WebSockets</a></li>
+<li><a href="../../stages/17-ai-backend/03-async-processing.html">Async Processing</a></li>
+<li><a href="../../stages/17-ai-backend/04-redis-caching.html">Redis Caching</a></li>
+<li><a href="../../stages/17-ai-backend/05-job-queues.html">Job Queues</a></li>
+<li><a href="../../stages/17-ai-backend/06-auth-rate-limits.html">Auth and Rate Limits</a></li>
+<li><a href="../../stages/17-ai-backend/07-api-security.html">API Security</a></li>
+<li><a href="../../stages/17-ai-backend/08-ai-app-architecture.html">AI App Architecture</a></li>
+<li><a href="../../stages/17-ai-backend/09-ship-streaming-api.html">Ship: A Streaming Chat API</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">18</span><span>MLOps and LLMOps</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/18-mlops-llmops/index.html">Stage overview</a></li>
+<li><a href="../../stages/18-mlops-llmops/01-mlflow-wandb.html">Experiment Tracking with MLflow and W&B</a></li>
+<li><a href="../../stages/18-mlops-llmops/02-langfuse-langsmith.html">LLM Observability with Langfuse and LangSmith</a></li>
+<li><a href="../../stages/18-mlops-llmops/03-prompt-versioning.html">Prompt Versioning and Registries</a></li>
+<li><a href="../../stages/18-mlops-llmops/04-dvc.html">DVC for Data and Models</a></li>
+<li><a href="../../stages/18-mlops-llmops/05-tracing.html">Tracing Design</a></li>
+<li><a href="../../stages/18-mlops-llmops/06-cost-monitoring.html">Cost Monitoring and Budgets</a></li>
+<li><a href="../../stages/18-mlops-llmops/07-ci-cd-evals.html">CI/CD for Evals</a></li>
+<li><a href="../../stages/18-mlops-llmops/08-ship-trace-dashboard.html">Ship: A Trace Dashboard</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">19</span><span>Cloud and DevOps</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/19-cloud-devops/index.html">Stage overview</a></li>
+<li><a href="../../stages/19-cloud-devops/01-aws-s3-ec2-lambda.html">AWS for AI Apps: S3, EC2, Lambda</a></li>
+<li><a href="../../stages/19-cloud-devops/02-ecs-eks-sagemaker.html">Containers at Scale: ECS, EKS, SageMaker</a></li>
+<li><a href="../../stages/19-cloud-devops/03-gcp-azure-ai.html">GCP and Azure AI Equivalents</a></li>
+<li><a href="../../stages/19-cloud-devops/04-docker.html">Docker Done Properly</a></li>
+<li><a href="../../stages/19-cloud-devops/05-kubernetes.html">Kubernetes Essentials for AI Services</a></li>
+<li><a href="../../stages/19-cloud-devops/06-github-actions.html">GitHub Actions CI/CD</a></li>
+<li><a href="../../stages/19-cloud-devops/07-terraform.html">Terraform Basics</a></li>
+<li><a href="../../stages/19-cloud-devops/08-gpu-cloud.html">GPU Cloud Practicalities</a></li>
+<li><a href="../../stages/19-cloud-devops/09-ship-docker-deploy.html">Ship: Dockerised Deploy with Rollback</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">20</span><span>AI Security</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/20-ai-security/index.html">Stage overview</a></li>
+<li><a href="../../stages/20-ai-security/01-prompt-injection.html">Prompt Injection</a></li>
+<li><a href="../../stages/20-ai-security/02-jailbreaks.html">Jailbreaks</a></li>
+<li><a href="../../stages/20-ai-security/03-data-leakage.html">Data Leakage</a></li>
+<li><a href="../../stages/20-ai-security/04-pii-redaction.html">PII Redaction and Detection</a></li>
+<li><a href="../../stages/20-ai-security/05-sandboxing.html">Sandboxing Tool Execution</a></li>
+<li><a href="../../stages/20-ai-security/06-supply-chain.html">Supply Chain Security</a></li>
+<li><a href="../../stages/20-ai-security/07-bias-fairness.html">Bias and Fairness</a></li>
+<li><a href="../../stages/20-ai-security/08-governance.html">Governance</a></li>
+<li><a href="../../stages/20-ai-security/09-guardrails.html">Guardrails</a></li>
+<li><a href="../../stages/20-ai-security/10-ship-injection-tests.html">Ship: Injection Test Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">21</span><span>System Design</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/21-system-design/index.html">Stage overview</a></li>
+<li><a href="../../stages/21-system-design/01-scalable-ai-apps.html">Scalable AI Apps</a></li>
+<li><a href="../../stages/21-system-design/02-rag-design.html">RAG Design at Scale</a></li>
+<li><a href="../../stages/21-system-design/03-agent-design.html">Agent Design</a></li>
+<li><a href="../../stages/21-system-design/04-model-routing.html">Model Routing</a></li>
+<li><a href="../../stages/21-system-design/05-multi-tenant.html">Multi-Tenant Design</a></li>
+<li><a href="../../stages/21-system-design/06-caching.html">Caching Layers</a></li>
+<li><a href="../../stages/21-system-design/07-fault-tolerance.html">Fault Tolerance</a></li>
+<li><a href="../../stages/21-system-design/08-cost-latency.html">Cost and Latency Engineering</a></li>
+<li><a href="../../stages/21-system-design/09-scaling-tradeoffs.html">Scaling Trade-offs</a></li>
+<li><a href="../../stages/21-system-design/10-ship-design-doc.html">Ship: A Design Document</a></li>
+</ul></div>
+<div class="nav-group open">
+<button class="nav-stage current" type="button"><span class="num">22</span><span>Real Projects</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/22-real-projects/index.html">Stage overview</a></li>
+<li><a href="../../stages/22-real-projects/01-research-assistant.html">Research Assistant</a></li>
+<li><a href="../../stages/22-real-projects/02-document-intelligence.html">Document Intelligence</a></li>
+<li><a class="active" href="../../stages/22-real-projects/03-production-rag.html">Production RAG</a></li>
+<li><a href="../../stages/22-real-projects/04-multi-agent-research.html">Multi-Agent Research</a></li>
+<li><a href="../../stages/22-real-projects/05-support-agent.html">Support Agent</a></li>
+<li><a href="../../stages/22-real-projects/06-coding-assistant.html">Coding Assistant</a></li>
+<li><a href="../../stages/22-real-projects/07-multimodal-assistant.html">Multimodal Assistant</a></li>
+<li><a href="../../stages/22-real-projects/08-meeting-intelligence.html">Meeting Intelligence</a></li>
+<li><a href="../../stages/22-real-projects/09-knowledge-assistant.html">Knowledge Assistant</a></li>
+<li><a href="../../stages/22-real-projects/10-workflow-automation.html">Workflow Automation</a></li>
+<li><a href="../../stages/22-real-projects/11-fine-tuning-pipeline.html">Fine-Tuning Pipeline</a></li>
+<li><a href="../../stages/22-real-projects/12-eval-platform.html">Eval Platform</a></li>
+<li><a href="../../stages/22-real-projects/13-ai-saas.html">AI SaaS</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">23</span><span>Career</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/23-career/index.html">Stage overview</a></li>
+<li><a href="../../stages/23-career/01-github-portfolio.html">GitHub Portfolio</a></li>
+<li><a href="../../stages/23-career/02-resume.html">Resume</a></li>
+<li><a href="../../stages/23-career/03-python-sql-interviews.html">Python and SQL Interviews</a></li>
+<li><a href="../../stages/23-career/04-ml-llm-basics.html">ML and LLM Basics</a></li>
+<li><a href="../../stages/23-career/05-system-design-practice.html">System Design Practice</a></li>
+<li><a href="../../stages/23-career/06-rag-agent-patterns.html">RAG and Agent Patterns</a></li>
+<li><a href="../../stages/23-career/07-inference-optimization.html">Inference Optimisation</a></li>
+<li><a href="../../stages/23-career/08-production-case-studies.html">Production Case Studies</a></li>
+<li><a href="../../stages/23-career/09-open-source.html">Open Source</a></li>
+<li><a href="../../stages/23-career/10-technical-articles.html">Technical Articles</a></li>
+<li><a href="../../stages/23-career/11-build-in-public.html">Building in Public</a></li>
+<li><a href="../../stages/23-career/12-apply-for-roles.html">Applying for Roles</a></li>
+</ul></div>
+  </aside>
+  <main>
+    <div class="crumbs"><a href="../../index.html">Roadmap</a><span>/</span><a href="../../stages/22-real-projects/index.html">Stage 22 · Real Projects</a><span>/</span>Production RAG</div>
+    <article class="prose">
+<h1 id="3-production-rag">3. Production RAG</h1>
+<blockquote>
+<p><strong>Stage 22 · Real Projects</strong> — retrieval that serves many tenants from one index, stays fresh as documents change, and refuses to deploy when quality drops.</p>
+<p><strong>You'll be able to:</strong> ship a RAG service with tenant isolation you can prove, incremental ingestion with deletion, and an eval gate that blocks a bad prompt change.</p>
+<p><strong>Prerequisites:</strong> <a href="../10-rag/13-ship-rag-with-evals.html">RAG with Evals</a> · <a href="../21-system-design/05-multi-tenant.html">Multi-Tenant Design</a></p>
+</blockquote>
+<h2 id="why-this-exists">Why this exists</h2>
+<p>A demo RAG works because the corpus is small, static and yours. A product breaks on three things the demo never had. Documents change and the index goes stale, so the assistant confidently quotes last quarter's policy. Documents get deleted, and the assistant surfaces a contract that no longer exists. Several customers share one index, and a retrieval bug leaks one customer's documents into another's answer — which is not a quality bug, it is an incident.</p>
+<p>This is the project that makes you employable, because it is the one every company is actually running and most candidates cannot describe. The buyers are internal platform teams and B2B SaaS companies; the thing they pay for is not retrieval quality in the abstract, it is <em>trustworthy</em> retrieval — fresh, isolated, measured.</p>
+<p>Mental model: an index is a <em>cache of the document store</em>, with the same correctness rules as any cache — it can be stale, it must be invalidated, and every read must be scoped to an owner.</p>
+<h2 id="the-mental-model">The mental model</h2>
+<div class="code-block"><pre><span></span><code>[source of truth: object store + row per doc version]
+        |  webhook / poll / CDC
+        v
+[ingest worker] --hash compare--&gt; skip | re-chunk | embed | upsert
+        |                                         |
+        | delete event                            v
+        +------------------------------&gt; [vector store: tenant_id, doc_id, version]
+                                                  |
+  query --&gt; [auth: tenant from token] --&gt; [retrieve: filter tenant_id AND version=live]
+                                                  |
+                                     [rerank] --&gt; [answer with citations]
+                                                  |
+                                     [eval gate in CI: golden set + faithfulness]
+</code></pre></div>
+
+<p>Tenant comes from the token, never from the request body. Version comes from the document row, never from the chunk.</p>
+<h2 id="core-concepts">Core concepts</h2>
+<h3 id="scope-and-non-goals">Scope and non-goals</h3>
+<p>In scope: many tenants, incremental ingestion, deletion, hybrid retrieval with reranking, citations, an offline eval gate, and per-tenant usage metrics.</p>
+<p>Non-goals: fine-tuning, agentic multi-hop retrieval (that is <a href="../10-rag/11-agentic-rag.html">Agentic RAG</a>), a document editor, and per-tenant physical indexes. One index with a mandatory filter is the right v1; shard later only when a tenant is large enough to justify it.</p>
+<h3 id="isolation-is-a-filter-you-cannot-forget">Isolation is a filter you cannot forget</h3>
+<p>The dangerous version is <code>search(query, tenant_id=...)</code> where the caller passes the tenant. One forgotten argument and you have a leak. Make the retriever impossible to call without a tenant: construct it from the authenticated request context, so the tenant is a constructor argument and the query method has no tenant parameter at all. Then add a defensive assertion that every returned chunk's <code>tenant_id</code> matches, and a test that asserts cross-tenant retrieval returns nothing even when the query text is copied verbatim from another tenant's document.</p>
+<h3 id="freshness-is-versioning-plus-deletion-not-reindexing">Freshness is versioning plus deletion, not reindexing</h3>
+<p>Give every document a monotonically increasing <code>version</code>. Ingest computes a content hash; if it matches the stored hash, skip — most poll cycles change nothing, and this is where your embedding cost goes to zero. If it differs, write new chunks with the new version and flip <code>live</code> on the document row in one transaction. Retrieval filters on the live version, so readers never see a half-updated document. Deletion writes a tombstone and hard-deletes chunks in a background sweep, because retrieval must stop immediately but storage can lag.</p>
+<h3 id="chunking-is-a-product-decision">Chunking is a product decision</h3>
+<p>Chunk size trades context against precision. Parent-child chunking — small chunks for matching, larger parents for the prompt — usually beats a single size, and it is cheap to implement: store <code>parent_id</code> on each chunk and fetch parents after retrieval. Always store the heading path (<code>Policy &gt; Leave &gt; Carry forward</code>) with the chunk; it improves both embedding and citation display. See <a href="../10-rag/08-parent-child.html">Parent-Child</a>.</p>
+<h3 id="data-model-and-stack">Data model and stack</h3>
+<table>
+<thead>
+<tr>
+<th>table</th>
+<th>key fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tenant</code></td>
+<td>id, name, plan, quota_tokens_month</td>
+</tr>
+<tr>
+<td><code>document</code></td>
+<td>id, tenant_id, source_uri, version, hash, live, deleted_at</td>
+</tr>
+<tr>
+<td><code>chunk</code></td>
+<td>id, tenant_id, document_id, version, parent_id, heading_path, text</td>
+</tr>
+<tr>
+<td><code>query_log</code></td>
+<td>id, tenant_id, query, retrieved_ids[], answer_id, latency_ms, cost_usd</td>
+</tr>
+<tr>
+<td><code>eval_run</code></td>
+<td>id, git_sha, prompt_version, metrics_json, passed</td>
+</tr>
+</tbody>
+</table>
+<p>Stack, loose: FastAPI, Postgres for metadata, Qdrant or pgvector for vectors, an embedding model behind your own thin wrapper so you can swap it, a cross-encoder or hosted reranker, and your eval suite from <a href="../10-rag/12-rag-evals.html">RAG Evals</a>. Pin nothing in the README; note that model ids and prices change and say where you check them.</p>
+<h3 id="milestones-five-weeks">Milestones: five weeks</h3>
+<ul>
+<li>Week 1 — single-tenant ingest with hashes and versions. Success: re-running ingest costs no embedding calls.</li>
+<li>Week 2 — retrieval with filters, hybrid search, reranking, citations. Success: golden-set recall beats your baseline.</li>
+<li>Week 3 — tenancy. Success: the cross-tenant test passes and the retriever cannot be built without a tenant.</li>
+<li>Week 4 — deletion and freshness. Success: a deleted document is unreachable within your stated window.</li>
+<li>Week 5 — eval gate and dashboards. Success: a deliberately worse prompt fails CI.</li>
+</ul>
+<h3 id="eval-plan-and-budget-arithmetic">Eval plan and budget arithmetic</h3>
+<p>Metrics on a frozen golden set per tenant shape (write it before tuning): <strong>recall@k</strong> of the document containing the answer, <strong>answer faithfulness</strong> by LLM judge on a sample you also read, <strong>citation support</strong> (does the cited chunk contain the sentence), <strong>p95 latency</strong>, <strong>cost per 1,000 queries</strong>, and <strong>staleness</strong> (time from source change to retrievable).</p>
+<p>Budget, illustrative: a query embeds roughly 30 tokens, retrieves 40 chunks of 300 tokens to rerank, and sends 6 chunks of 300 tokens plus a 400-token answer budget to the model. Reranking 40 chunks costs 40 short forward passes — cheap on a local cross-encoder, priced per search on hosted ones. The dominant term is usually answer generation, then reranking, then embedding; measure all three separately or you will optimise the wrong one. For p95 under a few seconds, cap rerank candidates at 40 and stream the answer.</p>
+<h2 id="code">Code</h2>
+<p>Isolation and freshness are the two mechanisms worth showing. First, a retriever whose tenant is fixed at construction:</p>
+<div class="code-block"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">qdrant_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">AsyncQdrantClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">qdrant_client.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">FieldCondition</span><span class="p">,</span> <span class="n">Filter</span><span class="p">,</span> <span class="n">MatchValue</span>
+
+
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Chunk</span><span class="p">:</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">tenant_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">document_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">heading_path</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Retriever</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Tenant is bound at construction: there is no way to pass it per call."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">client</span><span class="p">:</span> <span class="n">AsyncQdrantClient</span><span class="p">,</span> <span class="n">collection</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">tenant_id</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"tenant_id is required"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">client</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_collection</span> <span class="o">=</span> <span class="n">collection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tenant</span> <span class="o">=</span> <span class="n">tenant_id</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vector</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">40</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Chunk</span><span class="p">]:</span>
+        <span class="n">hits</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+            <span class="n">collection_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_collection</span><span class="p">,</span>
+            <span class="n">query_vector</span><span class="o">=</span><span class="n">vector</span><span class="p">,</span>
+            <span class="n">limit</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
+            <span class="n">query_filter</span><span class="o">=</span><span class="n">Filter</span><span class="p">(</span>          <span class="c1"># scope enforced server-side, not in Python</span>
+                <span class="n">must</span><span class="o">=</span><span class="p">[</span><span class="n">FieldCondition</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s2">"tenant_id"</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span><span class="n">MatchValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_tenant</span><span class="p">))],</span>
+                <span class="n">must_not</span><span class="o">=</span><span class="p">[</span><span class="n">FieldCondition</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s2">"deleted"</span><span class="p">,</span> <span class="n">match</span><span class="o">=</span><span class="n">MatchValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="kc">True</span><span class="p">))],</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">chunks</span> <span class="o">=</span> <span class="p">[</span><span class="n">to_chunk</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hits</span><span class="p">]</span>
+        <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">tenant_id</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tenant</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chunks</span><span class="p">)</span>  <span class="c1"># cheap tripwire</span>
+        <span class="k">return</span> <span class="n">chunks</span>
+</code></pre></div>
+
+<p>Second, ingestion that skips unchanged documents and versions changed ones atomically:</p>
+<div class="code-block"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">ingest</span><span class="p">(</span><span class="n">document_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">raw</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">store</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">new_hash</span> <span class="o">=</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="k">await</span> <span class="n">db</span><span class="o">.</span><span class="n">fetch_document</span><span class="p">(</span><span class="n">document_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">row</span> <span class="ow">and</span> <span class="n">row</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="n">new_hash</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"skipped"</span>                       <span class="c1"># the common case, zero embed cost</span>
+
+    <span class="n">version</span> <span class="o">=</span> <span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">version</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">row</span> <span class="k">else</span> <span class="mi">1</span>
+    <span class="n">parents</span> <span class="o">=</span> <span class="n">chunk_parents</span><span class="p">(</span><span class="n">extract_text</span><span class="p">(</span><span class="n">raw</span><span class="p">))</span>
+    <span class="n">chunks</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">parents</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chunk_children</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">overlap</span><span class="o">=</span><span class="mi">40</span><span class="p">)]</span>
+
+    <span class="n">vectors</span> <span class="o">=</span> <span class="k">await</span> <span class="n">embed_batch</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chunks</span><span class="p">])</span>
+    <span class="k">await</span> <span class="n">store</span><span class="o">.</span><span class="n">upsert</span><span class="p">(</span><span class="n">chunks</span><span class="p">,</span> <span class="n">vectors</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">,</span> <span class="n">tenant_id</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">tenant_id</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">with</span> <span class="n">db</span><span class="o">.</span><span class="n">transaction</span><span class="p">():</span>               <span class="c1"># flip live only after chunks exist</span>
+        <span class="k">await</span> <span class="n">db</span><span class="o">.</span><span class="n">write_document</span><span class="p">(</span><span class="n">document_id</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">,</span> <span class="nb">hash</span><span class="o">=</span><span class="n">new_hash</span><span class="p">,</span> <span class="n">live</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">store</span><span class="o">.</span><span class="n">mark_superseded</span><span class="p">(</span><span class="n">document_id</span><span class="p">,</span> <span class="n">keep_version</span><span class="o">=</span><span class="n">version</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"indexed v</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">chunks</span><span class="p">)</span><span class="si">}</span><span class="s2"> chunks)"</span>
+</code></pre></div>
+
+<p>Deletion is the same shape: tombstone the document row in the transaction, then let a sweep hard-delete chunks whose version is not live.</p>
+<h2 id="real-use-case">Real use case</h2>
+<p>A B2B support product indexes each customer's help centre and internal runbooks. Before: one shared collection, tenant filtered in application code, and a prompt change shipped on Friday silently dropped recall because the chunker started splitting tables mid-row. After: the tenant is bound in the retriever, deletion is a tombstone, and every prompt or chunker change runs the golden set in CI with recall and faithfulness thresholds.</p>
+<p>The design choice that made it work is the version-plus-tombstone model: freshness and deletion became ordinary database semantics instead of an index-rebuild script someone remembers to run.</p>
+<p>Demo script, two minutes: ask a question and show the citation opening the exact chunk; change a source document and show the re-index and the new answer; copy tenant A's text into tenant B's query and show an empty result; show a CI run that failed on a worse prompt. Talking points: why the tenant is a constructor argument, what "live version" buys you, how you measure staleness, and what you would shard and when.</p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<p><strong>Mistake:</strong> passing <code>tenant_id</code> as a search parameter — <strong>Instead:</strong> bind it at construction and assert on results; a parameter is a thing someone forgets.
+<strong>Mistake:</strong> re-embedding the whole corpus on every sync — <strong>Instead:</strong> hash, compare, skip; only changed documents cost money.
+<strong>Mistake:</strong> deleting chunks before flipping the document version — <strong>Instead:</strong> write new, flip live, sweep old; readers never see a gap.
+<strong>Mistake:</strong> tuning chunk size by feel — <strong>Instead:</strong> measure recall@k on the golden set for two or three configurations and keep the winner.
+<strong>Mistake:</strong> one global eval average — <strong>Instead:</strong> report per tenant shape; a large tenant with easy documents hides the small one that fails.
+<strong>Mistake:</strong> storing the prompt in the deployment image only — <strong>Instead:</strong> version prompts and log the version on every query, or you cannot attribute a regression.</p>
+<h2 id="checkpoint">Checkpoint</h2>
+<ol>
+<li>Write the cross-tenant test: index two tenants, query tenant B with tenant A's exact text, assert zero hits. Run it in CI.</li>
+<li>Add a staleness metric: time from a source change to a retrievable chunk. Plot it for a week of edits.</li>
+<li>Add a rerank step and measure recall@5 before and after, plus p95 latency. Decide whether the quality gain pays for the latency.</li>
+</ol>
+<p><strong>Self-check:</strong> Exercise 1 passes only if the filter is applied server-side and the retriever cannot be constructed without a tenant — a Python-side filter would still pass this test but fails the audit.</p>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li><a href="../21-system-design/05-multi-tenant.html">Multi-Tenant</a> — quotas, noisy neighbours and per-tenant limits</li>
+<li><a href="../10-rag/07-hybrid-retrieval.html">Hybrid Retrieval</a> and <a href="../10-rag/06-reranking.html">Reranking</a> — the two quality levers with the best ratio</li>
+<li><a href="../15-evals/08-regression-tests.html">Regression Tests</a> — turning the eval gate into a habit</li>
+<li><a href="13-ai-saas.html">AI SaaS</a> — billing and quotas on top of this service</li>
+</ul>
+<hr />
+<p><a href="02-document-intelligence.html">← Previous: Document Intelligence</a> · <a href="index.html">Stage index</a> · <a href="04-multi-agent-research.html">Next: Multi-Agent Research</a></p>
+    </article>
+    <nav class="pager">
+<a class="prev" href="../../stages/22-real-projects/02-document-intelligence.html"><span class="dir">Previous</span>Document Intelligence</a>
+<a class="next" href="../../stages/22-real-projects/04-multi-agent-research.html"><span class="dir">Next</span>Multi-Agent Research</a>
+</nav>
+    <footer class="site-footer">
+      AI Engineer Roadmap · <a href="../../contributing.html">Contribute</a> ·
+      <a href="../../glossary.html">Glossary</a> ·
+      <a href="../../progress.html">Progress</a> · MIT licensed
+    </footer>
+  </main>
+</div>
+<button id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 13V3M3 8l5-5 5 5"/></svg>
+</button>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en" data-theme="github-light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LLM Observability with Langfuse and LangSmith · AI Engineer Roadmap</title>
+<meta name="description" content="Stage 18 · MLOps and LLMOps — the production lens that shows you what users actually sent, what the model actually did, and what it cost. You'll be able to: ins">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111'/><text x='16' y='22' font-size='14' font-family='monospace' fill='%23fff' text-anchor='middle'>AI</text></svg>">
+</head>
+<body>
+<div id="progress"></div>
+<header class="topbar">
+  <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+  </button>
+  <a class="brand" href="../../index.html">
+    <span class="brand-mark">AI</span>
+    <span class="brand-text">Engineer Roadmap</span>
+  </a>
+  <div class="spacer"></div>
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+    <input id="q" type="search" placeholder="Search 226 lessons…" autocomplete="off" aria-label="Search lessons">
+    <div id="results"></div>
+  </div>
+  <select id="theme" class="theme-select" aria-label="Style"></select>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+<a class="nav-home" href="../../index.html">Roadmap home</a>
+<a class="nav-home" href="../../fast-track.html">Fast track</a>
+<a class="nav-home" href="../../progress.html">Progress tracker</a>
+<a class="nav-home" href="../../glossary.html">Glossary</a>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">01</span><span>Programming Basics</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/01-programming-basics/index.html">Stage overview</a></li>
+<li><a href="../../stages/01-programming-basics/01-python-async.html">Python Async</a></li>
+<li><a href="../../stages/01-programming-basics/02-type-hints-pydantic.html">Type Hints and Pydantic v2</a></li>
+<li><a href="../../stages/01-programming-basics/03-generators.html">Generators</a></li>
+<li><a href="../../stages/01-programming-basics/04-algorithms.html">Core Algorithms</a></li>
+<li><a href="../../stages/01-programming-basics/05-git-github.html">Git and GitHub</a></li>
+<li><a href="../../stages/01-programming-basics/06-linux-cli.html">The Linux Command Line</a></li>
+<li><a href="../../stages/01-programming-basics/07-http-rest-apis.html">HTTP and REST APIs</a></li>
+<li><a href="../../stages/01-programming-basics/08-json-yaml.html">JSON and YAML</a></li>
+<li><a href="../../stages/01-programming-basics/09-ship-cli-tool.html">Ship a CLI Tool</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">02</span><span>Math and ML Basics</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/02-math-and-ml-basics/index.html">Stage overview</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/01-linear-algebra.html">Linear Algebra</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/02-calculus.html">Calculus</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/03-probability-bayes.html">Probability and Bayes</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/04-ml-basics.html">ML Basics</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/05-loss-functions.html">Loss Functions</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/06-backprop-gradients.html">Backpropagation and Gradients</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/07-ship-gradient-descent.html">Ship Gradient Descent</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">03</span><span>Data Engineering</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/03-data-engineering/index.html">Stage overview</a></li>
+<li><a href="../../stages/03-data-engineering/01-numpy-pandas.html">NumPy and Pandas</a></li>
+<li><a href="../../stages/03-data-engineering/02-data-cleaning.html">Cleaning Messy Data</a></li>
+<li><a href="../../stages/03-data-engineering/03-eda.html">Exploratory Data Analysis</a></li>
+<li><a href="../../stages/03-data-engineering/04-sql-postgresql.html">SQL on PostgreSQL</a></li>
+<li><a href="../../stages/03-data-engineering/05-parquet-jsonl.html">Parquet and JSONL</a></li>
+<li><a href="../../stages/03-data-engineering/06-data-pipelines.html">Data Pipelines</a></li>
+<li><a href="../../stages/03-data-engineering/07-validation.html">Schema Validation with Pydantic</a></li>
+<li><a href="../../stages/03-data-engineering/08-dataset-prep.html">Dataset Preparation</a></li>
+<li><a href="../../stages/03-data-engineering/09-ship-clean-dataset.html">Ship: A Clean Dataset with a Data Card</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">04</span><span>Deep Learning</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/04-deep-learning/index.html">Stage overview</a></li>
+<li><a href="../../stages/04-deep-learning/01-perceptrons.html">Perceptrons</a></li>
+<li><a href="../../stages/04-deep-learning/02-feedforward.html">Feedforward Networks</a></li>
+<li><a href="../../stages/04-deep-learning/03-optimizers.html">Optimizers</a></li>
+<li><a href="../../stages/04-deep-learning/04-cnns-rnns.html">CNNs and RNNs</a></li>
+<li><a href="../../stages/04-deep-learning/05-lstms-grus.html">LSTMs and GRUs</a></li>
+<li><a href="../../stages/04-deep-learning/06-attention.html">Attention</a></li>
+<li><a href="../../stages/04-deep-learning/07-transformers.html">Transformers</a></li>
+<li><a href="../../stages/04-deep-learning/08-embeddings.html">Embeddings</a></li>
+<li><a href="../../stages/04-deep-learning/09-transfer-learning.html">Transfer Learning</a></li>
+<li><a href="../../stages/04-deep-learning/10-ship-mini-transformer.html">Ship: A Miniature Transformer</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">05</span><span>DL Frameworks</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/05-dl-frameworks/index.html">Stage overview</a></li>
+<li><a href="../../stages/05-dl-frameworks/01-pytorch.html">PyTorch: Tensors and Modules</a></li>
+<li><a href="../../stages/05-dl-frameworks/02-autograd.html">Autograd From Scratch</a></li>
+<li><a href="../../stages/05-dl-frameworks/03-training-loops.html">Anatomy of a Training Loop</a></li>
+<li><a href="../../stages/05-dl-frameworks/04-gpu-checkpoints.html">GPU Memory and Checkpoints</a></li>
+<li><a href="../../stages/05-dl-frameworks/05-keras.html">Keras and the High-Level Path</a></li>
+<li><a href="../../stages/05-dl-frameworks/06-hugging-face.html">Hugging Face Transformers and Datasets</a></li>
+<li><a href="../../stages/05-dl-frameworks/07-cuda.html">CUDA, Devices and Mixed Precision</a></li>
+<li><a href="../../stages/05-dl-frameworks/08-ship-training-loop.html">Ship: A Reusable Training Loop</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">06</span><span>LLM Fundamentals</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/06-llm-fundamentals/index.html">Stage overview</a></li>
+<li><a href="../../stages/06-llm-fundamentals/01-gpt-and-bert.html">GPT and BERT: Decoder-Only vs Encoder-Only</a></li>
+<li><a href="../../stages/06-llm-fundamentals/02-tokenization.html">Tokenization: BPE and Byte-Level</a></li>
+<li><a href="../../stages/06-llm-fundamentals/03-context-windows.html">Context Windows</a></li>
+<li><a href="../../stages/06-llm-fundamentals/04-self-attention.html">Self-Attention From Scratch</a></li>
+<li><a href="../../stages/06-llm-fundamentals/05-pretraining.html">Pretraining: Objectives and Scale</a></li>
+<li><a href="../../stages/06-llm-fundamentals/06-instruction-tuning.html">Instruction Tuning and Chat Templates</a></li>
+<li><a href="../../stages/06-llm-fundamentals/07-rlhf-dpo.html">RLHF and DPO</a></li>
+<li><a href="../../stages/06-llm-fundamentals/08-open-vs-closed.html">Open-Weight vs Closed Models</a></li>
+<li><a href="../../stages/06-llm-fundamentals/09-ship-tokenizer.html">Ship: Tokenizer and Token-Budget Analyser</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">07</span><span>LLM APIs</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/07-llm-apis/index.html">Stage overview</a></li>
+<li><a href="../../stages/07-llm-apis/01-openai-anthropic.html">The OpenAI and Anthropic Chat APIs</a></li>
+<li><a href="../../stages/07-llm-apis/02-gemini-open-weight.html">Gemini and Open-Weight Models via Hosted Endpoints</a></li>
+<li><a href="../../stages/07-llm-apis/03-streaming.html">Streaming Responses</a></li>
+<li><a href="../../stages/07-llm-apis/04-structured-outputs.html">Structured Outputs</a></li>
+<li><a href="../../stages/07-llm-apis/05-tool-calling.html">Tool Calling</a></li>
+<li><a href="../../stages/07-llm-apis/06-multimodal-apis.html">Multimodal APIs</a></li>
+<li><a href="../../stages/07-llm-apis/07-retries-rate-limits.html">Retries and Rate Limits</a></li>
+<li><a href="../../stages/07-llm-apis/08-cost-tracking.html">Token Accounting and Cost Tracking</a></li>
+<li><a href="../../stages/07-llm-apis/09-routing-fallbacks.html">Routing and Fallbacks</a></li>
+<li><a href="../../stages/07-llm-apis/10-ship-multi-model-client.html">Ship: A Multi-Model Client</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">08</span><span>Prompt and Context</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/08-prompt-and-context/index.html">Stage overview</a></li>
+<li><a href="../../stages/08-prompt-and-context/01-system-instructions.html">System Instructions That Actually Constrain</a></li>
+<li><a href="../../stages/08-prompt-and-context/02-few-shot-cot.html">Few-Shot Prompting and Chain of Thought</a></li>
+<li><a href="../../stages/08-prompt-and-context/03-templates.html">Prompt Templates with Variables and Validation</a></li>
+<li><a href="../../stages/08-prompt-and-context/04-context-compression.html">Context Compression</a></li>
+<li><a href="../../stages/08-prompt-and-context/05-prompt-versioning.html">Prompt Versioning as Code</a></li>
+<li><a href="../../stages/08-prompt-and-context/06-injection-defense.html">Prompt-Injection Defence</a></li>
+<li><a href="../../stages/08-prompt-and-context/07-prompt-evals.html">Prompt Evals</a></li>
+<li><a href="../../stages/08-prompt-and-context/08-context-engineering.html">Context Engineering</a></li>
+<li><a href="../../stages/08-prompt-and-context/09-ship-prompt-test-suite.html">Ship: A Prompt Test Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">09</span><span>Vector Databases</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/09-vector-databases/index.html">Stage overview</a></li>
+<li><a href="../../stages/09-vector-databases/01-embeddings.html">Embeddings: Text as Points in Space</a></li>
+<li><a href="../../stages/09-vector-databases/02-similarity-metrics.html">Similarity Metrics</a></li>
+<li><a href="../../stages/09-vector-databases/03-semantic-search.html">Semantic Search End to End</a></li>
+<li><a href="../../stages/09-vector-databases/04-vector-indexing.html">Vector Indexing Structures</a></li>
+<li><a href="../../stages/09-vector-databases/05-ann-search.html">Approximate Nearest Neighbour Search</a></li>
+<li><a href="../../stages/09-vector-databases/06-pinecone-qdrant.html">Pinecone and Qdrant</a></li>
+<li><a href="../../stages/09-vector-databases/07-weaviate-milvus.html">Weaviate and Milvus</a></li>
+<li><a href="../../stages/09-vector-databases/08-chroma.html">Chroma and pgvector</a></li>
+<li><a href="../../stages/09-vector-databases/09-hybrid-search.html">Hybrid Search and Reciprocal Rank Fusion</a></li>
+<li><a href="../../stages/09-vector-databases/10-ship-semantic-search.html">Ship: A Semantic Search Service</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">10</span><span>RAG</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/10-rag/index.html">Stage overview</a></li>
+<li><a href="../../stages/10-rag/01-rag-architecture.html">RAG Architecture</a></li>
+<li><a href="../../stages/10-rag/02-ingestion-parsing.html">Ingestion and Parsing</a></li>
+<li><a href="../../stages/10-rag/03-chunking.html">Chunking</a></li>
+<li><a href="../../stages/10-rag/04-embedding-storage.html">Embedding and Storage Design</a></li>
+<li><a href="../../stages/10-rag/05-query-transform.html">Query Transformation</a></li>
+<li><a href="../../stages/10-rag/06-reranking.html">Reranking</a></li>
+<li><a href="../../stages/10-rag/07-hybrid-retrieval.html">Hybrid Retrieval</a></li>
+<li><a href="../../stages/10-rag/08-parent-child.html">Parent-Child Retrieval</a></li>
+<li><a href="../../stages/10-rag/09-multi-query.html">Multi-Query Retrieval</a></li>
+<li><a href="../../stages/10-rag/10-graph-rag.html">Graph RAG</a></li>
+<li><a href="../../stages/10-rag/11-agentic-rag.html">Agentic RAG</a></li>
+<li><a href="../../stages/10-rag/12-rag-evals.html">RAG Evaluation</a></li>
+<li><a href="../../stages/10-rag/13-ship-rag-with-evals.html">Ship: A RAG Service with Evals</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">11</span><span>AI Agents</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/11-agents/index.html">Stage overview</a></li>
+<li><a href="../../stages/11-agents/01-harness-engineering.html">Harness Engineering</a></li>
+<li><a href="../../stages/11-agents/02-agent-architecture.html">Agent Architecture</a></li>
+<li><a href="../../stages/11-agents/03-reasoning-planning.html">Reasoning and Planning</a></li>
+<li><a href="../../stages/11-agents/04-tool-calling.html">Tool Calling</a></li>
+<li><a href="../../stages/11-agents/05-memory-and-state.html">Memory and State</a></li>
+<li><a href="../../stages/11-agents/06-single-agent.html">Single-Agent Patterns</a></li>
+<li><a href="../../stages/11-agents/07-multi-agent.html">Multi-Agent Patterns</a></li>
+<li><a href="../../stages/11-agents/08-human-in-the-loop.html">Human in the Loop</a></li>
+<li><a href="../../stages/11-agents/09-reflection.html">Reflection and Self-Critique</a></li>
+<li><a href="../../stages/11-agents/10-loop-engineering.html">Loop Engineering</a></li>
+<li><a href="../../stages/11-agents/11-agent-security.html">Agent Security</a></li>
+<li><a href="../../stages/11-agents/12-ship-harness-agent.html">Ship: A Harness Agent</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">12</span><span>Orchestration</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/12-orchestration/index.html">Stage overview</a></li>
+<li><a href="../../stages/12-orchestration/01-langchain.html">LangChain</a></li>
+<li><a href="../../stages/12-orchestration/02-langgraph.html">LangGraph</a></li>
+<li><a href="../../stages/12-orchestration/03-graph-engineering.html">Graph Engineering</a></li>
+<li><a href="../../stages/12-orchestration/04-llamaindex.html">LlamaIndex</a></li>
+<li><a href="../../stages/12-orchestration/05-haystack.html">Haystack</a></li>
+<li><a href="../../stages/12-orchestration/06-semantic-kernel.html">Semantic Kernel</a></li>
+<li><a href="../../stages/12-orchestration/07-pydantic-ai.html">Pydantic AI</a></li>
+<li><a href="../../stages/12-orchestration/08-dspy.html">DSPy</a></li>
+<li><a href="../../stages/12-orchestration/09-crewai-autogen.html">CrewAI and AutoGen</a></li>
+<li><a href="../../stages/12-orchestration/10-tradeoffs.html">Trade-offs</a></li>
+<li><a href="../../stages/12-orchestration/11-ship-langgraph-flow.html">Ship: A LangGraph Flow</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">13</span><span>Fine-Tuning</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/13-fine-tuning/index.html">Stage overview</a></li>
+<li><a href="../../stages/13-fine-tuning/01-sft.html">Supervised Fine-Tuning (SFT)</a></li>
+<li><a href="../../stages/13-fine-tuning/02-lora-qlora-peft.html">LoRA, QLoRA and PEFT</a></li>
+<li><a href="../../stages/13-fine-tuning/03-synthetic-data.html">Synthetic Data for Fine-Tuning</a></li>
+<li><a href="../../stages/13-fine-tuning/04-instruction-tuning.html">Instruction Tuning vs Continued Pretraining</a></li>
+<li><a href="../../stages/13-fine-tuning/05-dpo.html">DPO: Preference Tuning Without RLHF</a></li>
+<li><a href="../../stages/13-fine-tuning/06-finetune-evals.html">Evaluating a Fine-Tune Honestly</a></li>
+<li><a href="../../stages/13-fine-tuning/07-finetune-vs-rag.html">Fine-Tune vs RAG vs Prompting</a></li>
+<li><a href="../../stages/13-fine-tuning/08-ship-lora-model.html">Ship: A LoRA Fine-Tune of a Small Open Model</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">14</span><span>Multimodal AI</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/14-multimodal/index.html">Stage overview</a></li>
+<li><a href="../../stages/14-multimodal/01-vision-language.html">Vision-Language Models</a></li>
+<li><a href="../../stages/14-multimodal/02-ocr.html">OCR: Traditional and Model-Based</a></li>
+<li><a href="../../stages/14-multimodal/03-speech-to-text.html">Speech-to-Text</a></li>
+<li><a href="../../stages/14-multimodal/04-text-to-speech.html">Text-to-Speech</a></li>
+<li><a href="../../stages/14-multimodal/05-video-audio.html">Video and Audio Processing</a></li>
+<li><a href="../../stages/14-multimodal/06-multimodal-embeddings.html">Multimodal Embeddings</a></li>
+<li><a href="../../stages/14-multimodal/07-diffusion.html">Diffusion Models for Engineers</a></li>
+<li><a href="../../stages/14-multimodal/08-multimodal-rag.html">Multimodal RAG</a></li>
+<li><a href="../../stages/14-multimodal/09-ship-doc-reader.html">Ship: A Document Reader with Citations</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">15</span><span>Evals and Testing</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/15-evals/index.html">Stage overview</a></li>
+<li><a href="../../stages/15-evals/01-unit-tests.html">Unit Tests for LLM Code</a></li>
+<li><a href="../../stages/15-evals/02-llm-as-judge.html">LLM as Judge</a></li>
+<li><a href="../../stages/15-evals/03-golden-datasets.html">Golden Datasets</a></li>
+<li><a href="../../stages/15-evals/04-faithfulness.html">Faithfulness</a></li>
+<li><a href="../../stages/15-evals/05-hallucinations.html">Hallucinations</a></li>
+<li><a href="../../stages/15-evals/06-agent-evals.html">Agent Evals</a></li>
+<li><a href="../../stages/15-evals/07-human-evals.html">Human Evals</a></li>
+<li><a href="../../stages/15-evals/08-regression-tests.html">Regression Tests</a></li>
+<li><a href="../../stages/15-evals/09-online-offline-evals.html">Online and Offline Evals</a></li>
+<li><a href="../../stages/15-evals/10-ship-eval-suite.html">Ship: An Eval Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">16</span><span>Inference</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/16-inference/index.html">Stage overview</a></li>
+<li><a href="../../stages/16-inference/01-prefill-decode.html">Prefill and Decode</a></li>
+<li><a href="../../stages/16-inference/02-kv-cache.html">The KV Cache</a></li>
+<li><a href="../../stages/16-inference/03-continuous-batching.html">Continuous Batching</a></li>
+<li><a href="../../stages/16-inference/04-pagedattention.html">PagedAttention</a></li>
+<li><a href="../../stages/16-inference/05-speculative-decoding.html">Speculative Decoding</a></li>
+<li><a href="../../stages/16-inference/06-quantization.html">Quantization</a></li>
+<li><a href="../../stages/16-inference/07-distillation.html">Distillation</a></li>
+<li><a href="../../stages/16-inference/08-vllm-sglang.html">vLLM and SGLang</a></li>
+<li><a href="../../stages/16-inference/09-ollama-tensorrt.html">Ollama and TensorRT-LLM</a></li>
+<li><a href="../../stages/16-inference/10-gpu-memory.html">GPU Memory Budgeting</a></li>
+<li><a href="../../stages/16-inference/11-ship-vllm-server.html">Ship: A vLLM Server</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">17</span><span>AI Backend</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/17-ai-backend/index.html">Stage overview</a></li>
+<li><a href="../../stages/17-ai-backend/01-fastapi-flask.html">FastAPI and Flask</a></li>
+<li><a href="../../stages/17-ai-backend/02-websockets.html">Streaming with SSE and WebSockets</a></li>
+<li><a href="../../stages/17-ai-backend/03-async-processing.html">Async Processing</a></li>
+<li><a href="../../stages/17-ai-backend/04-redis-caching.html">Redis Caching</a></li>
+<li><a href="../../stages/17-ai-backend/05-job-queues.html">Job Queues</a></li>
+<li><a href="../../stages/17-ai-backend/06-auth-rate-limits.html">Auth and Rate Limits</a></li>
+<li><a href="../../stages/17-ai-backend/07-api-security.html">API Security</a></li>
+<li><a href="../../stages/17-ai-backend/08-ai-app-architecture.html">AI App Architecture</a></li>
+<li><a href="../../stages/17-ai-backend/09-ship-streaming-api.html">Ship: A Streaming Chat API</a></li>
+</ul></div>
+<div class="nav-group open">
+<button class="nav-stage current" type="button"><span class="num">18</span><span>MLOps and LLMOps</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/18-mlops-llmops/index.html">Stage overview</a></li>
+<li><a href="../../stages/18-mlops-llmops/01-mlflow-wandb.html">Experiment Tracking with MLflow and W&B</a></li>
+<li><a class="active" href="../../stages/18-mlops-llmops/02-langfuse-langsmith.html">LLM Observability with Langfuse and LangSmith</a></li>
+<li><a href="../../stages/18-mlops-llmops/03-prompt-versioning.html">Prompt Versioning and Registries</a></li>
+<li><a href="../../stages/18-mlops-llmops/04-dvc.html">DVC for Data and Models</a></li>
+<li><a href="../../stages/18-mlops-llmops/05-tracing.html">Tracing Design</a></li>
+<li><a href="../../stages/18-mlops-llmops/06-cost-monitoring.html">Cost Monitoring and Budgets</a></li>
+<li><a href="../../stages/18-mlops-llmops/07-ci-cd-evals.html">CI/CD for Evals</a></li>
+<li><a href="../../stages/18-mlops-llmops/08-ship-trace-dashboard.html">Ship: A Trace Dashboard</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">19</span><span>Cloud and DevOps</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/19-cloud-devops/index.html">Stage overview</a></li>
+<li><a href="../../stages/19-cloud-devops/01-aws-s3-ec2-lambda.html">AWS for AI Apps: S3, EC2, Lambda</a></li>
+<li><a href="../../stages/19-cloud-devops/02-ecs-eks-sagemaker.html">Containers at Scale: ECS, EKS, SageMaker</a></li>
+<li><a href="../../stages/19-cloud-devops/03-gcp-azure-ai.html">GCP and Azure AI Equivalents</a></li>
+<li><a href="../../stages/19-cloud-devops/04-docker.html">Docker Done Properly</a></li>
+<li><a href="../../stages/19-cloud-devops/05-kubernetes.html">Kubernetes Essentials for AI Services</a></li>
+<li><a href="../../stages/19-cloud-devops/06-github-actions.html">GitHub Actions CI/CD</a></li>
+<li><a href="../../stages/19-cloud-devops/07-terraform.html">Terraform Basics</a></li>
+<li><a href="../../stages/19-cloud-devops/08-gpu-cloud.html">GPU Cloud Practicalities</a></li>
+<li><a href="../../stages/19-cloud-devops/09-ship-docker-deploy.html">Ship: Dockerised Deploy with Rollback</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">20</span><span>AI Security</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/20-ai-security/index.html">Stage overview</a></li>
+<li><a href="../../stages/20-ai-security/01-prompt-injection.html">Prompt Injection</a></li>
+<li><a href="../../stages/20-ai-security/02-jailbreaks.html">Jailbreaks</a></li>
+<li><a href="../../stages/20-ai-security/03-data-leakage.html">Data Leakage</a></li>
+<li><a href="../../stages/20-ai-security/04-pii-redaction.html">PII Redaction and Detection</a></li>
+<li><a href="../../stages/20-ai-security/05-sandboxing.html">Sandboxing Tool Execution</a></li>
+<li><a href="../../stages/20-ai-security/06-supply-chain.html">Supply Chain Security</a></li>
+<li><a href="../../stages/20-ai-security/07-bias-fairness.html">Bias and Fairness</a></li>
+<li><a href="../../stages/20-ai-security/08-governance.html">Governance</a></li>
+<li><a href="../../stages/20-ai-security/09-guardrails.html">Guardrails</a></li>
+<li><a href="../../stages/20-ai-security/10-ship-injection-tests.html">Ship: Injection Test Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">21</span><span>System Design</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/21-system-design/index.html">Stage overview</a></li>
+<li><a href="../../stages/21-system-design/01-scalable-ai-apps.html">Scalable AI Apps</a></li>
+<li><a href="../../stages/21-system-design/02-rag-design.html">RAG Design at Scale</a></li>
+<li><a href="../../stages/21-system-design/03-agent-design.html">Agent Design</a></li>
+<li><a href="../../stages/21-system-design/04-model-routing.html">Model Routing</a></li>
+<li><a href="../../stages/21-system-design/05-multi-tenant.html">Multi-Tenant Design</a></li>
+<li><a href="../../stages/21-system-design/06-caching.html">Caching Layers</a></li>
+<li><a href="../../stages/21-system-design/07-fault-tolerance.html">Fault Tolerance</a></li>
+<li><a href="../../stages/21-system-design/08-cost-latency.html">Cost and Latency Engineering</a></li>
+<li><a href="../../stages/21-system-design/09-scaling-tradeoffs.html">Scaling Trade-offs</a></li>
+<li><a href="../../stages/21-system-design/10-ship-design-doc.html">Ship: A Design Document</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">22</span><span>Real Projects</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/22-real-projects/index.html">Stage overview</a></li>
+<li><a href="../../stages/22-real-projects/01-research-assistant.html">Research Assistant</a></li>
+<li><a href="../../stages/22-real-projects/02-document-intelligence.html">Document Intelligence</a></li>
+<li><a href="../../stages/22-real-projects/03-production-rag.html">Production RAG</a></li>
+<li><a href="../../stages/22-real-projects/04-multi-agent-research.html">Multi-Agent Research</a></li>
+<li><a href="../../stages/22-real-projects/05-support-agent.html">Support Agent</a></li>
+<li><a href="../../stages/22-real-projects/06-coding-assistant.html">Coding Assistant</a></li>
+<li><a href="../../stages/22-real-projects/07-multimodal-assistant.html">Multimodal Assistant</a></li>
+<li><a href="../../stages/22-real-projects/08-meeting-intelligence.html">Meeting Intelligence</a></li>
+<li><a href="../../stages/22-real-projects/09-knowledge-assistant.html">Knowledge Assistant</a></li>
+<li><a href="../../stages/22-real-projects/10-workflow-automation.html">Workflow Automation</a></li>
+<li><a href="../../stages/22-real-projects/11-fine-tuning-pipeline.html">Fine-Tuning Pipeline</a></li>
+<li><a href="../../stages/22-real-projects/12-eval-platform.html">Eval Platform</a></li>
+<li><a href="../../stages/22-real-projects/13-ai-saas.html">AI SaaS</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">23</span><span>Career</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/23-career/index.html">Stage overview</a></li>
+<li><a href="../../stages/23-career/01-github-portfolio.html">GitHub Portfolio</a></li>
+<li><a href="../../stages/23-career/02-resume.html">Resume</a></li>
+<li><a href="../../stages/23-career/03-python-sql-interviews.html">Python and SQL Interviews</a></li>
+<li><a href="../../stages/23-career/04-ml-llm-basics.html">ML and LLM Basics</a></li>
+<li><a href="../../stages/23-career/05-system-design-practice.html">System Design Practice</a></li>
+<li><a href="../../stages/23-career/06-rag-agent-patterns.html">RAG and Agent Patterns</a></li>
+<li><a href="../../stages/23-career/07-inference-optimization.html">Inference Optimisation</a></li>
+<li><a href="../../stages/23-career/08-production-case-studies.html">Production Case Studies</a></li>
+<li><a href="../../stages/23-career/09-open-source.html">Open Source</a></li>
+<li><a href="../../stages/23-career/10-technical-articles.html">Technical Articles</a></li>
+<li><a href="../../stages/23-career/11-build-in-public.html">Building in Public</a></li>
+<li><a href="../../stages/23-career/12-apply-for-roles.html">Applying for Roles</a></li>
+</ul></div>
+  </aside>
+  <main>
+    <div class="crumbs"><a href="../../index.html">Roadmap</a><span>/</span><a href="../../stages/18-mlops-llmops/index.html">Stage 18 · MLOps and LLMOps</a><span>/</span>LLM Observability with Langfuse and LangSmith</div>
+    <article class="prose">
+<h1 id="2-llm-observability-with-langfuse-and-langsmith">2. LLM Observability with Langfuse and LangSmith</h1>
+<blockquote>
+<p><strong>Stage 18 · MLOps and LLMOps</strong> — the production lens that shows you what users actually sent, what the model actually did, and what it cost.</p>
+<p><strong>You'll be able to:</strong> instrument an LLM service so every request produces a trace you can read, group traces into user sessions, and attach thumbs-up/down feedback to the exact generation it judges.</p>
+<p><strong>Prerequisites:</strong> <a href="01-mlflow-wandb.html">Experiment Tracking with MLflow and W&amp;B</a> · <a href="../17-ai-backend/index.html">Stage 17 — AI Backend</a></p>
+</blockquote>
+<h2 id="why-this-exists">Why this exists</h2>
+<p>Offline evals tell you how your system behaves on 240 questions you wrote. Production tells you about the other 40,000 questions you did not think of, asked in Tamil-English, in a hurry, with typos, pasted into a chat box at 2 a.m. Your eval suite will never cover those.</p>
+<p>When a user says "it gave me a wrong answer yesterday", the useful questions are: what exactly did they type, what did retrieval return, which prompt version rendered, which tool calls ran, how many tokens, and what did the model say. Application logs give you a line of text. A trace gives you the tree.</p>
+<p>The mental model: <strong>a trace is one request's family tree.</strong> The root is the user request; children are the retrieval call, each model call, each tool call; each node carries inputs, outputs, timings, tokens and metadata.</p>
+<h2 id="the-mental-model">The mental model</h2>
+<div class="code-block"><pre><span></span><code>trace  7f21  (user u_88, session s_4, release 2026-03-05)
+|  input: "how do I cancel an order that already shipped?"
+|-- span  retrieve         42ms   k=5, index=faq-v3
+|-- span  rerank          180ms   model=bge-reranker
+|-- span  llm.answer     1240ms   gpt-4.1-mini  in 812 / out 141 tok
+|     metadata: prompt_version=answer.v4, prompt_hash=c40f
+|     score   : thumbs_down (from UI)  -&gt; linked to this generation
+`-- span  tool.order_lookup  310ms  order_id=OR-99x
+</code></pre></div>
+
+<p>Langfuse and LangSmith both store this shape and both render it as a timeline plus a tree. Langfuse is open source and self-hostable; LangSmith is the hosted companion to the LangChain ecosystem with strong dataset and eval integration. The concepts below transfer between them, and both accept OpenTelemetry-style spans if you prefer a vendor-neutral emitter.</p>
+<h2 id="core-concepts">Core concepts</h2>
+<h3 id="trace-span-generation-session">Trace, span, generation, session</h3>
+<p>A <strong>trace</strong> is one end-to-end request. A <strong>span</strong> is any timed step inside it. A <strong>generation</strong> is a span that is specifically a model call, and it carries the extra fields that matter for LLMs: model id, prompt messages, completion, token counts, cost. A <strong>session</strong> groups traces that belong to one conversation, so you can see a user's third turn in the context of their first two.</p>
+<p>Get these four right and everything else is UI. Most instrumentation bugs are one of two kinds: everything flattened into a single span (no tree, no per-step latency), or every internal helper function made a span (a hundred-node tree nobody reads).</p>
+<h3 id="attach-the-metadata-you-will-filter-on">Attach the metadata you will filter on</h3>
+<p>Traces are only useful if you can query them. Before you write any code, decide the metadata keys: <code>tenant_id</code>, <code>feature</code>, <code>prompt_version</code>, <code>release_sha</code>, <code>model_id</code>, <code>env</code>. Put them on the root trace so a filter finds the whole tree. These same keys are what your cost dashboard groups by later, so agree on the names once and use them everywhere. Inconsistent keys (<code>tenant</code> in one service, <code>tenant_id</code> in another) is the most common reason a dashboard comes out blank.</p>
+<h3 id="user-feedback-is-a-first-class-signal">User feedback is a first-class signal</h3>
+<p>A thumbs-down is worth more than a hundred synthetic eval rows, but only if it is attached to the generation that earned it, not to a support ticket. Both platforms let you write a score against a trace id from your own backend: the browser sends <code>{trace_id, value}</code> and your API records it. Store the trace id in your frontend state next to the answer so the button knows what it is judging.</p>
+<h3 id="sampling-full-capture-is-a-bill-zero-capture-is-blind">Sampling: full capture is a bill, zero capture is blind</h3>
+<p>Traces cost storage and, in hosted tools, money. Sample deliberately: capture 100% of errors and of thumbs-down-linked traces, plus a small random share of successes. If your SDK supports head sampling, set it low and use tail sampling where the platform offers it, so a slow or failing request is kept even when its head was not sampled.</p>
+<h2 id="code">Code</h2>
+<p>A FastAPI endpoint that creates one trace per request, nests a retrieval span and a generation, and tags the trace with the metadata you will filter on. The SDK call shapes differ slightly between Langfuse versions and between Langfuse and LangSmith; check the current docs for the exact import path and decorator signature.</p>
+<div class="code-block"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">langfuse</span><span class="w"> </span><span class="kn">import</span> <span class="n">Langfuse</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+<span class="c1"># Reads LANGFUSE_PUBLIC_KEY / LANGFUSE_SECRET_KEY / LANGFUSE_HOST from the environment.</span>
+<span class="n">lf</span> <span class="o">=</span> <span class="n">Langfuse</span><span class="p">()</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">AskRequest</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">question</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">tenant_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">feature</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"support"</span>
+    <span class="n">session_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">AskResponse</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">answer</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">trace_id</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># the frontend echoes this back when the user clicks thumbs</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">retrieve</span><span class="p">(</span><span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="c1"># Stand-in for your vector search; returns chunk ids.</span>
+    <span class="k">return</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"chunk-</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">)]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">call_model</span><span class="p">(</span><span class="n">messages</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="c1"># Replace with a real client call; check the provider docs for the model id.</span>
+    <span class="k">return</span> <span class="s2">"You can cancel an in-transit order from Orders &gt; Cancel."</span><span class="p">,</span> <span class="mi">812</span><span class="p">,</span> <span class="mi">141</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/ask"</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">AskResponse</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">ask</span><span class="p">(</span><span class="n">req</span><span class="p">:</span> <span class="n">AskRequest</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AskResponse</span><span class="p">:</span>
+    <span class="n">trace</span> <span class="o">=</span> <span class="n">lf</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">"support.ask"</span><span class="p">,</span>
+        <span class="nb">input</span><span class="o">=</span><span class="n">req</span><span class="o">.</span><span class="n">question</span><span class="p">,</span>
+        <span class="n">session_id</span><span class="o">=</span><span class="n">req</span><span class="o">.</span><span class="n">session_id</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()),</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">"tenant_id"</span><span class="p">:</span> <span class="n">req</span><span class="o">.</span><span class="n">tenant_id</span><span class="p">,</span>
+            <span class="s2">"feature"</span><span class="p">:</span> <span class="n">req</span><span class="o">.</span><span class="n">feature</span><span class="p">,</span>
+            <span class="s2">"prompt_version"</span><span class="p">:</span> <span class="s2">"answer.v4"</span><span class="p">,</span>
+            <span class="s2">"env"</span><span class="p">:</span> <span class="s2">"prod"</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">)</span>
+
+    <span class="n">started</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">chunks</span> <span class="o">=</span> <span class="n">retrieve</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">question</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">trace</span><span class="o">.</span><span class="n">span</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"retrieve"</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="n">req</span><span class="o">.</span><span class="n">question</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">chunks</span><span class="p">,</span>
+               <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">"elapsed_ms"</span><span class="p">:</span> <span class="nb">round</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">started</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)})</span>
+
+    <span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"system"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Answer only from the provided context."</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"Context: </span><span class="si">{</span><span class="n">chunks</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">Q: </span><span class="si">{</span><span class="n">req</span><span class="o">.</span><span class="n">question</span><span class="si">}</span><span class="s2">"</span><span class="p">},</span>
+    <span class="p">]</span>
+    <span class="n">answer</span><span class="p">,</span> <span class="n">tok_in</span><span class="p">,</span> <span class="n">tok_out</span> <span class="o">=</span> <span class="n">call_model</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
+
+    <span class="c1"># A generation, not a plain span: it carries the LLM-specific fields.</span>
+    <span class="n">trace</span><span class="o">.</span><span class="n">generation</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">"llm.answer"</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="s2">"gpt-4.1-mini"</span><span class="p">,</span>
+        <span class="nb">input</span><span class="o">=</span><span class="n">messages</span><span class="p">,</span>
+        <span class="n">output</span><span class="o">=</span><span class="n">answer</span><span class="p">,</span>
+        <span class="n">usage</span><span class="o">=</span><span class="p">{</span><span class="s2">"input"</span><span class="p">:</span> <span class="n">tok_in</span><span class="p">,</span> <span class="s2">"output"</span><span class="p">:</span> <span class="n">tok_out</span><span class="p">},</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="p">{</span><span class="s2">"prompt_version"</span><span class="p">:</span> <span class="s2">"answer.v4"</span><span class="p">},</span>
+    <span class="p">)</span>
+
+    <span class="n">trace</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">output</span><span class="o">=</span><span class="n">answer</span><span class="p">)</span>
+    <span class="n">lf</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>  <span class="c1"># do not rely on process exit in a serverless or container deploy</span>
+    <span class="k">return</span> <span class="n">AskResponse</span><span class="p">(</span><span class="n">answer</span><span class="o">=</span><span class="n">answer</span><span class="p">,</span> <span class="n">trace_id</span><span class="o">=</span><span class="n">trace</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Second snippet: recording user feedback against that trace id. Note that this endpoint must validate the trace id belongs to the caller's tenant, or one tenant can score another's traces.</p>
+<div class="code-block"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPException</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">app.main</span><span class="w"> </span><span class="kn">import</span> <span class="n">lf</span>  <span class="c1"># same Langfuse client</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Feedback</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">trace_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">value</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">ge</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># -1 thumbs down, 1 thumbs up</span>
+    <span class="n">comment</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/feedback"</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">feedback</span><span class="p">(</span><span class="n">body</span><span class="p">:</span> <span class="n">Feedback</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+    <span class="n">trace</span> <span class="o">=</span> <span class="n">lf</span><span class="o">.</span><span class="n">get_trace</span><span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">trace_id</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">trace</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">"unknown trace"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">trace</span><span class="o">.</span><span class="n">metadata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"tenant_id"</span><span class="p">)</span> <span class="o">!=</span> <span class="n">tenant_id</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">403</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">"not your trace"</span><span class="p">)</span>
+    <span class="n">lf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">trace_id</span><span class="o">=</span><span class="n">body</span><span class="o">.</span><span class="n">trace_id</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"user_thumbs"</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">body</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+             <span class="n">comment</span><span class="o">=</span><span class="n">body</span><span class="o">.</span><span class="n">comment</span><span class="p">)</span>
+    <span class="n">lf</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"status"</span><span class="p">:</span> <span class="s2">"recorded"</span><span class="p">}</span>
+</code></pre></div>
+
+<h2 id="real-use-case">Real use case</h2>
+<p>A B2B document assistant answers questions over customer contracts. Support gets a complaint: "it invented a termination clause". Before tracing, the engineer reads the app log, sees the answer text, and cannot tell whether retrieval missed the clause, the prompt ignored it, or the model hallucinated. With traces, the specific request is found by filtering <code>feature=contracts</code> and <code>user_thumbs=-1</code> in the last 24 hours. The trace shows retrieval returned five chunks, none containing "termination", because the upload pipeline had indexed the pre-signature draft. That is a data bug, not a prompt bug, and it took four minutes to identify instead of a day of reproduction attempts.</p>
+<p>The design choice that made it work was putting <code>tenant_id</code> and <code>feature</code> on the root trace and attaching feedback to the generation. Without the tenant key the complaint could not be located at all, because the customer had not shared a request id.</p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<p><strong>Mistake:</strong> one span for the whole request — <strong>Instead:</strong> span per model call and per tool call, so latency and token cost attribute to the step that caused them.</p>
+<p><strong>Mistake:</strong> logging raw prompts and completions that contain customer PII — <strong>Instead:</strong> redact at the SDK boundary with a hook, or mask fields before sending; see <a href="../20-ai-security/04-pii-redaction.html">PII Redaction</a>.</p>
+<p><strong>Mistake:</strong> tracing in dev but not in prod, or in prod but never sampling — <strong>Instead:</strong> always-on for errors and negative feedback, sampled for the rest, so cost stays bounded without going blind.</p>
+<p><strong>Mistake:</strong> fire-and-forget export with no flush — <strong>Instead:</strong> call <code>flush()</code> before returning from a serverless handler or on shutdown, or you lose the traces of the requests that crashed.</p>
+<p><strong>Mistake:</strong> a feedback endpoint that trusts the trace id blindly — <strong>Instead:</strong> verify tenant ownership before writing the score.</p>
+<h2 id="checkpoint">Checkpoint</h2>
+<ol>
+<li>Instrument one endpoint from your Stage 17 service so it emits a root trace, a retrieval span and a generation span, with <code>feature</code> and <code>prompt_version</code> metadata. Trigger it three times and confirm three trees appear.</li>
+<li>Add <code>/feedback</code> and wire one button in a minimal HTML page that posts the trace id. Confirm the score appears attached to the generation, not to the trace root.</li>
+<li>Turn on sampling at 10% and add a rule that keeps 100% of traces where <code>error=true</code>. Replay 50 requests, half of them forced failures, and verify all 25 failures were captured.</li>
+</ol>
+<p><strong>Self-check:</strong> exercise 1 is done when your trace view shows one root with two children and the generation lists input tokens, output tokens and model id.</p>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li><a href="05-tracing.html">Tracing Design</a> — the design rules for span boundaries and attributes, once the basics work.</li>
+<li><a href="06-cost-monitoring.html">Cost Monitoring and Budgets</a> — the token counts you just logged become per-tenant spend here.</li>
+<li><a href="../15-evals/09-online-offline-evals.html">Evals</a> — how online traces feed back into offline test sets.</li>
+<li><a href="03-prompt-versioning.html">Prompt Versioning and Registries</a> — making the <code>prompt_version</code> you tag traces with a real, resolvable thing.</li>
+</ul>
+<hr />
+<p><a href="01-mlflow-wandb.html">← Previous: Experiment Tracking with MLflow and W&amp;B</a> · <a href="index.html">Stage index</a> · <a href="03-prompt-versioning.html">Next: Prompt Versioning and Registries</a></p>
+    </article>
+    <nav class="pager">
+<a class="prev" href="../../stages/18-mlops-llmops/01-mlflow-wandb.html"><span class="dir">Previous</span>Experiment Tracking with MLflow and W&B</a>
+<a class="next" href="../../stages/18-mlops-llmops/03-prompt-versioning.html"><span class="dir">Next</span>Prompt Versioning and Registries</a>
+</nav>
+    <footer class="site-footer">
+      AI Engineer Roadmap · <a href="../../contributing.html">Contribute</a> ·
+      <a href="../../glossary.html">Glossary</a> ·
+      <a href="../../progress.html">Progress</a> · MIT licensed
+    </footer>
+  </main>
+</div>
+<button id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 13V3M3 8l5-5 5 5"/></svg>
+</button>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

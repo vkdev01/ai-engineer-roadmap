@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="en" data-theme="github-light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AI Engineer Roadmap · AI Engineer Roadmap</title>
+<meta name="description" content="A complete, build-along tutorial that takes you from &quot;I know a little Python&quot; to &quot;I can design, ship and defend a production LLM system.&quot; 23 stages. 226 lessons">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111'/><text x='16' y='22' font-size='14' font-family='monospace' fill='%23fff' text-anchor='middle'>AI</text></svg>">
+</head>
+<body>
+<div id="progress"></div>
+<header class="topbar">
+  <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+  </button>
+  <a class="brand" href="index.html">
+    <span class="brand-mark">AI</span>
+    <span class="brand-text">Engineer Roadmap</span>
+  </a>
+  <div class="spacer"></div>
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+    <input id="q" type="search" placeholder="Search 226 lessons…" autocomplete="off" aria-label="Search lessons">
+    <div id="results"></div>
+  </div>
+  <select id="theme" class="theme-select" aria-label="Style"></select>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+<a class="nav-home" href="index.html">Roadmap home</a>
+<a class="nav-home" href="fast-track.html">Fast track</a>
+<a class="nav-home" href="progress.html">Progress tracker</a>
+<a class="nav-home" href="glossary.html">Glossary</a>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">01</span><span>Programming Basics</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/01-programming-basics/index.html">Stage overview</a></li>
+<li><a href="stages/01-programming-basics/01-python-async.html">Python Async</a></li>
+<li><a href="stages/01-programming-basics/02-type-hints-pydantic.html">Type Hints and Pydantic v2</a></li>
+<li><a href="stages/01-programming-basics/03-generators.html">Generators</a></li>
+<li><a href="stages/01-programming-basics/04-algorithms.html">Core Algorithms</a></li>
+<li><a href="stages/01-programming-basics/05-git-github.html">Git and GitHub</a></li>
+<li><a href="stages/01-programming-basics/06-linux-cli.html">The Linux Command Line</a></li>
+<li><a href="stages/01-programming-basics/07-http-rest-apis.html">HTTP and REST APIs</a></li>
+<li><a href="stages/01-programming-basics/08-json-yaml.html">JSON and YAML</a></li>
+<li><a href="stages/01-programming-basics/09-ship-cli-tool.html">Ship a CLI Tool</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">02</span><span>Math and ML Basics</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/02-math-and-ml-basics/index.html">Stage overview</a></li>
+<li><a href="stages/02-math-and-ml-basics/01-linear-algebra.html">Linear Algebra</a></li>
+<li><a href="stages/02-math-and-ml-basics/02-calculus.html">Calculus</a></li>
+<li><a href="stages/02-math-and-ml-basics/03-probability-bayes.html">Probability and Bayes</a></li>
+<li><a href="stages/02-math-and-ml-basics/04-ml-basics.html">ML Basics</a></li>
+<li><a href="stages/02-math-and-ml-basics/05-loss-functions.html">Loss Functions</a></li>
+<li><a href="stages/02-math-and-ml-basics/06-backprop-gradients.html">Backpropagation and Gradients</a></li>
+<li><a href="stages/02-math-and-ml-basics/07-ship-gradient-descent.html">Ship Gradient Descent</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">03</span><span>Data Engineering</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/03-data-engineering/index.html">Stage overview</a></li>
+<li><a href="stages/03-data-engineering/01-numpy-pandas.html">NumPy and Pandas</a></li>
+<li><a href="stages/03-data-engineering/02-data-cleaning.html">Cleaning Messy Data</a></li>
+<li><a href="stages/03-data-engineering/03-eda.html">Exploratory Data Analysis</a></li>
+<li><a href="stages/03-data-engineering/04-sql-postgresql.html">SQL on PostgreSQL</a></li>
+<li><a href="stages/03-data-engineering/05-parquet-jsonl.html">Parquet and JSONL</a></li>
+<li><a href="stages/03-data-engineering/06-data-pipelines.html">Data Pipelines</a></li>
+<li><a href="stages/03-data-engineering/07-validation.html">Schema Validation with Pydantic</a></li>
+<li><a href="stages/03-data-engineering/08-dataset-prep.html">Dataset Preparation</a></li>
+<li><a href="stages/03-data-engineering/09-ship-clean-dataset.html">Ship: A Clean Dataset with a Data Card</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">04</span><span>Deep Learning</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/04-deep-learning/index.html">Stage overview</a></li>
+<li><a href="stages/04-deep-learning/01-perceptrons.html">Perceptrons</a></li>
+<li><a href="stages/04-deep-learning/02-feedforward.html">Feedforward Networks</a></li>
+<li><a href="stages/04-deep-learning/03-optimizers.html">Optimizers</a></li>
+<li><a href="stages/04-deep-learning/04-cnns-rnns.html">CNNs and RNNs</a></li>
+<li><a href="stages/04-deep-learning/05-lstms-grus.html">LSTMs and GRUs</a></li>
+<li><a href="stages/04-deep-learning/06-attention.html">Attention</a></li>
+<li><a href="stages/04-deep-learning/07-transformers.html">Transformers</a></li>
+<li><a href="stages/04-deep-learning/08-embeddings.html">Embeddings</a></li>
+<li><a href="stages/04-deep-learning/09-transfer-learning.html">Transfer Learning</a></li>
+<li><a href="stages/04-deep-learning/10-ship-mini-transformer.html">Ship: A Miniature Transformer</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">05</span><span>DL Frameworks</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/05-dl-frameworks/index.html">Stage overview</a></li>
+<li><a href="stages/05-dl-frameworks/01-pytorch.html">PyTorch: Tensors and Modules</a></li>
+<li><a href="stages/05-dl-frameworks/02-autograd.html">Autograd From Scratch</a></li>
+<li><a href="stages/05-dl-frameworks/03-training-loops.html">Anatomy of a Training Loop</a></li>
+<li><a href="stages/05-dl-frameworks/04-gpu-checkpoints.html">GPU Memory and Checkpoints</a></li>
+<li><a href="stages/05-dl-frameworks/05-keras.html">Keras and the High-Level Path</a></li>
+<li><a href="stages/05-dl-frameworks/06-hugging-face.html">Hugging Face Transformers and Datasets</a></li>
+<li><a href="stages/05-dl-frameworks/07-cuda.html">CUDA, Devices and Mixed Precision</a></li>
+<li><a href="stages/05-dl-frameworks/08-ship-training-loop.html">Ship: A Reusable Training Loop</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">06</span><span>LLM Fundamentals</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/06-llm-fundamentals/index.html">Stage overview</a></li>
+<li><a href="stages/06-llm-fundamentals/01-gpt-and-bert.html">GPT and BERT: Decoder-Only vs Encoder-Only</a></li>
+<li><a href="stages/06-llm-fundamentals/02-tokenization.html">Tokenization: BPE and Byte-Level</a></li>
+<li><a href="stages/06-llm-fundamentals/03-context-windows.html">Context Windows</a></li>
+<li><a href="stages/06-llm-fundamentals/04-self-attention.html">Self-Attention From Scratch</a></li>
+<li><a href="stages/06-llm-fundamentals/05-pretraining.html">Pretraining: Objectives and Scale</a></li>
+<li><a href="stages/06-llm-fundamentals/06-instruction-tuning.html">Instruction Tuning and Chat Templates</a></li>
+<li><a href="stages/06-llm-fundamentals/07-rlhf-dpo.html">RLHF and DPO</a></li>
+<li><a href="stages/06-llm-fundamentals/08-open-vs-closed.html">Open-Weight vs Closed Models</a></li>
+<li><a href="stages/06-llm-fundamentals/09-ship-tokenizer.html">Ship: Tokenizer and Token-Budget Analyser</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">07</span><span>LLM APIs</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/07-llm-apis/index.html">Stage overview</a></li>
+<li><a href="stages/07-llm-apis/01-openai-anthropic.html">The OpenAI and Anthropic Chat APIs</a></li>
+<li><a href="stages/07-llm-apis/02-gemini-open-weight.html">Gemini and Open-Weight Models via Hosted Endpoints</a></li>
+<li><a href="stages/07-llm-apis/03-streaming.html">Streaming Responses</a></li>
+<li><a href="stages/07-llm-apis/04-structured-outputs.html">Structured Outputs</a></li>
+<li><a href="stages/07-llm-apis/05-tool-calling.html">Tool Calling</a></li>
+<li><a href="stages/07-llm-apis/06-multimodal-apis.html">Multimodal APIs</a></li>
+<li><a href="stages/07-llm-apis/07-retries-rate-limits.html">Retries and Rate Limits</a></li>
+<li><a href="stages/07-llm-apis/08-cost-tracking.html">Token Accounting and Cost Tracking</a></li>
+<li><a href="stages/07-llm-apis/09-routing-fallbacks.html">Routing and Fallbacks</a></li>
+<li><a href="stages/07-llm-apis/10-ship-multi-model-client.html">Ship: A Multi-Model Client</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">08</span><span>Prompt and Context</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/08-prompt-and-context/index.html">Stage overview</a></li>
+<li><a href="stages/08-prompt-and-context/01-system-instructions.html">System Instructions That Actually Constrain</a></li>
+<li><a href="stages/08-prompt-and-context/02-few-shot-cot.html">Few-Shot Prompting and Chain of Thought</a></li>
+<li><a href="stages/08-prompt-and-context/03-templates.html">Prompt Templates with Variables and Validation</a></li>
+<li><a href="stages/08-prompt-and-context/04-context-compression.html">Context Compression</a></li>
+<li><a href="stages/08-prompt-and-context/05-prompt-versioning.html">Prompt Versioning as Code</a></li>
+<li><a href="stages/08-prompt-and-context/06-injection-defense.html">Prompt-Injection Defence</a></li>
+<li><a href="stages/08-prompt-and-context/07-prompt-evals.html">Prompt Evals</a></li>
+<li><a href="stages/08-prompt-and-context/08-context-engineering.html">Context Engineering</a></li>
+<li><a href="stages/08-prompt-and-context/09-ship-prompt-test-suite.html">Ship: A Prompt Test Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">09</span><span>Vector Databases</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/09-vector-databases/index.html">Stage overview</a></li>
+<li><a href="stages/09-vector-databases/01-embeddings.html">Embeddings: Text as Points in Space</a></li>
+<li><a href="stages/09-vector-databases/02-similarity-metrics.html">Similarity Metrics</a></li>
+<li><a href="stages/09-vector-databases/03-semantic-search.html">Semantic Search End to End</a></li>
+<li><a href="stages/09-vector-databases/04-vector-indexing.html">Vector Indexing Structures</a></li>
+<li><a href="stages/09-vector-databases/05-ann-search.html">Approximate Nearest Neighbour Search</a></li>
+<li><a href="stages/09-vector-databases/06-pinecone-qdrant.html">Pinecone and Qdrant</a></li>
+<li><a href="stages/09-vector-databases/07-weaviate-milvus.html">Weaviate and Milvus</a></li>
+<li><a href="stages/09-vector-databases/08-chroma.html">Chroma and pgvector</a></li>
+<li><a href="stages/09-vector-databases/09-hybrid-search.html">Hybrid Search and Reciprocal Rank Fusion</a></li>
+<li><a href="stages/09-vector-databases/10-ship-semantic-search.html">Ship: A Semantic Search Service</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">10</span><span>RAG</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/10-rag/index.html">Stage overview</a></li>
+<li><a href="stages/10-rag/01-rag-architecture.html">RAG Architecture</a></li>
+<li><a href="stages/10-rag/02-ingestion-parsing.html">Ingestion and Parsing</a></li>
+<li><a href="stages/10-rag/03-chunking.html">Chunking</a></li>
+<li><a href="stages/10-rag/04-embedding-storage.html">Embedding and Storage Design</a></li>
+<li><a href="stages/10-rag/05-query-transform.html">Query Transformation</a></li>
+<li><a href="stages/10-rag/06-reranking.html">Reranking</a></li>
+<li><a href="stages/10-rag/07-hybrid-retrieval.html">Hybrid Retrieval</a></li>
+<li><a href="stages/10-rag/08-parent-child.html">Parent-Child Retrieval</a></li>
+<li><a href="stages/10-rag/09-multi-query.html">Multi-Query Retrieval</a></li>
+<li><a href="stages/10-rag/10-graph-rag.html">Graph RAG</a></li>
+<li><a href="stages/10-rag/11-agentic-rag.html">Agentic RAG</a></li>
+<li><a href="stages/10-rag/12-rag-evals.html">RAG Evaluation</a></li>
+<li><a href="stages/10-rag/13-ship-rag-with-evals.html">Ship: A RAG Service with Evals</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">11</span><span>AI Agents</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/11-agents/index.html">Stage overview</a></li>
+<li><a href="stages/11-agents/01-harness-engineering.html">Harness Engineering</a></li>
+<li><a href="stages/11-agents/02-agent-architecture.html">Agent Architecture</a></li>
+<li><a href="stages/11-agents/03-reasoning-planning.html">Reasoning and Planning</a></li>
+<li><a href="stages/11-agents/04-tool-calling.html">Tool Calling</a></li>
+<li><a href="stages/11-agents/05-memory-and-state.html">Memory and State</a></li>
+<li><a href="stages/11-agents/06-single-agent.html">Single-Agent Patterns</a></li>
+<li><a href="stages/11-agents/07-multi-agent.html">Multi-Agent Patterns</a></li>
+<li><a href="stages/11-agents/08-human-in-the-loop.html">Human in the Loop</a></li>
+<li><a href="stages/11-agents/09-reflection.html">Reflection and Self-Critique</a></li>
+<li><a href="stages/11-agents/10-loop-engineering.html">Loop Engineering</a></li>
+<li><a href="stages/11-agents/11-agent-security.html">Agent Security</a></li>
+<li><a href="stages/11-agents/12-ship-harness-agent.html">Ship: A Harness Agent</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">12</span><span>Orchestration</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/12-orchestration/index.html">Stage overview</a></li>
+<li><a href="stages/12-orchestration/01-langchain.html">LangChain</a></li>
+<li><a href="stages/12-orchestration/02-langgraph.html">LangGraph</a></li>
+<li><a href="stages/12-orchestration/03-graph-engineering.html">Graph Engineering</a></li>
+<li><a href="stages/12-orchestration/04-llamaindex.html">LlamaIndex</a></li>
+<li><a href="stages/12-orchestration/05-haystack.html">Haystack</a></li>
+<li><a href="stages/12-orchestration/06-semantic-kernel.html">Semantic Kernel</a></li>
+<li><a href="stages/12-orchestration/07-pydantic-ai.html">Pydantic AI</a></li>
+<li><a href="stages/12-orchestration/08-dspy.html">DSPy</a></li>
+<li><a href="stages/12-orchestration/09-crewai-autogen.html">CrewAI and AutoGen</a></li>
+<li><a href="stages/12-orchestration/10-tradeoffs.html">Trade-offs</a></li>
+<li><a href="stages/12-orchestration/11-ship-langgraph-flow.html">Ship: A LangGraph Flow</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">13</span><span>Fine-Tuning</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/13-fine-tuning/index.html">Stage overview</a></li>
+<li><a href="stages/13-fine-tuning/01-sft.html">Supervised Fine-Tuning (SFT)</a></li>
+<li><a href="stages/13-fine-tuning/02-lora-qlora-peft.html">LoRA, QLoRA and PEFT</a></li>
+<li><a href="stages/13-fine-tuning/03-synthetic-data.html">Synthetic Data for Fine-Tuning</a></li>
+<li><a href="stages/13-fine-tuning/04-instruction-tuning.html">Instruction Tuning vs Continued Pretraining</a></li>
+<li><a href="stages/13-fine-tuning/05-dpo.html">DPO: Preference Tuning Without RLHF</a></li>
+<li><a href="stages/13-fine-tuning/06-finetune-evals.html">Evaluating a Fine-Tune Honestly</a></li>
+<li><a href="stages/13-fine-tuning/07-finetune-vs-rag.html">Fine-Tune vs RAG vs Prompting</a></li>
+<li><a href="stages/13-fine-tuning/08-ship-lora-model.html">Ship: A LoRA Fine-Tune of a Small Open Model</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">14</span><span>Multimodal AI</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/14-multimodal/index.html">Stage overview</a></li>
+<li><a href="stages/14-multimodal/01-vision-language.html">Vision-Language Models</a></li>
+<li><a href="stages/14-multimodal/02-ocr.html">OCR: Traditional and Model-Based</a></li>
+<li><a href="stages/14-multimodal/03-speech-to-text.html">Speech-to-Text</a></li>
+<li><a href="stages/14-multimodal/04-text-to-speech.html">Text-to-Speech</a></li>
+<li><a href="stages/14-multimodal/05-video-audio.html">Video and Audio Processing</a></li>
+<li><a href="stages/14-multimodal/06-multimodal-embeddings.html">Multimodal Embeddings</a></li>
+<li><a href="stages/14-multimodal/07-diffusion.html">Diffusion Models for Engineers</a></li>
+<li><a href="stages/14-multimodal/08-multimodal-rag.html">Multimodal RAG</a></li>
+<li><a href="stages/14-multimodal/09-ship-doc-reader.html">Ship: A Document Reader with Citations</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">15</span><span>Evals and Testing</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/15-evals/index.html">Stage overview</a></li>
+<li><a href="stages/15-evals/01-unit-tests.html">Unit Tests for LLM Code</a></li>
+<li><a href="stages/15-evals/02-llm-as-judge.html">LLM as Judge</a></li>
+<li><a href="stages/15-evals/03-golden-datasets.html">Golden Datasets</a></li>
+<li><a href="stages/15-evals/04-faithfulness.html">Faithfulness</a></li>
+<li><a href="stages/15-evals/05-hallucinations.html">Hallucinations</a></li>
+<li><a href="stages/15-evals/06-agent-evals.html">Agent Evals</a></li>
+<li><a href="stages/15-evals/07-human-evals.html">Human Evals</a></li>
+<li><a href="stages/15-evals/08-regression-tests.html">Regression Tests</a></li>
+<li><a href="stages/15-evals/09-online-offline-evals.html">Online and Offline Evals</a></li>
+<li><a href="stages/15-evals/10-ship-eval-suite.html">Ship: An Eval Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">16</span><span>Inference</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/16-inference/index.html">Stage overview</a></li>
+<li><a href="stages/16-inference/01-prefill-decode.html">Prefill and Decode</a></li>
+<li><a href="stages/16-inference/02-kv-cache.html">The KV Cache</a></li>
+<li><a href="stages/16-inference/03-continuous-batching.html">Continuous Batching</a></li>
+<li><a href="stages/16-inference/04-pagedattention.html">PagedAttention</a></li>
+<li><a href="stages/16-inference/05-speculative-decoding.html">Speculative Decoding</a></li>
+<li><a href="stages/16-inference/06-quantization.html">Quantization</a></li>
+<li><a href="stages/16-inference/07-distillation.html">Distillation</a></li>
+<li><a href="stages/16-inference/08-vllm-sglang.html">vLLM and SGLang</a></li>
+<li><a href="stages/16-inference/09-ollama-tensorrt.html">Ollama and TensorRT-LLM</a></li>
+<li><a href="stages/16-inference/10-gpu-memory.html">GPU Memory Budgeting</a></li>
+<li><a href="stages/16-inference/11-ship-vllm-server.html">Ship: A vLLM Server</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">17</span><span>AI Backend</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/17-ai-backend/index.html">Stage overview</a></li>
+<li><a href="stages/17-ai-backend/01-fastapi-flask.html">FastAPI and Flask</a></li>
+<li><a href="stages/17-ai-backend/02-websockets.html">Streaming with SSE and WebSockets</a></li>
+<li><a href="stages/17-ai-backend/03-async-processing.html">Async Processing</a></li>
+<li><a href="stages/17-ai-backend/04-redis-caching.html">Redis Caching</a></li>
+<li><a href="stages/17-ai-backend/05-job-queues.html">Job Queues</a></li>
+<li><a href="stages/17-ai-backend/06-auth-rate-limits.html">Auth and Rate Limits</a></li>
+<li><a href="stages/17-ai-backend/07-api-security.html">API Security</a></li>
+<li><a href="stages/17-ai-backend/08-ai-app-architecture.html">AI App Architecture</a></li>
+<li><a href="stages/17-ai-backend/09-ship-streaming-api.html">Ship: A Streaming Chat API</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">18</span><span>MLOps and LLMOps</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/18-mlops-llmops/index.html">Stage overview</a></li>
+<li><a href="stages/18-mlops-llmops/01-mlflow-wandb.html">Experiment Tracking with MLflow and W&B</a></li>
+<li><a href="stages/18-mlops-llmops/02-langfuse-langsmith.html">LLM Observability with Langfuse and LangSmith</a></li>
+<li><a href="stages/18-mlops-llmops/03-prompt-versioning.html">Prompt Versioning and Registries</a></li>
+<li><a href="stages/18-mlops-llmops/04-dvc.html">DVC for Data and Models</a></li>
+<li><a href="stages/18-mlops-llmops/05-tracing.html">Tracing Design</a></li>
+<li><a href="stages/18-mlops-llmops/06-cost-monitoring.html">Cost Monitoring and Budgets</a></li>
+<li><a href="stages/18-mlops-llmops/07-ci-cd-evals.html">CI/CD for Evals</a></li>
+<li><a href="stages/18-mlops-llmops/08-ship-trace-dashboard.html">Ship: A Trace Dashboard</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">19</span><span>Cloud and DevOps</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/19-cloud-devops/index.html">Stage overview</a></li>
+<li><a href="stages/19-cloud-devops/01-aws-s3-ec2-lambda.html">AWS for AI Apps: S3, EC2, Lambda</a></li>
+<li><a href="stages/19-cloud-devops/02-ecs-eks-sagemaker.html">Containers at Scale: ECS, EKS, SageMaker</a></li>
+<li><a href="stages/19-cloud-devops/03-gcp-azure-ai.html">GCP and Azure AI Equivalents</a></li>
+<li><a href="stages/19-cloud-devops/04-docker.html">Docker Done Properly</a></li>
+<li><a href="stages/19-cloud-devops/05-kubernetes.html">Kubernetes Essentials for AI Services</a></li>
+<li><a href="stages/19-cloud-devops/06-github-actions.html">GitHub Actions CI/CD</a></li>
+<li><a href="stages/19-cloud-devops/07-terraform.html">Terraform Basics</a></li>
+<li><a href="stages/19-cloud-devops/08-gpu-cloud.html">GPU Cloud Practicalities</a></li>
+<li><a href="stages/19-cloud-devops/09-ship-docker-deploy.html">Ship: Dockerised Deploy with Rollback</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">20</span><span>AI Security</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/20-ai-security/index.html">Stage overview</a></li>
+<li><a href="stages/20-ai-security/01-prompt-injection.html">Prompt Injection</a></li>
+<li><a href="stages/20-ai-security/02-jailbreaks.html">Jailbreaks</a></li>
+<li><a href="stages/20-ai-security/03-data-leakage.html">Data Leakage</a></li>
+<li><a href="stages/20-ai-security/04-pii-redaction.html">PII Redaction and Detection</a></li>
+<li><a href="stages/20-ai-security/05-sandboxing.html">Sandboxing Tool Execution</a></li>
+<li><a href="stages/20-ai-security/06-supply-chain.html">Supply Chain Security</a></li>
+<li><a href="stages/20-ai-security/07-bias-fairness.html">Bias and Fairness</a></li>
+<li><a href="stages/20-ai-security/08-governance.html">Governance</a></li>
+<li><a href="stages/20-ai-security/09-guardrails.html">Guardrails</a></li>
+<li><a href="stages/20-ai-security/10-ship-injection-tests.html">Ship: Injection Test Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">21</span><span>System Design</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/21-system-design/index.html">Stage overview</a></li>
+<li><a href="stages/21-system-design/01-scalable-ai-apps.html">Scalable AI Apps</a></li>
+<li><a href="stages/21-system-design/02-rag-design.html">RAG Design at Scale</a></li>
+<li><a href="stages/21-system-design/03-agent-design.html">Agent Design</a></li>
+<li><a href="stages/21-system-design/04-model-routing.html">Model Routing</a></li>
+<li><a href="stages/21-system-design/05-multi-tenant.html">Multi-Tenant Design</a></li>
+<li><a href="stages/21-system-design/06-caching.html">Caching Layers</a></li>
+<li><a href="stages/21-system-design/07-fault-tolerance.html">Fault Tolerance</a></li>
+<li><a href="stages/21-system-design/08-cost-latency.html">Cost and Latency Engineering</a></li>
+<li><a href="stages/21-system-design/09-scaling-tradeoffs.html">Scaling Trade-offs</a></li>
+<li><a href="stages/21-system-design/10-ship-design-doc.html">Ship: A Design Document</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">22</span><span>Real Projects</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/22-real-projects/index.html">Stage overview</a></li>
+<li><a href="stages/22-real-projects/01-research-assistant.html">Research Assistant</a></li>
+<li><a href="stages/22-real-projects/02-document-intelligence.html">Document Intelligence</a></li>
+<li><a href="stages/22-real-projects/03-production-rag.html">Production RAG</a></li>
+<li><a href="stages/22-real-projects/04-multi-agent-research.html">Multi-Agent Research</a></li>
+<li><a href="stages/22-real-projects/05-support-agent.html">Support Agent</a></li>
+<li><a href="stages/22-real-projects/06-coding-assistant.html">Coding Assistant</a></li>
+<li><a href="stages/22-real-projects/07-multimodal-assistant.html">Multimodal Assistant</a></li>
+<li><a href="stages/22-real-projects/08-meeting-intelligence.html">Meeting Intelligence</a></li>
+<li><a href="stages/22-real-projects/09-knowledge-assistant.html">Knowledge Assistant</a></li>
+<li><a href="stages/22-real-projects/10-workflow-automation.html">Workflow Automation</a></li>
+<li><a href="stages/22-real-projects/11-fine-tuning-pipeline.html">Fine-Tuning Pipeline</a></li>
+<li><a href="stages/22-real-projects/12-eval-platform.html">Eval Platform</a></li>
+<li><a href="stages/22-real-projects/13-ai-saas.html">AI SaaS</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">23</span><span>Career</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="stages/23-career/index.html">Stage overview</a></li>
+<li><a href="stages/23-career/01-github-portfolio.html">GitHub Portfolio</a></li>
+<li><a href="stages/23-career/02-resume.html">Resume</a></li>
+<li><a href="stages/23-career/03-python-sql-interviews.html">Python and SQL Interviews</a></li>
+<li><a href="stages/23-career/04-ml-llm-basics.html">ML and LLM Basics</a></li>
+<li><a href="stages/23-career/05-system-design-practice.html">System Design Practice</a></li>
+<li><a href="stages/23-career/06-rag-agent-patterns.html">RAG and Agent Patterns</a></li>
+<li><a href="stages/23-career/07-inference-optimization.html">Inference Optimisation</a></li>
+<li><a href="stages/23-career/08-production-case-studies.html">Production Case Studies</a></li>
+<li><a href="stages/23-career/09-open-source.html">Open Source</a></li>
+<li><a href="stages/23-career/10-technical-articles.html">Technical Articles</a></li>
+<li><a href="stages/23-career/11-build-in-public.html">Building in Public</a></li>
+<li><a href="stages/23-career/12-apply-for-roles.html">Applying for Roles</a></li>
+</ul></div>
+  </aside>
+  <main>
+    <div class="crumbs"><a href="index.html">Roadmap</a><span>/</span>The AI Engineer Roadmap</div>
+    <article class="prose">
+<h1 id="the-ai-engineer-roadmap">The AI Engineer Roadmap</h1>
+<p><strong>A complete, build-along tutorial that takes you from "I know a little Python" to "I can design, ship and defend a production LLM system."</strong></p>
+<p>23 stages. 226 lessons. 23 shipping projects. Python and TypeScript throughout.</p>
+<p>This is not a link dump. Every lesson explains the idea, shows the machinery in code you can run, gives you a real product scenario where that idea decided the outcome, lists the mistakes people make, and ends with a checkpoint you can actually complete in under an hour. Every stage ends with a <strong>ship project</strong> — something that runs, has a README, and can go in your portfolio.</p>
+<hr />
+<h2 id="who-this-is-for">Who this is for</h2>
+<ul>
+<li><strong>Complete beginners</strong> with basic Python: start at Stage 1 and do not skip.</li>
+<li><strong>Backend / full-stack engineers</strong> moving into AI: start at Stage 1, move fast through 1-5, slow down at 6.</li>
+<li><strong>Data scientists / ML engineers</strong> moving to LLM applications: skim 1-4, start properly at Stage 5.</li>
+<li><strong>Anyone interviewing</strong> for AI engineer, LLM engineer or applied AI roles: use the <a href="#the-fast-track">fast track</a> plus <a href="stages/23-career/index.html">Stage 23</a>.</li>
+</ul>
+<p>You do not need a maths degree. You do need to be comfortable with a terminal, and you need to write code as you read — reading this repo without building will not work.</p>
+<hr />
+<h2 id="how-to-use-this-repo">How to use this repo</h2>
+<ol>
+<li><strong>Read one lesson at a time.</strong> Each file is 10-20 minutes of reading and 30-60 minutes of doing.</li>
+<li><strong>Type the code, do not copy it.</strong> The typing is where the learning happens.</li>
+<li><strong>Do the checkpoint before moving on.</strong> If you cannot do exercise 1, re-read the file.</li>
+<li><strong>Ship the stage project.</strong> It is the difference between "I read about RAG" and "I built a RAG service and measured it."</li>
+<li><strong>Tick it off</strong> in <a href="PROGRESS.html">PROGRESS.md</a>. Visible progress is what keeps people going.</li>
+<li><strong>When something breaks, that is the curriculum.</strong> Debugging an OOM, a bad retrieval, a looping agent — that is the actual job.</li>
+</ol>
+<p>Every lesson follows the same shape, so you always know where you are:</p>
+<div class="code-block"><pre><span></span><code># N. Title
+&gt; stage, what you'll be able to do, prerequisites
+## Why this exists        — the problem, before this idea existed
+## The mental model       — one picture you can hold in your head
+## Core concepts          — the mechanism, with small examples
+## Code                   — Python, then TypeScript where it applies
+## Real use case          — a product scenario, with what broke before
+## Common mistakes        — what people get wrong, and what to do instead
+## Checkpoint             — three exercises + a self-check
+## Go deeper              — what to read or build next
+</code></pre></div>
+
+<hr />
+<h2 id="the-map">The map</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Stage</th>
+<th>What it gives you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="stages/01-programming-basics/index.html">Programming Basics</a></td>
+<td>Python you can actually ship: async, types, generators, git, HTTP, JSON</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="stages/02-math-and-ml-basics/index.html">Math and ML Basics</a></td>
+<td>The maths an AI engineer really uses, and nothing else</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="stages/03-data-engineering/index.html">Data Engineering</a></td>
+<td>Clean data, SQL, Parquet/JSONL, validated datasets</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="stages/04-deep-learning/index.html">Deep Learning</a></td>
+<td>From a perceptron to a transformer block you wrote yourself</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="stages/05-dl-frameworks/index.html">DL Frameworks</a></td>
+<td>PyTorch, autograd, training loops, GPUs, Hugging Face</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="stages/06-llm-fundamentals/index.html">LLM Fundamentals</a></td>
+<td>Tokens, context, attention, pretraining, tuning — how an LLM works</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="stages/07-llm-apis/index.html">LLM APIs</a></td>
+<td>Streaming, structured output, tools, retries, cost, routing</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="stages/08-prompt-and-context/index.html">Prompt and Context</a></td>
+<td>Prompts as engineered, versioned, tested artefacts</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="stages/09-vector-databases/index.html">Vector Databases</a></td>
+<td>Embeddings, similarity, indexes, ANN, hybrid search</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="stages/10-rag/index.html">RAG</a></td>
+<td>Retrieval done properly, and measured</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="stages/11-agents/index.html">AI Agents</a></td>
+<td>Harness engineering: the loop, tools, memory, budgets</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="stages/12-orchestration/index.html">Orchestration</a></td>
+<td>LangGraph, LangChain, LlamaIndex, DSPy, Pydantic AI</td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="stages/13-fine-tuning/index.html">Fine-Tuning</a></td>
+<td>SFT, LoRA/QLoRA, DPO, and when not to fine-tune</td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="stages/14-multimodal/index.html">Multimodal AI</a></td>
+<td>Vision, OCR, speech, video, diffusion, multimodal RAG</td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="stages/15-evals/index.html">Evals and Testing</a></td>
+<td>The skill that separates production from demos</td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="stages/16-inference/index.html">Inference</a></td>
+<td>KV cache, batching, quantization, vLLM, GPU maths</td>
+</tr>
+<tr>
+<td>17</td>
+<td><a href="stages/17-ai-backend/index.html">AI Backend</a></td>
+<td>FastAPI, streaming, queues, caching, auth, quotas</td>
+</tr>
+<tr>
+<td>18</td>
+<td><a href="stages/18-mlops-llmops/index.html">MLOps and LLMOps</a></td>
+<td>Tracing, prompt registries, cost monitoring, eval CI</td>
+</tr>
+<tr>
+<td>19</td>
+<td><a href="stages/19-cloud-devops/index.html">Cloud and DevOps</a></td>
+<td>Docker, Kubernetes, GitHub Actions, Terraform, GPU cloud</td>
+</tr>
+<tr>
+<td>20</td>
+<td><a href="stages/20-ai-security/index.html">AI Security</a></td>
+<td>Injection, leakage, PII, sandboxing, guardrails</td>
+</tr>
+<tr>
+<td>21</td>
+<td><a href="stages/21-system-design/index.html">System Design</a></td>
+<td>Designing and defending an AI system end to end</td>
+</tr>
+<tr>
+<td>22</td>
+<td><a href="stages/22-real-projects/index.html">Real Projects</a></td>
+<td>Thirteen build briefs for portfolio-grade projects</td>
+</tr>
+<tr>
+<td>23</td>
+<td><a href="stages/23-career/index.html">Career</a></td>
+<td>Portfolio, resume, interviews, open source, applying</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-original-23-step-tree">The original 23-step tree</h3>
+<p>The repo you are reading is this tree, expanded into full lessons:</p>
+<div class="code-block"><pre><span></span><code>ai-engineer-roadmap
+┃
+┣ Start Here (fast track)
+┃ ┣ 7-llm-apis    ┣ 8-prompt-and-context   ┣ 10-rag
+┃ ┣ 11-agents     ┣ 12-loops-and-graphs     ┣ 15-evals
+┃ ┗ 22-one-real-project
+┃
+┣ 1. Programming Basics      python-async · type-hints-pydantic · generators ·
+┃                            algorithms · git-github · linux-cli · http-rest-apis ·
+┃                            json-yaml · ship-cli-tool
+┣ 2. Math and ML Basics      linear-algebra · calculus · probability-bayes ·
+┃                            ml-basics · loss-functions · backprop-gradients ·
+┃                            ship-gradient-descent
+┣ 3. Data Engineering        numpy-pandas · data-cleaning · eda · sql-postgresql ·
+┃                            parquet-jsonl · data-pipelines · validation ·
+┃                            dataset-prep · ship-clean-dataset
+┣ 4. Deep Learning           perceptrons · feedforward · optimizers · cnns-rnns ·
+┃                            lstms-grus · attention · transformers · embeddings ·
+┃                            transfer-learning · ship-mini-transformer
+┣ 5. DL Frameworks           pytorch · autograd · training-loops · gpu-checkpoints ·
+┃                            keras · hugging-face · cuda · ship-training-loop
+┣ 6. LLM Fundamentals        gpt-and-bert · tokenization · context-windows ·
+┃                            self-attention · pretraining · instruction-tuning ·
+┃                            rlhf-dpo · open-vs-closed · ship-tokenizer
+┣ 7. LLM APIs                openai-anthropic · gemini-open-weight · streaming ·
+┃                            structured-outputs · tool-calling · multimodal-apis ·
+┃                            retries-rate-limits · cost-tracking · routing-fallbacks ·
+┃                            ship-multi-model-client
+┣ 8. Prompt and Context      system-instructions · few-shot-cot · templates ·
+┃                            context-compression · prompt-versioning ·
+┃                            injection-defense · prompt-evals · context-engineering ·
+┃                            ship-prompt-test-suite
+┣ 9. Vector Databases        embeddings · similarity-metrics · semantic-search ·
+┃                            vector-indexing · ann-search · pinecone-qdrant ·
+┃                            weaviate-milvus · chroma · hybrid-search ·
+┃                            ship-semantic-search
+┣ 10. RAG                    rag-architecture · ingestion-parsing · chunking ·
+┃                            embedding-storage · query-transform · reranking ·
+┃                            hybrid-retrieval · parent-child · multi-query ·
+┃                            graph-rag · agentic-rag · rag-evals ·
+┃                            ship-rag-with-evals
+┣ 11. AI Agents              harness-engineering · agent-architecture ·
+┃                            reasoning-planning · tool-calling · memory-and-state ·
+┃                            single-agent · multi-agent · human-in-the-loop ·
+┃                            reflection · loop-engineering · agent-security ·
+┃                            ship-harness-agent
+┣ 12. Orchestration          langchain · langgraph · graph-engineering · llamaindex ·
+┃                            haystack · semantic-kernel · pydantic-ai · dspy ·
+┃                            crewai-autogen · tradeoffs · ship-langgraph-flow
+┣ 13. Fine-Tuning            sft · lora-qlora-peft · synthetic-data ·
+┃                            instruction-tuning · dpo · finetune-evals ·
+┃                            finetune-vs-rag · ship-lora-model
+┣ 14. Multimodal AI          vision-language · ocr · speech-to-text · text-to-speech ·
+┃                            video-audio · multimodal-embeddings · diffusion ·
+┃                            multimodal-rag · ship-doc-reader
+┣ 15. Evals and Testing      unit-tests · llm-as-judge · golden-datasets ·
+┃                            faithfulness · hallucinations · agent-evals ·
+┃                            human-evals · regression-tests · online-offline-evals ·
+┃                            ship-eval-suite
+┣ 16. Inference              prefill-decode · kv-cache · continuous-batching ·
+┃                            pagedattention · speculative-decoding · quantization ·
+┃                            distillation · vllm-sglang · ollama-tensorrt ·
+┃                            gpu-memory · ship-vllm-server
+┣ 17. AI Backend             fastapi-flask · websockets · async-processing ·
+┃                            redis-caching · job-queues · auth-rate-limits ·
+┃                            api-security · ai-app-architecture ·
+┃                            ship-streaming-api
+┣ 18. MLOps and LLMOps       mlflow-wandb · langfuse-langsmith · prompt-versioning ·
+┃                            dvc · tracing · cost-monitoring · ci-cd-evals ·
+┃                            ship-trace-dashboard
+┣ 19. Cloud and DevOps       aws-s3-ec2-lambda · ecs-eks-sagemaker · gcp-azure-ai ·
+┃                            docker · kubernetes · github-actions · terraform ·
+┃                            gpu-cloud · ship-docker-deploy
+┣ 20. AI Security            prompt-injection · jailbreaks · data-leakage ·
+┃                            pii-redaction · sandboxing · supply-chain ·
+┃                            bias-fairness · governance · guardrails ·
+┃                            ship-injection-tests
+┣ 21. System Design          scalable-ai-apps · rag-design · agent-design ·
+┃                            model-routing · multi-tenant · caching ·
+┃                            fault-tolerance · cost-latency · scaling-tradeoffs ·
+┃                            ship-design-doc
+┣ 22. Real Projects          research-assistant · document-intelligence ·
+┃                            production-rag · multi-agent-research · support-agent ·
+┃                            coding-assistant · multimodal-assistant ·
+┃                            meeting-intelligence · knowledge-assistant ·
+┃                            workflow-automation · fine-tuning-pipeline ·
+┃                            eval-platform · ai-saas
+┗ 23. Career                 github-portfolio · resume · python-sql-interviews ·
+                             ml-llm-basics · system-design-practice ·
+                             rag-agent-patterns · inference-optimization ·
+                             production-case-studies · open-source ·
+                             technical-articles · build-in-public ·
+                             apply-for-roles
+</code></pre></div>
+
+<blockquote>
+<p>build the harness, close the loop, wire the graph, then the raise follows</p>
+</blockquote>
+<hr />
+<h2 id="the-fast-track">The fast track</h2>
+<p>If you have three weeks and one goal — get hired, or get a working AI feature into your product — read these seven stages in this order and skip everything else:</p>
+<p><strong>7 → 8 → 10 → 11 → 12 → 15 → 22</strong></p>
+<p>That is: call the APIs properly, engineer the context, retrieve the right documents, build an agent loop, orchestrate it as a graph, prove it works with evals, then build one real project end to end. The full plan, with what to skip and why, is in <a href="FAST-TRACK.html">FAST-TRACK.md</a>.</p>
+<p>The rest of the roadmap is not optional for mastery — it is what stops the fast track from producing someone who can only assemble frameworks. You will hit the limits of the fast track at exactly the point where Stage 16 (inference), Stage 17 (backend) or Stage 21 (system design) has the answer.</p>
+<hr />
+<h2 id="the-23-shipping-projects">The 23 shipping projects</h2>
+<p>Each stage ends with one. Together they are a portfolio that proves range rather than a list of tutorials you followed.</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>You build</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>A CLI tool with typed config, async I/O and a JSON output contract</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Gradient descent from scratch, no frameworks, with training curves</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A clean, validated, documented dataset with a data card</td>
+</tr>
+<tr>
+<td>4</td>
+<td>A miniature transformer you wrote, trained on a toy task</td>
+</tr>
+<tr>
+<td>5</td>
+<td>A reusable training loop with checkpoint resume and metric logging</td>
+</tr>
+<tr>
+<td>6</td>
+<td>A tokenizer you implemented, plus a token-budget analyser</td>
+</tr>
+<tr>
+<td>7</td>
+<td>A multi-model client with retries, cost ledger and fallback</td>
+</tr>
+<tr>
+<td>8</td>
+<td>A prompt test suite with fixtures, assertions and a CI gate</td>
+</tr>
+<tr>
+<td>9</td>
+<td>A semantic search service with measured recall</td>
+</tr>
+<tr>
+<td>10</td>
+<td>A RAG service with an eval harness and a baseline score</td>
+</tr>
+<tr>
+<td>11</td>
+<td>A harness agent with a typed tool registry and step budget</td>
+</tr>
+<tr>
+<td>12</td>
+<td>A LangGraph flow with state, routing, persistence and approval</td>
+</tr>
+<tr>
+<td>13</td>
+<td>A LoRA fine-tune with a model card and before/after eval</td>
+</tr>
+<tr>
+<td>14</td>
+<td>A document reader: scanned PDF → structured JSON with citations</td>
+</tr>
+<tr>
+<td>15</td>
+<td>An eval suite with datasets, graders, thresholds and a report</td>
+</tr>
+<tr>
+<td>16</td>
+<td>A vLLM server with a load test reporting TTFT and throughput</td>
+</tr>
+<tr>
+<td>17</td>
+<td>A streaming chat API with auth, quotas, caching and jobs</td>
+</tr>
+<tr>
+<td>18</td>
+<td>A trace dashboard showing latency, cost and eval score</td>
+</tr>
+<tr>
+<td>19</td>
+<td>A Dockerised service deployed by CI, with a rollback path</td>
+</tr>
+<tr>
+<td>20</td>
+<td>An injection test suite that fails CI on regression</td>
+</tr>
+<tr>
+<td>21</td>
+<td>A full design document with capacity and cost arithmetic</td>
+</tr>
+<tr>
+<td>22</td>
+<td>One complete product-grade project from thirteen briefs</td>
+</tr>
+<tr>
+<td>23</td>
+<td>A portfolio, a resume and a story for each project</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="repo-conventions">Repo conventions</h2>
+<ul>
+<li><code>stages/NN-stage-name/</code> — one folder per stage, one file per topic, numbered in reading order.</li>
+<li>Every stage folder has a <code>README.md</code> index with the topic table and completion criteria.</li>
+<li>Links are relative, so the repo works offline in any markdown viewer and on GitHub.</li>
+<li>Code is illustrative but honest: it runs, or it is clearly marked as a sketch. Provider SDKs, model ids and prices change — lessons say so where it matters, and you should check the current docs before you paste a model id into production.</li>
+<li><code>code/</code> holds shared scaffolding (<code>requirements.txt</code>, <code>package.json</code>, env template) that the lessons assume.</li>
+</ul>
+<h2 id="ground-rules-that-make-this-work">Ground rules that make this work</h2>
+<ol>
+<li><strong>One idea per file.</strong> If you feel lost, you skipped a prerequisite — the file header tells you which.</li>
+<li><strong>Evals before features.</strong> From Stage 15 onward, nothing is "done" without a number that proves it.</li>
+<li><strong>Write it down.</strong> Every project gets a README with the problem, the design decision, the measurement and the lesson. That document is what you will talk about in interviews.</li>
+<li><strong>Cost is a design constraint, not an afterthought.</strong> Every stage that touches an API asks what it costs per thousand requests.</li>
+<li><strong>The model is the least reliable component.</strong> Assume it fails, loops, hallucinates and gets injected, then design so that failure is survivable.</li>
+</ol>
+<hr />
+<p><a href="stages/01-programming-basics/index.html">Start at Stage 1 →</a> · <a href="FAST-TRACK.html">Fast track</a> · <a href="PROGRESS.html">Progress</a> · <a href="GLOSSARY.html">Glossary</a> · <a href="CONTRIBUTING.html">Contributing</a></p>
+<p>MIT licensed. Built to be forked, annotated and argued with.</p>
+    </article>
+    <nav class="pager">
+<span class="spacer-a"></span>
+<a class="next" href="fast-track.html"><span class="dir">Next</span>The fast track</a>
+</nav>
+    <footer class="site-footer">
+      AI Engineer Roadmap · <a href="contributing.html">Contribute</a> ·
+      <a href="glossary.html">Glossary</a> ·
+      <a href="progress.html">Progress</a> · MIT licensed
+    </footer>
+  </main>
+</div>
+<button id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 13V3M3 8l5-5 5 5"/></svg>
+</button>
+<script src="assets/app.js"></script>
+</body>
+</html>

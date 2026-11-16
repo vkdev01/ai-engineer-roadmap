@@ -1,0 +1,86 @@
+# AI Engineer Roadmap — shared dependencies
+# Grouped by stage so you can install only what you need.
+# Versions are minimums, not pins: install the current release unless a lesson says otherwise.
+
+# --- Stage 1: programming basics ---
+pydantic>=2.6
+httpx>=0.27
+python-dotenv>=1.0
+rich>=13.7
+typer>=0.12
+
+# --- Stage 2-3: maths, ML and data ---
+numpy>=1.26
+pandas>=2.2
+pyarrow>=15.0
+scikit-learn>=1.4
+matplotlib>=3.8
+psycopg[binary]>=3.1
+sqlalchemy>=2.0
+great-expectations>=0.18
+
+# --- Stage 4-5: deep learning (heavy; skip if you are on the fast track) ---
+# torch>=2.2
+# torchvision>=0.17
+# transformers>=4.40
+# datasets>=2.19
+# accelerate>=0.29
+# peft>=0.10
+# trl>=0.9
+# bitsandbytes>=0.43
+
+# --- Stage 7-8: LLM APIs and prompting ---
+openai>=1.30
+anthropic>=0.25
+google-generativeai>=0.5
+tiktoken>=0.6
+tenacity>=8.2
+
+# --- Stage 9-10: retrieval and RAG ---
+sentence-transformers>=2.7
+chromadb>=0.4
+qdrant-client>=1.9
+rank-bm25>=0.2
+pypdf>=4.2
+pymupdf>=1.24
+unstructured>=0.13
+cohere>=5.5
+
+# --- Stage 11-12: agents and orchestration ---
+langgraph>=0.1
+langchain>=0.2
+langchain-core>=0.2
+llama-index>=0.10
+pydantic-ai>=0.0.10
+dspy-ai>=2.4
+
+# --- Stage 14: multimodal ---
+pillow>=10.2
+pytesseract>=0.3.10
+openai-whisper>=20231117
+# TTS options vary by platform; see the lesson before installing
+
+# --- Stage 15, 18: evals and observability ---
+pytest>=8.1
+pytest-asyncio>=0.23
+langfuse>=2.20
+mlflow>=2.12
+
+# --- Stage 16: inference ---
+# vllm>=0.5            # needs a CUDA GPU
+# sglang[all]>=0.1     # needs a CUDA GPU
+
+# --- Stage 17: backend ---
+fastapi>=0.111
+uvicorn[standard]>=0.29
+redis>=5.0
+celery>=5.4
+arq>=0.26
+slowapi>=0.1.9
+python-jose[cryptography]>=3.3
+websockets>=12.0
+
+# --- Tooling ---
+ruff>=0.4
+mypy>=1.9
+pre-commit>=3.7
