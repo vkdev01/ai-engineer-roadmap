@@ -12,6 +12,7 @@ This stage is the centre of gravity of the roadmap. Everything before it gave th
 - Stop runaway loops with step budgets, no-progress detection and retry semantics that terminate.
 - Defend an agent against prompt injection arriving through tool output.
 - Put a human approval gate in front of side-effecting actions without losing resumable state.
+- Rank the seven harness skills by what pays back first, and defend each one in an interview.
 
 ## Topics
 
@@ -29,6 +30,7 @@ This stage is the centre of gravity of the roadmap. Everything before it gave th
 | 10 | [Loop Engineering](10-loop-engineering.md) | Step budgets, no-progress detection, termination proofs |
 | 11 | [Agent Security](11-agent-security.md) | Injection via tool output, least privilege, allowlists |
 | 12 | [Ship: A Harness Agent](12-ship-harness-agent.md) | The full agent: registry, budget, trace, approval, evals |
+| 13 | [The Seven Harness Skills, in Order](13-seven-harness-skills.md) | The ladder from loop to evals, with the interview answers |
 
 ## The shipping project
 

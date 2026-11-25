@@ -189,6 +189,7 @@
 <li><a href="stages/11-agents/10-loop-engineering.html">Loop Engineering</a></li>
 <li><a href="stages/11-agents/11-agent-security.html">Agent Security</a></li>
 <li><a href="stages/11-agents/12-ship-harness-agent.html">Ship: A Harness Agent</a></li>
+<li><a href="stages/11-agents/13-seven-harness-skills.html">The Seven Harness Skills, in Order</a></li>
 </ul></div>
 <div class="nav-group">
 <button class="nav-stage" type="button"><span class="num">12</span><span>Orchestration</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
@@ -426,12 +427,13 @@
 </table>
 <h3 id="changing-the-default-style">Changing the default style</h3>
 <p>Every theme is a block of CSS variables at the top of <code>docs/assets/style.css</code>. To change what visitors see first, edit one line in the page template — the <code>data-theme</code> attribute:</p>
-<div class="code-block"><pre><span></span><code><span class="c1"># build_site.py (repo tooling, not part of the published site)</span>
+<div class="code-block"><pre><span></span><code><span class="c1"># tooling/build_site.py</span>
 <span class="n">theme</span> <span class="o">=</span> <span class="s2">"github-light"</span>      <span class="c1"># or "github-dark", "book", "slate", "terminal"</span>
 </code></pre></div>
 
 <p>Then rebuild:</p>
-<div class="code-block"><pre><span></span><code>python<span class="w"> </span>build_site.py
+<div class="code-block"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>markdown<span class="w"> </span>pygments
+python<span class="w"> </span>tooling/build_site.py
 </code></pre></div>
 
 <h3 id="adding-your-own-style">Adding your own style</h3>
@@ -463,9 +465,11 @@
 </ul>
 <h2 id="rebuilding-after-editing-lessons">Rebuilding after editing lessons</h2>
 <p>The site is generated from the markdown, so editing a lesson means rebuilding:</p>
-<div class="code-block"><pre><span></span><code>python<span class="w"> </span>build_site.py<span class="w">     </span><span class="c1"># writes docs/ from stages/**/*.md and the root files</span>
+<div class="code-block"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>markdown<span class="w"> </span>pygments
+python<span class="w"> </span>tooling/build_site.py<span class="w">     </span><span class="c1"># writes docs/ from stages/**/*.md and the root files</span>
 </code></pre></div>
 
+<p>The generator only writes <code>.html</code> files and <code>docs/assets/search-index.json</code>. It never touches <code>docs/assets/style.css</code>, <code>docs/assets/app.js</code> or <code>docs/assets/screenshots/</code>, so your styling and images survive a rebuild.</p>
 <p>Commit both the markdown change and the regenerated <code>docs/</code> folder, so the published site never drifts from the source.</p>
 <h2 id="alternative-a-jekyll-theme-instead">Alternative: a Jekyll theme instead</h2>
 <p>If you would rather let GitHub build the site with a Jekyll theme, delete <code>docs/.nojekyll</code>, add a <code>_config.yml</code> at the repo root and point Pages at the root folder. The markdown files render fine under any Jekyll theme — <code>just-the-docs</code>, <code>minima</code>, <code>cayman</code> and <code>slate</code> all work, since the lessons use plain headings, tables and fenced code.</p>

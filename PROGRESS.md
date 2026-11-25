@@ -1,7 +1,7 @@
 # Progress tracker
 
 Tick a lesson when you have done the checkpoint, and a stage when you have shipped its project.
-There are 23 stages, 226 lessons and 23 shipping projects. Print this page if that helps.
+There are 23 stages, 227 lessons and 23 shipping projects. Print this page if that helps.
 
 **Legend:** `[ ]` not started · `[x]` done · `[~]` in progress (mark by hand)
 
@@ -177,6 +177,7 @@ Stage index: [stages/11-agents/README.md](stages/11-agents/README.md)
 - [ ] [Loop Engineering](stages/11-agents/10-loop-engineering.md)
 - [ ] [Agent Security](stages/11-agents/11-agent-security.md)
 - [ ] [Ship: A Harness Agent](stages/11-agents/12-ship-harness-agent.md)
+- [ ] [The Seven Harness Skills, in Order](stages/11-agents/13-seven-harness-skills.md)
 - [ ] **Ship project** — see the stage index
 
 ## Stage 12 — Orchestration

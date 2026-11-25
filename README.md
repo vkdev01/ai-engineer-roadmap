@@ -2,7 +2,7 @@
 
 **A complete, build-along tutorial that takes you from "I know a little Python" to "I can design, ship and defend a production LLM system."**
 
-23 stages. 226 lessons. 23 shipping projects. Python and TypeScript throughout.
+23 stages. 227 lessons. 23 shipping projects. Python and TypeScript throughout.
 
 This is not a link dump. Every lesson explains the idea, shows the machinery in code you can run, gives you a real product scenario where that idea decided the outcome, lists the mistakes people make, and ends with a checkpoint you can actually complete in under an hour. Every stage ends with a **ship project** — something that runs, has a README, and can go in your portfolio.
 
@@ -131,7 +131,7 @@ ai-engineer-roadmap
 ┃                            reasoning-planning · tool-calling · memory-and-state ·
 ┃                            single-agent · multi-agent · human-in-the-loop ·
 ┃                            reflection · loop-engineering · agent-security ·
-┃                            ship-harness-agent
+┃                            ship-harness-agent · seven-harness-skills
 ┣ 12. Orchestration          langchain · langgraph · graph-engineering · llamaindex ·
 ┃                            haystack · semantic-kernel · pydantic-ai · dspy ·
 ┃                            crewai-autogen · tradeoffs · ship-langgraph-flow
