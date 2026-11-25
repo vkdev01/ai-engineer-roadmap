@@ -2,7 +2,7 @@
 
 **A complete, build-along tutorial that takes you from "I know a little Python" to "I can design, ship and defend a production LLM system."**
 
-23 stages. 227 lessons. 23 shipping projects. Python and TypeScript throughout.
+23 stages. 228 lessons. 23 shipping projects. Python and TypeScript throughout.
 
 This is not a link dump. Every lesson explains the idea, shows the machinery in code you can run, gives you a real product scenario where that idea decided the outcome, lists the mistakes people make, and ends with a checkpoint you can actually complete in under an hour. Every stage ends with a **ship project** — something that runs, has a README, and can go in your portfolio.
 
@@ -137,7 +137,8 @@ ai-engineer-roadmap
 ┃                            crewai-autogen · tradeoffs · ship-langgraph-flow
 ┣ 13. Fine-Tuning            sft · lora-qlora-peft · synthetic-data ·
 ┃                            instruction-tuning · dpo · finetune-evals ·
-┃                            finetune-vs-rag · ship-lora-model
+┃                            finetune-vs-rag · ship-lora-model ·
+┃                            finetune-by-outcome
 ┣ 14. Multimodal AI          vision-language · ocr · speech-to-text · text-to-speech ·
 ┃                            video-audio · multimodal-embeddings · diffusion ·
 ┃                            multimodal-rag · ship-doc-reader

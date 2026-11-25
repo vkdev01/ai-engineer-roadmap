@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="en" data-theme="github-light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fine-Tuning by Outcome: The Notebook Map · AI Engineer Roadmap</title>
+<meta name="description" content="Stage 13 · Fine-Tuning — six things you might want a model to do, the training technique each one needs, the data shape it eats, and the notebook that already r">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111'/><text x='16' y='22' font-size='14' font-family='monospace' fill='%23fff' text-anchor='middle'>AI</text></svg>">
+</head>
+<body>
+<div id="progress"></div>
+<header class="topbar">
+  <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+  </button>
+  <a class="brand" href="../../index.html"><span class="brand-mark">AI</span><span class="brand-text">Engineer Roadmap</span></a>
+  <div class="spacer"></div>
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+    <input id="q" type="search" placeholder="Search lessons…" autocomplete="off" aria-label="Search lessons">
+    <div id="results"></div>
+  </div>
+  <select id="theme" class="theme-select" aria-label="Style"></select>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+<a class="nav-home" href="../../index.html">Roadmap home</a>
+<a class="nav-home" href="../../fast-track.html">Fast track</a>
+<a class="nav-home" href="../../progress.html">Progress tracker</a>
+<a class="nav-home" href="../../glossary.html">Glossary</a>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">01</span><span>Programming Basics</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/01-programming-basics/index.html">Stage overview</a></li>
+<li><a href="../../stages/01-programming-basics/01-python-async.html">Python Async</a></li>
+<li><a href="../../stages/01-programming-basics/02-type-hints-pydantic.html">Type Hints and Pydantic v2</a></li>
+<li><a href="../../stages/01-programming-basics/03-generators.html">Generators</a></li>
+<li><a href="../../stages/01-programming-basics/04-algorithms.html">Core Algorithms</a></li>
+<li><a href="../../stages/01-programming-basics/05-git-github.html">Git and GitHub</a></li>
+<li><a href="../../stages/01-programming-basics/06-linux-cli.html">The Linux Command Line</a></li>
+<li><a href="../../stages/01-programming-basics/07-http-rest-apis.html">HTTP and REST APIs</a></li>
+<li><a href="../../stages/01-programming-basics/08-json-yaml.html">JSON and YAML</a></li>
+<li><a href="../../stages/01-programming-basics/09-ship-cli-tool.html">Ship a CLI Tool</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">02</span><span>Math And Ml Basics</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/02-math-and-ml-basics/index.html">Stage overview</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/01-linear-algebra.html">Linear Algebra</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/02-calculus.html">Calculus</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/03-probability-bayes.html">Probability and Bayes</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/04-ml-basics.html">ML Basics</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/05-loss-functions.html">Loss Functions</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/06-backprop-gradients.html">Backpropagation and Gradients</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/07-ship-gradient-descent.html">Ship Gradient Descent</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">03</span><span>Data Engineering</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/03-data-engineering/index.html">Stage overview</a></li>
+<li><a href="../../stages/03-data-engineering/01-numpy-pandas.html">NumPy and Pandas</a></li>
+<li><a href="../../stages/03-data-engineering/02-data-cleaning.html">Cleaning Messy Data</a></li>
+<li><a href="../../stages/03-data-engineering/03-eda.html">Exploratory Data Analysis</a></li>
+<li><a href="../../stages/03-data-engineering/04-sql-postgresql.html">SQL on PostgreSQL</a></li>
+<li><a href="../../stages/03-data-engineering/05-parquet-jsonl.html">Parquet and JSONL</a></li>
+<li><a href="../../stages/03-data-engineering/06-data-pipelines.html">Data Pipelines</a></li>
+<li><a href="../../stages/03-data-engineering/07-validation.html">Schema Validation with Pydantic</a></li>
+<li><a href="../../stages/03-data-engineering/08-dataset-prep.html">Dataset Preparation</a></li>
+<li><a href="../../stages/03-data-engineering/09-ship-clean-dataset.html">Ship: A Clean Dataset with a Data Card</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">04</span><span>Deep Learning</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/04-deep-learning/index.html">Stage overview</a></li>
+<li><a href="../../stages/04-deep-learning/01-perceptrons.html">Perceptrons</a></li>
+<li><a href="../../stages/04-deep-learning/02-feedforward.html">Feedforward Networks</a></li>
+<li><a href="../../stages/04-deep-learning/03-optimizers.html">Optimizers</a></li>
+<li><a href="../../stages/04-deep-learning/04-cnns-rnns.html">CNNs and RNNs</a></li>
+<li><a href="../../stages/04-deep-learning/05-lstms-grus.html">LSTMs and GRUs</a></li>
+<li><a href="../../stages/04-deep-learning/06-attention.html">Attention</a></li>
+<li><a href="../../stages/04-deep-learning/07-transformers.html">Transformers</a></li>
+<li><a href="../../stages/04-deep-learning/08-embeddings.html">Embeddings</a></li>
+<li><a href="../../stages/04-deep-learning/09-transfer-learning.html">Transfer Learning</a></li>
+<li><a href="../../stages/04-deep-learning/10-ship-mini-transformer.html">Ship: A Miniature Transformer</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">05</span><span>Dl Frameworks</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/05-dl-frameworks/index.html">Stage overview</a></li>
+<li><a href="../../stages/05-dl-frameworks/01-pytorch.html">PyTorch: Tensors and Modules</a></li>
+<li><a href="../../stages/05-dl-frameworks/02-autograd.html">Autograd From Scratch</a></li>
+<li><a href="../../stages/05-dl-frameworks/03-training-loops.html">Anatomy of a Training Loop</a></li>
+<li><a href="../../stages/05-dl-frameworks/04-gpu-checkpoints.html">GPU Memory and Checkpoints</a></li>
+<li><a href="../../stages/05-dl-frameworks/05-keras.html">Keras and the High-Level Path</a></li>
+<li><a href="../../stages/05-dl-frameworks/06-hugging-face.html">Hugging Face Transformers and Datasets</a></li>
+<li><a href="../../stages/05-dl-frameworks/07-cuda.html">CUDA, Devices and Mixed Precision</a></li>
+<li><a href="../../stages/05-dl-frameworks/08-ship-training-loop.html">Ship: A Reusable Training Loop</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">06</span><span>Llm Fundamentals</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/06-llm-fundamentals/index.html">Stage overview</a></li>
+<li><a href="../../stages/06-llm-fundamentals/01-gpt-and-bert.html">GPT and BERT: Decoder-Only vs Encoder-Only</a></li>
+<li><a href="../../stages/06-llm-fundamentals/02-tokenization.html">Tokenization: BPE and Byte-Level</a></li>
+<li><a href="../../stages/06-llm-fundamentals/03-context-windows.html">Context Windows</a></li>
+<li><a href="../../stages/06-llm-fundamentals/04-self-attention.html">Self-Attention From Scratch</a></li>
+<li><a href="../../stages/06-llm-fundamentals/05-pretraining.html">Pretraining: Objectives and Scale</a></li>
+<li><a href="../../stages/06-llm-fundamentals/06-instruction-tuning.html">Instruction Tuning and Chat Templates</a></li>
+<li><a href="../../stages/06-llm-fundamentals/07-rlhf-dpo.html">RLHF and DPO</a></li>
+<li><a href="../../stages/06-llm-fundamentals/08-open-vs-closed.html">Open-Weight vs Closed Models</a></li>
+<li><a href="../../stages/06-llm-fundamentals/09-ship-tokenizer.html">Ship: Tokenizer and Token-Budget Analyser</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">07</span><span>Llm Apis</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/07-llm-apis/index.html">Stage overview</a></li>
+<li><a href="../../stages/07-llm-apis/01-openai-anthropic.html">The OpenAI and Anthropic Chat APIs</a></li>
+<li><a href="../../stages/07-llm-apis/02-gemini-open-weight.html">Gemini and Open-Weight Models via Hosted Endpoints</a></li>
+<li><a href="../../stages/07-llm-apis/03-streaming.html">Streaming Responses</a></li>
+<li><a href="../../stages/07-llm-apis/04-structured-outputs.html">Structured Outputs</a></li>
+<li><a href="../../stages/07-llm-apis/05-tool-calling.html">Tool Calling</a></li>
+<li><a href="../../stages/07-llm-apis/06-multimodal-apis.html">Multimodal APIs</a></li>
+<li><a href="../../stages/07-llm-apis/07-retries-rate-limits.html">Retries and Rate Limits</a></li>
+<li><a href="../../stages/07-llm-apis/08-cost-tracking.html">Token Accounting and Cost Tracking</a></li>
+<li><a href="../../stages/07-llm-apis/09-routing-fallbacks.html">Routing and Fallbacks</a></li>
+<li><a href="../../stages/07-llm-apis/10-ship-multi-model-client.html">Ship: A Multi-Model Client</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">08</span><span>Prompt And Context</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/08-prompt-and-context/index.html">Stage overview</a></li>
+<li><a href="../../stages/08-prompt-and-context/01-system-instructions.html">System Instructions That Actually Constrain</a></li>
+<li><a href="../../stages/08-prompt-and-context/02-few-shot-cot.html">Few-Shot Prompting and Chain of Thought</a></li>
+<li><a href="../../stages/08-prompt-and-context/03-templates.html">Prompt Templates with Variables and Validation</a></li>
+<li><a href="../../stages/08-prompt-and-context/04-context-compression.html">Context Compression</a></li>
+<li><a href="../../stages/08-prompt-and-context/05-prompt-versioning.html">Prompt Versioning as Code</a></li>
+<li><a href="../../stages/08-prompt-and-context/06-injection-defense.html">Prompt-Injection Defence</a></li>
+<li><a href="../../stages/08-prompt-and-context/07-prompt-evals.html">Prompt Evals</a></li>
+<li><a href="../../stages/08-prompt-and-context/08-context-engineering.html">Context Engineering</a></li>
+<li><a href="../../stages/08-prompt-and-context/09-ship-prompt-test-suite.html">Ship: A Prompt Test Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">09</span><span>Vector Databases</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/09-vector-databases/index.html">Stage overview</a></li>
+<li><a href="../../stages/09-vector-databases/01-embeddings.html">Embeddings: Text as Points in Space</a></li>
+<li><a href="../../stages/09-vector-databases/02-similarity-metrics.html">Similarity Metrics</a></li>
+<li><a href="../../stages/09-vector-databases/03-semantic-search.html">Semantic Search End to End</a></li>
+<li><a href="../../stages/09-vector-databases/04-vector-indexing.html">Vector Indexing Structures</a></li>
+<li><a href="../../stages/09-vector-databases/05-ann-search.html">Approximate Nearest Neighbour Search</a></li>
+<li><a href="../../stages/09-vector-databases/06-pinecone-qdrant.html">Pinecone and Qdrant</a></li>
+<li><a href="../../stages/09-vector-databases/07-weaviate-milvus.html">Weaviate and Milvus</a></li>
+<li><a href="../../stages/09-vector-databases/08-chroma.html">Chroma and pgvector</a></li>
+<li><a href="../../stages/09-vector-databases/09-hybrid-search.html">Hybrid Search and Reciprocal Rank Fusion</a></li>
+<li><a href="../../stages/09-vector-databases/10-ship-semantic-search.html">Ship: A Semantic Search Service</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">10</span><span>Rag</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/10-rag/index.html">Stage overview</a></li>
+<li><a href="../../stages/10-rag/01-rag-architecture.html">RAG Architecture</a></li>
+<li><a href="../../stages/10-rag/02-ingestion-parsing.html">Ingestion and Parsing</a></li>
+<li><a href="../../stages/10-rag/03-chunking.html">Chunking</a></li>
+<li><a href="../../stages/10-rag/04-embedding-storage.html">Embedding and Storage Design</a></li>
+<li><a href="../../stages/10-rag/05-query-transform.html">Query Transformation</a></li>
+<li><a href="../../stages/10-rag/06-reranking.html">Reranking</a></li>
+<li><a href="../../stages/10-rag/07-hybrid-retrieval.html">Hybrid Retrieval</a></li>
+<li><a href="../../stages/10-rag/08-parent-child.html">Parent-Child Retrieval</a></li>
+<li><a href="../../stages/10-rag/09-multi-query.html">Multi-Query Retrieval</a></li>
+<li><a href="../../stages/10-rag/10-graph-rag.html">Graph RAG</a></li>
+<li><a href="../../stages/10-rag/11-agentic-rag.html">Agentic RAG</a></li>
+<li><a href="../../stages/10-rag/12-rag-evals.html">RAG Evaluation</a></li>
+<li><a href="../../stages/10-rag/13-ship-rag-with-evals.html">Ship: A RAG Service with Evals</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">11</span><span>Agents</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/11-agents/index.html">Stage overview</a></li>
+<li><a href="../../stages/11-agents/01-harness-engineering.html">Harness Engineering</a></li>
+<li><a href="../../stages/11-agents/02-agent-architecture.html">Agent Architecture</a></li>
+<li><a href="../../stages/11-agents/03-reasoning-planning.html">Reasoning and Planning</a></li>
+<li><a href="../../stages/11-agents/04-tool-calling.html">Tool Calling</a></li>
+<li><a href="../../stages/11-agents/05-memory-and-state.html">Memory and State</a></li>
+<li><a href="../../stages/11-agents/06-single-agent.html">Single-Agent Patterns</a></li>
+<li><a href="../../stages/11-agents/07-multi-agent.html">Multi-Agent Patterns</a></li>
+<li><a href="../../stages/11-agents/08-human-in-the-loop.html">Human in the Loop</a></li>
+<li><a href="../../stages/11-agents/09-reflection.html">Reflection and Self-Critique</a></li>
+<li><a href="../../stages/11-agents/10-loop-engineering.html">Loop Engineering</a></li>
+<li><a href="../../stages/11-agents/11-agent-security.html">Agent Security</a></li>
+<li><a href="../../stages/11-agents/12-ship-harness-agent.html">Ship: A Harness Agent</a></li>
+<li><a href="../../stages/11-agents/13-seven-harness-skills.html">The Seven Harness Skills, in Order</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">12</span><span>Orchestration</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/12-orchestration/index.html">Stage overview</a></li>
+<li><a href="../../stages/12-orchestration/01-langchain.html">LangChain</a></li>
+<li><a href="../../stages/12-orchestration/02-langgraph.html">LangGraph</a></li>
+<li><a href="../../stages/12-orchestration/03-graph-engineering.html">Graph Engineering</a></li>
+<li><a href="../../stages/12-orchestration/04-llamaindex.html">LlamaIndex</a></li>
+<li><a href="../../stages/12-orchestration/05-haystack.html">Haystack</a></li>
+<li><a href="../../stages/12-orchestration/06-semantic-kernel.html">Semantic Kernel</a></li>
+<li><a href="../../stages/12-orchestration/07-pydantic-ai.html">Pydantic AI</a></li>
+<li><a href="../../stages/12-orchestration/08-dspy.html">DSPy</a></li>
+<li><a href="../../stages/12-orchestration/09-crewai-autogen.html">CrewAI and AutoGen</a></li>
+<li><a href="../../stages/12-orchestration/10-tradeoffs.html">Trade-offs</a></li>
+<li><a href="../../stages/12-orchestration/11-ship-langgraph-flow.html">Ship: A LangGraph Flow</a></li>
+</ul></div>
+<div class="nav-group open">
+<button class="nav-stage current" type="button"><span class="num">13</span><span>Fine Tuning</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/13-fine-tuning/index.html">Stage overview</a></li>
+<li><a href="../../stages/13-fine-tuning/01-sft.html">Supervised Fine-Tuning (SFT)</a></li>
+<li><a href="../../stages/13-fine-tuning/02-lora-qlora-peft.html">LoRA, QLoRA and PEFT</a></li>
+<li><a href="../../stages/13-fine-tuning/03-synthetic-data.html">Synthetic Data for Fine-Tuning</a></li>
+<li><a href="../../stages/13-fine-tuning/04-instruction-tuning.html">Instruction Tuning vs Continued Pretraining</a></li>
+<li><a href="../../stages/13-fine-tuning/05-dpo.html">DPO: Preference Tuning Without RLHF</a></li>
+<li><a href="../../stages/13-fine-tuning/06-finetune-evals.html">Evaluating a Fine-Tune Honestly</a></li>
+<li><a href="../../stages/13-fine-tuning/07-finetune-vs-rag.html">Fine-Tune vs RAG vs Prompting</a></li>
+<li><a href="../../stages/13-fine-tuning/08-ship-lora-model.html">Ship: A LoRA Fine-Tune of a Small Open Model</a></li>
+<li><a class="active" href="../../stages/13-fine-tuning/09-finetune-by-outcome.html">Fine-Tuning by Outcome: The Notebook Map</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">14</span><span>Multimodal</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/14-multimodal/index.html">Stage overview</a></li>
+<li><a href="../../stages/14-multimodal/01-vision-language.html">Vision-Language Models</a></li>
+<li><a href="../../stages/14-multimodal/02-ocr.html">OCR: Traditional and Model-Based</a></li>
+<li><a href="../../stages/14-multimodal/03-speech-to-text.html">Speech-to-Text</a></li>
+<li><a href="../../stages/14-multimodal/04-text-to-speech.html">Text-to-Speech</a></li>
+<li><a href="../../stages/14-multimodal/05-video-audio.html">Video and Audio Processing</a></li>
+<li><a href="../../stages/14-multimodal/06-multimodal-embeddings.html">Multimodal Embeddings</a></li>
+<li><a href="../../stages/14-multimodal/07-diffusion.html">Diffusion Models for Engineers</a></li>
+<li><a href="../../stages/14-multimodal/08-multimodal-rag.html">Multimodal RAG</a></li>
+<li><a href="../../stages/14-multimodal/09-ship-doc-reader.html">Ship: A Document Reader with Citations</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">15</span><span>Evals</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/15-evals/index.html">Stage overview</a></li>
+<li><a href="../../stages/15-evals/01-unit-tests.html">Unit Tests for LLM Code</a></li>
+<li><a href="../../stages/15-evals/02-llm-as-judge.html">LLM as Judge</a></li>
+<li><a href="../../stages/15-evals/03-golden-datasets.html">Golden Datasets</a></li>
+<li><a href="../../stages/15-evals/04-faithfulness.html">Faithfulness</a></li>
+<li><a href="../../stages/15-evals/05-hallucinations.html">Hallucinations</a></li>
+<li><a href="../../stages/15-evals/06-agent-evals.html">Agent Evals</a></li>
+<li><a href="../../stages/15-evals/07-human-evals.html">Human Evals</a></li>
+<li><a href="../../stages/15-evals/08-regression-tests.html">Regression Tests</a></li>
+<li><a href="../../stages/15-evals/09-online-offline-evals.html">Online and Offline Evals</a></li>
+<li><a href="../../stages/15-evals/10-ship-eval-suite.html">Ship: An Eval Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">16</span><span>Inference</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/16-inference/index.html">Stage overview</a></li>
+<li><a href="../../stages/16-inference/01-prefill-decode.html">Prefill and Decode</a></li>
+<li><a href="../../stages/16-inference/02-kv-cache.html">The KV Cache</a></li>
+<li><a href="../../stages/16-inference/03-continuous-batching.html">Continuous Batching</a></li>
+<li><a href="../../stages/16-inference/04-pagedattention.html">PagedAttention</a></li>
+<li><a href="../../stages/16-inference/05-speculative-decoding.html">Speculative Decoding</a></li>
+<li><a href="../../stages/16-inference/06-quantization.html">Quantization</a></li>
+<li><a href="../../stages/16-inference/07-distillation.html">Distillation</a></li>
+<li><a href="../../stages/16-inference/08-vllm-sglang.html">vLLM and SGLang</a></li>
+<li><a href="../../stages/16-inference/09-ollama-tensorrt.html">Ollama and TensorRT-LLM</a></li>
+<li><a href="../../stages/16-inference/10-gpu-memory.html">GPU Memory Budgeting</a></li>
+<li><a href="../../stages/16-inference/11-ship-vllm-server.html">Ship: A vLLM Server</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">17</span><span>Ai Backend</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/17-ai-backend/index.html">Stage overview</a></li>
+<li><a href="../../stages/17-ai-backend/01-fastapi-flask.html">FastAPI and Flask</a></li>
+<li><a href="../../stages/17-ai-backend/02-websockets.html">Streaming with SSE and WebSockets</a></li>
+<li><a href="../../stages/17-ai-backend/03-async-processing.html">Async Processing</a></li>
+<li><a href="../../stages/17-ai-backend/04-redis-caching.html">Redis Caching</a></li>
+<li><a href="../../stages/17-ai-backend/05-job-queues.html">Job Queues</a></li>
+<li><a href="../../stages/17-ai-backend/06-auth-rate-limits.html">Auth and Rate Limits</a></li>
+<li><a href="../../stages/17-ai-backend/07-api-security.html">API Security</a></li>
+<li><a href="../../stages/17-ai-backend/08-ai-app-architecture.html">AI App Architecture</a></li>
+<li><a href="../../stages/17-ai-backend/09-ship-streaming-api.html">Ship: A Streaming Chat API</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">18</span><span>Mlops Llmops</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/18-mlops-llmops/index.html">Stage overview</a></li>
+<li><a href="../../stages/18-mlops-llmops/01-mlflow-wandb.html">Experiment Tracking with MLflow and W&B</a></li>
+<li><a href="../../stages/18-mlops-llmops/02-langfuse-langsmith.html">LLM Observability with Langfuse and LangSmith</a></li>
+<li><a href="../../stages/18-mlops-llmops/03-prompt-versioning.html">Prompt Versioning and Registries</a></li>
+<li><a href="../../stages/18-mlops-llmops/04-dvc.html">DVC for Data and Models</a></li>
+<li><a href="../../stages/18-mlops-llmops/05-tracing.html">Tracing Design</a></li>
+<li><a href="../../stages/18-mlops-llmops/06-cost-monitoring.html">Cost Monitoring and Budgets</a></li>
+<li><a href="../../stages/18-mlops-llmops/07-ci-cd-evals.html">CI/CD for Evals</a></li>
+<li><a href="../../stages/18-mlops-llmops/08-ship-trace-dashboard.html">Ship: A Trace Dashboard</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">19</span><span>Cloud Devops</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/19-cloud-devops/index.html">Stage overview</a></li>
+<li><a href="../../stages/19-cloud-devops/01-aws-s3-ec2-lambda.html">AWS for AI Apps: S3, EC2, Lambda</a></li>
+<li><a href="../../stages/19-cloud-devops/02-ecs-eks-sagemaker.html">Containers at Scale: ECS, EKS, SageMaker</a></li>
+<li><a href="../../stages/19-cloud-devops/03-gcp-azure-ai.html">GCP and Azure AI Equivalents</a></li>
+<li><a href="../../stages/19-cloud-devops/04-docker.html">Docker Done Properly</a></li>
+<li><a href="../../stages/19-cloud-devops/05-kubernetes.html">Kubernetes Essentials for AI Services</a></li>
+<li><a href="../../stages/19-cloud-devops/06-github-actions.html">GitHub Actions CI/CD</a></li>
+<li><a href="../../stages/19-cloud-devops/07-terraform.html">Terraform Basics</a></li>
+<li><a href="../../stages/19-cloud-devops/08-gpu-cloud.html">GPU Cloud Practicalities</a></li>
+<li><a href="../../stages/19-cloud-devops/09-ship-docker-deploy.html">Ship: Dockerised Deploy with Rollback</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">20</span><span>Ai Security</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/20-ai-security/index.html">Stage overview</a></li>
+<li><a href="../../stages/20-ai-security/01-prompt-injection.html">Prompt Injection</a></li>
+<li><a href="../../stages/20-ai-security/02-jailbreaks.html">Jailbreaks</a></li>
+<li><a href="../../stages/20-ai-security/03-data-leakage.html">Data Leakage</a></li>
+<li><a href="../../stages/20-ai-security/04-pii-redaction.html">PII Redaction and Detection</a></li>
+<li><a href="../../stages/20-ai-security/05-sandboxing.html">Sandboxing Tool Execution</a></li>
+<li><a href="../../stages/20-ai-security/06-supply-chain.html">Supply Chain Security</a></li>
+<li><a href="../../stages/20-ai-security/07-bias-fairness.html">Bias and Fairness</a></li>
+<li><a href="../../stages/20-ai-security/08-governance.html">Governance</a></li>
+<li><a href="../../stages/20-ai-security/09-guardrails.html">Guardrails</a></li>
+<li><a href="../../stages/20-ai-security/10-ship-injection-tests.html">Ship: Injection Test Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">21</span><span>System Design</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/21-system-design/index.html">Stage overview</a></li>
+<li><a href="../../stages/21-system-design/01-scalable-ai-apps.html">Scalable AI Apps</a></li>
+<li><a href="../../stages/21-system-design/02-rag-design.html">RAG Design at Scale</a></li>
+<li><a href="../../stages/21-system-design/03-agent-design.html">Agent Design</a></li>
+<li><a href="../../stages/21-system-design/04-model-routing.html">Model Routing</a></li>
+<li><a href="../../stages/21-system-design/05-multi-tenant.html">Multi-Tenant Design</a></li>
+<li><a href="../../stages/21-system-design/06-caching.html">Caching Layers</a></li>
+<li><a href="../../stages/21-system-design/07-fault-tolerance.html">Fault Tolerance</a></li>
+<li><a href="../../stages/21-system-design/08-cost-latency.html">Cost and Latency Engineering</a></li>
+<li><a href="../../stages/21-system-design/09-scaling-tradeoffs.html">Scaling Trade-offs</a></li>
+<li><a href="../../stages/21-system-design/10-ship-design-doc.html">Ship: A Design Document</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">22</span><span>Real Projects</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/22-real-projects/index.html">Stage overview</a></li>
+<li><a href="../../stages/22-real-projects/01-research-assistant.html">Research Assistant</a></li>
+<li><a href="../../stages/22-real-projects/02-document-intelligence.html">Document Intelligence</a></li>
+<li><a href="../../stages/22-real-projects/03-production-rag.html">Production RAG</a></li>
+<li><a href="../../stages/22-real-projects/04-multi-agent-research.html">Multi-Agent Research</a></li>
+<li><a href="../../stages/22-real-projects/05-support-agent.html">Support Agent</a></li>
+<li><a href="../../stages/22-real-projects/06-coding-assistant.html">Coding Assistant</a></li>
+<li><a href="../../stages/22-real-projects/07-multimodal-assistant.html">Multimodal Assistant</a></li>
+<li><a href="../../stages/22-real-projects/08-meeting-intelligence.html">Meeting Intelligence</a></li>
+<li><a href="../../stages/22-real-projects/09-knowledge-assistant.html">Knowledge Assistant</a></li>
+<li><a href="../../stages/22-real-projects/10-workflow-automation.html">Workflow Automation</a></li>
+<li><a href="../../stages/22-real-projects/11-fine-tuning-pipeline.html">Fine-Tuning Pipeline</a></li>
+<li><a href="../../stages/22-real-projects/12-eval-platform.html">Eval Platform</a></li>
+<li><a href="../../stages/22-real-projects/13-ai-saas.html">AI SaaS</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">23</span><span>Career</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/23-career/index.html">Stage overview</a></li>
+<li><a href="../../stages/23-career/01-github-portfolio.html">GitHub Portfolio</a></li>
+<li><a href="../../stages/23-career/02-resume.html">Resume</a></li>
+<li><a href="../../stages/23-career/03-python-sql-interviews.html">Python and SQL Interviews</a></li>
+<li><a href="../../stages/23-career/04-ml-llm-basics.html">ML and LLM Basics</a></li>
+<li><a href="../../stages/23-career/05-system-design-practice.html">System Design Practice</a></li>
+<li><a href="../../stages/23-career/06-rag-agent-patterns.html">RAG and Agent Patterns</a></li>
+<li><a href="../../stages/23-career/07-inference-optimization.html">Inference Optimisation</a></li>
+<li><a href="../../stages/23-career/08-production-case-studies.html">Production Case Studies</a></li>
+<li><a href="../../stages/23-career/09-open-source.html">Open Source</a></li>
+<li><a href="../../stages/23-career/10-technical-articles.html">Technical Articles</a></li>
+<li><a href="../../stages/23-career/11-build-in-public.html">Building in Public</a></li>
+<li><a href="../../stages/23-career/12-apply-for-roles.html">Applying for Roles</a></li>
+</ul></div>
+  </aside>
+  <main>
+    <div class="crumbs"><a href="../../index.html">Roadmap</a><span>/</span><a href="../../stages/13-fine-tuning/index.html">Stage 13 · Fine Tuning</a><span>/</span>Fine-Tuning by Outcome: The Notebook Map</div>
+    <article class="prose">
+<h1 id="9-fine-tuning-by-outcome-the-notebook-map">9. Fine-Tuning by Outcome: The Notebook Map</h1>
+<blockquote>
+<p><strong>Stage 13 · Fine-Tuning</strong> — six things you might want a model to do, the training technique each one needs, the data shape it eats, and the notebook that already runs on a free GPU.</p>
+<p><strong>You'll be able to:</strong> pick the right technique from the outcome you want, shape the dataset for it, size the GPU before you rent one, and read an open notebook critically instead of running it blind.</p>
+<p><strong>Prerequisites:</strong> <a href="01-sft.html">Supervised Fine-Tuning</a> · <a href="02-lora-qlora-peft.html">LoRA, QLoRA and PEFT</a> · <a href="05-dpo.html">DPO</a></p>
+</blockquote>
+<h2 id="why-this-exists">Why this exists</h2>
+<p>The hard part of fine-tuning is no longer the training loop. A library handles that. The hard part is knowing which of six techniques answers your problem, and every one of them fails differently: supervised fine-tuning on the wrong data teaches a model to sound right and be wrong, reinforcement learning on a lazy reward teaches it to game you, and a preference pass with pairs that differ in the wrong way teaches nothing at all.</p>
+<p>The trigger for this lesson is a practical resource: Unsloth's public notebook repository now holds <strong>250+ fine-tuning and RL notebooks</strong> for text, vision, audio, embedding and TTS models — 608 notebook files when this lesson was written — each one runnable in Colab on a free GPU, covering data prep, training and inference. Ved Vekhande's write-up of it made the useful observation that the notebooks are best read by <strong>outcome</strong> rather than by model: "answer in my format", "reason through maths", "call my functions", "prefer the better answer", "find my documents", "read scans or talk".</p>
+<p>That is the organising idea here. Each outcome maps to exactly one technique, one data shape and one class of failure. Learn the map and the notebook becomes a worked example of something you already understand, instead of a wall of cells you copy and hope about.</p>
+<p>A second reason this matters: these notebooks are how most people meet fine-tuning, and they are <strong>demos</strong>, not recipes. They run 60 steps on a 1,000-row slice. That teaches a format in ten minutes; it does not build a capability. Knowing which part of a notebook is load-bearing and which part is there to keep the free tier alive is the difference between a portfolio project and a wasted weekend.</p>
+<h2 id="core-concepts">Core concepts</h2>
+<h3 id="the-map">The map</h3>
+<table>
+<thead>
+<tr>
+<th>What you want</th>
+<th>Technique</th>
+<th>Data shape</th>
+<th>Notebook family</th>
+<th>Smallest example in the repo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Answer in your format and tone</td>
+<td>SFT on chat turns, loss on responses only</td>
+<td><code>messages</code> (user/assistant)</td>
+<td>Conversational</td>
+<td>Llama 3.2 1B/3B, Qwen3 14B</td>
+</tr>
+<tr>
+<td>Reason through maths and puzzles</td>
+<td>GRPO, scored by a reward you write</td>
+<td><code>prompt</code>, <code>answer</code></td>
+<td>GRPO and RL</td>
+<td>Gemma 3 1B, Qwen3 4B, gpt-oss 20B</td>
+</tr>
+<tr>
+<td>Call your functions</td>
+<td>SFT on transcripts with tool schemas</td>
+<td><code>messages</code>, <code>tools</code></td>
+<td>Tool calling</td>
+<td>FunctionGemma 270M, Qwen2.5-Coder 1.5B</td>
+</tr>
+<tr>
+<td>Prefer the better answer</td>
+<td>DPO on pairs, or ORPO to drop the reference model</td>
+<td><code>prompt</code>, <code>chosen</code>, <code>rejected</code></td>
+<td>Preference</td>
+<td>Zephyr 7B DPO, Llama 3 8B ORPO</td>
+</tr>
+<tr>
+<td>Find the right documents</td>
+<td>Contrastive fine-tune of an embedding model</td>
+<td><code>anchor</code>, <code>positive</code></td>
+<td>Embedding</td>
+<td>Qwen3-Embedding 0.6B, EmbeddingGemma 300M</td>
+</tr>
+<tr>
+<td>Read scans, transcribe or speak</td>
+<td>Vision or audio fine-tune on paired data</td>
+<td><code>image</code>/<code>audio</code>, <code>text</code></td>
+<td>Vision, ASR, TTS</td>
+<td>DeepSeek-OCR 3B, Whisper large-v3, Orpheus 3B</td>
+</tr>
+</tbody>
+</table>
+<p>Six rows, six losses. SFT and tool calling share a loss and differ only in the data, which is why they sit next to each other. GRPO optimises a reward. DPO optimises a preference. Embedding training optimises a distance. OCR, ASR and TTS optimise token likelihood on a different input modality, which makes them SFT with a processor in front.</p>
+<h3 id="1-format-and-tone-sft">1. Format and tone — SFT</h3>
+<p><strong>What changes:</strong> the model learns a distribution over your answers — the shape, the register, the length, the refusal style. What it does not reliably learn is new facts; that is what retrieval is for (see <a href="07-finetune-vs-rag.html">Fine-Tune vs RAG vs Prompting</a>).</p>
+<p><strong>Data:</strong> chat turns, templated with the model's own chat template.</p>
+<div class="code-block"><pre><span></span><code><span class="p">{</span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system"</span><span class="p">,</span><span class="w"> </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You are a support agent for a payments app. Short answers."</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w"> </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Refund not received, UPI id xyz@okhdfc, 4 days."</span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assistant"</span><span class="p">,</span><span class="w"> </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UPI refunds land in 3-5 working days. Yours is on day 4, so it should arrive tomorrow. If not, reply here and we will raise a trace with the bank."</span><span class="p">}</span>
+<span class="p">]}</span>
+</code></pre></div>
+
+<p><strong>What to set:</strong> LoRA <code>r=16</code>, <code>lora_alpha=16</code>, learning rate <code>2e-4</code>, one to three epochs, sequence length 2048. The one hyperparameter people get wrong is the mask: without <code>train_on_responses_only</code> the loss lands on the user's question too, and you spend GPU time teaching the model to write questions.</p>
+<div class="code-block"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">unsloth</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastLanguageModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">unsloth.chat_templates</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_chat_template</span><span class="p">,</span> <span class="n">train_on_responses_only</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">trl</span><span class="w"> </span><span class="kn">import</span> <span class="n">SFTConfig</span><span class="p">,</span> <span class="n">SFTTrainer</span>
+
+<span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">FastLanguageModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s2">"unsloth/Llama-3.2-3B-Instruct"</span><span class="p">,</span> <span class="n">max_seq_length</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span> <span class="n">load_in_4bit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">FastLanguageModel</span><span class="o">.</span><span class="n">get_peft_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">lora_alpha</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+                                         <span class="n">use_gradient_checkpointing</span><span class="o">=</span><span class="s2">"unsloth"</span><span class="p">)</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">get_chat_template</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">chat_template</span><span class="o">=</span><span class="s2">"llama-3.1"</span><span class="p">)</span>
+
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">SFTTrainer</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">train_dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>
+    <span class="n">args</span><span class="o">=</span><span class="n">SFTConfig</span><span class="p">(</span><span class="n">dataset_text_field</span><span class="o">=</span><span class="s2">"text"</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+                   <span class="n">per_device_train_batch_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">2e-4</span><span class="p">))</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">train_on_responses_only</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span>
+    <span class="n">instruction_part</span><span class="o">=</span><span class="s2">"&lt;|start_header_id|&gt;user&lt;|end_header_id|&gt;</span><span class="se">\n\n</span><span class="s2">"</span><span class="p">,</span>
+    <span class="n">response_part</span><span class="o">=</span><span class="s2">"&lt;|start_header_id|&gt;assistant&lt;|end_header_id|&gt;</span><span class="se">\n\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+</code></pre></div>
+
+<p><strong>Failure mode:</strong> the model reproduces your data's flaws at higher volume. If 30% of your answers say "kindly revert", you will ship a model that says it every time. Curate, then train; see <a href="03-synthetic-data.html">Synthetic Data</a> for the filters.</p>
+<h3 id="2-reasoning-grpo">2. Reasoning — GRPO</h3>
+<p><strong>What changes:</strong> nothing about the weights' knowledge. GRPO shapes <em>how</em> the model spends its tokens: it samples several completions per prompt, scores each with a reward function you write, and pushes probability toward the ones that scored. Group-relative means the comparison is against the other samples of the same prompt, so you never need a value model.</p>
+<p><strong>Data:</strong> a prompt and a checkable answer. Maths, puzzles, unit tests, SQL that runs, a grid that must be valid.</p>
+<div class="code-block"><pre><span></span><code><span class="p">{</span><span class="nt">"prompt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A shop sells pens at 12 rupees. Ravi buys 7 and pays with 100. How much change?"</span><span class="p">,</span><span class="w"> </span><span class="nt">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16"</span><span class="p">}</span>
+</code></pre></div>
+
+<p><strong>What to set:</strong> <code>num_generations=4</code> to start, <code>per_device_train_batch_size=1</code>, a low learning rate around <code>5e-6</code>, and 50-100 steps to look at behaviour. Memory scales with generations, not just batch: four rollouts means four sequences in flight per prompt.</p>
+<div class="code-block"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">trl</span><span class="w"> </span><span class="kn">import</span> <span class="n">GRPOConfig</span><span class="p">,</span> <span class="n">GRPOTrainer</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">format_reward</span><span class="p">(</span><span class="n">completions</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="mf">0.2</span> <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">"&lt;answer&gt;.*?&lt;/answer&gt;"</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">S</span><span class="p">)</span> <span class="k">else</span> <span class="mf">0.0</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">completions</span><span class="p">]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">answer_reward</span><span class="p">(</span><span class="n">completions</span><span class="p">,</span> <span class="n">answer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">completion</span><span class="p">,</span> <span class="n">truth</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">completions</span><span class="p">,</span> <span class="n">answer</span><span class="p">):</span>
+        <span class="n">found</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">"&lt;answer&gt;(.*?)&lt;/answer&gt;"</span><span class="p">,</span> <span class="n">completion</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.0</span> <span class="k">if</span> <span class="n">found</span> <span class="ow">and</span> <span class="n">found</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="n">truth</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">else</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">GRPOTrainer</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">train_dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>
+    <span class="n">reward_funcs</span><span class="o">=</span><span class="p">[</span><span class="n">format_reward</span><span class="p">,</span> <span class="n">answer_reward</span><span class="p">],</span>
+    <span class="n">args</span><span class="o">=</span><span class="n">GRPOConfig</span><span class="p">(</span><span class="n">num_generations</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">per_device_train_batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="n">max_steps</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">5e-6</span><span class="p">))</span>
+</code></pre></div>
+
+<p>The repository's notebooks follow the same shape with several small rewards — exact format match, approximate format match, answer match, number extraction — which is a good default: one reward for the shape you need, one for being right, and nothing for length.</p>
+<p><strong>Failure mode:</strong> reward hacking, and it is not subtle. Give 0.2 for a format tag and the model learns to emit the tag and nothing else. Read the completions, not just the reward curve. The repository's Sudoku and 2048 notebooks are worth opening precisely because their rewards are hard to game: the board either solves or it does not.</p>
+<h3 id="3-tool-calling-sft-on-transcripts">3. Tool calling — SFT on transcripts</h3>
+<p><strong>What changes:</strong> the model learns to emit a structured call, with the right name and the right arguments, from a schema it is shown at inference time.</p>
+<p><strong>Data:</strong> the schema, the user turn, the call, and the result. Include the failure turn — tool error, then a corrected call — or the model never learns what to do when an argument is wrong.</p>
+<div class="code-block"><pre><span></span><code><span class="p">{</span><span class="nt">"tools"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"get_order_status"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string, format ORD-####"</span><span class="p">}}],</span>
+<span class="w"> </span><span class="nt">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">   </span><span class="p">{</span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w"> </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Where is ORD-1042?"</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assistant"</span><span class="p">,</span><span class="w"> </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;tool_call&gt;get_order_status(order_id='ORD-1042')&lt;/tool_call&gt;"</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tool"</span><span class="p">,</span><span class="w"> </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"in transit, Pune hub, 2 days late"</span><span class="p">},</span>
+<span class="w">   </span><span class="p">{</span><span class="nt">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assistant"</span><span class="p">,</span><span class="w"> </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"It is at the Pune hub and running two days late."</span><span class="p">}]}</span>
+</code></pre></div>
+
+<p><strong>What to set:</strong> LoRA <code>r=128</code> with <code>lora_alpha=256</code> is what the FunctionGemma 270M notebook uses, because tool syntax is a narrow skill that needs capacity in the adapter rather than the base weights. A few hundred steps at batch 4 is enough for a demo.</p>
+<p><strong>Failure mode:</strong> the model learns your tool names but not your argument formats, because your data always showed well-formed ids. Hold out entire tool schemas in the eval, not just examples: a model that only works on the schemas it trained on has memorised, not learned. Then it is a lookup table with extra steps.</p>
+<h3 id="4-preference-dpo-and-orpo">4. Preference — DPO and ORPO</h3>
+<p><strong>What changes:</strong> relative taste. You give a prompt with a chosen and a rejected answer; the model is pushed to raise the likelihood of the chosen one relative to a frozen reference copy of itself.</p>
+<p><strong>Data:</strong> the pair, and the pair must differ in the way you care about — accuracy, or length, or hedging, but one axis at a time.</p>
+<div class="code-block"><pre><span></span><code><span class="p">{</span><span class="nt">"prompt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Explain a KV cache to a new backend engineer."</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">"chosen"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A KV cache stores the keys and values of past tokens, so each new token attends to memory instead of re-reading the prompt. It trades GPU memory for latency; that is why long contexts are expensive."</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">"rejected"</span><span class="p">:</span><span class="w"> </span><span class="s2">"It caches things to make it faster."</span><span class="p">}</span>
+</code></pre></div>
+
+<p><strong>What to set:</strong> <code>beta=0.1</code> is the usual start, batch 2, learning rate <code>5e-6</code>. Budget roughly double the weights, because the reference model sits frozen next to the one you train. ORPO merges the SFT and preference signals into one pass and drops the reference model entirely, which is the cheaper choice when you are also teaching a format.</p>
+<div class="code-block"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">unsloth</span><span class="w"> </span><span class="kn">import</span> <span class="n">PatchDPOTrainer</span>
+<span class="n">PatchDPOTrainer</span><span class="p">()</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">trl</span><span class="w"> </span><span class="kn">import</span> <span class="n">DPOConfig</span><span class="p">,</span> <span class="n">DPOTrainer</span>
+
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">DPOTrainer</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">ref_model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tokenizer</span><span class="o">=</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">train_dataset</span><span class="o">=</span><span class="n">pairs</span><span class="p">,</span>
+    <span class="n">args</span><span class="o">=</span><span class="n">DPOConfig</span><span class="p">(</span><span class="n">beta</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">per_device_train_batch_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">5e-6</span><span class="p">))</span>
+</code></pre></div>
+
+<p>With a PEFT model, <code>ref_model=None</code> is correct: the adapter is switched off to produce the reference logits, so you do not load a second copy.</p>
+<p><strong>Failure mode:</strong> pairs where the rejected answer is obviously bad. The model learns "long and specific beats short and vague" and nothing about correctness. Rejected answers should be the plausible wrong ones your current model actually produces — which means generating them from your model, not writing them by hand.</p>
+<h3 id="5-retrieval-fine-tuning-an-embedding-model">5. Retrieval — fine-tuning an embedding model</h3>
+<p><strong>What changes:</strong> where your documents sit in vector space. A general embedding model puts "how long does a UPI refund take" near generic finance text; a fine-tuned one puts it near your refund policy.</p>
+<p><strong>Data:</strong> query and positive passage pairs, ideally with hard negatives — passages that look right and are not. In the repository, this is a <code>datasets</code> split with <code>anchor</code> and <code>positive</code> columns.</p>
+<div class="code-block"><pre><span></span><code><span class="p">{</span><span class="nt">"anchor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"how long does a upi refund take"</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">"positive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UPI refunds are credited within 3-5 working days of the original transaction."</span><span class="p">}</span>
+</code></pre></div>
+
+<p><strong>What to set:</strong> LoRA <code>r=32</code>, <code>lora_alpha=32</code>, batch 256 with <code>BatchSamplers.NO_DUPLICATES</code> so no batch is all one topic, and a few hundred steps. Then re-embed the corpus — a fine-tuned encoder with an old index is worse than no fine-tune at all, because the query and document spaces no longer agree.</p>
+<div class="code-block"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">unsloth</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastSentenceTransformer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sentence_transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">SentenceTransformerTrainer</span><span class="p">,</span> <span class="n">SentenceTransformerTrainingArguments</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sentence_transformers.training_args</span><span class="w"> </span><span class="kn">import</span> <span class="n">BatchSamplers</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">FastSentenceTransformer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">"unsloth/Qwen3-Embedding-0.6B"</span><span class="p">,</span> <span class="n">max_seq_length</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">FastSentenceTransformer</span><span class="o">.</span><span class="n">get_peft_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">lora_alpha</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">SentenceTransformerTrainer</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">train_dataset</span><span class="o">=</span><span class="n">pairs</span><span class="p">,</span>
+    <span class="n">args</span><span class="o">=</span><span class="n">SentenceTransformerTrainingArguments</span><span class="p">(</span><span class="n">output_dir</span><span class="o">=</span><span class="s2">"out"</span><span class="p">,</span> <span class="n">per_device_train_batch_size</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+        <span class="n">batch_sampler</span><span class="o">=</span><span class="n">BatchSamplers</span><span class="o">.</span><span class="n">NO_DUPLICATES</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
+</code></pre></div>
+
+<p><strong>Failure mode:</strong> measuring with cosine similarity on a handful of pairs you picked yourself. Use recall@10 and nDCG over a held-out query set, and compare against the base model on the same set; see <a href="06-finetune-evals.html">Evaluating a Fine-Tune</a>.</p>
+<h3 id="6-documents-and-voice-ocr-asr-tts">6. Documents and voice — OCR, ASR, TTS</h3>
+<p><strong>What changes:</strong> the input modality. All three are the same supervised loss on paired data, with a processor that turns pixels or waveforms into tokens.</p>
+<ul>
+<li><strong>OCR:</strong> <code>(image, transcription)</code>. The repository trains DeepSeek-OCR 3B with <code>FastVisionModel</code>, <code>r=16</code>, on a synthetic OCR dataset, and keeps a separate evaluation notebook — which is the right instinct, because OCR quality is per document type and a single average hides everything.</li>
+<li><strong>ASR:</strong> Whisper large-v3 through <code>FastModel</code>, trained with <code>Seq2SeqTrainer</code>. One detail is load-bearing: Whisper needs <code>task_type=None</code> in <code>get_peft_model</code>, or the adapter attaches to the wrong layers and training quietly does nothing useful.</li>
+<li><strong>TTS:</strong> a language model over codec tokens. The Orpheus 3B notebook turns waveforms into discrete audio codes, trains on those, and redistributes codes back to audio at inference. There is no metric that replaces listening to ten samples.</li>
+</ul>
+<div class="code-block"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">unsloth</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">transformers</span><span class="w"> </span><span class="kn">import</span> <span class="n">WhisperForConditionalGeneration</span><span class="p">,</span> <span class="n">Seq2SeqTrainer</span><span class="p">,</span> <span class="n">Seq2SeqTrainingArguments</span>
+
+<span class="n">model</span><span class="p">,</span> <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">FastModel</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s2">"unsloth/whisper-large-v3"</span><span class="p">,</span>
+    <span class="n">auto_model</span><span class="o">=</span><span class="n">WhisperForConditionalGeneration</span><span class="p">,</span> <span class="n">load_in_4bit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">FastModel</span><span class="o">.</span><span class="n">get_peft_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">task_type</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># None is required for Whisper</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">Seq2SeqTrainer</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">train_dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">Seq2SeqTrainingArguments</span><span class="p">(</span>
+    <span class="n">output_dir</span><span class="o">=</span><span class="s2">"out"</span><span class="p">,</span> <span class="n">per_device_train_batch_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_steps</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">predict_with_generate</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</code></pre></div>
+
+<p><strong>Failure mode:</strong> training on clean, centred, high-resolution scans and deploying on phone photos. The distribution shift lives in the camera, not the language, so the training set has to contain your worst inputs.</p>
+<h3 id="the-rung-before-fine-tuning">The rung before fine-tuning</h3>
+<p>Fine-tuning is the third rung, and the first two are cheaper:</p>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Fix first</th>
+<th>Why not fine-tuning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The model does not know our policy</td>
+<td>Retrieval</td>
+<td>Facts change; weights do not</td>
+</tr>
+<tr>
+<td>The output format is wrong</td>
+<td>Prompt, schema, constrained decoding</td>
+<td>A JSON schema beats a training run</td>
+</tr>
+<tr>
+<td>The model is too slow or too expensive</td>
+<td>A smaller model, distillation, caching</td>
+<td>Fine-tune only after the smaller model fails on quality</td>
+</tr>
+<tr>
+<td>The task is a fixed style across thousands of calls</td>
+<td>Fine-tuning</td>
+<td>Style is exactly what SFT is good at</td>
+</tr>
+<tr>
+<td>One narrow behaviour, many attempts</td>
+<td>Fine-tuning, or a hook in the harness</td>
+<td>Cheap, measurable, and it generalises</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reading-the-notebooks-honestly">Reading the notebooks honestly</h3>
+<p>Four things to keep in mind when you open one of these notebooks:</p>
+<ul>
+<li><strong>60 steps is a demo.</strong> It teaches a format in minutes. A capability takes thousands of steps and a curated set; the repository's own defaults are chosen to fit a free GPU, not to ship.</li>
+<li><strong>The slices are tiny.</strong> <code>split="train[:1000]"</code> is a smoke test. Your data pipeline is the actual work, and it is the part a notebook does not give you.</li>
+<li><strong>Model ids move.</strong> The repository lists Gemma 4, Qwen3.5, gpt-oss 20B, FunctionGemma 270M, Qwen3-Embedding 0.6B and others; ids, sizes and licences change, so check the current list and the model card before you pin one.</li>
+<li><strong>Check the licence.</strong> The notebooks are LGPL-3.0 and the models carry their own terms. Copying a notebook into a product is a licensing decision, not just a technical one.</li>
+</ul>
+<h2 id="code">Code</h2>
+<p>A runnable decision layer: it holds the map, checks that a sample of your data has the right shape for the outcome you chose, and sizes the GPU before you rent one. No torch, no GPU, no downloads.</p>
+<div class="code-block"><pre><span></span><code><span class="sd">"""Pick a fine-tuning recipe by outcome, check your data has the right shape, size the GPU.</span>
+
+<span class="sd">    python finetune_recipes.py                 # the whole map</span>
+<span class="sd">    python finetune_recipes.py preference      # one recipe, with the data checks</span>
+
+<span class="sd">No torch, no GPU, no downloads: this file is the decision layer that sits in front of the</span>
+<span class="sd">Unsloth notebooks, so you know which notebook you need before you open one.</span>
+<span class="sd">"""</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+
+<span class="n">RECIPES</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"chat"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"goal"</span><span class="p">:</span> <span class="s2">"Answer in your format and tone"</span><span class="p">,</span>
+        <span class="s2">"technique"</span><span class="p">:</span> <span class="s2">"Supervised fine-tuning on chat turns, loss on responses only"</span><span class="p">,</span>
+        <span class="s2">"trainer"</span><span class="p">:</span> <span class="s2">"trl.SFTTrainer + unsloth.chat_templates.train_on_responses_only"</span><span class="p">,</span>
+        <span class="s2">"data_keys"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"messages"</span><span class="p">},</span>
+        <span class="s2">"example_model"</span><span class="p">:</span> <span class="s2">"unsloth/Llama-3.2-3B-Instruct"</span><span class="p">,</span>
+        <span class="s2">"params_b"</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="s2">"extra_weight_copies"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">"vram_note"</span><span class="p">:</span> <span class="s2">"1B-3B fits a free T4 at 4-bit; 14B needs a 24GB card"</span><span class="p">,</span>
+        <span class="s2">"watch"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"one epoch is often enough"</span><span class="p">,</span> <span class="s2">"learning rate 2e-4 for LoRA, not 2e-5"</span><span class="p">,</span>
+                  <span class="s2">"mask the prompt tokens or you teach the model to write questions"</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="s2">"reasoning"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"goal"</span><span class="p">:</span> <span class="s2">"Reason through maths and puzzles"</span><span class="p">,</span>
+        <span class="s2">"technique"</span><span class="p">:</span> <span class="s2">"GRPO: reinforcement learning scored by a reward function you write"</span><span class="p">,</span>
+        <span class="s2">"trainer"</span><span class="p">:</span> <span class="s2">"trl.GRPOTrainer + GRPOConfig(num_generations=4)"</span><span class="p">,</span>
+        <span class="s2">"data_keys"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"prompt"</span><span class="p">,</span> <span class="s2">"answer"</span><span class="p">},</span>
+        <span class="s2">"example_model"</span><span class="p">:</span> <span class="s2">"unsloth/Gemma-3-1B-it"</span><span class="p">,</span>
+        <span class="s2">"params_b"</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">"extra_weight_copies"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">"vram_note"</span><span class="p">:</span> <span class="s2">"rollouts multiply memory: batch x num_generations sequences live at once"</span><span class="p">,</span>
+        <span class="s2">"watch"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"the reward must be cheap and deterministic"</span><span class="p">,</span>
+                  <span class="s2">"reward hacking: check the passing answers by hand, not just the score"</span><span class="p">,</span>
+                  <span class="s2">"start at 50-100 steps and look at the completions"</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="s2">"tools"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"goal"</span><span class="p">:</span> <span class="s2">"Call your functions with the right arguments"</span><span class="p">,</span>
+        <span class="s2">"technique"</span><span class="p">:</span> <span class="s2">"SFT on transcripts that contain tool schemas, calls and results"</span><span class="p">,</span>
+        <span class="s2">"trainer"</span><span class="p">:</span> <span class="s2">"trl.SFTTrainer + tokenizer.apply_chat_template(tools=...)"</span><span class="p">,</span>
+        <span class="s2">"data_keys"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"messages"</span><span class="p">,</span> <span class="s2">"tools"</span><span class="p">},</span>
+        <span class="s2">"example_model"</span><span class="p">:</span> <span class="s2">"unsloth/FunctionGemma-270M-it"</span><span class="p">,</span>
+        <span class="s2">"params_b"</span><span class="p">:</span> <span class="mf">0.27</span><span class="p">,</span> <span class="s2">"extra_weight_copies"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">"vram_note"</span><span class="p">:</span> <span class="s2">"270M-4B: trains on a free T4, and 270M can run on a phone"</span><span class="p">,</span>
+        <span class="s2">"watch"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"include the failure turns (tool error, then a corrected call)"</span><span class="p">,</span>
+                  <span class="s2">"hold out tool schemas, not just examples, to test generalisation"</span><span class="p">,</span>
+                  <span class="s2">"score exact tool name and argument match separately"</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="s2">"preference"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"goal"</span><span class="p">:</span> <span class="s2">"Prefer the better of two answers"</span><span class="p">,</span>
+        <span class="s2">"technique"</span><span class="p">:</span> <span class="s2">"DPO on (prompt, chosen, rejected) triples, or ORPO to skip the reference model"</span><span class="p">,</span>
+        <span class="s2">"trainer"</span><span class="p">:</span> <span class="s2">"trl.DPOTrainer + DPOConfig(beta=0.1); unsloth.PatchDPOTrainer()"</span><span class="p">,</span>
+        <span class="s2">"data_keys"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"prompt"</span><span class="p">,</span> <span class="s2">"chosen"</span><span class="p">,</span> <span class="s2">"rejected"</span><span class="p">},</span>
+        <span class="s2">"example_model"</span><span class="p">:</span> <span class="s2">"unsloth/zephyr-sft-bnb-4bit"</span><span class="p">,</span>
+        <span class="s2">"params_b"</span><span class="p">:</span> <span class="mf">7.0</span><span class="p">,</span> <span class="s2">"extra_weight_copies"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># the frozen DPO reference model</span>
+        <span class="s2">"vram_note"</span><span class="p">:</span> <span class="s2">"DPO holds a frozen reference model too: budget roughly double the weights"</span><span class="p">,</span>
+        <span class="s2">"watch"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"chosen and rejected must differ in the way you care about"</span><span class="p">,</span>
+                  <span class="s2">"beta 0.1 is a start; too low and the model ignores the preference"</span><span class="p">,</span>
+                  <span class="s2">"rejected answers should be plausible, not garbage"</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="s2">"embedding"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"goal"</span><span class="p">:</span> <span class="s2">"Find the right documents in your own domain"</span><span class="p">,</span>
+        <span class="s2">"technique"</span><span class="p">:</span> <span class="s2">"Contrastive fine-tune of an embedding model on (query, positive) pairs"</span><span class="p">,</span>
+        <span class="s2">"trainer"</span><span class="p">:</span> <span class="s2">"SentenceTransformerTrainer + BatchSamplers.NO_DUPLICATES"</span><span class="p">,</span>
+        <span class="s2">"data_keys"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"anchor"</span><span class="p">,</span> <span class="s2">"positive"</span><span class="p">},</span>
+        <span class="s2">"example_model"</span><span class="p">:</span> <span class="s2">"unsloth/Qwen3-Embedding-0.6B"</span><span class="p">,</span>
+        <span class="s2">"params_b"</span><span class="p">:</span> <span class="mf">0.6</span><span class="p">,</span> <span class="s2">"extra_weight_copies"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">"vram_note"</span><span class="p">:</span> <span class="s2">"0.3B-0.6B trains on a free T4 at batch 256 with no duplicates per batch"</span><span class="p">,</span>
+        <span class="s2">"watch"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"hard negatives matter more than more pairs"</span><span class="p">,</span>
+                  <span class="s2">"re-embed the whole corpus after training, or the index is stale"</span><span class="p">,</span>
+                  <span class="s2">"measure recall@10 and nDCG, never cosine similarity on one pair"</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="s2">"ocr"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"goal"</span><span class="p">:</span> <span class="s2">"Read scans, forms and handwriting"</span><span class="p">,</span>
+        <span class="s2">"technique"</span><span class="p">:</span> <span class="s2">"Vision-language fine-tune on (image, transcription) pairs"</span><span class="p">,</span>
+        <span class="s2">"trainer"</span><span class="p">:</span> <span class="s2">"trl.SFTTrainer + FastVisionModel"</span><span class="p">,</span>
+        <span class="s2">"data_keys"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"image"</span><span class="p">,</span> <span class="s2">"text"</span><span class="p">},</span>
+        <span class="s2">"example_model"</span><span class="p">:</span> <span class="s2">"unsloth/DeepSeek-OCR"</span><span class="p">,</span>
+        <span class="s2">"params_b"</span><span class="p">:</span> <span class="mf">3.0</span><span class="p">,</span> <span class="s2">"extra_weight_copies"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">"vram_note"</span><span class="p">:</span> <span class="s2">"3B vision at 4-bit fits a 24GB card; crop-heavy pages cost more tokens"</span><span class="p">,</span>
+        <span class="s2">"watch"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"character error rate by document type, not one global number"</span><span class="p">,</span>
+                  <span class="s2">"keep a sample of clean digital text in the training set"</span><span class="p">,</span>
+                  <span class="s2">"check orientation and resolution handling before you train"</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="s2">"speech"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"goal"</span><span class="p">:</span> <span class="s2">"Transcribe audio, or speak in a chosen voice"</span><span class="p">,</span>
+        <span class="s2">"technique"</span><span class="p">:</span> <span class="s2">"ASR: Seq2Seq fine-tune of Whisper. TTS: language-model fine-tune on codec tokens"</span><span class="p">,</span>
+        <span class="s2">"trainer"</span><span class="p">:</span> <span class="s2">"Seq2SeqTrainer (Whisper, task_type=None) / Trainer (TTS codec tokens)"</span><span class="p">,</span>
+        <span class="s2">"data_keys"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"audio"</span><span class="p">,</span> <span class="s2">"text"</span><span class="p">},</span>
+        <span class="s2">"example_model"</span><span class="p">:</span> <span class="s2">"unsloth/whisper-large-v3"</span><span class="p">,</span>
+        <span class="s2">"params_b"</span><span class="p">:</span> <span class="mf">1.55</span><span class="p">,</span> <span class="s2">"extra_weight_copies"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">"vram_note"</span><span class="p">:</span> <span class="s2">"large-v3 at 4-bit needs a 24GB card; small models fit a T4"</span><span class="p">,</span>
+        <span class="s2">"watch"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Whisper LoRA needs task_type=None, or the adapter is attached to the wrong layer"</span><span class="p">,</span>
+                  <span class="s2">"word error rate by accent and channel, not one average"</span><span class="p">,</span>
+                  <span class="s2">"for TTS, listen to samples; a metric will not catch a bad voice"</span><span class="p">],</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_data</span><span class="p">(</span><span class="n">outcome</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">rows</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Return the problems in a sample of rows, empty when the shape is right."""</span>
+    <span class="n">recipe</span> <span class="o">=</span> <span class="n">RECIPES</span><span class="p">[</span><span class="n">outcome</span><span class="p">]</span>
+    <span class="n">problems</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">rows</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">"no rows"</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+        <span class="n">missing</span> <span class="o">=</span> <span class="n">recipe</span><span class="p">[</span><span class="s2">"data_keys"</span><span class="p">]</span> <span class="o">-</span> <span class="n">row</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">missing</span><span class="p">:</span>
+            <span class="n">problems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"row </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: missing </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">outcome</span> <span class="o">==</span> <span class="s2">"preference"</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s2">"chosen"</span><span class="p">]</span> <span class="o">==</span> <span class="n">row</span><span class="p">[</span><span class="s2">"rejected"</span><span class="p">]:</span>
+                <span class="n">problems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"row </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: chosen == rejected, no signal"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"chosen"</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="n">problems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"row </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: chosen answer too short to learn from"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">outcome</span> <span class="o">==</span> <span class="s2">"chat"</span><span class="p">:</span>
+            <span class="n">roles</span> <span class="o">=</span> <span class="p">{</span><span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"role"</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">row</span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]}</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">{</span><span class="s2">"user"</span><span class="p">,</span> <span class="s2">"assistant"</span><span class="p">}</span> <span class="o">&lt;=</span> <span class="n">roles</span><span class="p">:</span>
+                <span class="n">problems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"row </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: needs a user turn and an assistant turn, got </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">roles</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">outcome</span> <span class="o">==</span> <span class="s2">"tools"</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">row</span><span class="p">[</span><span class="s2">"tools"</span><span class="p">]:</span>
+                <span class="n">problems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"row </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: tools is empty, the model cannot learn a schema it never sees"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"role"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"tool"</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">row</span><span class="p">[</span><span class="s2">"messages"</span><span class="p">]):</span>
+                <span class="n">problems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"row </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: no tool result turn, so the model never sees the observation"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">outcome</span> <span class="o">==</span> <span class="s2">"reasoning"</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">row</span><span class="p">[</span><span class="s2">"prompt"</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s2">"?"</span><span class="p">,</span> <span class="s2">"."</span><span class="p">)):</span>
+                <span class="n">problems</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"row </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: prompt looks truncated"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">problems</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">vram_gb</span><span class="p">(</span><span class="n">params_b</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">bits</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">adapters_pct</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+            <span class="n">rollouts</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">extra_weight_copies</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""A rough floor, not a guarantee: weights, LoRA optimiser states, a rollout allowance."""</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">params_b</span> <span class="o">*</span> <span class="n">bits</span> <span class="o">/</span> <span class="mi">8</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">extra_weight_copies</span><span class="p">)</span>
+    <span class="n">adapter_params</span> <span class="o">=</span> <span class="n">params_b</span> <span class="o">*</span> <span class="n">adapters_pct</span>
+    <span class="n">adapter_states</span> <span class="o">=</span> <span class="n">adapter_params</span> <span class="o">*</span> <span class="mi">12</span> <span class="o">/</span> <span class="mi">1</span>  <span class="c1"># bf16 weight + bf16 grad + 8 bytes AdamW</span>
+    <span class="n">activations</span> <span class="o">=</span> <span class="mf">0.20</span> <span class="o">*</span> <span class="n">params_b</span> <span class="o">*</span> <span class="n">rollouts</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"weights"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s2">"adapter_states"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">adapter_states</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="s2">"activations"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">activations</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="s2">"floor"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">weights</span> <span class="o">+</span> <span class="n">adapter_states</span> <span class="o">+</span> <span class="n">activations</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}</span>
+
+
+<span class="n">SAMPLE</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"chat"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"messages"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Where is order ORD-1042?"</span><span class="p">},</span>
+                           <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"assistant"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"It left the Pune hub this morning."</span><span class="p">}]}],</span>
+    <span class="s2">"reasoning"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"prompt"</span><span class="p">:</span> <span class="s2">"What is 18</span><span class="si">% o</span><span class="s2">f 250?"</span><span class="p">,</span> <span class="s2">"answer"</span><span class="p">:</span> <span class="s2">"45"</span><span class="p">}],</span>
+    <span class="s2">"tools"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"tools"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"get_order_status"</span><span class="p">,</span> <span class="s2">"parameters"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"order_id"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">}}],</span>
+               <span class="s2">"messages"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"user"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"Status of ORD-1042?"</span><span class="p">},</span>
+                            <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"assistant"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"calling get_order_status(order_id='ORD-1042')"</span><span class="p">},</span>
+                            <span class="p">{</span><span class="s2">"role"</span><span class="p">:</span> <span class="s2">"tool"</span><span class="p">,</span> <span class="s2">"content"</span><span class="p">:</span> <span class="s2">"in transit, Pune hub"</span><span class="p">}]}],</span>
+    <span class="s2">"preference"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"prompt"</span><span class="p">:</span> <span class="s2">"Explain a KV cache to a new backend engineer."</span><span class="p">,</span>
+                    <span class="s2">"chosen"</span><span class="p">:</span> <span class="s2">"A KV cache stores the keys and values of past tokens so each new token "</span>
+                              <span class="s2">"does not re-read the whole prompt. It trades GPU memory for latency."</span><span class="p">,</span>
+                    <span class="s2">"rejected"</span><span class="p">:</span> <span class="s2">"It is a cache."</span><span class="p">}],</span>
+    <span class="s2">"embedding"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"anchor"</span><span class="p">:</span> <span class="s2">"how long does a UPI refund take"</span><span class="p">,</span> <span class="s2">"positive"</span><span class="p">:</span> <span class="s2">"Refunds land in 3-5 working days"</span><span class="p">}],</span>
+    <span class="s2">"ocr"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"image"</span><span class="p">:</span> <span class="s2">"prescription_0412.png"</span><span class="p">,</span> <span class="s2">"text"</span><span class="p">:</span> <span class="s2">"Tab Metformin 500mg BD x 30 days"</span><span class="p">}],</span>
+    <span class="s2">"speech"</span><span class="p">:</span> <span class="p">[{</span><span class="s2">"audio"</span><span class="p">:</span> <span class="s2">"call_0091.wav"</span><span class="p">,</span> <span class="s2">"text"</span><span class="p">:</span> <span class="s2">"The payment failed twice, please check."</span><span class="p">}],</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">wanted</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="ow">or</span> <span class="nb">list</span><span class="p">(</span><span class="n">RECIPES</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">wanted</span><span class="p">:</span>
+        <span class="n">recipe</span> <span class="o">=</span> <span class="n">RECIPES</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> — </span><span class="si">{</span><span class="n">recipe</span><span class="p">[</span><span class="s1">'goal'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  technique : </span><span class="si">{</span><span class="n">recipe</span><span class="p">[</span><span class="s1">'technique'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  trainer   : </span><span class="si">{</span><span class="n">recipe</span><span class="p">[</span><span class="s1">'trainer'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  data keys : </span><span class="si">{</span><span class="nb">sorted</span><span class="p">(</span><span class="n">recipe</span><span class="p">[</span><span class="s1">'data_keys'</span><span class="p">])</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  model     : </span><span class="si">{</span><span class="n">recipe</span><span class="p">[</span><span class="s1">'example_model'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">problems</span> <span class="o">=</span> <span class="n">check_data</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">SAMPLE</span><span class="p">[</span><span class="n">name</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  data check: </span><span class="si">{</span><span class="s1">'ok'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">problems</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="n">problems</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">est</span> <span class="o">=</span> <span class="n">vram_gb</span><span class="p">(</span><span class="n">recipe</span><span class="p">[</span><span class="s2">"params_b"</span><span class="p">],</span>
+                      <span class="n">rollouts</span><span class="o">=</span><span class="mi">4</span> <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s2">"reasoning"</span> <span class="k">else</span> <span class="mi">1</span><span class="p">,</span>
+                      <span class="n">extra_weight_copies</span><span class="o">=</span><span class="n">recipe</span><span class="p">[</span><span class="s2">"extra_weight_copies"</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  vram floor at 4-bit: </span><span class="si">{</span><span class="n">est</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">note</span> <span class="ow">in</span> <span class="n">recipe</span><span class="p">[</span><span class="s2">"watch"</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  watch     : </span><span class="si">{</span><span class="n">note</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+
+<p>Output, trimmed to two recipes:</p>
+<div class="code-block"><pre><span></span><code>CHAT — Answer in your format and tone
+  technique : Supervised fine-tuning on chat turns, loss on responses only
+  trainer   : trl.SFTTrainer + unsloth.chat_templates.train_on_responses_only
+  data keys : ['messages']
+  model     : unsloth/Llama-3.2-3B-Instruct
+  data check: ok
+  vram floor at 4-bit: {'weights': 1.5, 'adapter_states': 0.36, 'activations': 0.6, 'floor': 2.46}
+
+PREFERENCE — Prefer the better of two answers
+  technique : DPO on (prompt, chosen, rejected) triples, or ORPO to skip the reference model
+  trainer   : trl.DPOTrainer + DPOConfig(beta=0.1); unsloth.PatchDPOTrainer()
+  data keys : ['chosen', 'prompt', 'rejected']
+  model     : unsloth/zephyr-sft-bnb-4bit
+  data check: ok
+  vram floor at 4-bit: {'weights': 7.0, 'adapter_states': 0.84, 'activations': 1.4, 'floor': 9.24}
+</code></pre></div>
+
+<p>The estimator is deliberately blunt: 4-bit weights, LoRA optimiser states at 1% of parameters, and a fixed allowance for activations. It is a floor, not a promise — a real run adds attention buffers, fragmentation and the tokenizer's own working set. The point is the arithmetic you can do on a napkin: a 7B DPO run carries two copies of the weights, so it needs roughly twice what a 7B SFT run needs, which is why the 20B GRPO notebooks ask for an A100 and the 270M tool-calling notebook runs on a phone.</p>
+<h2 id="real-use-case">Real use case</h2>
+<p>A diagnostics lab in Hyderabad digitises handwritten prescriptions. Two-thirds arrive as phone photos: mixed English and Devanagari, uneven light, a doctor's handwriting that no OCR service reads well. The off-the-shelf transcription missed drug names and doses, which is the only part that matters.</p>
+<p>They fine-tuned DeepSeek-OCR 3B on 2,000 labelled pages, weighted toward the worst inputs — the dim photos and the scribbled doses — and held out 300 pages by clinic, not at random, so the eval measured generalisation to a clinic the model had never seen. Character error rate on the held-out set went from 18% to 4.2%, and drug-name accuracy from 71% to 96%. They kept a rule in the harness: any prescription with a confidence below a threshold or an unrecognised drug name goes to a human, because a 4% error rate on a dose is not a number you accept silently.</p>
+<p>The same map fixed a second problem in the same company. Their document search ran on a general embedding model and missed Hindi-English mixed queries. A contrastive fine-tune of a 0.6B embedding model on 40,000 query-passage pairs from their own search logs — plus hard negatives taken from the top results that users skipped — moved recall@10 from 61% to 84%. The corpus was re-embedded overnight; the index from the day before was thrown away, which is the step people forget.</p>
+<p>Two different outcomes, two different techniques, one map, and in both cases the eval came before the training run.</p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<ul>
+<li><strong>Mistake:</strong> fine-tuning to add facts the model should look up — <strong>Instead:</strong> retrieval for facts, fine-tuning for behaviour; see <a href="07-finetune-vs-rag.html">Fine-Tune vs RAG vs Prompting</a>.</li>
+<li><strong>Mistake:</strong> training on the whole conversation, loss included on the user turns — <strong>Instead:</strong> mask with <code>train_on_responses_only</code> and confirm by printing one decoded batch.</li>
+<li><strong>Mistake:</strong> running a 20B notebook on a free T4 and calling fine-tuning broken — <strong>Instead:</strong> do the napkin arithmetic first; GRPO multiplies memory by <code>num_generations</code>.</li>
+<li><strong>Mistake:</strong> a format-only reward in GRPO — <strong>Instead:</strong> one reward for shape, one for correctness, and read twenty completions before trusting the curve.</li>
+<li><strong>Mistake:</strong> preference pairs where the rejected answer is garbage — <strong>Instead:</strong> generate rejected answers from your current model; the model should learn taste, not the difference between an answer and a shrug.</li>
+<li><strong>Mistake:</strong> fine-tuning an embedding model and leaving the old index in place — <strong>Instead:</strong> re-embed the corpus in the same job that ships the adapter, and keep the two versions apart.</li>
+<li><strong>Mistake:</strong> evaluating on prompts that look like the training data — <strong>Instead:</strong> hold out by source — a clinic, a customer, a document type — and report per slice, not one average.</li>
+<li><strong>Mistake:</strong> copying a notebook's hyperparameters into production — <strong>Instead:</strong> keep the recipe, replace the numbers; <code>max_steps=60</code> exists to fit a free tier.</li>
+</ul>
+<h2 id="checkpoint">Checkpoint</h2>
+<ol>
+<li>Run <code>finetune_recipes.py</code>, then change the <code>chat</code> sample to a row with only an assistant turn. Confirm the data check catches it, and add a check for an assistant turn that is shorter than ten characters.</li>
+<li>Take the outcome you actually care about and write ten real data rows for it in that shape. Run <code>check_data</code> on them. Fix whatever it flags before you open a notebook.</li>
+<li>Size your run: use <code>vram_gb</code> to compare a 7B SFT run and a 7B DPO run, then add <code>rollouts=4</code> for a GRPO run on the same model. Write down which of the three fits a 24GB card.</li>
+<li>Open one notebook from the repository in your outcome's family and answer three questions in writing: what does the loss land on, what does the reward (if any) measure, and what would you change to train on your own data for a thousand steps.</li>
+</ol>
+<p><strong>Self-check:</strong> Exercise 3 — 7B SFT is about 4.3GB of floor, 7B DPO about 9.2GB because the reference weights are a second copy, and 7B GRPO with four rollouts lands between them on weights but grows with every generation. Only the SFT and GRPO runs fit comfortably on 24GB; the DPO run fits only with a smaller batch or a shorter sequence.</p>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li><a href="01-sft.html">Supervised Fine-Tuning</a> — the loss, the chat template and prompt masking.</li>
+<li><a href="02-lora-qlora-peft.html">LoRA, QLoRA and PEFT</a> — rank, alpha and target modules, and the memory maths.</li>
+<li><a href="03-synthetic-data.html">Synthetic Data for Fine-Tuning</a> — generating and filtering training rows.</li>
+<li><a href="05-dpo.html">DPO: Preference Tuning Without RLHF</a> — the loss in plain words, and pair construction.</li>
+<li><a href="06-finetune-evals.html">Evaluating a Fine-Tune Honestly</a> — held-out sets, regression checks, judge comparisons.</li>
+<li><a href="07-finetune-vs-rag.html">Fine-Tune vs RAG vs Prompting</a> — the decision table this lesson's third rung comes from.</li>
+<li><a href="08-ship-lora-model.html">Ship: A LoRA Fine-Tune of a Small Open Model</a> — the artifact end to end.</li>
+<li><a href="../14-multimodal/.html">Multimodal AI</a> — OCR, speech and vision in depth.</li>
+<li>The notebooks: <a href="https://github.com/unslothai/notebooks">unslothai/notebooks</a> (LGPL-3.0) and the <a href="https://unsloth.ai/docs">Unsloth docs</a>. The outcome-first framing comes from Ved Vekhande's <a href="https://lnkd.in/p/d7EtjGrR">post</a>, November 2026.</li>
+</ul>
+<hr />
+<p><a href="08-ship-lora-model.html">← Previous: Ship: A LoRA Fine-Tune of a Small Open Model</a> · <a href=".html">Stage index</a> · <a href="../14-multimodal/.html">Next stage: Multimodal</a></p>
+    </article>
+    <nav class="pager">
+<a class="prev" href="../../stages/13-fine-tuning/08-ship-lora-model.html"><span class="dir">Previous</span>Ship: A LoRA Fine-Tune of a Small Open Model</a>
+<a class="next" href="../../stages/14-multimodal/index.html"><span class="dir">Next</span>Multimodal</a>
+</nav>
+    <footer class="site-footer">
+      AI Engineer Roadmap · <a href="../../contributing.html">Contribute</a> ·
+      <a href="../../glossary.html">Glossary</a> ·
+      <a href="../../progress.html">Progress</a> · MIT licensed
+    </footer>
+  </main>
+</div>
+<button id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 13V3M3 8l5-5 5 5"/></svg>
+</button>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

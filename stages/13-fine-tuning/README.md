@@ -12,6 +12,7 @@ Prompting and retrieval get you most of the way. This stage covers the last mile
 - Decide between prompting, RAG and fine-tuning using a cost, latency and data-freshness table.
 - Run a DPO pass on preference pairs without needing a reward model.
 - Evaluate a fine-tune honestly: held-out set, general-ability regression, judge-based A/B.
+- Pick the technique from the outcome — SFT, GRPO, tool-call SFT, DPO/ORPO, embeddings, OCR/ASR/TTS — and size the GPU before renting it.
 
 ## Topics
 
@@ -25,6 +26,7 @@ Prompting and retrieval get you most of the way. This stage covers the last mile
 | 6 | [Evaluating a Fine-Tune Honestly](06-finetune-evals.md) | Held-out sets, regression checks, judge comparisons |
 | 7 | [Fine-Tune vs RAG vs Prompting](07-finetune-vs-rag.md) | A decision table on cost, latency, freshness |
 | 8 | [Ship: A LoRA Fine-Tune of a Small Open Model](08-ship-lora-model.md) | The full artifact: data, config, evals, model card |
+| 9 | [Fine-Tuning by Outcome](09-finetune-by-outcome.md) | Six outcomes, six techniques, the data shape and the GPU cost of each |
 
 ## The shipping project
 

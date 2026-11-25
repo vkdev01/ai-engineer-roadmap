@@ -1,7 +1,7 @@
 # Progress tracker
 
 Tick a lesson when you have done the checkpoint, and a stage when you have shipped its project.
-There are 23 stages, 227 lessons and 23 shipping projects. Print this page if that helps.
+There are 23 stages, 228 lessons and 23 shipping projects. Print this page if that helps.
 
 **Legend:** `[ ]` not started · `[x]` done · `[~]` in progress (mark by hand)
 
@@ -209,6 +209,7 @@ Stage index: [stages/13-fine-tuning/README.md](stages/13-fine-tuning/README.md)
 - [ ] [Evaluating a Fine-Tune Honestly](stages/13-fine-tuning/06-finetune-evals.md)
 - [ ] [Fine-Tune vs RAG vs Prompting](stages/13-fine-tuning/07-finetune-vs-rag.md)
 - [ ] [Ship: A LoRA Fine-Tune of a Small Open Model](stages/13-fine-tuning/08-ship-lora-model.md)
+- [ ] [Fine-Tuning by Outcome](stages/13-fine-tuning/09-finetune-by-outcome.md)
 - [ ] **Ship project** — see the stage index
 
 ## Stage 14 — Multimodal AI
