@@ -1,0 +1,1046 @@
+<!doctype html>
+<html lang="en" data-theme="github-light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Nine-Layer Agentic Stack · AI Engineer Roadmap</title>
+<meta name="description" content="Stage 21 · System Design — the nine layers a production agentic application actually has, what each one owns, the incident it prevents, and the metric that tell">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111'/><text x='16' y='22' font-size='14' font-family='monospace' fill='%23fff' text-anchor='middle'>AI</text></svg>">
+</head>
+<body>
+<div id="progress"></div>
+<header class="topbar">
+  <button class="icon-btn" id="menuBtn" type="button" aria-label="Menu">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h12M2 8h12M2 12h12"/></svg>
+  </button>
+  <a class="brand" href="../../index.html"><span class="brand-mark">AI</span><span class="brand-text">Engineer Roadmap</span></a>
+  <div class="spacer"></div>
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg>
+    <input id="q" type="search" placeholder="Search lessons…" autocomplete="off" aria-label="Search lessons">
+    <div id="results"></div>
+  </div>
+  <select id="theme" class="theme-select" aria-label="Style"></select>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+<a class="nav-home" href="../../index.html">Roadmap home</a>
+<a class="nav-home" href="../../fast-track.html">Fast track</a>
+<a class="nav-home" href="../../progress.html">Progress tracker</a>
+<a class="nav-home" href="../../glossary.html">Glossary</a>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">01</span><span>Programming Basics</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/01-programming-basics/index.html">Stage overview</a></li>
+<li><a href="../../stages/01-programming-basics/01-python-async.html">Python Async</a></li>
+<li><a href="../../stages/01-programming-basics/02-type-hints-pydantic.html">Type Hints and Pydantic v2</a></li>
+<li><a href="../../stages/01-programming-basics/03-generators.html">Generators</a></li>
+<li><a href="../../stages/01-programming-basics/04-algorithms.html">Core Algorithms</a></li>
+<li><a href="../../stages/01-programming-basics/05-git-github.html">Git and GitHub</a></li>
+<li><a href="../../stages/01-programming-basics/06-linux-cli.html">The Linux Command Line</a></li>
+<li><a href="../../stages/01-programming-basics/07-http-rest-apis.html">HTTP and REST APIs</a></li>
+<li><a href="../../stages/01-programming-basics/08-json-yaml.html">JSON and YAML</a></li>
+<li><a href="../../stages/01-programming-basics/09-ship-cli-tool.html">Ship a CLI Tool</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">02</span><span>Math And Ml Basics</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/02-math-and-ml-basics/index.html">Stage overview</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/01-linear-algebra.html">Linear Algebra</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/02-calculus.html">Calculus</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/03-probability-bayes.html">Probability and Bayes</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/04-ml-basics.html">ML Basics</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/05-loss-functions.html">Loss Functions</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/06-backprop-gradients.html">Backpropagation and Gradients</a></li>
+<li><a href="../../stages/02-math-and-ml-basics/07-ship-gradient-descent.html">Ship Gradient Descent</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">03</span><span>Data Engineering</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/03-data-engineering/index.html">Stage overview</a></li>
+<li><a href="../../stages/03-data-engineering/01-numpy-pandas.html">NumPy and Pandas</a></li>
+<li><a href="../../stages/03-data-engineering/02-data-cleaning.html">Cleaning Messy Data</a></li>
+<li><a href="../../stages/03-data-engineering/03-eda.html">Exploratory Data Analysis</a></li>
+<li><a href="../../stages/03-data-engineering/04-sql-postgresql.html">SQL on PostgreSQL</a></li>
+<li><a href="../../stages/03-data-engineering/05-parquet-jsonl.html">Parquet and JSONL</a></li>
+<li><a href="../../stages/03-data-engineering/06-data-pipelines.html">Data Pipelines</a></li>
+<li><a href="../../stages/03-data-engineering/07-validation.html">Schema Validation with Pydantic</a></li>
+<li><a href="../../stages/03-data-engineering/08-dataset-prep.html">Dataset Preparation</a></li>
+<li><a href="../../stages/03-data-engineering/09-ship-clean-dataset.html">Ship: A Clean Dataset with a Data Card</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">04</span><span>Deep Learning</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/04-deep-learning/index.html">Stage overview</a></li>
+<li><a href="../../stages/04-deep-learning/01-perceptrons.html">Perceptrons</a></li>
+<li><a href="../../stages/04-deep-learning/02-feedforward.html">Feedforward Networks</a></li>
+<li><a href="../../stages/04-deep-learning/03-optimizers.html">Optimizers</a></li>
+<li><a href="../../stages/04-deep-learning/04-cnns-rnns.html">CNNs and RNNs</a></li>
+<li><a href="../../stages/04-deep-learning/05-lstms-grus.html">LSTMs and GRUs</a></li>
+<li><a href="../../stages/04-deep-learning/06-attention.html">Attention</a></li>
+<li><a href="../../stages/04-deep-learning/07-transformers.html">Transformers</a></li>
+<li><a href="../../stages/04-deep-learning/08-embeddings.html">Embeddings</a></li>
+<li><a href="../../stages/04-deep-learning/09-transfer-learning.html">Transfer Learning</a></li>
+<li><a href="../../stages/04-deep-learning/10-ship-mini-transformer.html">Ship: A Miniature Transformer</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">05</span><span>Dl Frameworks</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/05-dl-frameworks/index.html">Stage overview</a></li>
+<li><a href="../../stages/05-dl-frameworks/01-pytorch.html">PyTorch: Tensors and Modules</a></li>
+<li><a href="../../stages/05-dl-frameworks/02-autograd.html">Autograd From Scratch</a></li>
+<li><a href="../../stages/05-dl-frameworks/03-training-loops.html">Anatomy of a Training Loop</a></li>
+<li><a href="../../stages/05-dl-frameworks/04-gpu-checkpoints.html">GPU Memory and Checkpoints</a></li>
+<li><a href="../../stages/05-dl-frameworks/05-keras.html">Keras and the High-Level Path</a></li>
+<li><a href="../../stages/05-dl-frameworks/06-hugging-face.html">Hugging Face Transformers and Datasets</a></li>
+<li><a href="../../stages/05-dl-frameworks/07-cuda.html">CUDA, Devices and Mixed Precision</a></li>
+<li><a href="../../stages/05-dl-frameworks/08-ship-training-loop.html">Ship: A Reusable Training Loop</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">06</span><span>Llm Fundamentals</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/06-llm-fundamentals/index.html">Stage overview</a></li>
+<li><a href="../../stages/06-llm-fundamentals/01-gpt-and-bert.html">GPT and BERT: Decoder-Only vs Encoder-Only</a></li>
+<li><a href="../../stages/06-llm-fundamentals/02-tokenization.html">Tokenization: BPE and Byte-Level</a></li>
+<li><a href="../../stages/06-llm-fundamentals/03-context-windows.html">Context Windows</a></li>
+<li><a href="../../stages/06-llm-fundamentals/04-self-attention.html">Self-Attention From Scratch</a></li>
+<li><a href="../../stages/06-llm-fundamentals/05-pretraining.html">Pretraining: Objectives and Scale</a></li>
+<li><a href="../../stages/06-llm-fundamentals/06-instruction-tuning.html">Instruction Tuning and Chat Templates</a></li>
+<li><a href="../../stages/06-llm-fundamentals/07-rlhf-dpo.html">RLHF and DPO</a></li>
+<li><a href="../../stages/06-llm-fundamentals/08-open-vs-closed.html">Open-Weight vs Closed Models</a></li>
+<li><a href="../../stages/06-llm-fundamentals/09-ship-tokenizer.html">Ship: Tokenizer and Token-Budget Analyser</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">07</span><span>Llm Apis</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/07-llm-apis/index.html">Stage overview</a></li>
+<li><a href="../../stages/07-llm-apis/01-openai-anthropic.html">The OpenAI and Anthropic Chat APIs</a></li>
+<li><a href="../../stages/07-llm-apis/02-gemini-open-weight.html">Gemini and Open-Weight Models via Hosted Endpoints</a></li>
+<li><a href="../../stages/07-llm-apis/03-streaming.html">Streaming Responses</a></li>
+<li><a href="../../stages/07-llm-apis/04-structured-outputs.html">Structured Outputs</a></li>
+<li><a href="../../stages/07-llm-apis/05-tool-calling.html">Tool Calling</a></li>
+<li><a href="../../stages/07-llm-apis/06-multimodal-apis.html">Multimodal APIs</a></li>
+<li><a href="../../stages/07-llm-apis/07-retries-rate-limits.html">Retries and Rate Limits</a></li>
+<li><a href="../../stages/07-llm-apis/08-cost-tracking.html">Token Accounting and Cost Tracking</a></li>
+<li><a href="../../stages/07-llm-apis/09-routing-fallbacks.html">Routing and Fallbacks</a></li>
+<li><a href="../../stages/07-llm-apis/10-ship-multi-model-client.html">Ship: A Multi-Model Client</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">08</span><span>Prompt And Context</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/08-prompt-and-context/index.html">Stage overview</a></li>
+<li><a href="../../stages/08-prompt-and-context/01-system-instructions.html">System Instructions That Actually Constrain</a></li>
+<li><a href="../../stages/08-prompt-and-context/02-few-shot-cot.html">Few-Shot Prompting and Chain of Thought</a></li>
+<li><a href="../../stages/08-prompt-and-context/03-templates.html">Prompt Templates with Variables and Validation</a></li>
+<li><a href="../../stages/08-prompt-and-context/04-context-compression.html">Context Compression</a></li>
+<li><a href="../../stages/08-prompt-and-context/05-prompt-versioning.html">Prompt Versioning as Code</a></li>
+<li><a href="../../stages/08-prompt-and-context/06-injection-defense.html">Prompt-Injection Defence</a></li>
+<li><a href="../../stages/08-prompt-and-context/07-prompt-evals.html">Prompt Evals</a></li>
+<li><a href="../../stages/08-prompt-and-context/08-context-engineering.html">Context Engineering</a></li>
+<li><a href="../../stages/08-prompt-and-context/09-ship-prompt-test-suite.html">Ship: A Prompt Test Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">09</span><span>Vector Databases</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/09-vector-databases/index.html">Stage overview</a></li>
+<li><a href="../../stages/09-vector-databases/01-embeddings.html">Embeddings: Text as Points in Space</a></li>
+<li><a href="../../stages/09-vector-databases/02-similarity-metrics.html">Similarity Metrics</a></li>
+<li><a href="../../stages/09-vector-databases/03-semantic-search.html">Semantic Search End to End</a></li>
+<li><a href="../../stages/09-vector-databases/04-vector-indexing.html">Vector Indexing Structures</a></li>
+<li><a href="../../stages/09-vector-databases/05-ann-search.html">Approximate Nearest Neighbour Search</a></li>
+<li><a href="../../stages/09-vector-databases/06-pinecone-qdrant.html">Pinecone and Qdrant</a></li>
+<li><a href="../../stages/09-vector-databases/07-weaviate-milvus.html">Weaviate and Milvus</a></li>
+<li><a href="../../stages/09-vector-databases/08-chroma.html">Chroma and pgvector</a></li>
+<li><a href="../../stages/09-vector-databases/09-hybrid-search.html">Hybrid Search and Reciprocal Rank Fusion</a></li>
+<li><a href="../../stages/09-vector-databases/10-ship-semantic-search.html">Ship: A Semantic Search Service</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">10</span><span>Rag</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/10-rag/index.html">Stage overview</a></li>
+<li><a href="../../stages/10-rag/01-rag-architecture.html">RAG Architecture</a></li>
+<li><a href="../../stages/10-rag/02-ingestion-parsing.html">Ingestion and Parsing</a></li>
+<li><a href="../../stages/10-rag/03-chunking.html">Chunking</a></li>
+<li><a href="../../stages/10-rag/04-embedding-storage.html">Embedding and Storage Design</a></li>
+<li><a href="../../stages/10-rag/05-query-transform.html">Query Transformation</a></li>
+<li><a href="../../stages/10-rag/06-reranking.html">Reranking</a></li>
+<li><a href="../../stages/10-rag/07-hybrid-retrieval.html">Hybrid Retrieval</a></li>
+<li><a href="../../stages/10-rag/08-parent-child.html">Parent-Child Retrieval</a></li>
+<li><a href="../../stages/10-rag/09-multi-query.html">Multi-Query Retrieval</a></li>
+<li><a href="../../stages/10-rag/10-graph-rag.html">Graph RAG</a></li>
+<li><a href="../../stages/10-rag/11-agentic-rag.html">Agentic RAG</a></li>
+<li><a href="../../stages/10-rag/12-rag-evals.html">RAG Evaluation</a></li>
+<li><a href="../../stages/10-rag/13-ship-rag-with-evals.html">Ship: A RAG Service with Evals</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">11</span><span>Agents</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/11-agents/index.html">Stage overview</a></li>
+<li><a href="../../stages/11-agents/01-harness-engineering.html">Harness Engineering</a></li>
+<li><a href="../../stages/11-agents/02-agent-architecture.html">Agent Architecture</a></li>
+<li><a href="../../stages/11-agents/03-reasoning-planning.html">Reasoning and Planning</a></li>
+<li><a href="../../stages/11-agents/04-tool-calling.html">Tool Calling</a></li>
+<li><a href="../../stages/11-agents/05-memory-and-state.html">Memory and State</a></li>
+<li><a href="../../stages/11-agents/06-single-agent.html">Single-Agent Patterns</a></li>
+<li><a href="../../stages/11-agents/07-multi-agent.html">Multi-Agent Patterns</a></li>
+<li><a href="../../stages/11-agents/08-human-in-the-loop.html">Human in the Loop</a></li>
+<li><a href="../../stages/11-agents/09-reflection.html">Reflection and Self-Critique</a></li>
+<li><a href="../../stages/11-agents/10-loop-engineering.html">Loop Engineering</a></li>
+<li><a href="../../stages/11-agents/11-agent-security.html">Agent Security</a></li>
+<li><a href="../../stages/11-agents/12-ship-harness-agent.html">Ship: A Harness Agent</a></li>
+<li><a href="../../stages/11-agents/13-seven-harness-skills.html">The Seven Harness Skills, in Order</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">12</span><span>Orchestration</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/12-orchestration/index.html">Stage overview</a></li>
+<li><a href="../../stages/12-orchestration/01-langchain.html">LangChain</a></li>
+<li><a href="../../stages/12-orchestration/02-langgraph.html">LangGraph</a></li>
+<li><a href="../../stages/12-orchestration/03-graph-engineering.html">Graph Engineering</a></li>
+<li><a href="../../stages/12-orchestration/04-llamaindex.html">LlamaIndex</a></li>
+<li><a href="../../stages/12-orchestration/05-haystack.html">Haystack</a></li>
+<li><a href="../../stages/12-orchestration/06-semantic-kernel.html">Semantic Kernel</a></li>
+<li><a href="../../stages/12-orchestration/07-pydantic-ai.html">Pydantic AI</a></li>
+<li><a href="../../stages/12-orchestration/08-dspy.html">DSPy</a></li>
+<li><a href="../../stages/12-orchestration/09-crewai-autogen.html">CrewAI and AutoGen</a></li>
+<li><a href="../../stages/12-orchestration/10-tradeoffs.html">Trade-offs</a></li>
+<li><a href="../../stages/12-orchestration/11-ship-langgraph-flow.html">Ship: A LangGraph Flow</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">13</span><span>Fine Tuning</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/13-fine-tuning/index.html">Stage overview</a></li>
+<li><a href="../../stages/13-fine-tuning/01-sft.html">Supervised Fine-Tuning (SFT)</a></li>
+<li><a href="../../stages/13-fine-tuning/02-lora-qlora-peft.html">LoRA, QLoRA and PEFT</a></li>
+<li><a href="../../stages/13-fine-tuning/03-synthetic-data.html">Synthetic Data for Fine-Tuning</a></li>
+<li><a href="../../stages/13-fine-tuning/04-instruction-tuning.html">Instruction Tuning vs Continued Pretraining</a></li>
+<li><a href="../../stages/13-fine-tuning/05-dpo.html">DPO: Preference Tuning Without RLHF</a></li>
+<li><a href="../../stages/13-fine-tuning/06-finetune-evals.html">Evaluating a Fine-Tune Honestly</a></li>
+<li><a href="../../stages/13-fine-tuning/07-finetune-vs-rag.html">Fine-Tune vs RAG vs Prompting</a></li>
+<li><a href="../../stages/13-fine-tuning/08-ship-lora-model.html">Ship: A LoRA Fine-Tune of a Small Open Model</a></li>
+<li><a href="../../stages/13-fine-tuning/09-finetune-by-outcome.html">Fine-Tuning by Outcome: The Notebook Map</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">14</span><span>Multimodal</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/14-multimodal/index.html">Stage overview</a></li>
+<li><a href="../../stages/14-multimodal/01-vision-language.html">Vision-Language Models</a></li>
+<li><a href="../../stages/14-multimodal/02-ocr.html">OCR: Traditional and Model-Based</a></li>
+<li><a href="../../stages/14-multimodal/03-speech-to-text.html">Speech-to-Text</a></li>
+<li><a href="../../stages/14-multimodal/04-text-to-speech.html">Text-to-Speech</a></li>
+<li><a href="../../stages/14-multimodal/05-video-audio.html">Video and Audio Processing</a></li>
+<li><a href="../../stages/14-multimodal/06-multimodal-embeddings.html">Multimodal Embeddings</a></li>
+<li><a href="../../stages/14-multimodal/07-diffusion.html">Diffusion Models for Engineers</a></li>
+<li><a href="../../stages/14-multimodal/08-multimodal-rag.html">Multimodal RAG</a></li>
+<li><a href="../../stages/14-multimodal/09-ship-doc-reader.html">Ship: A Document Reader with Citations</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">15</span><span>Evals</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/15-evals/index.html">Stage overview</a></li>
+<li><a href="../../stages/15-evals/01-unit-tests.html">Unit Tests for LLM Code</a></li>
+<li><a href="../../stages/15-evals/02-llm-as-judge.html">LLM as Judge</a></li>
+<li><a href="../../stages/15-evals/03-golden-datasets.html">Golden Datasets</a></li>
+<li><a href="../../stages/15-evals/04-faithfulness.html">Faithfulness</a></li>
+<li><a href="../../stages/15-evals/05-hallucinations.html">Hallucinations</a></li>
+<li><a href="../../stages/15-evals/06-agent-evals.html">Agent Evals</a></li>
+<li><a href="../../stages/15-evals/07-human-evals.html">Human Evals</a></li>
+<li><a href="../../stages/15-evals/08-regression-tests.html">Regression Tests</a></li>
+<li><a href="../../stages/15-evals/09-online-offline-evals.html">Online and Offline Evals</a></li>
+<li><a href="../../stages/15-evals/10-ship-eval-suite.html">Ship: An Eval Suite</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">16</span><span>Inference</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/16-inference/index.html">Stage overview</a></li>
+<li><a href="../../stages/16-inference/01-prefill-decode.html">Prefill and Decode</a></li>
+<li><a href="../../stages/16-inference/02-kv-cache.html">The KV Cache</a></li>
+<li><a href="../../stages/16-inference/03-continuous-batching.html">Continuous Batching</a></li>
+<li><a href="../../stages/16-inference/04-pagedattention.html">PagedAttention</a></li>
+<li><a href="../../stages/16-inference/05-speculative-decoding.html">Speculative Decoding</a></li>
+<li><a href="../../stages/16-inference/06-quantization.html">Quantization</a></li>
+<li><a href="../../stages/16-inference/07-distillation.html">Distillation</a></li>
+<li><a href="../../stages/16-inference/08-vllm-sglang.html">vLLM and SGLang</a></li>
+<li><a href="../../stages/16-inference/09-ollama-tensorrt.html">Ollama and TensorRT-LLM</a></li>
+<li><a href="../../stages/16-inference/10-gpu-memory.html">GPU Memory Budgeting</a></li>
+<li><a href="../../stages/16-inference/11-ship-vllm-server.html">Ship: A vLLM Server</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">17</span><span>Ai Backend</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/17-ai-backend/index.html">Stage overview</a></li>
+<li><a href="../../stages/17-ai-backend/01-fastapi-flask.html">FastAPI and Flask</a></li>
+<li><a href="../../stages/17-ai-backend/02-websockets.html">Streaming with SSE and WebSockets</a></li>
+<li><a href="../../stages/17-ai-backend/03-async-processing.html">Async Processing</a></li>
+<li><a href="../../stages/17-ai-backend/04-redis-caching.html">Redis Caching</a></li>
+<li><a href="../../stages/17-ai-backend/05-job-queues.html">Job Queues</a></li>
+<li><a href="../../stages/17-ai-backend/06-auth-rate-limits.html">Auth and Rate Limits</a></li>
+<li><a href="../../stages/17-ai-backend/07-api-security.html">API Security</a></li>
+<li><a href="../../stages/17-ai-backend/08-ai-app-architecture.html">AI App Architecture</a></li>
+<li><a href="../../stages/17-ai-backend/09-ship-streaming-api.html">Ship: A Streaming Chat API</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">18</span><span>Mlops Llmops</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/18-mlops-llmops/index.html">Stage overview</a></li>
+<li><a href="../../stages/18-mlops-llmops/01-mlflow-wandb.html">Experiment Tracking with MLflow and W&B</a></li>
+<li><a href="../../stages/18-mlops-llmops/02-langfuse-langsmith.html">LLM Observability with Langfuse and LangSmith</a></li>
+<li><a href="../../stages/18-mlops-llmops/03-prompt-versioning.html">Prompt Versioning and Registries</a></li>
+<li><a href="../../stages/18-mlops-llmops/04-dvc.html">DVC for Data and Models</a></li>
+<li><a href="../../stages/18-mlops-llmops/05-tracing.html">Tracing Design</a></li>
+<li><a href="../../stages/18-mlops-llmops/06-cost-monitoring.html">Cost Monitoring and Budgets</a></li>
+<li><a href="../../stages/18-mlops-llmops/07-ci-cd-evals.html">CI/CD for Evals</a></li>
+<li><a href="../../stages/18-mlops-llmops/08-ship-trace-dashboard.html">Ship: A Trace Dashboard</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">19</span><span>Cloud Devops</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/19-cloud-devops/index.html">Stage overview</a></li>
+<li><a href="../../stages/19-cloud-devops/01-aws-s3-ec2-lambda.html">AWS for AI Apps: S3, EC2, Lambda</a></li>
+<li><a href="../../stages/19-cloud-devops/02-ecs-eks-sagemaker.html">Containers at Scale: ECS, EKS, SageMaker</a></li>
+<li><a href="../../stages/19-cloud-devops/03-gcp-azure-ai.html">GCP and Azure AI Equivalents</a></li>
+<li><a href="../../stages/19-cloud-devops/04-docker.html">Docker Done Properly</a></li>
+<li><a href="../../stages/19-cloud-devops/05-kubernetes.html">Kubernetes Essentials for AI Services</a></li>
+<li><a href="../../stages/19-cloud-devops/06-github-actions.html">GitHub Actions CI/CD</a></li>
+<li><a href="../../stages/19-cloud-devops/07-terraform.html">Terraform Basics</a></li>
+<li><a href="../../stages/19-cloud-devops/08-gpu-cloud.html">GPU Cloud Practicalities</a></li>
+<li><a href="../../stages/19-cloud-devops/09-ship-docker-deploy.html">Ship: Dockerised Deploy with Rollback</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">20</span><span>Ai Security</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/20-ai-security/index.html">Stage overview</a></li>
+<li><a href="../../stages/20-ai-security/01-prompt-injection.html">Prompt Injection</a></li>
+<li><a href="../../stages/20-ai-security/02-jailbreaks.html">Jailbreaks</a></li>
+<li><a href="../../stages/20-ai-security/03-data-leakage.html">Data Leakage</a></li>
+<li><a href="../../stages/20-ai-security/04-pii-redaction.html">PII Redaction and Detection</a></li>
+<li><a href="../../stages/20-ai-security/05-sandboxing.html">Sandboxing Tool Execution</a></li>
+<li><a href="../../stages/20-ai-security/06-supply-chain.html">Supply Chain Security</a></li>
+<li><a href="../../stages/20-ai-security/07-bias-fairness.html">Bias and Fairness</a></li>
+<li><a href="../../stages/20-ai-security/08-governance.html">Governance</a></li>
+<li><a href="../../stages/20-ai-security/09-guardrails.html">Guardrails</a></li>
+<li><a href="../../stages/20-ai-security/10-ship-injection-tests.html">Ship: Injection Test Suite</a></li>
+</ul></div>
+<div class="nav-group open">
+<button class="nav-stage current" type="button"><span class="num">21</span><span>System Design</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/21-system-design/index.html">Stage overview</a></li>
+<li><a href="../../stages/21-system-design/01-scalable-ai-apps.html">Scalable AI Apps</a></li>
+<li><a href="../../stages/21-system-design/02-rag-design.html">RAG Design at Scale</a></li>
+<li><a href="../../stages/21-system-design/03-agent-design.html">Agent Design</a></li>
+<li><a href="../../stages/21-system-design/04-model-routing.html">Model Routing</a></li>
+<li><a href="../../stages/21-system-design/05-multi-tenant.html">Multi-Tenant Design</a></li>
+<li><a href="../../stages/21-system-design/06-caching.html">Caching Layers</a></li>
+<li><a href="../../stages/21-system-design/07-fault-tolerance.html">Fault Tolerance</a></li>
+<li><a href="../../stages/21-system-design/08-cost-latency.html">Cost and Latency Engineering</a></li>
+<li><a href="../../stages/21-system-design/09-scaling-tradeoffs.html">Scaling Trade-offs</a></li>
+<li><a href="../../stages/21-system-design/10-ship-design-doc.html">Ship: A Design Document</a></li>
+<li><a class="active" href="../../stages/21-system-design/11-nine-layer-agent-stack.html">The Nine-Layer Agentic Stack</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">22</span><span>Real Projects</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/22-real-projects/index.html">Stage overview</a></li>
+<li><a href="../../stages/22-real-projects/01-research-assistant.html">Research Assistant</a></li>
+<li><a href="../../stages/22-real-projects/02-document-intelligence.html">Document Intelligence</a></li>
+<li><a href="../../stages/22-real-projects/03-production-rag.html">Production RAG</a></li>
+<li><a href="../../stages/22-real-projects/04-multi-agent-research.html">Multi-Agent Research</a></li>
+<li><a href="../../stages/22-real-projects/05-support-agent.html">Support Agent</a></li>
+<li><a href="../../stages/22-real-projects/06-coding-assistant.html">Coding Assistant</a></li>
+<li><a href="../../stages/22-real-projects/07-multimodal-assistant.html">Multimodal Assistant</a></li>
+<li><a href="../../stages/22-real-projects/08-meeting-intelligence.html">Meeting Intelligence</a></li>
+<li><a href="../../stages/22-real-projects/09-knowledge-assistant.html">Knowledge Assistant</a></li>
+<li><a href="../../stages/22-real-projects/10-workflow-automation.html">Workflow Automation</a></li>
+<li><a href="../../stages/22-real-projects/11-fine-tuning-pipeline.html">Fine-Tuning Pipeline</a></li>
+<li><a href="../../stages/22-real-projects/12-eval-platform.html">Eval Platform</a></li>
+<li><a href="../../stages/22-real-projects/13-ai-saas.html">AI SaaS</a></li>
+</ul></div>
+<div class="nav-group">
+<button class="nav-stage" type="button"><span class="num">23</span><span>Career</span><svg class="chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3l5 5-5 5"/></svg></button>
+<ul class="nav-list">
+<li><a href="../../stages/23-career/index.html">Stage overview</a></li>
+<li><a href="../../stages/23-career/01-github-portfolio.html">GitHub Portfolio</a></li>
+<li><a href="../../stages/23-career/02-resume.html">Resume</a></li>
+<li><a href="../../stages/23-career/03-python-sql-interviews.html">Python and SQL Interviews</a></li>
+<li><a href="../../stages/23-career/04-ml-llm-basics.html">ML and LLM Basics</a></li>
+<li><a href="../../stages/23-career/05-system-design-practice.html">System Design Practice</a></li>
+<li><a href="../../stages/23-career/06-rag-agent-patterns.html">RAG and Agent Patterns</a></li>
+<li><a href="../../stages/23-career/07-inference-optimization.html">Inference Optimisation</a></li>
+<li><a href="../../stages/23-career/08-production-case-studies.html">Production Case Studies</a></li>
+<li><a href="../../stages/23-career/09-open-source.html">Open Source</a></li>
+<li><a href="../../stages/23-career/10-technical-articles.html">Technical Articles</a></li>
+<li><a href="../../stages/23-career/11-build-in-public.html">Building in Public</a></li>
+<li><a href="../../stages/23-career/12-apply-for-roles.html">Applying for Roles</a></li>
+</ul></div>
+  </aside>
+  <main>
+    <div class="crumbs"><a href="../../index.html">Roadmap</a><span>/</span><a href="../../stages/21-system-design/index.html">Stage 21 · System Design</a><span>/</span>The Nine-Layer Agentic Stack</div>
+    <article class="prose">
+<h1 id="11-the-nine-layer-agentic-stack">11. The Nine-Layer Agentic Stack</h1>
+<blockquote>
+<p><strong>Stage 21 · System Design</strong> — the nine layers a production agentic application actually has, what each one owns, the incident it prevents, and the metric that tells you it is working.</p>
+<p><strong>You'll be able to:</strong> walk a design review layer by layer, say what happens when each one is down, price a workflow instead of a model call, and build a miniature of the whole stack on one laptop.</p>
+<p><strong>Prerequisites:</strong> <a href="01-scalable-ai-apps.html">Scalable AI Apps</a> · <a href="03-agent-design.html">Agent Design</a> · <a href="07-fault-tolerance.html">Fault Tolerance</a></p>
+</blockquote>
+<h2 id="why-this-exists">Why this exists</h2>
+<p>Most architecture diagrams for an AI product are three boxes: user, LLM, answer. Every one of them is a diagram of a demo. The system that survives a Monday has a gateway that knows who is calling and what they may spend, an orchestrator that can pause and resume, a model tier it can fall back from, tools with approval gates, memory that is not just the chat window, a queue so a nine-minute job does not hold an HTTP connection, a trust layer wrapped around all of it, and a deploy pipeline that refuses to ship a regression.</p>
+<p>That is nine layers, and the model is one of them. The framing comes from Gaurav Pandey's sketch of a large agentic app, which is worth reading for the ordering alone: channels, gateway, orchestration, models, tools, knowledge and memory, async backbone, trust layer, CI/CD. The comment thread on it added the four sharpest details, and they are in this lesson because they are the ones that bite in production:</p>
+<ul>
+<li><strong>Per-workflow token and latency caps</strong>, so a stuck multi-agent loop trips a breaker before the invoice does.</li>
+<li><strong>Cost per workflow, not per model.</strong> A cheap model in a loop costs more than an expensive model that finishes in one pass, so the escalation rate is the number to watch.</li>
+<li><strong>Side-effect safety.</strong> Event delivery is at-least-once, so a resumed checkpoint replays a step and issues the refund twice unless every write carries an idempotency key and multi-step actions have a compensation path.</li>
+<li><strong>Version pinning for in-flight work.</strong> A task that started on config version N can resume after a rollout to N+1; without pinning, the checkpoint schema is the thing that breaks.</li>
+</ul>
+<p>The reason to learn the nine layers as a checklist is that design reviews run in that order. Someone asks "what happens when the model provider rate-limits you", then "what happens when the supervisor picks the wrong specialist", then "who can stop this at 2am". If your design has an answer for each box and each seam, the review is a conversation. If it has a diagram of three boxes, the review is an incident report written early.</p>
+<h2 id="core-concepts">Core concepts</h2>
+<h3 id="the-nine-layers-at-a-glance">The nine layers at a glance</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Layer</th>
+<th>Owns</th>
+<th>Prevents</th>
+<th>Metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Channels</td>
+<td>Web, mobile, Teams, Slack, API</td>
+<td>Five clients each with their own half-implemented auth</td>
+<td>Requests per channel, error rate per channel</td>
+</tr>
+<tr>
+<td>2</td>
+<td>AI gateway</td>
+<td>Auth, tenant, rate limits, quotas, caching, cost, model routing</td>
+<td>One tenant spending everyone's budget</td>
+<td>Cost per workflow, p95 gateway latency</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Orchestration</td>
+<td>Supervisor, specialists, state, checkpoints</td>
+<td>A 30-step task that cannot resume</td>
+<td>Steps per workflow, resume rate</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Models</td>
+<td>Tiers, fallback, escalation</td>
+<td>Paying frontier prices for classification</td>
+<td>Escalation rate, cost per 1k tokens</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Tools</td>
+<td>MCP servers, schemas, approvals, idempotency</td>
+<td>A duplicate refund</td>
+<td>Writes per workflow, approval latency</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Knowledge and memory</td>
+<td>RAG, GraphRAG, session state, long-term memory</td>
+<td>An agent that forgets the ticket it is working on</td>
+<td>Retrieval recall, memory hit rate</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Async backbone</td>
+<td>Queues, workers, retries, DLQ</td>
+<td>A timeout that loses nine minutes of work</td>
+<td>Queue depth, job age, retry rate</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Trust layer</td>
+<td>Guardrails, fallbacks, kill switch, evals, traces, audit, identity</td>
+<td>Nobody can explain or stop what happened</td>
+<td>Blocked inputs, trace coverage, kill-switch latency</td>
+</tr>
+<tr>
+<td>9</td>
+<td>CI/CD</td>
+<td>Eval gate, canary, rollback, versioned prompts</td>
+<td>Shipping a prompt change that halves quality</td>
+<td>Gate pass rate, rollback count</td>
+</tr>
+</tbody>
+</table>
+<p>Two structural facts make this list more than a table.</p>
+<p><strong>The trust layer is not a hop.</strong> Layers 1-7 are in the request path; layer 8 wraps every one of them. Guardrails run on input and output, the kill switch is read on every step, the audit log records every action with the identity that took it, and traces span the whole path. If you draw the trust layer as a box between tools and the queue, you will forget to put a guardrail on the channel that a colleague added last week.</p>
+<p><strong>Versioning cuts across all nine.</strong> Prompts, agent configs, tool schemas, checkpoint schemas and eval sets are all versioned artefacts deployed like code. The comment that named this is the one that saves you at 3am: pin the version on a running task, or keep checkpoint schemas backward compatible, because rollouts and long tasks overlap.</p>
+<h3 id="1-channels">1. Channels</h3>
+<p><strong>Owns:</strong> the entry points — web, mobile, Teams, Slack, public API, webhooks, scheduled jobs.</p>
+<p><strong>What to get right:</strong> every channel goes through the same gateway. The common failure is a Slack bot that talks to the orchestrator directly because it was built by a different team, and therefore has no tenant, no quota and no guardrail. Channel adapters should be thin: authenticate the surface, normalise the payload, attach a request id, call the gateway.</p>
+<p><strong>Design question:</strong> which channel is allowed to do which actions? A read-only query from Slack is not the same risk as an approval click from the same user in the web app.</p>
+<h3 id="2-ai-gateway">2. AI gateway</h3>
+<p><strong>Owns:</strong> identity, tenant, rate limits, quotas, caching, cost attribution, model routing.</p>
+<p><strong>Example:</strong> a token bucket per tenant, a quota check against a monthly token budget, an exact and semantic cache keyed by (tenant, policy version, normalised prompt), and a routing decision that returns a tier name rather than a model id.</p>
+<div class="code-block"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">cache_key</span><span class="p">(</span><span class="n">tenant</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">policy_version</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="c1"># Policy-versioned: change the prompt and the cache stops serving yesterday's answer.</span>
+    <span class="n">blob</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">tenant</span><span class="si">}</span><span class="s2">|</span><span class="si">{</span><span class="n">policy_version</span><span class="si">}</span><span class="s2">|</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'</span><span class="se">\\</span><span class="s1">s+'</span><span class="p">,</span><span class="w"> </span><span class="s1">' '</span><span class="p">,</span><span class="w"> </span><span class="n">prompt</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span>
+    <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">blob</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()[:</span><span class="mi">16</span><span class="p">]</span>
+</code></pre></div>
+
+<p><strong>The incident it prevents:</strong> one customer's batch job consuming the shared rate limit at 09:00 and every interactive request failing with 429 for twenty minutes.</p>
+<p><strong>Metric:</strong> cost per workflow, not per model call. The gateway is the only place that can see a workflow as a unit.</p>
+<h3 id="3-orchestration">3. Orchestration</h3>
+<p><strong>Owns:</strong> the plan, the specialist agents, the state machine, the checkpoints.</p>
+<p><strong>What to get right:</strong> a supervisor that hands work to named specialists, a state machine with explicit states, and a checkpoint after every step so a pause or a crash resumes rather than restarts. Record <strong>why</strong> a specialist was chosen, not just which one: the most common production question is "why did it route this billing question to the research agent", and without the reason in the trace, the answer is a guess.</p>
+<p><strong>The incident it prevents:</strong> a nine-minute task that dies at minute eight and starts over, paying twice and possibly writing twice.</p>
+<p><strong>Metric:</strong> steps per workflow and resume rate. A rising step count with flat quality is a supervisor that has started thrashing.</p>
+<h3 id="4-models">4. Models</h3>
+<p><strong>Owns:</strong> the tiers, the prices, the fallback chain, the escalation rule.</p>
+<p><strong>What to get right:</strong> small model first, escalate on a signal you can name — task class, prompt length, retrieval confidence, or a failed validation — not on vibes. Keep one client in front of every provider so retries, timeouts, fallbacks and cost accounting exist once.</p>
+<div class="code-block"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">route</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tier</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">task</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"code_review"</span><span class="p">,</span> <span class="s2">"legal"</span><span class="p">}</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1500</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">TIERS</span><span class="p">[</span><span class="s2">"frontier"</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">task</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"summarise"</span><span class="p">,</span> <span class="s2">"classify"</span><span class="p">}:</span>
+        <span class="k">return</span> <span class="n">TIERS</span><span class="p">[</span><span class="s2">"small"</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">TIERS</span><span class="p">[</span><span class="s2">"mid"</span><span class="p">]</span>
+</code></pre></div>
+
+<p><strong>The incident it prevents:</strong> the frontier model's provider rate-limiting you at peak and the whole product returning errors, because nobody wrote the fallback.</p>
+<p><strong>Metric:</strong> escalation rate per workflow, and the cost of a workflow that escalates. This is where the arithmetic below comes from.</p>
+<h3 id="5-tools">5. Tools</h3>
+<p><strong>Owns:</strong> the tool registry (MCP servers where you can), schemas, approvals, idempotency.</p>
+<p><strong>What to get right:</strong> reads retry freely; writes carry an idempotency key derived from the validated arguments, recorded before the call; risky writes wait for a human. Multi-step writes need a compensation path — if step 3 of 3 fails after steps 1 and 2 committed, something has to undo or flag them.</p>
+<div class="code-block"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">approval</span><span class="p">,</span> <span class="n">done</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">writes</span><span class="p">:</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">idem_key</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">done</span><span class="p">:</span>                       <span class="c1"># at-least-once delivery, exactly-once effect</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"skipped duplicate write </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">; already </span><span class="si">{</span><span class="n">done</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">approval</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"needs approval: issue_refund moves money"</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="n">name</span><span class="p">](</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">done</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="n">name</span><span class="p">](</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong>The incident it prevents:</strong> the double refund. It is the most expensive bug in this lesson and the cheapest to prevent.</p>
+<p><strong>Metric:</strong> writes per workflow (should be exactly one where you expect one) and approval latency.</p>
+<h3 id="6-knowledge-and-memory">6. Knowledge and memory</h3>
+<p><strong>Owns:</strong> retrieval (vector, hybrid, graph), session state, long-term memory about the user or the account.</p>
+<p><strong>What to get right:</strong> three different things live here and they have different lifetimes — the retrieved context for this turn, the session state for this conversation, and durable memory about the customer. Conflating them is how you get an agent that re-reads the same document on every turn or, worse, remembers a preference from a different customer.</p>
+<p><strong>The incident it prevents:</strong> an agent that answers confidently from a stale index after a policy change, because nobody versioned the index with the prompt.</p>
+<p><strong>Metric:</strong> retrieval recall on a held-out query set, and memory hit rate — how often the session state saves a tool call.</p>
+<h3 id="7-async-backbone">7. Async backbone</h3>
+<p><strong>Owns:</strong> queues, workers, retries with backoff, dead-letter queues, the job cursor.</p>
+<p><strong>What to get right:</strong> anything that might exceed a couple of seconds becomes a job with an id, and the cursor is the resume point. A worker that dies at step 3 of 10 continues at step 3. The delivery guarantee is at-least-once, so this layer is where the idempotency from layer 5 earns its keep.</p>
+<div class="code-block"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jid</span><span class="p">,</span> <span class="n">crash_at</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">job</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">jobs</span><span class="p">[</span><span class="n">jid</span><span class="p">]</span>
+    <span class="n">job</span><span class="p">[</span><span class="s2">"state"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"running"</span>
+    <span class="k">while</span> <span class="n">job</span><span class="p">[</span><span class="s2">"cursor"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">job</span><span class="p">[</span><span class="s2">"steps"</span><span class="p">]:</span>
+        <span class="n">job</span><span class="p">[</span><span class="s2">"cursor"</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">crash_at</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">job</span><span class="p">[</span><span class="s2">"cursor"</span><span class="p">]</span> <span class="o">==</span> <span class="n">crash_at</span><span class="p">:</span>
+            <span class="n">job</span><span class="p">[</span><span class="s2">"state"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"crashed"</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"crashed at step </span><span class="si">{</span><span class="n">job</span><span class="p">[</span><span class="s1">'cursor'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+    <span class="n">job</span><span class="p">[</span><span class="s2">"state"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"done"</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"done in </span><span class="si">{</span><span class="n">job</span><span class="p">[</span><span class="s1">'steps'</span><span class="p">]</span><span class="si">}</span><span class="s2"> steps"</span>
+</code></pre></div>
+
+<p><strong>The incident it prevents:</strong> the load balancer cutting a request at 60 seconds while the agent keeps working, so the work is paid for and the user never sees it.</p>
+<p><strong>Metric:</strong> queue depth, age of the oldest job, retry rate, dead-letter count.</p>
+<h3 id="8-trust-layer">8. Trust layer</h3>
+<p><strong>Owns:</strong> guardrails on input and output, model fallbacks, the kill switch, evals, traces, the audit log, and an identity for every agent.</p>
+<p><strong>What to get right:</strong> the kill switch is a flag read on every step, not a redeploy. A stop is not an undo — work already in flight can still complete, so the switch needs a report of what slipped through. Every action carries the identity that took it, so "which agent issued this refund" has an answer that is not "an agent".</p>
+<div class="code-block"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">KillSwitch</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">trip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reason</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">audit</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="s2">"kill_switch"</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="n">reason</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">on</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">PermissionError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"kill switch is on; refusing </span><span class="si">{</span><span class="n">agent</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong>The incident it prevents:</strong> the 40-minute window in which an agent with a bad prompt is posting incorrect answers, because stopping it required a deploy.</p>
+<p><strong>Metric:</strong> blocked inputs per thousand, trace coverage (what share of actions appear in a trace), and kill-switch latency from decision to first refusal.</p>
+<h3 id="9-cicd">9. CI/CD</h3>
+<p><strong>Owns:</strong> the build, the eval gate, the canary, the rollback, versioned prompts and configs.</p>
+<p><strong>What to get right:</strong> a change ships only if it passes the eval set, then to 5% of traffic, then to 100%, and rolls back automatically when quality or cost moves the wrong way.</p>
+<div class="code-block"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">canary_gate</span><span class="p">(</span><span class="n">new</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="n">baseline</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">new</span><span class="p">[</span><span class="s2">"quality"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">baseline</span><span class="p">[</span><span class="s2">"quality"</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.02</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"rollback: quality dropped"</span>
+    <span class="k">if</span> <span class="n">new</span><span class="p">[</span><span class="s2">"cost"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">baseline</span><span class="p">[</span><span class="s2">"cost"</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.15</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"rollback: cost up more than 15%"</span>
+    <span class="k">return</span> <span class="s2">"promote to 100%"</span>
+</code></pre></div>
+
+<p><strong>The incident it prevents:</strong> the prompt tweak that reads better on your three examples and is worse on 30% of real traffic, discovered by customers.</p>
+<p><strong>Metric:</strong> gate pass rate and rollback count. A gate that never fails is not measuring anything.</p>
+<h3 id="the-arithmetic-price-the-workflow-not-the-call">The arithmetic: price the workflow, not the call</h3>
+<p>Take a six-step workflow with 2,000-token calls. The cheap tier costs $0.0002 per 1k tokens, so a call is $0.0004 and six cheap steps are $0.0024. Escalate one step to the frontier tier at $0.0100 per 1k and the same workflow costs $0.022 — 9.2 times more.</p>
+<p>So the number that decides your bill is not the price list. It is the escalation rate:</p>
+<table>
+<thead>
+<tr>
+<th>Escalation rate</th>
+<th>Cost per workflow</th>
+<th>Per 10,000 workflows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10%</td>
+<td>$0.00436</td>
+<td>$43.60</td>
+</tr>
+<tr>
+<td>25%</td>
+<td>$0.00730</td>
+<td>$73.00</td>
+</tr>
+<tr>
+<td>40%</td>
+<td>$0.01024</td>
+<td>$102.40</td>
+</tr>
+<tr>
+<td>60%</td>
+<td>$0.01416</td>
+<td>$141.60</td>
+</tr>
+</tbody>
+</table>
+<p>Read the bottom row as a design finding, not a pricing finding: 60% escalation means your cheap tier cannot do the job, and the fix is better retrieval or a narrower task, not a discount.</p>
+<h2 id="code">Code</h2>
+<p>One file, all nine layers, no network and no API key: the model is a stub with prices, latency and a failure switch. Run it and read the summary table — each row names the layer that decided the outcome.</p>
+<div class="code-block"><pre><span></span><code><span class="sd">"""Nine layers of a production agentic app, in one runnable file.</span>
+
+<span class="sd">    python agent_stack.py</span>
+
+<span class="sd">No network, no GPU, no API key: the model is a stub with prices, latency and a failure</span>
+<span class="sd">switch, so every layer can be seen doing its job. Run it and read the summary table at</span>
+<span class="sd">the end: each row names the layer that decided the outcome.</span>
+<span class="sd">"""</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span>
+
+<span class="n">AUDIT</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"audit.jsonl"</span><span class="p">)</span>
+<span class="n">CHECKPOINT</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"stack_checkpoint.json"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">(</span><span class="n">AUDIT</span><span class="p">,</span> <span class="n">CHECKPOINT</span><span class="p">):</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">missing_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># ------------------------------------------------------------------ 8. trust layer</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">KillSwitch</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Stops every agent at once, without a redeploy. A flag, read on every step."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">trip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reason</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">audit</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="s2">"kill_switch"</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="n">reason</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">on</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">PermissionError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"kill switch is on; refusing </span><span class="si">{</span><span class="n">agent</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">audit</span><span class="p">(</span><span class="o">**</span><span class="n">event</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">AUDIT</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+        <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">"ts"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="mi">3</span><span class="p">),</span> <span class="o">**</span><span class="n">event</span><span class="p">})</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+
+<span class="n">GUARDRAILS</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\bdrop\s+table\b"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">),</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\b\d</span><span class="si">{4}</span><span class="s2">\s?\d</span><span class="si">{4}</span><span class="s2">\s?\d</span><span class="si">{4}</span><span class="s2">\b"</span><span class="p">)]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">guardrail</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Input and output checks. Cheap, deterministic, and they run before money is spent."""</span>
+    <span class="k">for</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="n">GUARDRAILS</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">pattern</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"blocked by guardrail </span><span class="si">{</span><span class="n">pattern</span><span class="o">.</span><span class="n">pattern</span><span class="si">!r}</span><span class="s2">"</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Breaker</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Per-workflow caps: a stuck multi-agent loop trips this before the invoice does."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4000</span><span class="p">,</span> <span class="n">max_seconds</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_seconds</span> <span class="o">=</span> <span class="n">max_tokens</span><span class="p">,</span> <span class="n">max_seconds</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokens</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">started</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">charge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokens</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokens</span> <span class="o">+=</span> <span class="n">tokens</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokens</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_tokens</span> <span class="ow">or</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">started</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_seconds</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"circuit breaker: workflow cap exceeded"</span><span class="p">)</span>
+
+
+<span class="c1"># ---------------------------------------------------------------------- 4. models</span>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Tier</span><span class="p">:</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">price_per_1k</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">latency_ms</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">quality</span><span class="p">:</span> <span class="nb">float</span>
+
+
+<span class="n">TIERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"small"</span><span class="p">:</span> <span class="n">Tier</span><span class="p">(</span><span class="s2">"small"</span><span class="p">,</span> <span class="mf">0.0002</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">),</span>
+    <span class="s2">"mid"</span><span class="p">:</span> <span class="n">Tier</span><span class="p">(</span><span class="s2">"mid"</span><span class="p">,</span> <span class="mf">0.0015</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mf">0.86</span><span class="p">),</span>
+    <span class="s2">"frontier"</span><span class="p">:</span> <span class="n">Tier</span><span class="p">(</span><span class="s2">"frontier"</span><span class="p">,</span> <span class="mf">0.0100</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mf">0.94</span><span class="p">),</span>
+<span class="p">}</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ModelGateway</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""One client in front of every provider: retries, fallback, cost, and a failure switch."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">failing</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">failing</span> <span class="o">=</span> <span class="n">failing</span> <span class="ow">or</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spend</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">complete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tier</span><span class="p">:</span> <span class="n">Tier</span><span class="p">,</span> <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">400</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">tier</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">failing</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TimeoutError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">tier</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> timed out"</span><span class="p">)</span>
+        <span class="n">cost</span> <span class="o">=</span> <span class="n">tokens</span> <span class="o">/</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">tier</span><span class="o">.</span><span class="n">price_per_1k</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spend</span> <span class="o">+=</span> <span class="n">cost</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"text"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"[</span><span class="si">{</span><span class="n">tier</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">] answer to: </span><span class="si">{</span><span class="n">prompt</span><span class="p">[:</span><span class="mi">40</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"tokens"</span><span class="p">:</span> <span class="n">tokens</span><span class="p">,</span>
+                <span class="s2">"cost"</span><span class="p">:</span> <span class="n">cost</span><span class="p">,</span> <span class="s2">"quality"</span><span class="p">:</span> <span class="n">tier</span><span class="o">.</span><span class="n">quality</span><span class="p">,</span> <span class="s2">"latency_ms"</span><span class="p">:</span> <span class="n">tier</span><span class="o">.</span><span class="n">latency_ms</span><span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">route</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tier</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Small model first; escalate on task class or length, not on vibes."""</span>
+    <span class="k">if</span> <span class="n">task</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"code_review"</span><span class="p">,</span> <span class="s2">"legal"</span><span class="p">}</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1500</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">TIERS</span><span class="p">[</span><span class="s2">"frontier"</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">task</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"summarise"</span><span class="p">,</span> <span class="s2">"classify"</span><span class="p">}:</span>
+        <span class="k">return</span> <span class="n">TIERS</span><span class="p">[</span><span class="s2">"small"</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">TIERS</span><span class="p">[</span><span class="s2">"mid"</span><span class="p">]</span>
+
+
+<span class="c1"># ------------------------------------------------------------- 5. tools (with side effects)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Tools</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""MCP-style registry. Writes are gated and idempotent; reads retry freely."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ledger</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">"search_docs"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">q</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"3 docs about </span><span class="si">{</span><span class="n">q</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+            <span class="s2">"issue_refund"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">order_id</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_refund</span><span class="p">(</span><span class="n">order_id</span><span class="p">,</span> <span class="n">amount</span><span class="p">),</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">writes</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"issue_refund"</span><span class="p">}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_refund</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ledger</span><span class="p">[</span><span class="n">order_id</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"refunded </span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"refund </span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2"> issued for </span><span class="si">{</span><span class="n">order_id</span><span class="si">}</span><span class="s2">"</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">approval</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">done</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="p">:</span>
+            <span class="k">return</span> <span class="sa">f</span><span class="s2">"unknown tool </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">; available: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">writes</span><span class="p">:</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">idem_key</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">done</span><span class="p">:</span>                       <span class="c1"># at-least-once delivery, exactly-once effect</span>
+                <span class="k">return</span> <span class="sa">f</span><span class="s2">"skipped duplicate write </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">; already </span><span class="si">{</span><span class="n">done</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">approval</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">"needs approval: issue_refund moves money"</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="n">name</span><span class="p">](</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+            <span class="n">done</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="n">name</span><span class="p">](</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">idem_key</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">((</span><span class="n">name</span> <span class="o">+</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]</span>
+
+
+<span class="c1"># ------------------------------------------------------------------ 3. orchestration</span>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Checkpoint</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Resume from the last good step; a replay must not repeat a write."""</span>
+
+    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span>
+    <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">"done"</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">"steps"</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+
+<span class="n">SPECIALISTS</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"billing"</span><span class="p">:</span> <span class="s2">"billing_agent"</span><span class="p">,</span> <span class="s2">"refund"</span><span class="p">:</span> <span class="s2">"billing_agent"</span><span class="p">,</span> <span class="s2">"docs"</span><span class="p">:</span> <span class="s2">"research_agent"</span><span class="p">,</span>
+               <span class="s2">"how"</span><span class="p">:</span> <span class="s2">"research_agent"</span><span class="p">,</span> <span class="s2">"policy"</span><span class="p">:</span> <span class="s2">"research_agent"</span><span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">supervisor</span><span class="p">(</span><span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Plans and hands off. The trace must record which specialist was chosen, and why."""</span>
+    <span class="k">for</span> <span class="n">keyword</span><span class="p">,</span> <span class="n">agent</span> <span class="ow">in</span> <span class="n">SPECIALISTS</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">keyword</span> <span class="ow">in</span> <span class="n">task</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="n">audit</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="s2">"route"</span><span class="p">,</span> <span class="n">agent</span><span class="o">=</span><span class="n">agent</span><span class="p">,</span> <span class="n">because</span><span class="o">=</span><span class="sa">f</span><span class="s2">"matched </span><span class="si">{</span><span class="n">keyword</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">agent</span>
+    <span class="n">audit</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="s2">"route"</span><span class="p">,</span> <span class="n">agent</span><span class="o">=</span><span class="s2">"general_agent"</span><span class="p">,</span> <span class="n">because</span><span class="o">=</span><span class="s2">"no keyword matched"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">"general_agent"</span>
+
+
+<span class="c1"># ---------------------------------------------------------------- 2. gateway + cache</span>
+<span class="n">CACHE</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cache_key</span><span class="p">(</span><span class="n">tenant</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">policy_version</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Policy-versioned key: change the prompt and the cache stops lying to you."""</span>
+    <span class="n">blob</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">tenant</span><span class="si">}</span><span class="s2">|</span><span class="si">{</span><span class="n">policy_version</span><span class="si">}</span><span class="s2">|</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'</span><span class="se">\\</span><span class="s1">s+'</span><span class="p">,</span><span class="w"> </span><span class="s1">' '</span><span class="p">,</span><span class="w"> </span><span class="n">prompt</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span>
+    <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">blob</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()[:</span><span class="mi">16</span><span class="p">]</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Request</span><span class="p">:</span>
+    <span class="n">token</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">tenant</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">task</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">approval</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">order_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"ORD-1042"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">gateway</span><span class="p">(</span><span class="n">req</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">kill</span><span class="p">:</span> <span class="n">KillSwitch</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Request</span><span class="p">,</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Auth, tenant from the token, guardrail, cache lookup. Everything before the spend."""</span>
+    <span class="k">if</span> <span class="n">req</span><span class="o">.</span><span class="n">token</span> <span class="o">!=</span> <span class="s2">"valid-token"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">req</span><span class="p">,</span> <span class="s2">"401 unauthenticated"</span>
+    <span class="n">kill</span><span class="o">.</span><span class="n">check</span><span class="p">(</span><span class="s2">"gateway"</span><span class="p">)</span>
+    <span class="n">problem</span> <span class="o">=</span> <span class="n">guardrail</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">prompt</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">problem</span><span class="p">:</span>
+        <span class="n">audit</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="s2">"guardrail"</span><span class="p">,</span> <span class="n">tenant</span><span class="o">=</span><span class="n">req</span><span class="o">.</span><span class="n">tenant</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="n">problem</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">req</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"400 </span><span class="si">{</span><span class="n">problem</span><span class="si">}</span><span class="s2">"</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">cache_key</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">tenant</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">prompt</span><span class="p">,</span> <span class="s2">"v3"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">CACHE</span><span class="p">:</span>
+        <span class="n">audit</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="s2">"cache_hit"</span><span class="p">,</span> <span class="n">tenant</span><span class="o">=</span><span class="n">req</span><span class="o">.</span><span class="n">tenant</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">req</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">req</span><span class="p">,</span> <span class="kc">None</span>
+
+
+<span class="c1"># ------------------------------------------------------------------- 1. the request path</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="n">req</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">models</span><span class="p">:</span> <span class="n">ModelGateway</span><span class="p">,</span> <span class="n">tools</span><span class="p">:</span> <span class="n">Tools</span><span class="p">,</span> <span class="n">ckpt</span><span class="p">:</span> <span class="n">Checkpoint</span><span class="p">,</span>
+           <span class="n">kill</span><span class="p">:</span> <span class="n">KillSwitch</span><span class="p">,</span> <span class="n">breaker</span><span class="p">:</span> <span class="n">Breaker</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">gateway</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">kill</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">PermissionError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"status"</span><span class="p">:</span> <span class="s2">"refused"</span><span class="p">,</span> <span class="s2">"reason"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">),</span> <span class="s2">"layer"</span><span class="p">:</span> <span class="s2">"8 trust"</span><span class="p">}</span>
+    <span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+        <span class="n">layer</span> <span class="o">=</span> <span class="s2">"2 gateway"</span> <span class="k">if</span> <span class="n">error</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"401"</span><span class="p">)</span> <span class="k">else</span> <span class="s2">"8 trust"</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"status"</span><span class="p">:</span> <span class="s2">"rejected"</span><span class="p">,</span> <span class="s2">"reason"</span><span class="p">:</span> <span class="n">error</span><span class="p">,</span> <span class="s2">"layer"</span><span class="p">:</span> <span class="n">layer</span><span class="p">}</span>
+
+    <span class="n">key</span> <span class="o">=</span> <span class="n">cache_key</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">tenant</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">prompt</span><span class="p">,</span> <span class="s2">"v3"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">CACHE</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"status"</span><span class="p">:</span> <span class="s2">"cached"</span><span class="p">,</span> <span class="s2">"answer"</span><span class="p">:</span> <span class="n">CACHE</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">"text"</span><span class="p">],</span> <span class="s2">"cost"</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">"layer"</span><span class="p">:</span> <span class="s2">"2 gateway/cache"</span><span class="p">}</span>
+
+    <span class="n">agent</span> <span class="o">=</span> <span class="n">supervisor</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">prompt</span><span class="p">)</span>
+    <span class="n">tier</span> <span class="o">=</span> <span class="n">route</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">prompt</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">task</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">complete</span><span class="p">(</span><span class="n">tier</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">prompt</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TimeoutError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="n">audit</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="s2">"fallback"</span><span class="p">,</span> <span class="n">from_tier</span><span class="o">=</span><span class="n">tier</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">))</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">complete</span><span class="p">(</span><span class="n">TIERS</span><span class="p">[</span><span class="s2">"small"</span><span class="p">],</span> <span class="n">req</span><span class="o">.</span><span class="n">prompt</span><span class="p">)</span>     <span class="c1"># degrade, do not fail</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">breaker</span><span class="o">.</span><span class="n">charge</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">"tokens"</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="n">audit</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="s2">"escalated"</span><span class="p">,</span> <span class="n">tenant</span><span class="o">=</span><span class="n">req</span><span class="o">.</span><span class="n">tenant</span><span class="p">,</span> <span class="n">reason</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">"status"</span><span class="p">:</span> <span class="s2">"escalated"</span><span class="p">,</span> <span class="s2">"reason"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">),</span> <span class="s2">"layer"</span><span class="p">:</span> <span class="s2">"8 trust"</span><span class="p">}</span>
+    <span class="n">CACHE</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+    <span class="n">ckpt</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+    <span class="n">ckpt</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"steps"</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"agent"</span><span class="p">:</span> <span class="n">agent</span><span class="p">,</span> <span class="s2">"tier"</span><span class="p">:</span> <span class="n">tier</span><span class="o">.</span><span class="n">name</span><span class="p">})</span>
+    <span class="n">ckpt</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="n">out</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"status"</span><span class="p">:</span> <span class="s2">"ok"</span><span class="p">,</span> <span class="s2">"agent"</span><span class="p">:</span> <span class="n">agent</span><span class="p">,</span> <span class="s2">"tier"</span><span class="p">:</span> <span class="n">tier</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">"cost"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">"cost"</span><span class="p">],</span> <span class="mi">6</span><span class="p">),</span>
+           <span class="s2">"layer"</span><span class="p">:</span> <span class="s2">"4 models"</span><span class="p">}</span>
+    <span class="k">if</span> <span class="n">req</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"refund"</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">"issue_refund"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"order_id"</span><span class="p">:</span> <span class="n">req</span><span class="o">.</span><span class="n">order_id</span><span class="p">,</span> <span class="s2">"amount"</span><span class="p">:</span> <span class="mi">750</span><span class="p">},</span>
+                         <span class="n">req</span><span class="o">.</span><span class="n">approval</span><span class="p">,</span> <span class="n">ckpt</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"done"</span><span class="p">])</span>
+        <span class="n">out</span><span class="p">[</span><span class="s2">"tool"</span><span class="p">]</span> <span class="o">=</span> <span class="n">msg</span>
+        <span class="n">out</span><span class="p">[</span><span class="s2">"layer"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"5 tools"</span>
+        <span class="n">ckpt</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="n">audit</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="s2">"answered"</span><span class="p">,</span> <span class="n">tenant</span><span class="o">=</span><span class="n">req</span><span class="o">.</span><span class="n">tenant</span><span class="p">,</span> <span class="n">agent</span><span class="o">=</span><span class="n">agent</span><span class="p">,</span> <span class="n">tier</span><span class="o">=</span><span class="n">tier</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">cost</span><span class="o">=</span><span class="n">out</span><span class="p">[</span><span class="s2">"cost"</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">out</span>
+
+
+
+<span class="c1"># ------------------------------------------------------------------- 7. async backbone</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">JobQueue</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Long tasks run as events with an id, never as an HTTP call that times out.</span>
+
+<span class="sd">    The cursor is the resume point: a worker that dies at step 3 of 10 continues at step 3,</span>
+<span class="sd">    and no completed step is paid for twice.</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">jobs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">submit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">steps</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">jid</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"job-</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jobs</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">:</span><span class="s2">03d</span><span class="si">}</span><span class="s2">"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">jobs</span><span class="p">[</span><span class="n">jid</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"task"</span><span class="p">:</span> <span class="n">task</span><span class="p">,</span> <span class="s2">"state"</span><span class="p">:</span> <span class="s2">"queued"</span><span class="p">,</span> <span class="s2">"cursor"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"steps"</span><span class="p">:</span> <span class="n">steps</span><span class="p">}</span>
+        <span class="n">audit</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="s2">"enqueued"</span><span class="p">,</span> <span class="n">job</span><span class="o">=</span><span class="n">jid</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="n">task</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">steps</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">jid</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jid</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">crash_at</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">job</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">jobs</span><span class="p">[</span><span class="n">jid</span><span class="p">]</span>
+        <span class="n">job</span><span class="p">[</span><span class="s2">"state"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"running"</span>
+        <span class="k">while</span> <span class="n">job</span><span class="p">[</span><span class="s2">"cursor"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">job</span><span class="p">[</span><span class="s2">"steps"</span><span class="p">]:</span>
+            <span class="n">job</span><span class="p">[</span><span class="s2">"cursor"</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">crash_at</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">job</span><span class="p">[</span><span class="s2">"cursor"</span><span class="p">]</span> <span class="o">==</span> <span class="n">crash_at</span><span class="p">:</span>
+                <span class="n">job</span><span class="p">[</span><span class="s2">"state"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"crashed"</span>
+                <span class="n">audit</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="s2">"crashed"</span><span class="p">,</span> <span class="n">job</span><span class="o">=</span><span class="n">jid</span><span class="p">,</span> <span class="n">at_step</span><span class="o">=</span><span class="n">job</span><span class="p">[</span><span class="s2">"cursor"</span><span class="p">])</span>
+                <span class="k">return</span> <span class="sa">f</span><span class="s2">"crashed at step </span><span class="si">{</span><span class="n">job</span><span class="p">[</span><span class="s1">'cursor'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+            <span class="n">audit</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="s2">"step_done"</span><span class="p">,</span> <span class="n">job</span><span class="o">=</span><span class="n">jid</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="n">job</span><span class="p">[</span><span class="s2">"cursor"</span><span class="p">])</span>
+        <span class="n">job</span><span class="p">[</span><span class="s2">"state"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"done"</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"done in </span><span class="si">{</span><span class="n">job</span><span class="p">[</span><span class="s1">'steps'</span><span class="p">]</span><span class="si">}</span><span class="s2"> steps"</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------ 9. CI/CD gate</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">canary_gate</span><span class="p">(</span><span class="n">new</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="n">baseline</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Quality must not drop and cost must not rise: the gate that decides a rollout."""</span>
+    <span class="k">if</span> <span class="n">new</span><span class="p">[</span><span class="s2">"quality"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">baseline</span><span class="p">[</span><span class="s2">"quality"</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.02</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"rollback: quality dropped"</span>
+    <span class="k">if</span> <span class="n">new</span><span class="p">[</span><span class="s2">"cost"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">baseline</span><span class="p">[</span><span class="s2">"cost"</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.15</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"rollback: cost up more than 15%"</span>
+    <span class="k">return</span> <span class="s2">"promote to 100%"</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">kill</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">tools</span> <span class="o">=</span> <span class="n">KillSwitch</span><span class="p">(),</span> <span class="n">ModelGateway</span><span class="p">(</span><span class="n">failing</span><span class="o">=</span><span class="p">{</span><span class="s2">"frontier"</span><span class="p">}),</span> <span class="n">Tools</span><span class="p">()</span>
+    <span class="n">ckpt</span> <span class="o">=</span> <span class="n">Checkpoint</span><span class="p">(</span><span class="n">CHECKPOINT</span><span class="p">)</span>
+    <span class="n">rows</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">req</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">breaker</span><span class="p">:</span> <span class="n">Breaker</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">handle</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">tools</span><span class="p">,</span> <span class="n">ckpt</span><span class="p">,</span> <span class="n">kill</span><span class="p">,</span> <span class="n">breaker</span> <span class="ow">or</span> <span class="n">Breaker</span><span class="p">())</span>
+        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"scenario"</span><span class="p">:</span> <span class="n">label</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">out</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"status"</span><span class="p">,</span> <span class="s2">"layer"</span><span class="p">,</span> <span class="s2">"reason"</span><span class="p">,</span> <span class="s2">"tool"</span><span class="p">)}})</span>
+
+    <span class="n">run</span><span class="p">(</span><span class="s2">"first request"</span><span class="p">,</span> <span class="n">Request</span><span class="p">(</span><span class="s2">"valid-token"</span><span class="p">,</span> <span class="s2">"acme"</span><span class="p">,</span> <span class="s2">"How do I request a refund?"</span><span class="p">,</span> <span class="s2">"refund"</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+    <span class="n">run</span><span class="p">(</span><span class="s2">"same request again"</span><span class="p">,</span> <span class="n">Request</span><span class="p">(</span><span class="s2">"valid-token"</span><span class="p">,</span> <span class="s2">"acme"</span><span class="p">,</span> <span class="s2">"How do I request a refund?"</span><span class="p">,</span> <span class="s2">"refund"</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+    <span class="n">run</span><span class="p">(</span><span class="s2">"bad token"</span><span class="p">,</span> <span class="n">Request</span><span class="p">(</span><span class="s2">"nope"</span><span class="p">,</span> <span class="s2">"acme"</span><span class="p">,</span> <span class="s2">"hi"</span><span class="p">,</span> <span class="s2">"chat"</span><span class="p">))</span>
+    <span class="n">run</span><span class="p">(</span><span class="s2">"guardrail"</span><span class="p">,</span> <span class="n">Request</span><span class="p">(</span><span class="s2">"valid-token"</span><span class="p">,</span> <span class="s2">"acme"</span><span class="p">,</span> <span class="s2">"drop table users"</span><span class="p">,</span> <span class="s2">"chat"</span><span class="p">))</span>
+    <span class="n">run</span><span class="p">(</span><span class="s2">"unapproved write"</span><span class="p">,</span> <span class="n">Request</span><span class="p">(</span><span class="s2">"valid-token"</span><span class="p">,</span> <span class="s2">"acme"</span><span class="p">,</span> <span class="s2">"refund for ORD-2001"</span><span class="p">,</span> <span class="s2">"refund"</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span>
+                                    <span class="n">order_id</span><span class="o">=</span><span class="s2">"ORD-2001"</span><span class="p">))</span>
+    <span class="n">run</span><span class="p">(</span><span class="s2">"replayed write"</span><span class="p">,</span> <span class="n">Request</span><span class="p">(</span><span class="s2">"valid-token"</span><span class="p">,</span> <span class="s2">"acme"</span><span class="p">,</span> <span class="s2">"refund again for ORD-1042"</span><span class="p">,</span> <span class="s2">"refund"</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+    <span class="n">run</span><span class="p">(</span><span class="s2">"frontier down -&gt; fallback"</span><span class="p">,</span> <span class="n">Request</span><span class="p">(</span><span class="s2">"valid-token"</span><span class="p">,</span> <span class="s2">"beta"</span><span class="p">,</span> <span class="s2">"review this 2000 token diff "</span> <span class="o">+</span> <span class="s2">"x"</span> <span class="o">*</span> <span class="mi">1600</span><span class="p">,</span> <span class="s2">"code_review"</span><span class="p">))</span>
+    <span class="n">run</span><span class="p">(</span><span class="s2">"loop trips breaker"</span><span class="p">,</span> <span class="n">Request</span><span class="p">(</span><span class="s2">"valid-token"</span><span class="p">,</span> <span class="s2">"gamma"</span><span class="p">,</span> <span class="s2">"policy question"</span><span class="p">,</span> <span class="s2">"policy"</span><span class="p">),</span> <span class="n">Breaker</span><span class="p">(</span><span class="n">max_tokens</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
+    <span class="n">kill</span><span class="o">.</span><span class="n">trip</span><span class="p">(</span><span class="s2">"operator: bad outputs reported"</span><span class="p">)</span>
+    <span class="n">run</span><span class="p">(</span><span class="s2">"kill switch on"</span><span class="p">,</span> <span class="n">Request</span><span class="p">(</span><span class="s2">"valid-token"</span><span class="p">,</span> <span class="s2">"acme"</span><span class="p">,</span> <span class="s2">"another question"</span><span class="p">,</span> <span class="s2">"chat"</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'scenario'</span><span class="si">:</span><span class="s2">28</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'status'</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'layer'</span><span class="si">:</span><span class="s2">18</span><span class="si">}</span><span class="s2"> detail"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+        <span class="n">detail</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"reason"</span><span class="p">)</span> <span class="ow">or</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"tool"</span><span class="p">)</span> <span class="ow">or</span> <span class="s2">""</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'scenario'</span><span class="p">]</span><span class="si">:</span><span class="s2">28</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'status'</span><span class="p">]</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">'layer'</span><span class="p">])</span><span class="si">:</span><span class="s2">18</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">detail</span><span class="p">)[:</span><span class="mi">44</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="n">queue</span> <span class="o">=</span> <span class="n">JobQueue</span><span class="p">()</span>
+    <span class="n">jid</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="s2">"ingest 5,000 support documents"</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="si">{</span><span class="n">jid</span><span class="si">}</span><span class="s2"> first attempt: </span><span class="si">{</span><span class="n">queue</span><span class="o">.</span><span class="n">work</span><span class="p">(</span><span class="n">jid</span><span class="p">,</span><span class="w"> </span><span class="n">crash_at</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">jid</span><span class="si">}</span><span class="s2"> resumed      : </span><span class="si">{</span><span class="n">queue</span><span class="o">.</span><span class="n">work</span><span class="p">(</span><span class="n">jid</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">jid</span><span class="si">}</span><span class="s2"> state        : </span><span class="si">{</span><span class="n">queue</span><span class="o">.</span><span class="n">jobs</span><span class="p">[</span><span class="n">jid</span><span class="p">][</span><span class="s1">'state'</span><span class="p">]</span><span class="si">}</span><span class="s2">, cursor </span><span class="si">{</span><span class="n">queue</span><span class="o">.</span><span class="n">jobs</span><span class="p">[</span><span class="n">jid</span><span class="p">][</span><span class="s1">'cursor'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">spend this run: </span><span class="si">{</span><span class="n">models</span><span class="o">.</span><span class="n">spend</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">   cache entries: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">CACHE</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"writes recorded: </span><span class="si">{</span><span class="n">ckpt</span><span class="o">.</span><span class="n">load</span><span class="p">()[</span><span class="s1">'done'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"canary:"</span><span class="p">,</span> <span class="n">canary_gate</span><span class="p">({</span><span class="s2">"quality"</span><span class="p">:</span> <span class="mf">0.83</span><span class="p">,</span> <span class="s2">"cost"</span><span class="p">:</span> <span class="mf">0.004</span><span class="p">},</span> <span class="p">{</span><span class="s2">"quality"</span><span class="p">:</span> <span class="mf">0.86</span><span class="p">,</span> <span class="s2">"cost"</span><span class="p">:</span> <span class="mf">0.004</span><span class="p">}))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"audit lines: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">AUDIT</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span><span class="si">}</span><span class="s2"> -&gt; </span><span class="si">{</span><span class="n">AUDIT</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Output:</p>
+<div class="code-block"><pre><span></span><code>scenario                     status     layer              detail
+first request                ok         5 tools            refund 750 issued for ORD-1042
+same request again           cached     2 gateway/cache
+bad token                    rejected   2 gateway          401 unauthenticated
+guardrail                    rejected   8 trust            400 blocked by guardrail '\bdrop\s+table\...
+unapproved write             ok         5 tools            needs approval: issue_refund moves money
+replayed write               ok         5 tools            skipped duplicate write df143b0e7d; already
+frontier down -&gt; fallback    ok         4 models
+loop trips breaker           escalated  8 trust            circuit breaker: workflow cap exceeded
+kill switch on               refused   8 trust            kill switch is on; refusing gateway
+
+job-001 first attempt: crashed at step 3
+job-001 resumed      : done in 5 steps
+job-001 state        : done, cursor 5
+
+spend this run: 0.002480   cache entries: 4
+writes recorded: {'df143b0e7d': 'refund 750 issued for ORD-1042'}
+canary: rollback: quality dropped
+audit lines: 20 -&gt; audit.jsonl
+</code></pre></div>
+
+<p>Nine rows, nine answers to "what happens when". The duplicate write is skipped because the idempotency key was in the checkpoint, not because the model was careful. The breaker trips on a per-workflow token cap, which is the comment that turned into a line of code. The job resumes at step 3 and does not repeat steps 1 and 2. The canary refuses a 3-point quality drop, which is the layer that would have caught the prompt regression.</p>
+<p>None of this is what the model does. All of it is what the harness, the platform and the pipeline do.</p>
+<h2 id="real-use-case">Real use case</h2>
+<p>A 4,000-person services company built an internal IT-helpdesk assistant: Teams and Slack first, web later, roughly 9,000 conversations a month. The pilot was three boxes and it worked, because thirty people were using it.</p>
+<p>The first month of production taught the nine layers in order.</p>
+<p><strong>Cost.</strong> A single workflow — "check my laptop ticket, find the policy, draft a reply" — looped eleven times on one prompt and cost $1.90. At the pilot's volume that was invisible. At 9,000 conversations it was the whole month's budget in a week. The fix was a per-workflow token cap with a breaker that escalated to a human, plus cost recorded per workflow so the number was visible at all.</p>
+<p><strong>Duplicate writes.</strong> A worker restart replayed a step and created two tickets for the same issue in the ITSM tool, then sent two emails. The fix was an idempotency key on the ticket-create tool and a compensation path for the two-step "create ticket, then notify requester" action.</p>
+<p><strong>Routing.</strong> The supervisor sent payroll questions to the technical specialist because the word "account" appeared in both. The fix was not a better prompt; it was recording the routing reason in the trace, which showed the keyword match, and then replacing keyword matching with an explicit classifier plus a fallback to the general agent.</p>
+<p><strong>The outage.</strong> The frontier provider rate-limited them at 10:40 on a Monday. Everything failed for 22 minutes because there was no fallback. The fix was a tiered gateway with a documented degradation: frontier down, mid takes over, and legal questions queue for a human instead of answering badly.</p>
+<p><strong>The 2am question.</strong> During a bad week of answers, nobody could stop the agent without a deploy. The kill switch was added as a flag read on every step, and the first drill found the gap the comment predicted: three jobs were mid-flight when the switch tripped and completed anyway, so the switch now writes a report of what slipped through.</p>
+<p><strong>The rollout.</strong> The prompt regression that would have shipped — a new system prompt that dropped "cite the policy id" — was caught by the eval gate at 5% canary, with a 6-point drop in citation rate, and rolled back automatically. That is the layer people skip and the one that pays for itself once.</p>
+<p>Nine layers, one product, five incidents. Every incident was in a layer, not in the model.</p>
+<h2 id="project-briefs">Project briefs</h2>
+<p>Three projects that exercise the whole stack without a cloud bill. Each is small enough for a weekend and defensible in an interview.</p>
+<p><strong>A. The nine-layer miniature.</strong> Build the stack from this lesson for one real task — a document Q&amp;A bot with one write tool. Compose LiteLLM (gateway), Qdrant (retrieval), Redis (cache), Postgres (state and audit), a FastAPI service and one worker, all in <code>docker compose</code>. <em>Acceptance:</em> you can demo a cache hit, a fallback when the frontier tier is disabled, an idempotent write replay, a breaker trip and a kill switch, each in under a minute. <em>Layers exercised:</em> 2-8.</p>
+<p><strong>B. Cost attribution service.</strong> Add a ledger that records cost per workflow id, per tenant and per agent, and a small dashboard showing escalation rate and cost per workflow. <em>Acceptance:</em> a deliberately looping workflow trips its cap and appears in the ledger as one workflow with a breach flag, not as forty anonymous model calls. <em>What to measure:</em> escalation rate, cost per workflow, p95 steps per workflow.</p>
+<p><strong>C. Canary and eval gate.</strong> A GitHub Actions pipeline that runs 50 eval cases on every prompt change, deploys to 5% of traffic, compares quality and cost against the baseline for an hour, and rolls back automatically on a regression. <em>Acceptance:</em> a deliberately worse prompt is rolled back without a human touching it, and the rollback is visible in the audit log. <em>Layers exercised:</em> 8-9.</p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<ul>
+<li><strong>Mistake:</strong> drawing the trust layer as one box in the middle — <strong>Instead:</strong> wrap it around every layer and name where each guardrail runs.</li>
+<li><strong>Mistake:</strong> tracking cost per model call — <strong>Instead:</strong> track cost per workflow, with the escalation rate beside it; that is the number that explains the bill.</li>
+<li><strong>Mistake:</strong> a kill switch that requires a deploy — <strong>Instead:</strong> a flag read on every step, plus a report of in-flight work that completed after the trip.</li>
+<li><strong>Mistake:</strong> idempotency added after the first duplicate write — <strong>Instead:</strong> key every write from day one, and record the key before the call, not after.</li>
+<li><strong>Mistake:</strong> a supervisor with no recorded reason for its routing — <strong>Instead:</strong> log the matched rule or classifier score; "why this specialist" is the first question in every incident review.</li>
+<li><strong>Mistake:</strong> long tasks run inside the request — <strong>Instead:</strong> a job id, a cursor and a worker; the HTTP call returns in a second.</li>
+<li><strong>Mistake:</strong> resuming an in-flight task after a rollout with no version pinning — <strong>Instead:</strong> pin config and prompt versions per task, or keep checkpoint schemas backward compatible.</li>
+<li><strong>Mistake:</strong> an eval gate that has never failed — <strong>Instead:</strong> test the gate with a deliberately worse prompt; if it promotes, the gate is decoration.</li>
+</ul>
+<h2 id="checkpoint">Checkpoint</h2>
+<ol>
+<li>Run <code>agent_stack.py</code>, then delete <code>stack_checkpoint.json</code> and re-run. Explain which line of output changes and why the refund is issued twice.</li>
+<li>Add a seventh scenario: two tenants, one of them over its monthly quota. Decide where the check belongs (gateway or orchestrator) and write the one-line reason in the audit record.</li>
+<li>Give the supervisor a second failure mode: when the chosen specialist raises, hand off to the general agent and record the handoff in the trace. Confirm the run still ends in a final answer.</li>
+<li>Write the nine-layer table for a product you know, and fill in the metric column with a number you would actually put on a dashboard. Any row you cannot fill is the layer your design is missing.</li>
+</ol>
+<p><strong>Self-check:</strong> Exercise 1 — with the checkpoint deleted, the <code>writes recorded</code> line and the <code>replayed write</code> row change: the idempotency key is no longer in the ledger, so the second refund is issued instead of skipped. The lesson is that the checkpoint is the memory of side effects, not a cache.</p>
+<h2 id="go-deeper">Go deeper</h2>
+<ul>
+<li><a href="01-scalable-ai-apps.html">Scalable AI Apps</a> — the pipeline reference architecture and its seams.</li>
+<li><a href="03-agent-design.html">Agent Design</a> — state machines, budgets, idempotency in depth.</li>
+<li><a href="04-model-routing.html">Model Routing</a> — tiers, cascades and measured routes.</li>
+<li><a href="05-multi-tenant.html">Multi-Tenant</a> — isolation, quotas and cost attribution.</li>
+<li><a href="06-caching.html">Caching</a> — the four cache layers and their invalidation.</li>
+<li><a href="07-fault-tolerance.html">Fault Tolerance</a> — timeouts, breakers and degraded modes.</li>
+<li><a href="08-cost-latency.html">Cost and Latency</a> — the unit economics behind the arithmetic above.</li>
+<li><a href="10-ship-design-doc.html">Ship: A Design Document</a> — turn this stack into ten pages a reviewer can check.</li>
+<li><a href="../17-ai-backend/03-async-processing.html">Async Processing</a> — queues, workers and retries.</li>
+<li><a href="../18-mlops-llmops/05-tracing.html">Tracing</a> — spans across all nine layers.</li>
+<li><a href="../20-ai-security/.html">AI Security</a> — guardrails, identity and least privilege.</li>
+<li><a href="../11-agents/12-ship-harness-agent.html">Ship: A Harness Agent</a> — layers 3 to 5 as working code.</li>
+<li>The nine-layer split follows Gaurav Pandey's <a href="https://lnkd.in/p/dp3nBPq2">architecture sketch</a>, November 2026. The per-workflow caps, cost-per-workflow framing, side-effect safety and version-pinning points come from the discussion under it.</li>
+</ul>
+<hr />
+<p><a href="10-ship-design-doc.html">← Previous: Ship: A Design Document</a> · <a href=".html">Stage index</a> · <a href="../22-real-projects/.html">Next stage: Real Projects</a></p>
+    </article>
+    <nav class="pager">
+<a class="prev" href="../../stages/21-system-design/10-ship-design-doc.html"><span class="dir">Previous</span>Ship: A Design Document</a>
+<a class="next" href="../../stages/22-real-projects/index.html"><span class="dir">Next</span>Real Projects</a>
+</nav>
+    <footer class="site-footer">
+      AI Engineer Roadmap · <a href="../../contributing.html">Contribute</a> ·
+      <a href="../../glossary.html">Glossary</a> ·
+      <a href="../../progress.html">Progress</a> · MIT licensed
+    </footer>
+  </main>
+</div>
+<button id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 13V3M3 8l5-5 5 5"/></svg>
+</button>
+<script src="../../assets/app.js"></script>
+</body>
+</html>

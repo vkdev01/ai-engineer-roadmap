@@ -1,7 +1,7 @@
 # Progress tracker
 
 Tick a lesson when you have done the checkpoint, and a stage when you have shipped its project.
-There are 23 stages, 228 lessons and 23 shipping projects. Print this page if that helps.
+There are 23 stages, 229 lessons and 23 shipping projects. Print this page if that helps.
 
 **Legend:** `[ ]` not started · `[x]` done · `[~]` in progress (mark by hand)
 
@@ -334,6 +334,7 @@ Stage index: [stages/21-system-design/README.md](stages/21-system-design/README.
 - [ ] [Cost and Latency Engineering](stages/21-system-design/08-cost-latency.md)
 - [ ] [Scaling Trade-offs](stages/21-system-design/09-scaling-tradeoffs.md)
 - [ ] [Ship: A Design Document](stages/21-system-design/10-ship-design-doc.md)
+- [ ] [The Nine-Layer Agentic Stack](stages/21-system-design/11-nine-layer-agent-stack.md)
 - [ ] **Ship project** — see the stage index
 
 ## Stage 22 — Real Projects

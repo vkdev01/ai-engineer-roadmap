@@ -17,6 +17,7 @@ The output of this stage is a document, not a repository. That is deliberate —
 - Make a system survive provider failure with timeouts, breakers and degraded modes
 - Estimate capacity and cost with arithmetic a reviewer can check
 - Write a design document that names its own failure modes
+- Walk the nine production layers of an agentic app and say what happens when each one is down
 
 ## Topics
 
@@ -32,6 +33,7 @@ The output of this stage is a document, not a repository. That is deliberate —
 | 8 | [Cost and Latency](08-cost-latency.md) | Token budgets and unit economics |
 | 9 | [Scaling Trade-offs](09-scaling-tradeoffs.md) | What you buy and what you pay |
 | 10 | [Ship: A Design Document](10-ship-design-doc.md) | The document, with numbers |
+| 11 | [The Nine-Layer Agentic Stack](11-nine-layer-agent-stack.md) | The production layers, what each prevents, and three project briefs |
 
 ## The shipping project
 

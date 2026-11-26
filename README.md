@@ -2,7 +2,7 @@
 
 **A complete, build-along tutorial that takes you from "I know a little Python" to "I can design, ship and defend a production LLM system."**
 
-23 stages. 228 lessons. 23 shipping projects. Python and TypeScript throughout.
+23 stages. 229 lessons. 23 shipping projects. Python and TypeScript throughout.
 
 This is not a link dump. Every lesson explains the idea, shows the machinery in code you can run, gives you a real product scenario where that idea decided the outcome, lists the mistakes people make, and ends with a checkpoint you can actually complete in under an hour. Every stage ends with a **ship project** — something that runs, has a README, and can go in your portfolio.
 
@@ -167,7 +167,7 @@ ai-engineer-roadmap
 ┣ 21. System Design          scalable-ai-apps · rag-design · agent-design ·
 ┃                            model-routing · multi-tenant · caching ·
 ┃                            fault-tolerance · cost-latency · scaling-tradeoffs ·
-┃                            ship-design-doc
+┃                            ship-design-doc · nine-layer-agent-stack
 ┣ 22. Real Projects          research-assistant · document-intelligence ·
 ┃                            production-rag · multi-agent-research · support-agent ·
 ┃                            coding-assistant · multimodal-assistant ·
